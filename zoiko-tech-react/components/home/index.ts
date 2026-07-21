@@ -1,0 +1,9 @@
+export { default as ZoikotechBrandBanner } from "./ZoikotechBrandBanner";
+export { default as AboutZoikoTech } from "./AboutZoikoTech";
+export { default as ServicesByIndustry } from "./ServicesByIndustry";
+export { default as PortfolioCarousel } from "./PortfolioCarousel";
+export { default as ProductEcosystemGrid } from "./ProductEcosystemGrid";
+export { default as WhyZoiko } from "./WhyZoiko";
+export { default as CaseStudies } from "./CaseStudies";
+export { default as TestimonialSlider } from "./TestimonialSlider";
+export { default as TalkToUsContact } from "./TalkToUsContact";
