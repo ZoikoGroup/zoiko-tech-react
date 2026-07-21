@@ -11,25 +11,25 @@ export default function ProductEcosystemGrid() {
       pillBg: "bg-[#eef2ff] text-[#2b56f5]",
       products: [
         {
-          logo: "/home/ZoikoAI.png",
+          logo: "/leadership-and-governance/zoikoai.png",
           title: "ZoikoAI",
           desc: "Governed autonomous agentic AI infrastructure",
           tag: "INFRASTRUCTURE",
         },
         {
-          logo: "/home/ZoikoID.png",
+          logo: "/leadership-and-governance/zoikod.png",
           title: "ZoikoID",
           desc: "Digital identity, authentication & access infrastructure",
           tag: "INFRASTRUCTURE",
         },
         {
-          logo: "/home/ZoikoNex.png",
+          logo: "/leadership-and-governance/zoikonex.png",
           title: "ZoikoNex",
           desc: "Telecom-grade OSS/BSS infrastructure",
           tag: "INFRASTRUCTURE",
         },
         {
-          logo: "/home/ZoikoAssure.png",
+          logo: "/leadership-and-governance/zoikoassure.png",
           title: "ZoikoAssure",
           desc: "Global compliance & regulatory platform",
           tag: "INFRASTRUCTURE",
@@ -43,25 +43,25 @@ export default function ProductEcosystemGrid() {
       pillBg: "bg-[#ecfdf5] text-[#10b981]",
       products: [
         {
-          logo: "/home/ZoikoPay.png",
+          logo: "/leadership-and-governance/zoikopay.png",
           title: "ZoikoPay",
           desc: "Intelligent global payments platform",
           tag: "FINANCIAL",
         },
         {
-          logo: "/home/ZoikoRemit.png",
+          logo: "/leadership-and-governance/zoikoremit.png",
           title: "ZoikoRemit",
           desc: "Cross-border remittance infrastructure",
           tag: "FINANCIAL",
         },
         {
-          logo: "/home/ZoikoMoney.png",
+          logo: "/leadership-and-governance/zoikomoney.png",
           title: "ZoikoMoney",
           desc: "AI-driven responsible lending platform",
           tag: "FINANCIAL",
         },
         {
-          logo: "/home/ZoikoSuite.png",
+          logo: "/leadership-and-governance/zoikosuite.png",
           title: "ZoikoSuite",
           desc: "Business operations & automation platform",
           tag: "FINANCIAL",
@@ -75,25 +75,25 @@ export default function ProductEcosystemGrid() {
       pillBg: "bg-[#f5f3ff] text-[#8b5cf6]",
       products: [
         {
-          logo: "/home/Zoikorum.png",
+          logo: "/leadership-and-governance/zoikorum.png",
           title: "Zoikorum",
           desc: "Global marketplace for vetted professional services",
           tag: "COMMERCE",
         },
         {
-          logo: "/home/ZoikoAisle.png",
+          logo: "/leadership-and-governance/zoikoaisle.png",
           title: "ZoikoAisle",
           desc: "AI retail intelligence & in-store optimization platform",
           tag: "COMMERCE",
         },
         {
-          logo: "/home/ZoikoArc.png",
+          logo: "/leadership-and-governance/zoikoarc.png",
           title: "ZoikoArc",
           desc: "AI-powered travel & life orchestration platform",
           tag: "COMMERCE",
         },
         {
-          logo: "/home/Zoikora.png",
+          logo: "/leadership-and-governance/zoikora.png",
           title: "Zoikora",
           desc: "Global relocation & mobility intelligence platform",
           tag: "COMMERCE",
@@ -107,25 +107,25 @@ export default function ProductEcosystemGrid() {
       pillBg: "bg-[#fffbeb] text-[#f59e0b]",
       products: [
         {
-          logo: "/home/ZoikoTime.png",
+          logo: "/leadership-and-governance/zoikotime.png",
           title: "ZoikoTime",
           desc: "AI productivity & workforce intelligence platform",
           tag: "CONSUMER",
         },
         {
-          logo: "/home/ZoikoShield.png",
+          logo: "/leadership-and-governance/zoikoshield.png",
           title: "ZoikoShield",
           desc: "Cybersecurity, fraud protection & threat intelligence",
           tag: "CONSUMER",
         },
         {
-          logo: "/home/ZoikoTV.png",
+          logo: "/leadership-and-governance/zoikotv.png",
           title: "ZoikoTV",
           desc: "OTT platform for animals, science & technology",
           tag: "CONSUMER",
         },
         {
-          logo: "/home/ZoikoSocial.png",
+          logo: "/leadership-and-governance/zoikosocial.png",
           title: "ZoikoSocial",
           desc: "Values-based social network for animal lovers",
           tag: "CONSUMER",
@@ -139,25 +139,25 @@ export default function ProductEcosystemGrid() {
       pillBg: "bg-[#ecfeff] text-[#06b6d4]",
       products: [
         {
-          logo: "/home/ZoikoPal.png",
+          logo: "/leadership-and-governance/zoikopal.png",
           title: "ZoikoPal",
           desc: "AI companion for elderly care & wellbeing",
           tag: "SPECIALIZED",
         },
         {
-          logo: "/home/DriverXtra.png",
+          logo: "/leadership-and-governance/driverxtra.png",
           title: "DriverXtra",
           desc: "Driver-focused commerce marketplace",
           tag: "SPECIALIZED",
         },
         {
-          logo: "/home/BetRithm.png",
+          logo: "/leadership-and-governance/betrithm.png",
           title: "BetRithm",
           desc: "AI-powered betting intelligence & analytics platform",
           tag: "SPECIALIZED",
         },
         {
-          logo: "/home/ZoikoWebServices.png",
+          logo: "/leadership-and-governance/zoikoweb.png",
           title: "ZoikoWebServices",
           desc: "AI-powered digital infrastructure & web services",
           tag: "SPECIALIZED",

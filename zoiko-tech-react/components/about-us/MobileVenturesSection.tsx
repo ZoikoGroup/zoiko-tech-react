@@ -2,144 +2,49 @@
 
 import React from "react";
 
-// Individual Brand Data
+// Individual Brand Data with absolute image paths
 const ventures = [
   {
     id: "zoiko-mobile",
     title: "Zoiko Mobile",
     description:
       "A purpose-driven wireless network inspired by a love for animals and music – offering ethically designed mobile plans, global connectivity, and culturally rich experiences that build meaningful communities.",
-    renderLogo: () => (
-      <div className="flex flex-col items-center justify-center h-12">
-        <div className="flex items-center gap-1">
-          <span className="text-[#e60067] font-black tracking-tight text-xl italic font-sans">
-            ZOIKO
-          </span>
-          <span className="text-[10px] text-[#e60067] font-bold align-super">
-            TM
-          </span>
-        </div>
-        <span className="text-[#e60067] text-[10px] font-bold tracking-[0.2em] -mt-1 uppercase">
-          MOBILE
-        </span>
-      </div>
-    ),
+    logoSrc: "/about-us/zoiko-mobile.png",
   },
   {
     id: "golite-mobile",
     title: "GoLite Mobile",
     description:
       "A conservation-focused MVNO on the AT&T network, donating a portion of all profits to marine life protection and oceanic advocacy.",
-    renderLogo: () => (
-      <div className="flex flex-col items-center justify-center h-12">
-        <div className="flex items-center gap-1.5">
-          <div className="w-6 h-6 rounded-full border-2 border-[#9333ea] border-t-[#84cc16] border-r-[#f97316] flex items-center justify-center font-black text-[10px] text-[#9333ea]">
-            GO
-          </div>
-          <div className="flex flex-col text-left">
-            <span className="text-[#84cc16] font-extrabold text-xs tracking-wider leading-none">
-              LITE
-            </span>
-            <span className="text-[#9333ea] font-bold text-[9px] tracking-widest leading-none mt-0.5">
-              MOBILE
-            </span>
-          </div>
-        </div>
-      </div>
-    ),
+    logoSrc: "/about-us/golitemobile.png",
   },
   {
     id: "zoiko-mobile-uk",
     title: "Zoiko Mobile UK",
     description:
       "A British wireless services provider delivering ethically aligned mobile services and connectivity with culture at its core.",
-    renderLogo: () => (
-      <div className="flex flex-col items-center justify-center h-12">
-        <div className="flex items-center gap-1">
-          <span className="text-[#e60067] font-black tracking-tight text-xl italic font-sans">
-            ZOIKO
-          </span>
-          <span className="text-[10px] text-[#e60067] font-bold align-super">
-            TM
-          </span>
-        </div>
-        <div className="flex items-center gap-1 -mt-1">
-          <span className="text-[#e60067] text-[10px] font-bold tracking-[0.15em] uppercase">
-            MOBILE
-          </span>
-          <span className="text-[#0f1124] font-extrabold text-[10px] tracking-normal">
-            UK
-          </span>
-        </div>
-      </div>
-    ),
+    logoSrc: "/about-us/zoiko-mobile.png",
   },
   {
     id: "driverx-mobile",
     title: "DriverX Mobile",
     description:
       "A mobile service built for everyday motorists and professional drivers, offering practical plans, GPS integrations, and discounts tied to road services and auto needs.",
-    renderLogo: () => (
-      <div className="flex flex-col items-center justify-center h-12">
-        <div className="flex items-center gap-1.5">
-          <svg
-            className="w-5 h-5 text-[#15803d]"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M3 13h1v7c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-7h8v7c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-7h1c.55 0 1-.45 1-1v-2c0-1.66-1.34-3-3-3H6c-1.66 0-3 1.34-3 3v2c0 .55.45 1 1 1z" />
-          </svg>
-          <span className="text-[#15803d] font-black text-lg tracking-tight">
-            RIVER<span className="text-[#eab308]">X</span>
-          </span>
-        </div>
-        <span className="text-[#15803d] text-[9px] font-bold tracking-[0.2em] -mt-1 uppercase">
-          MOBILE
-        </span>
-      </div>
-    ),
+    logoSrc: "/leadership-and-governance/driverxtra.png", //need to change to driver mobile
   },
   {
     id: "sable-mobile",
     title: "Sable Mobile",
     description:
       "Sable Mobile delivers purpose-driven wireless service, empowering the African American community through culture, connection, and progress.",
-    renderLogo: () => (
-      <div className="flex flex-col items-center justify-center h-12">
-        <div className="flex items-center gap-1">
-          <span className="text-[#1e293b] font-black text-xl tracking-tighter uppercase font-serif">
-            S<span className="text-[#d97706]">A</span>BLE
-          </span>
-          <span className="text-[9px] text-[#1e293b] font-bold align-super">
-            TM
-          </span>
-        </div>
-        <span className="text-[#d97706] text-[9px] font-bold tracking-[0.25em] -mt-1 uppercase">
-          MOBILE
-        </span>
-      </div>
-    ),
+    logoSrc: "/about-us/sable-mobile.png",
   },
   {
     id: "raices-mobile",
     title: "Raices Mobile",
     description:
       "Raices Mobile is a culturally vibrant wireless network connecting Latino families and youth across the U.S. With tailored plans and seamless cross-border connectivity.",
-    renderLogo: () => (
-      <div className="flex flex-col items-center justify-center h-12">
-        <div className="flex items-center gap-0.5">
-          <span className="text-[#16a34a] font-bold text-xl font-serif italic tracking-wide">
-            Raices
-          </span>
-          <span className="text-[9px] text-[#16a34a] font-bold align-super">
-            TM
-          </span>
-        </div>
-        <span className="text-[#16a34a] text-[9px] font-bold tracking-[0.2em] -mt-1 uppercase">
-          MOBILE
-        </span>
-      </div>
-    ),
+    logoSrc: "/about-us/raices-mobile.png",
   },
 ];
 
@@ -160,11 +65,15 @@ export default function MobileVenturesSection() {
             {ventures.map((venture) => (
               <div
                 key={venture.id}
-                className="flex flex-col items-center text-center px-3 py-6 lg:py-2 first:pt-0 lg:first:pt-2 last:pb-0 lg:last:pb-2"
+                className="flex flex-col items-start text-start px-3 py-6 lg:py-2 first:pt-0 lg:first:pt-2 last:pb-0 lg:last:pb-2"
               >
-                {/* Brand Logo Header */}
-                <div className="mb-4 flex items-center justify-center">
-                  {venture.renderLogo()}
+                {/* Brand Logo Image Header */}
+                <div className="mb-4 flex items-center justify-start h-14 w-full">
+                  <img
+                    src={venture.logoSrc}
+                    alt={venture.title}
+                    className="max-h-full max-w-[120px] object-contain"
+                  />
                 </div>
 
                 {/* Venture Title */}
@@ -173,7 +82,7 @@ export default function MobileVenturesSection() {
                 </h3>
 
                 {/* Venture Description */}
-                <p className="text-[12.5px] text-[#64748b] leading-[1.5] font-normal">
+                <p className="text-sm text-[#64748b] leading-[1.5] font-normal">
                   {venture.description}
                 </p>
               </div>
