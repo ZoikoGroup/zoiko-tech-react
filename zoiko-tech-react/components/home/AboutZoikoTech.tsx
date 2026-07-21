@@ -4,7 +4,7 @@ import React from "react";
 
 export default function AboutZoikoTech() {
   return (
-    <section className="w-full bg-[#F5F5F5] text-[#0f1124] px-6 md:px-12 lg:px-16 py-20 md:py-28 flex flex-col items-center justify-center relative overflow-hidden">
+    <section className="w-full bg-[#f8f9fd] text-[#0f1124] px-6 md:px-12 lg:px-16 py-20 md:py-28 flex flex-col items-center justify-center overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -20,32 +20,35 @@ export default function AboutZoikoTech() {
         }}
       />
 
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center animate-pop-up-about">
+      {/* Main Container using Flexbox */}
+      <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 animate-pop-up-about">
         {/* Left Content Column */}
-        <div className="lg:col-span-5 flex flex-col items-start text-left">
+        <div className="w-full  flex flex-col items-start">
           <span className="text-[#207885] text-[13px] font-bold tracking-tight mb-2">
             About Zoiko Tech
           </span>
 
-          <h2 className="text-3xl md:text-[42px] font-extrabold tracking-tight text-[#0f1124] leading-[1.15] mb-6">
-            We help digital <br />
-            product evolve
+          <h2 className="text-3xl md:text-[40px] font-extrabold tracking-tight text-[#0f1124] mb-6 leading-[1.18]">
+            Intelligence. Infrastructure. Impact.
           </h2>
 
           <p className="text-[#7d8296] text-[14px] md:text-[15px] leading-relaxed font-normal mb-8 max-w-xl">
-            Lorem ipsum dolor sit amet consectetur. Amet sed vitae amet amet.
-            Neque platea enim convallis fermentum euismod sed urna. Lorem
-            pharetra id aliquet fermentum rhoncus nec volutpat. Donec quisque et
-            lectus hac eget enim.
+            ZoikoTech is a California-based global technology company building
+            the intelligent infrastructure of the future. At the heart of its
+            creation is the vision of Lennox McLeod - a tech-savvy, serial
+            entrepreneur whose deep expertise spans finance, technology, law,
+            and international strategy. With over three decades of global
+            business leadership, McLeod has consistently anticipated trends,
+            built transformative enterprises, and merged commercial....
           </p>
 
-          <button className="bg-[#207885] hover:bg-[#185e68] text-white font-semibold text-[13px] px-7 py-3.5 rounded-lg transition-all shadow-sm">
+          <button className="bg-[#207885] hover:bg-[#185e68] text-white font-semibold text-[13px] px-7 py-3.5 rounded-lg transition-all shadow-sm active:scale-95">
             Know More...
           </button>
         </div>
 
         {/* Right Wireframe Illustration Layout Column */}
-        <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end">
+        <div className="w-full lg:w-7/12 relative flex items-center justify-center lg:justify-end">
           {/* Main Desktop Window Wireframe */}
           <div className="w-full max-w-[580px] bg-white border-2 border-[#207885] rounded-3xl p-4 md:p-6 shadow-sm relative min-h-[380px] md:min-h-[440px] flex flex-col">
             {/* Window Header Dots & Title */}

@@ -68,7 +68,7 @@ export default function ServicesByIndustry() {
   ];
 
   return (
-    <section className="w-full bg-[#f8f9fd] text-[#0f1124] px-6 md:px-12 lg:px-16 py-20 flex flex-col items-center justify-center overflow-hidden">
+    <section className="w-full bg-[#f6f9fd] text-[#0f1124] px-6 md:px-12 lg:px-16 py-20 flex flex-col items-center justify-center overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
