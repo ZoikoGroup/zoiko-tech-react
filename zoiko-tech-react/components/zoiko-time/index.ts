@@ -1,0 +1,9 @@
+export { default as ZoikoTimeHero } from "./ZoikoTimeHero";
+export { default as ZoikoAIGovernanceLayer } from "./ZoikoAIGovernanceLayer";
+export { default as BehavioralAIFeatures } from "./BehavioralAIFeatures";
+export { default as EthicsTransparency } from "./EthicsTransparency";
+export { default as IntegrationEcosystem } from "./IntegrationEcosystem";
+export { default as TransparentProductivityPricing } from "./TransparentProductivityPricing";
+export { default as ProvenResults } from "./ProvenResults";
+export { default as FoundersPhilosophy } from "./FoundersPhilosophy";
+export { default as StartManagingTimeCTA } from "./StartManagingTimeCTA";
