@@ -1,0 +1,9 @@
+export { default as GovernanceHero } from "./GovernanceHero";
+export { default as GovernanceArchitecture } from "./GovernanceArchitecture";
+export { default as CoreFeatureSuite } from "./CoreFeatureSuite";
+export { default as JurisdictionalComplianceCoverage } from "./JurisdictionalComplianceCoverage";
+export { default as CommercialLawAutomationSuite } from "./CommercialLawAutomationSuite";
+export { default as ProvenResults } from "./ProvenResults";
+export { default as ChooseGovernanceLevel } from "./ChooseGovernanceLevel";
+export { default as GovernanceEthics } from "./GovernanceEthics";
+export { default as GovernSmarterCTA } from "./GovernSmarterCTA";
