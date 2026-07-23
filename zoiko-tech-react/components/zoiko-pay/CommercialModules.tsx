@@ -53,7 +53,7 @@ const fadeUpVariant = {
 export default function CommercialModules() {
   return (
     <section className="w-full bg-[#F5F5F5] text-[#0f1124] px-6 md:px-12 lg:px-20 py-20 md:py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Section Header */}
         <motion.div
           custom={0.1}
@@ -81,7 +81,7 @@ export default function CommercialModules() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeUpVariant}
-              className="bg-white rounded-r-[10px] rounded-l-[2px] p-6 sm:p-7 shadow-[0_4px_12px_0_#0000001A] border-l-4 border-l-[#4FD1C7] border-y border-r border-slate-200/80 flex flex-col justify-start hover:shadow-md transition-all duration-300 min-h-[210px]"
+              className="bg-white rounded-r-[10px] rounded-l-[2px] p-6 sm:p-7 border-l-4 border-l-[#4FD1C7] border-y border-r border-slate-200/80 flex flex-col justify-start hover:shadow-md transition-all duration-300 min-h-[210px]"
             >
               {/* Module Title */}
               <h3 className="text-[19px] font-bold text-[#0f1124] mb-3 leading-snug">

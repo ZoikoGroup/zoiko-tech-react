@@ -101,7 +101,7 @@ export default function CompletePaymentEcosystem() {
                 className="bg-white rounded-[10px] p-7 sm:p-8 shadow-[0_4px_12px_0_#0000001A] border border-slate-200/80 flex flex-col items-start hover:shadow-md transition-all duration-300 min-h-[240px]"
               >
                 {/* Circular Icon Container */}
-                <div className="w-12 h-12 rounded-full bg-[#379c93] text-white flex items-center justify-center mb-6 shadow-xs">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4FD1C7] to-[#2C5F5D] text-white flex items-center justify-center mb-6 shadow-xs">
                   <IconComponent className="w-6 h-6 stroke-[2]" />
                 </div>
 

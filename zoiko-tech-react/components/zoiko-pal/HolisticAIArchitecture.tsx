@@ -126,7 +126,7 @@ export default function HolisticAIArchitecture() {
                 className="bg-white rounded-2xl p-7 sm:p-8 shadow-[0_4px_12px_0_#0000001A] border border-slate-200/80 flex flex-col justify-start hover:shadow-md transition-all duration-300"
               >
                 {/* Circular Teal Icon Badge */}
-                <div className="w-12 h-12 rounded-full bg-[#3BA8A0] flex items-center justify-center mb-6 shadow-xs">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4FD1C7] to-[#2C5F5D] flex items-center justify-center mb-6 shadow-xs">
                   <Icon className="w-5 h-5 text-white" />
                 </div>
 
