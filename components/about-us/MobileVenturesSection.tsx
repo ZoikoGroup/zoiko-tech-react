@@ -30,7 +30,7 @@ const ventures = [
     title: "DriverX Mobile",
     description:
       "A mobile service built for everyday motorists and professional drivers, offering practical plans, GPS integrations, and discounts tied to road services and auto needs.",
-    logoSrc: "/leadership-and-governance/driverxtra.png", //need to change to driver mobile
+    logoSrc: "/leadership-and-governance/driverxmobile.png",
   },
   {
     id: "sable-mobile",

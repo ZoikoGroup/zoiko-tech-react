@@ -1,0 +1,9 @@
+export { default as ZoikoPayHero } from "./ZoikoPayHero";
+export { default as ZoikoPayFeatures } from "./ZoikoPayFeatures";
+export { default as ZoikoPayFeaturesAndCapabilities } from "./ZoikoPayFeaturesAndCapabilities";
+export { default as ArchitectureAndEngineering } from "./ArchitectureAndEngineering";
+export { default as IndustryUseCases } from "./IndustryUseCases";
+export { default as ZoikoPayPricingAndMonetisation } from "./ZoikoPayPricingAndMonetisation";
+export { default as ZoikoPayComplianceAndGovernance } from "./ZoikoPayComplianceAndGovernance";
+export { default as ZoikoPayApiHub } from "./ZoikoPayApiHub";
+export { default as ZoikoPayCTA } from "./ZoikoPayCTA";
