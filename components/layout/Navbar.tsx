@@ -155,19 +155,29 @@ export default function Navbar() {
 
   const isActive = (href: string) => pathname === href;
 
+  // Helper to close all desktop dropdowns
+  const closeAllDropdowns = () => {
+    setProductsOpen(false);
+    setSolutionsOpen(false);
+    setIndustriesOpen(false);
+  };
+
   return (
-    <header className="w-full bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
-      {/* Container with extra desktop padding and max-width for slight breathing room */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between">
+    <header className="w-full bg-white border-b-3 border-[#247780] shadow-sm sticky top-0 z-50">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-18 py-12 h-20 flex items-center justify-between">
         {/* Logo Container */}
         <div className="flex-shrink-0 flex items-center h-full pr-4">
-          <Link href="/" className="flex items-center h-full">
-            <div className="relative w-36 h-10 sm:w-40 sm:h-12 cursor-pointer flex items-center">
+          <Link
+            href="/"
+            className="flex items-center h-full"
+            onClick={closeAllDropdowns}
+          >
+            <div className="relative w-36 h-10 sm:w-40 cursor-pointer flex items-center">
               <Image
                 src="/zoikotech.png"
                 alt="ZOIKOTECH"
-                width={160}
-                height={48}
+                width={140}
+                height={72}
                 className="object-contain"
                 priority
               />
@@ -188,6 +198,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => setProductsOpen(false)}
                     className="hover:text-[#1F7379] transition-colors flex items-center gap-1 focus:outline-none cursor-pointer"
                   >
                     <span>{link.name}</span>
@@ -224,6 +235,7 @@ export default function Navbar() {
                               <Link
                                 key={item.name}
                                 href={item.href}
+                                onClick={() => setProductsOpen(false)}
                                 className={`px-5 py-2.5 text-[14px] transition-colors leading-snug cursor-pointer ${
                                   active
                                     ? "bg-[#3f444b] text-white font-medium"
@@ -252,6 +264,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => setSolutionsOpen(false)}
                     className="hover:text-[#1F7379] transition-colors flex items-center gap-1 focus:outline-none cursor-pointer"
                   >
                     <span>{link.name}</span>
@@ -288,6 +301,7 @@ export default function Navbar() {
                               <Link
                                 key={item.name}
                                 href={item.href}
+                                onClick={() => setSolutionsOpen(false)}
                                 className={`px-5 py-2.5 text-[14px] transition-colors leading-snug cursor-pointer ${
                                   active
                                     ? "bg-[#3f444b] text-white font-medium"
@@ -316,6 +330,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => setIndustriesOpen(false)}
                     className="hover:text-[#1F7379] transition-colors flex items-center gap-1 focus:outline-none cursor-pointer"
                   >
                     <span>{link.name}</span>
@@ -352,6 +367,7 @@ export default function Navbar() {
                               <Link
                                 key={item.name}
                                 href={item.href}
+                                onClick={() => setIndustriesOpen(false)}
                                 className={`px-5 py-2.5 text-[14px] transition-colors leading-snug cursor-pointer ${
                                   active
                                     ? "bg-[#3f444b] text-white font-medium"
@@ -377,6 +393,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
+                  onClick={closeAllDropdowns}
                   className="hover:text-[#1F7379] transition-colors flex items-center gap-1 cursor-pointer"
                 >
                   <span>{link.name}</span>
@@ -615,7 +632,7 @@ export default function Navbar() {
                 if (link.type === "industries") {
                   return (
                     <div key={link.name} className="flex flex-col">
-                      <div className="flex items-center justify-between w-full px-3 py-2.5 rounded-md text-base font-medium text-[#222222] hover:bg-gray-50 hover:text-[#1F7379]">
+                      <div className="flex items-center justify-between w-full px-3 py-2.5 rounded-md text-[#222222] hover:bg-gray-50 hover:text-[#1F7379]">
                         <Link
                           href={link.href}
                           onClick={() => setMobileMenuOpen(false)}
