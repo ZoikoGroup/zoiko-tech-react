@@ -10,7 +10,9 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 
-// Motion animation variants with typed custom easing
+// ----------------------------------------------------------------------------
+// Animation
+// ----------------------------------------------------------------------------
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 30 },
   visible: (customDelay: number) => ({
@@ -24,6 +26,179 @@ const fadeUpVariant = {
   }),
 };
 
+// ----------------------------------------------------------------------------
+// Shared styles (kept identical to the original markup)
+// ----------------------------------------------------------------------------
+const linkClass = "hover:text-white hover:underline transition-all";
+const headingClass = "text-white font-bold text-[15px] mb-1 tracking-wide";
+
+// ----------------------------------------------------------------------------
+// Data
+// ----------------------------------------------------------------------------
+type SimpleLink = { label: string; href: string };
+type PlatformLink = { name: string; description: string; href: string };
+
+const discoverLinks: SimpleLink[] = [
+  { label: "About Us", href: "/about-us" },
+  { label: "Global Vision & ESG Commitments", href: "/global-vision" },
+  { label: "Leadership & Governance", href: "/leadership-and-governance" },
+  { label: "Innovation & R&D Hub", href: "/innovation-hub" },
+  { label: "Media Center & Announcements", href: "/media-center" },
+  { label: "Sustainability & Social Impact", href: "/sustainability" },
+];
+
+const platformLinks: PlatformLink[] = [
+  {
+    name: "ZoikoTime",
+    description: "Intelligent time tracking and productivity platform.",
+    href: "/zoiko-time",
+  },
+  {
+    name: "ZoikoSuite",
+    description: "Unified accounting, HR, and payroll automation.",
+    href: "/zoiko-suite",
+  },
+  {
+    name: "ZoikoNex",
+    description: "Global telecom billing and revenue engine.",
+    href: "/zoiko-nex",
+  },
+  {
+    name: "ZoikoAssure",
+    description: "Smart compliance and audit automation.",
+    href: "/zoiko-assure",
+  },
+  {
+    name: "ZoikoShield",
+    description: "AI-driven cybersecurity and fraud defense.",
+    href: "/zoiko-shield",
+  },
+  {
+    name: "ZoikoSocial",
+    description: "Social platform for animal lovers and advocates.",
+    href: "/zoiko-social",
+  },
+  {
+    name: "ZoikoPal",
+    description: "Companion AI for the elderly and emotionally vulnerable.",
+    href: "/zoiko-pal",
+  },
+  {
+    name: "BookingOrbit",
+    description: "Seamless AI booking for life, travel, and education.",
+    href: "/booking-orbit",
+  },
+  {
+    name: "DriverXtra",
+    description: "Marketplace and perks for global drivers.",
+    href: "/driver-xtra",
+  },
+];
+
+const industryLinks: SimpleLink[] = [
+  { label: "Telecommunications & MVNOs", href: "/telecom" },
+  { label: "SaaS & Cloud Enterprises", href: "/sme-saas" },
+  { label: "Finance, Banking & Fintech", href: "/fintech" },
+  { label: "Legal, Tax & Compliance Firms", href: "/compliance" },
+  { label: "Healthcare, Wellness & Elder Care", href: "/healthcare" },
+  { label: "NGOs, Conservation & Public Sector", href: "/social" },
+];
+
+const partnerLinks: SimpleLink[] = [
+  { label: "Strategic & Technology Alliances", href: "#" },
+  { label: "Developer & Integration Network", href: "#" },
+  { label: "Global Resellers & Channel Partners", href: "#" },
+  { label: "Incubation & Innovation Labs", href: "#" },
+  { label: "Careers, Internships & Leadership Programs", href: "#" },
+];
+
+const insightLinks: SimpleLink[] = [
+  { label: "Case Studies & Success Stories", href: "#" },
+  { label: "Product Demos & Tutorials", href: "#" },
+  { label: "White Papers & Technical Briefs", href: "#" },
+  { label: "Investor Relations & Disclosures", href: "#" },
+  { label: "Analyst Reports & Market Trends", href: "#" },
+  { label: "Global Support & Contact", href: "/global-support" },
+];
+
+const legalLinks: SimpleLink[] = [
+  { label: "Privacy Policy", href: "#" },
+  { label: "Terms of Use", href: "#" },
+  { label: "Global Data Privacy (GDPR, CCPA)", href: "#" },
+  { label: "Accessibility Statement", href: "#" },
+  { label: "Code of Ethics & Integrity", href: "#" },
+  { label: "Supplier Code of Conduct", href: "#" },
+  { label: "Anti-Corruption & Whistleblower Policy", href: "#" },
+  { label: "Governance & Risk Oversight", href: "#" },
+];
+
+const developerLinks: SimpleLink[] = [
+  { label: "API & SDK Documentation", href: "#" },
+  { label: "Sandbox Access", href: "#" },
+  { label: "Developer Portal", href: "#" },
+  { label: "Status Dashboard", href: "#" },
+  { label: "Engineering Blog", href: "#" },
+];
+
+const clientPortalLinks: SimpleLink[] = [
+  { label: "Customer Login", href: "#" },
+  { label: "Partner Login", href: "#" },
+  { label: "Support Ticketing System", href: "#" },
+  { label: "System Health & Uptime Monitor", href: "#" },
+];
+
+const socialLinks = [
+  { label: "Facebook", href: "#", Icon: FaFacebookF },
+  { label: "Instagram", href: "#", Icon: FaInstagram },
+  { label: "LinkedIn", href: "#", Icon: FaLinkedinIn },
+  { label: "X (Twitter)", href: "#", Icon: FaXTwitter },
+];
+
+// ----------------------------------------------------------------------------
+// Small reusable pieces
+// ----------------------------------------------------------------------------
+
+/** A footer column wrapper with the shared fade-up-on-scroll animation. */
+function FooterColumn({
+  delay,
+  className,
+  children,
+}: {
+  delay: number;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      custom={delay}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={fadeUpVariant}
+      className={className ?? "flex flex-col space-y-3"}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/** Renders a simple list of text links under a heading. */
+function LinkList({ title, links }: { title: string; links: SimpleLink[] }) {
+  return (
+    <>
+      <h3 className={headingClass}>{title}</h3>
+      {links.map((link) => (
+        <a key={link.label} href={link.href} className={linkClass}>
+          {link.label}
+        </a>
+      ))}
+    </>
+  );
+}
+
+// ----------------------------------------------------------------------------
+// Footer
+// ----------------------------------------------------------------------------
 export default function Footer() {
   return (
     <footer className="w-full bg-[#186D7A] text-white/90 text-[13px] leading-relaxed py-16 px-6 md:px-12 lg:px-16 border-t border-white/10">
@@ -31,15 +206,7 @@ export default function Footer() {
         {/* Main Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-12 mb-12">
           {/* Column 1: Logo, Bio & Contact */}
-          <motion.div
-            custom={0.1}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-4"
-          >
-            {/* Logo placeholder */}
+          <FooterColumn delay={0.1}>
             <div className="mb-2">
               <img
                 src="/logo.png"
@@ -71,423 +238,59 @@ export default function Footer() {
                 <span>+1 (800) 484-5564</span>
               </a>
             </div>
-          </motion.div>
+          </FooterColumn>
 
           {/* Column 2: Discover ZoikoTech */}
-          <motion.div
-            custom={0.15}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-3"
-          >
-            <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-              Discover ZoikoTech
-            </h3>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              About Us
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Global Vision & ESG Commitments
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Leadership & Governance
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Innovation & R&D Hub
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Media Center & Announcements
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Sustainability & Social Impact
-            </a>
-          </motion.div>
+          <FooterColumn delay={0.15}>
+            <LinkList title="Discover ZoikoTech" links={discoverLinks} />
+          </FooterColumn>
 
           {/* Column 3: Platforms & Solutions */}
-          <motion.div
-            custom={0.2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-2.5"
-          >
-            <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-              Platforms & Solutions
-            </h3>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">ZoikoTime</strong> –
-              Intelligent time tracking and productivity platform.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">ZoikoSuite</strong> –
-              Unified accounting, HR, and payroll automation.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">ZoikoNex</strong> –
-              Global telecom billing and revenue engine.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">ZoikoAssure</strong>{" "}
-              – Smart compliance and audit automation.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">ZoikoShield</strong>{" "}
-              – AI-driven cybersecurity and fraud defense.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">ZoikoSocial</strong>{" "}
-              – Social platform for animal lovers and advocates.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">ZoikoPal</strong> –
-              Companion AI for the elderly and emotionally vulnerable.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">BookingOrbit</strong>{" "}
-              – Seamless AI booking for life, travel, and education.
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              <strong className="font-semibold text-white">DriverXtra</strong> –
-              Marketplace and perks for global drivers.
-            </a>
-          </motion.div>
+          <FooterColumn delay={0.2} className="flex flex-col space-y-2.5">
+            <h3 className={headingClass}>Platforms & Solutions</h3>
+            {platformLinks.map((platform) => (
+              <a key={platform.name} href={platform.href} className={linkClass}>
+                <strong className="font-semibold text-white">
+                  {platform.name}
+                </strong>{" "}
+                – {platform.description}
+              </a>
+            ))}
+          </FooterColumn>
 
           {/* Column 4: Industries We Empower */}
-          <motion.div
-            custom={0.25}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-3"
-          >
-            <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-              Industries We Empower
-            </h3>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Telecommunications & MVNOs
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              SaaS & Cloud Enterprises
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Finance, Banking & Fintech
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Legal, Tax & Compliance Firms
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Healthcare, Wellness & Elder Care
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              NGOs, Conservation & Public Sector
-            </a>
-          </motion.div>
+          <FooterColumn delay={0.25}>
+            <LinkList title="Industries We Empower" links={industryLinks} />
+          </FooterColumn>
 
           {/* Column 5: Partner With Us */}
-          <motion.div
-            custom={0.3}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-3"
-          >
-            <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-              Partner With Us
-            </h3>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Strategic & Technology Alliances
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Developer & Integration Network
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Global Resellers & Channel Partners
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Incubation & Innovation Labs
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Careers, Internships & Leadership Programs
-            </a>
-          </motion.div>
+          <FooterColumn delay={0.3}>
+            <LinkList title="Partner With Us" links={partnerLinks} />
+          </FooterColumn>
 
           {/* Column 6: Insights & Resources */}
-          <motion.div
-            custom={0.35}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-3"
-          >
-            <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-              Insights & Resources
-            </h3>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Case Studies & Success Stories
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Product Demos & Tutorials
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              White Papers & Technical Briefs
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Investor Relations & Disclosures
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Analyst Reports & Market Trends
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Global Support & Contact
-            </a>
-          </motion.div>
+          <FooterColumn delay={0.35}>
+            <LinkList title="Insights & Resources" links={insightLinks} />
+          </FooterColumn>
 
           {/* Column 7: Legal & Corporate Governance */}
-          <motion.div
-            custom={0.4}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-3"
-          >
-            <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-              Legal & Corporate Governance
-            </h3>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Terms of Use
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Global Data Privacy (GDPR, CCPA)
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Accessibility Statement
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Code of Ethics & Integrity
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Supplier Code of Conduct
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Anti-Corruption & Whistleblower Policy
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Governance & Risk Oversight
-            </a>
-          </motion.div>
+          <FooterColumn delay={0.4}>
+            <LinkList title="Legal & Corporate Governance" links={legalLinks} />
+          </FooterColumn>
 
           {/* Column 8: For Developers */}
-          <motion.div
-            custom={0.45}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
-            className="flex flex-col space-y-3"
-          >
-            <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-              For Developers
-            </h3>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              API & SDK Documentation
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Sandbox Access
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Developer Portal
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Status Dashboard
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:underline transition-all"
-            >
-              Engineering Blog
-            </a>
-          </motion.div>
+          <FooterColumn delay={0.45}>
+            <LinkList title="For Developers" links={developerLinks} />
+          </FooterColumn>
 
           {/* Column 9: Client Portals & Stay Informed */}
-          <motion.div
-            custom={0.5}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={fadeUpVariant}
+          <FooterColumn
+            delay={0.5}
             className="flex flex-col justify-between space-y-8"
           >
             {/* Client Portals Sub-group */}
             <div className="flex flex-col space-y-3">
-              <h3 className="text-white font-bold text-[15px] mb-1 tracking-wide">
-                Client Portals
-              </h3>
-              <a
-                href="#"
-                className="hover:text-white hover:underline transition-all"
-              >
-                Customer Login
-              </a>
-              <a
-                href="#"
-                className="hover:text-white hover:underline transition-all"
-              >
-                Partner Login
-              </a>
-              <a
-                href="#"
-                className="hover:text-white hover:underline transition-all"
-              >
-                Support Ticketing System
-              </a>
-              <a
-                href="#"
-                className="hover:text-white hover:underline transition-all"
-              >
-                System Health & Uptime Monitor
-              </a>
+              <LinkList title="Client Portals" links={clientPortalLinks} />
             </div>
 
             {/* Stay Informed Newsletter Input & Socials */}
@@ -520,41 +323,21 @@ export default function Footer() {
 
               {/* Social Icons */}
               <div className="flex items-center gap-2.5 pt-3">
-                <a
-                  href="#"
-                  className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
-                  aria-label="Facebook"
-                >
-                  <FaFacebookF className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedinIn className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
-                  aria-label="X (Twitter)"
-                >
-                  <FaXTwitter className="w-3.5 h-3.5" />
-                </a>
+                {socialLinks.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
+                    aria-label={label}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                  </a>
+                ))}
               </div>
             </div>
-          </motion.div>
+          </FooterColumn>
         </div>
       </div>
     </footer>
-
-    
   );
 }
