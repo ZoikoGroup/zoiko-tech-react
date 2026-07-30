@@ -48,7 +48,7 @@ export default function TrustedByProfessionalsSection() {
           variants={itemVariants}
           className="lg:col-span-5 order-2 lg:order-1 flex items-center justify-center lg:justify-start"
         >
-          <div className="relative w-full max-w-[420px] aspect-[4/3] sm:aspect-[1/1] overflow-hidden rounded-xl">
+          <div className="relative w-full h-full overflow-hidden rounded-xl">
             <img
               src="/compliance/handshake.png"
               alt="Global business professionals shaking hands"

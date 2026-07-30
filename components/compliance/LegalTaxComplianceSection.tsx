@@ -48,7 +48,7 @@ export default function LegalTaxComplianceSection() {
           variants={itemVariants}
           className="lg:col-span-5 order-2 lg:order-1 flex items-center justify-center"
         >
-          <div className="relative w-full max-w-[420px] aspect-[4/3] sm:aspect-[1/1] overflow-hidden rounded-sm">
+          <div className="relative w-full h-[510px] overflow-hidden rounded-sm">
             <img
               src="/compliance/hero.png"
               alt="Legal, Tax & Compliance Firms"

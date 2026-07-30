@@ -97,7 +97,7 @@ export default function ZoikoWebServicesLegalSection() {
           variants={itemVariants}
           className="lg:col-span-5 order-2 flex items-center justify-center lg:justify-end"
         >
-          <div className="relative w-full max-w-[420px] aspect-[4/3] sm:aspect-[1/1] overflow-hidden rounded-sm">
+          <div className="relative w-full h-full overflow-hidden rounded-sm">
             <img
               src="/compliance/web.png"
               alt="Digital portals for legal and tax analytics"
