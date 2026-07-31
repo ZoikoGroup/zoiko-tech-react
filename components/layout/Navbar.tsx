@@ -101,7 +101,7 @@ export default function Navbar() {
     },
     {
       name: "Global Support & Contact",
-      href: "/contact",
+      href: "/global-support",
     },
     {
       name: "Mobility & Travel Commerce (BookingOrbit)",
