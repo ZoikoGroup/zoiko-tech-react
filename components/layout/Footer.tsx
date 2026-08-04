@@ -42,7 +42,7 @@ const discoverLinks: SimpleLink[] = [
   { label: "About Us", href: "/about-us" },
   { label: "Global Vision & ESG Commitments", href: "/global-vision" },
   { label: "Leadership & Governance", href: "/leadership-and-governance" },
-  { label: "Innovation & R&D Hub", href: "/innovation-hub" },
+  { label: "Innovation & R&D Hub", href: "#" },
   { label: "Media Center & Announcements", href: "/media-center" },
   { label: "Sustainability & Social Impact", href: "/sustainability" },
 ];

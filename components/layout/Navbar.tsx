@@ -120,11 +120,11 @@ export default function Navbar() {
       name: "Healthcare, Wellness and elder care",
       href: "/healthcare",
     },
-    { name: "Media, OTT & Entertainment", href: "/media" },
+    { name: "Media, OTT & Entertainment", href: "#" },
     { name: "SMEs & Enterprise SaaS", href: "/sme-saas" },
-    { name: "Travel & Mobility", href: "/travel" },
+    { name: "Travel & Mobility", href: "#" },
     { name: "Regulatory & Compliance", href: "/compliance" },
-    { name: "Cybersecurity & Data Privacy", href: "/cybersecurity" },
+    { name: "Cybersecurity & Data Privacy", href: "#" },
     { name: "Social Platforms & Communities", href: "/social" },
   ];
 
