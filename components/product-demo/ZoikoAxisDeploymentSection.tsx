@@ -1,0 +1,142 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+
+interface ShowcasePoint {
+  text: string;
+}
+
+const showcasePoints: ShowcasePoint[] = [
+  {
+    text: "Building modular digital environments across telecom, legal, and public sectors",
+  },
+  { text: "Enabling role-based access and jurisdiction-specific compliance" },
+  {
+    text: "Workflow automation with embedded logic and multilingual readiness",
+  },
+  {
+    text: "Integration with telecom networks, fintech rails, CRMs, and public-sector systems",
+  },
+  {
+    text: "AI-driven guided setup for faster deployment and lower onboarding friction",
+  },
+];
+
+export default function ZoikoAxisDeploymentSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  } as const;
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  } as const;
+
+  return (
+    <section className="w-full bg-[#D9D9D933] text-[#1D1D1F] py-24 px-6 sm:px-12 md:px-16 lg:px-24 font-sans antialiased overflow-hidden">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Overlapping Image Stack */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="lg:col-span-5 relative flex justify-center items-center"
+          >
+            {/* Background Base Image */}
+            <div className="relative w-full max-w-[460px] h-[320px] sm:h-[380px] rounded-[10px] overflow-hidden">
+              <img
+                src="/product-demo/1.png"
+                alt="Call center office team working on desktop computers"
+                className="w-full h-full object-cover object-center block"
+              />
+            </div>
+
+            {/* Foreground Overlapping Floating Card with White Border */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              className="absolute -bottom-6 -left-2 sm:-left-6 w-[80%] max-w-[360px] h-[200px] sm:h-[240px] rounded-[10px] overflow-hidden border-4 border-white bg-white"
+            >
+              <img
+                src="/product-demo/2.png"
+                alt="Telecom engineer inspecting cell tower equipment"
+                className="w-full h-full object-cover object-center block"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column: Title and Checklist */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="lg:col-span-7 space-y-6 pt-6 lg:pt-0"
+          >
+            {/* Section Headline */}
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl md:text-[2.5rem] font-bold tracking-tight text-[#111827] leading-[1.18]"
+            >
+              ZoikoAxis&trade; &ndash; Deploying <br />
+              Custom Infrastructure at Scale
+            </motion.h2>
+
+            {/* Intro Lead */}
+            <motion.p
+              variants={itemVariants}
+              className="text-[#6B7280] text-sm sm:text-base font-normal leading-relaxed max-w-xl"
+            >
+              Interactive demos showcase:
+            </motion.p>
+
+            {/* Checklist items with exact green badge and white icon parameters */}
+            <motion.ul
+              variants={containerVariants}
+              className="space-y-3.5 pt-1"
+            >
+              {showcasePoints.map((point, index) => (
+                <motion.li
+                  key={index}
+                  variants={itemVariants}
+                  className="flex items-start gap-3"
+                >
+                  <div className="w-5 h-5 rounded-full bg-[#56B810] flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <Check
+                      className="w-3.5 h-3.5"
+                      color="#FFFFFF"
+                      strokeWidth={3}
+                    />
+                  </div>
+                  <span className="text-[#4B5563] text-sm sm:text-base font-medium leading-normal">
+                    {point.text}
+                  </span>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

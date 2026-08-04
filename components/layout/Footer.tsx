@@ -42,7 +42,7 @@ const discoverLinks: SimpleLink[] = [
   { label: "About Us", href: "/about-us" },
   { label: "Global Vision & ESG Commitments", href: "/global-vision" },
   { label: "Leadership & Governance", href: "/leadership-and-governance" },
-  { label: "Innovation & R&D Hub", href: "#" },
+  { label: "Innovation & R&D Hub", href: "/innovation-hub" },
   { label: "Media Center & Announcements", href: "/media-center" },
   { label: "Sustainability & Social Impact", href: "/sustainability" },
 ];
@@ -114,7 +114,7 @@ const partnerLinks: SimpleLink[] = [
 
 const insightLinks: SimpleLink[] = [
   { label: "Case Studies & Success Stories", href: "#" },
-  { label: "Product Demos & Tutorials", href: "#" },
+  { label: "Product Demos & Tutorials", href: "/product-demo" },
   { label: "White Papers & Technical Briefs", href: "#" },
   { label: "Investor Relations & Disclosures", href: "#" },
   { label: "Analyst Reports & Market Trends", href: "#" },
