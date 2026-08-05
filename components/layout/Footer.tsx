@@ -116,8 +116,8 @@ const insightLinks: SimpleLink[] = [
   { label: "Case Studies & Success Stories", href: "#" },
   { label: "Product Demos & Tutorials", href: "/product-demo" },
   { label: "White Papers & Technical Briefs", href: "/white-papers" },
-  { label: "Investor Relations & Disclosures", href: "#" },
-  { label: "Analyst Reports & Market Trends", href: "#" },
+  { label: "Investor Relations & Disclosures", href: "/investors" },
+  { label: "Analyst Reports & Market Trends", href: "/analyst-reports" },
   { label: "Global Support & Contact", href: "/global-support" },
 ];
 
