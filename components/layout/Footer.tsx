@@ -105,8 +105,8 @@ const industryLinks: SimpleLink[] = [
 ];
 
 const partnerLinks: SimpleLink[] = [
-  { label: "Strategic & Technology Alliances", href: "#" },
-  { label: "Developer & Integration Network", href: "#" },
+  { label: "Strategic & Technology Alliances", href: "/strategy" },
+  { label: "Developer & Integration Network", href: "/developer-integration" },
   { label: "Global Resellers & Channel Partners", href: "#" },
   { label: "Incubation & Innovation Labs", href: "#" },
   { label: "Careers, Internships & Leadership Programs", href: "#" },
