@@ -253,7 +253,7 @@ export default function ProductEcosystemGrid() {
                       <img
                         src={item.logo}
                         alt={item.title}
-                        className="max-h-10 max-w-[140px] object-contain"
+                        className="max-h-13 max-w-[220px] object-contain"
                         onError={(e) => {
                           // Fallback to text title if logo image isn't found yet
                           const target = e.target as HTMLElement;

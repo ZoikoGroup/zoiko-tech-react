@@ -8,9 +8,20 @@ export default function WhyZoiko() {
       num: "01",
       title: "Next-Gen by Design",
       desc: "Built from the ground up",
+      img: "/home/v1.png",
       icon: (
-        <svg className="w-10 h-10 text-[#207885]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <svg
+          className="w-10 h-10 text-[#207885]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
         </svg>
       ),
     },
@@ -18,9 +29,20 @@ export default function WhyZoiko() {
       num: "02",
       title: "Human-First Tech",
       desc: "Inclusive and ethical",
+      img: "/home/v2.png",
       icon: (
-        <svg className="w-10 h-10 text-[#207885]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <svg
+          className="w-10 h-10 text-[#207885]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+          />
         </svg>
       ),
     },
@@ -28,9 +50,20 @@ export default function WhyZoiko() {
       num: "03",
       title: "Global by Nature",
       desc: "Scalable across regions",
+      img: "/home/v3.png",
       icon: (
-        <svg className="w-10 h-10 text-[#207885]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM3.6 9h16.8M3.6 15h16.8M12 3a15.3 15.3 0 014 9 15.3 15.3 0 01-4 9 15.3 15.3 0 01-4-9 15.3 15.3 0 014-9z" />
+        <svg
+          className="w-10 h-10 text-[#207885]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM3.6 9h16.8M3.6 15h16.8M12 3a15.3 15.3 0 014 9 15.3 15.3 0 01-4 9 15.3 15.3 0 01-4-9 15.3 15.3 0 014-9z"
+          />
         </svg>
       ),
     },
@@ -72,10 +105,7 @@ export default function WhyZoiko() {
                 {item.num}
               </span>
 
-              {/* Icon Container */}
-              <div className="relative z-10 mb-6 mt-4 p-3 bg-[#e8f3f4] rounded-2xl flex items-center justify-center">
-                {item.icon}
-              </div>
+              <img src={item.img}alt={item.title} className="m-4 z-10"/>
 
               {/* Pillar Title & Description */}
               <h3 className="text-[17px] font-bold text-[#0f1124] mb-1.5 relative z-10">
