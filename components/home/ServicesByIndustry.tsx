@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface IndustryCard {
@@ -105,15 +105,59 @@ export default function ServicesByIndustry() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(3);
 
+  // Track open mobile overlay card ID
+  const [mobileOverlayCardId, setMobileOverlayCardId] = useState<number | null>(
+    null,
+  );
+
+  const carouselRef = useRef<HTMLDivElement>(null);
   const totalDots = 5;
   const minSwipeDistance = 50;
 
+  // Screen size handling
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setVisibleCount(1);
+      } else {
+        setVisibleCount(3);
+        setMobileOverlayCardId(null);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Close mobile overlay when tapping outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        carouselRef.current &&
+        !carouselRef.current.contains(event.target as Node)
+      ) {
+        setMobileOverlayCardId(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
+
   const handleNext = () => {
+    setMobileOverlayCardId(null);
     setCurrentIndex((prev) => (prev + 1) % CARDS.length);
   };
 
   const handlePrev = () => {
+    setMobileOverlayCardId(null);
     setCurrentIndex((prev) => (prev - 1 + CARDS.length) % CARDS.length);
   };
 
@@ -139,11 +183,17 @@ export default function ServicesByIndustry() {
     }
   };
 
-  const visibleCards = [
-    CARDS[currentIndex % CARDS.length],
-    CARDS[(currentIndex + 1) % CARDS.length],
-    CARDS[(currentIndex + 2) % CARDS.length],
-  ];
+  const visibleCards = Array.from({ length: visibleCount }).map(
+    (_, offset) => CARDS[(currentIndex + offset) % CARDS.length],
+  );
+
+  const toggleMobileOverlay = (cardId: number, e: React.MouseEvent) => {
+    if (window.innerWidth < 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      setMobileOverlayCardId((prev) => (prev === cardId ? null : cardId));
+    }
+  };
 
   return (
     <section className="w-full bg-[#f4f4f4] py-12 px-4 sm:px-8 lg:px-16 overflow-hidden select-none">
@@ -160,6 +210,7 @@ export default function ServicesByIndustry() {
 
         {/* Carousel Container */}
         <div
+          ref={carouselRef}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
@@ -172,55 +223,74 @@ export default function ServicesByIndustry() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch justify-items-center"
           >
             <AnimatePresence mode="popLayout">
-              {visibleCards.map((card, idx) => (
-                <motion.div
-                  key={`${card.id}-${currentIndex}-${idx}`}
-                  variants={cardVariants}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className="group relative flex flex-col h-[550px] w-full max-w-[380px] rounded-none overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.03]"
-                >
-                  <a
-                    href={card.href}
-                    className="relative flex-1 block w-full h-full overflow-hidden"
+              {visibleCards.map((card, idx) => {
+                const isMobileOpen = mobileOverlayCardId === card.id;
+
+                return (
+                  <motion.div
+                    key={`${card.id}-${currentIndex}-${idx}`}
+                    variants={cardVariants}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4 }}
+                    className="group relative flex flex-col h-[500px] sm:h-[550px] w-full max-w-[380px] rounded-none overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 md:hover:scale-[1.03]"
                   >
-                    {/* Background Image */}
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-cover object-center"
-                    />
+                    <div className="relative flex-1 block w-full h-full overflow-hidden">
+                      {/* Background Image */}
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover object-center"
+                      />
 
-                    {/* Default Banner at Bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[100px] bg-[#619a9e]/85 backdrop-blur-[2px] flex items-center px-6 transition-opacity duration-300 group-hover:opacity-0">
-                      <span className="text-white text-[22px] sm:text-[24px] font-bold tracking-wide">
-                        {card.title}
-                      </span>
-                    </div>
-
-                    {/* Hover Overlay - Expands to 100% Height */}
-                    <div className="absolute inset-0 bg-[#3b7d85]/85 backdrop-blur-[3px] flex flex-col justify-end p-6 translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h3 className="text-white text-[22px] sm:text-[24px] font-bold tracking-wide mb-3">
+                      {/* Default Banner at Bottom */}
+                      <div
+                        onClick={(e) => toggleMobileOverlay(card.id, e)}
+                        className={`absolute bottom-0 left-0 right-0 h-[100px] bg-[#619a9e]/85 backdrop-blur-[2px] flex items-center px-6 transition-opacity duration-300 cursor-pointer md:cursor-default md:group-hover:opacity-0 ${
+                          isMobileOpen ? "opacity-0" : "opacity-100"
+                        }`}
+                      >
+                        <span className="text-white text-[22px] sm:text-[24px] font-bold tracking-wide">
                           {card.title}
-                        </h3>
+                        </span>
+                      </div>
 
-                        <ul className="space-y-1.5 text-white/95 text-sm sm:text-base font-medium">
-                          {card.features.map((feature, i) => (
-                            <li key={i} className="flex items-start">
-                              <span className="mr-2 text-white/80">•</span>
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      {/* Hover Overlay (Desktop Hover / Mobile Click Toggle) */}
+                      <div
+                        onClick={(e) => toggleMobileOverlay(card.id, e)}
+                        className={`absolute inset-0 bg-[#3b7d85]/85 backdrop-blur-[3px] flex flex-col justify-end p-6 transition-all duration-500 ease-in-out ${
+                          isMobileOpen
+                            ? "translate-y-0 opacity-100 pointer-events-auto"
+                            : "translate-y-full opacity-0 pointer-events-none md:pointer-events-auto md:group-hover:translate-y-0 md:group-hover:opacity-100"
+                        }`}
+                      >
+                        <div
+                          className={`transform transition-transform duration-500 ease-out ${
+                            isMobileOpen
+                              ? "translate-y-0"
+                              : "translate-y-4 md:group-hover:translate-y-0"
+                          }`}
+                        >
+                          <h3 className="text-white text-[22px] sm:text-[24px] font-bold tracking-wide mb-3">
+                            {card.title}
+                          </h3>
+
+                          <ul className="space-y-1.5 text-white/95 text-sm sm:text-base font-medium">
+                            {card.features.map((feature, i) => (
+                              <li key={i} className="flex items-start">
+                                <span className="mr-2 text-white/80">•</span>
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </a>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </AnimatePresence>
           </motion.div>
         </div>
@@ -234,7 +304,10 @@ export default function ServicesByIndustry() {
               return (
                 <button
                   key={dotIndex}
-                  onClick={() => setCurrentIndex(dotIndex)}
+                  onClick={() => {
+                    setMobileOverlayCardId(null);
+                    setCurrentIndex(dotIndex);
+                  }}
                   aria-label={`Go to slide ${dotIndex + 1}`}
                   className={`rounded-full transition-all duration-300 focus:outline-none ${
                     isActive

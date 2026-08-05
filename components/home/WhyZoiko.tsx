@@ -105,7 +105,7 @@ export default function WhyZoiko() {
                 {item.num}
               </span>
 
-              <img src={item.img}alt={item.title} className="m-4 z-10"/>
+              <img src={item.img}alt={item.title} className="mt-8 m-4 md:m-4 z-10"/>
 
               {/* Pillar Title & Description */}
               <h3 className="text-[17px] font-bold text-[#0f1124] mb-1.5 relative z-10">

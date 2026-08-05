@@ -35,7 +35,7 @@ export default function CaseStudies() {
   };
 
   return (
-    <section className="w-full bg-[#FFFFFF] text-[#0f1124] px-6 md:px-12 lg:px-16 py-20 md:py-28 flex flex-col items-center justify-center overflow-hidden">
+    <section className="w-full bg-[#FFFFFF] text-[#0f1124] px-4 sm:px-6 md:px-12 lg:px-16 py-12 sm:py-16 md:py-28 flex flex-col items-center justify-center overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -53,12 +53,12 @@ export default function CaseStudies() {
 
       <div className="w-full max-w-6xl mx-auto flex flex-col animate-pop-up-cases">
         {/* Section Header with Navigation Controls */}
-        <div className="w-full flex items-start justify-between border-b border-[#e1e6eb] pb-8 mb-16 gap-6">
+        <div className="w-full flex flex-col sm:flex-row items-start justify-between border-b border-[#e1e6eb] pb-6 sm:pb-8 mb-10 sm:mb-16 gap-6">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-[38px] font-extrabold tracking-tight text-[#0f1124] mb-3 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-[38px] font-extrabold tracking-tight text-[#0f1124] mb-3 leading-tight">
               Real Results. Real Impact. Powered by ZoikoTech.
             </h2>
-            <p className="text-[#6b719c] text-[13.5px] md:text-[14.5px] leading-relaxed font-normal">
+            <p className="text-[#6b719c] text-xs sm:text-[13.5px] md:text-[14.5px] leading-relaxed font-normal">
               At ZoikoTech, we believe the best proof of performance is client
               success. Our platforms and solutions are trusted by businesses,
               nonprofits, and public institutions to solve real-world
@@ -68,11 +68,11 @@ export default function CaseStudies() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0 pt-2">
+          <div className="flex items-center gap-3 shrink-0 self-end sm:self-start pt-0 sm:pt-2">
             <button
               onClick={handlePrev}
               aria-label="Previous case study"
-              className="w-10 h-10 rounded-full border border-[#ebedf5] bg-white hover:bg-[#f0f2f7] text-[#0f1124] flex items-center justify-center shadow-xs transition-all duration-200 active:scale-95"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#ebedf5] bg-white hover:bg-[#f0f2f7] text-[#0f1124] flex items-center justify-center shadow-xs transition-all duration-200 active:scale-95"
             >
               <svg
                 className="w-4 h-4"
@@ -92,7 +92,7 @@ export default function CaseStudies() {
             <button
               onClick={handleNext}
               aria-label="Next case study"
-              className="w-10 h-10 rounded-full bg-[#207885] hover:bg-[#185e68] text-white flex items-center justify-center shadow-md transition-all duration-200 active:scale-95"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#207885] hover:bg-[#185e68] text-white flex items-center justify-center shadow-md transition-all duration-200 active:scale-95"
             >
               <svg
                 className="w-4 h-4"
@@ -112,19 +112,19 @@ export default function CaseStudies() {
         </div>
 
         {/* Case Studies List Container */}
-        <div className="flex flex-col gap-20 md:gap-28 w-full">
+        <div className="flex flex-col gap-14 sm:gap-20 md:gap-28 w-full">
           {cases.map((item) => (
             <div
               key={item.id}
-              className={`flex flex-col lg:flex-row gap-10 lg:gap-16 items-center ${
+              className={`flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16 items-center ${
                 item.reverse ? "lg:flex-row-reverse" : ""
               }`}
             >
               {/* Overlapping Image Composition Column */}
               <div className="w-full lg:w-1/2 relative flex items-center justify-center">
-                <div className="relative w-full max-w-[480px] h-[280px] md:h-[320px]">
+                <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px] h-[220px] sm:h-[280px] md:h-[320px]">
                   {/* Primary Background Image */}
-                  <div className="w-[68%] h-[82%] rounded-xl overflow-hidden shadow-md absolute top-0 left-0 bg-gray-100">
+                  <div className="w-[72%] sm:w-[68%] h-[82%] rounded-xl overflow-hidden shadow-md absolute top-0 left-0 bg-gray-100">
                     <img
                       src={item.imageMain}
                       alt={item.title}
@@ -133,7 +133,7 @@ export default function CaseStudies() {
                   </div>
 
                   {/* Secondary Foreground Overlapping Image */}
-                  <div className="w-[58%] h-[72%] rounded-xl overflow-hidden shadow-lg absolute bottom-0 right-0 bg-white">
+                  <div className="w-[62%] sm:w-[58%] h-[72%] rounded-xl overflow-hidden shadow-lg absolute bottom-0 right-0 bg-white border-2 border-white">
                     <img
                       src={item.imageOverlap}
                       alt={item.title}
@@ -151,15 +151,15 @@ export default function CaseStudies() {
                     : "lg:items-start lg:text-left"
                 }`}
               >
-                <h3 className="text-2xl md:text-[32px] font-extrabold tracking-tight text-[#0f1124] leading-tight mb-4 max-w-lg">
+                <h3 className="text-xl sm:text-2xl md:text-[32px] font-extrabold tracking-tight text-[#0f1124] leading-tight mb-3 sm:mb-4 max-w-lg">
                   {item.title}
                 </h3>
 
-                <p className="text-[#6b719c] text-[14px] md:text-[15px] leading-relaxed font-normal mb-5 max-w-lg">
+                <p className="text-[#6b719c] text-xs sm:text-[14px] md:text-[15px] leading-relaxed font-normal mb-4 sm:mb-5 max-w-lg">
                   {item.description}
                 </p>
 
-                <button className="text-[#ff6b4a] hover:text-[#e55a39] font-bold text-[14px] transition-colors">
+                <button className="text-[#ff6b4a] hover:text-[#e55a39] font-bold text-xs sm:text-[14px] transition-colors py-1">
                   Read More...
                 </button>
               </div>
