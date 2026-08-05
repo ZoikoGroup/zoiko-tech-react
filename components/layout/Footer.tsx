@@ -105,8 +105,8 @@ const industryLinks: SimpleLink[] = [
 ];
 
 const partnerLinks: SimpleLink[] = [
-  { label: "Strategic & Technology Alliances", href: "#" },
-  { label: "Developer & Integration Network", href: "#" },
+  { label: "Strategic & Technology Alliances", href: "/strategy" },
+  { label: "Developer & Integration Network", href: "/developer-integration" },
   { label: "Global Resellers & Channel Partners", href: "#" },
   { label: "Incubation & Innovation Labs", href: "#" },
   { label: "Careers, Internships & Leadership Programs", href: "#" },
@@ -116,18 +116,18 @@ const insightLinks: SimpleLink[] = [
   { label: "Case Studies & Success Stories", href: "#" },
   { label: "Product Demos & Tutorials", href: "/product-demo" },
   { label: "White Papers & Technical Briefs", href: "/white-papers" },
-  { label: "Investor Relations & Disclosures", href: "#" },
-  { label: "Analyst Reports & Market Trends", href: "#" },
+  { label: "Investor Relations & Disclosures", href: "/investors" },
+  { label: "Analyst Reports & Market Trends", href: "/analyst-reports" },
   { label: "Global Support & Contact", href: "/global-support" },
 ];
 
 const legalLinks: SimpleLink[] = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Use", href: "#" },
-  { label: "Global Data Privacy (GDPR, CCPA)", href: "#" },
-  { label: "Accessibility Statement", href: "#" },
-  { label: "Code of Ethics & Integrity", href: "#" },
-  { label: "Supplier Code of Conduct", href: "#" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Use", href: "/terms-of-use" },
+  { label: "Global Data Privacy (GDPR, CCPA)", href: "/gdp" },
+  { label: "Accessibility Statement", href: "/accessibility" },
+  { label: "Code of Ethics & Integrity", href: "/code-of-ethics" },
+  { label: "Supplier Code of Conduct", href: "/supplier" },
   { label: "Anti-Corruption & Whistleblower Policy", href: "#" },
   { label: "Governance & Risk Oversight", href: "#" },
 ];

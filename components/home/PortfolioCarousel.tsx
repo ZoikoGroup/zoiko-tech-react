@@ -43,7 +43,7 @@ export default function PortfolioCarousel() {
             ZoikoTech Portfolio
           </h2>
 
-          <p className="text-[#686868] text-[13.5px] md:text-[14px] leading-relaxed font-normal mb-8 max-w-md">
+          <p className="text-[#686868] md:text-[20px] leading-relaxed font-normal mb-8 max-w-md">
             ZoikoTech is the cutting-edge technology division of Zoiko Group. We
             develop world-class, AI-powered platforms that serve individuals,
             businesses, and governments across borders. Our solutions span time
