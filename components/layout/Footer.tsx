@@ -127,7 +127,7 @@ const legalLinks: SimpleLink[] = [
   { label: "Global Data Privacy (GDPR, CCPA)", href: "/gdp" },
   { label: "Accessibility Statement", href: "/accessibility" },
   { label: "Code of Ethics & Integrity", href: "/code-of-ethics" },
-  { label: "Supplier Code of Conduct", href: "#" },
+  { label: "Supplier Code of Conduct", href: "/supplier" },
   { label: "Anti-Corruption & Whistleblower Policy", href: "#" },
   { label: "Governance & Risk Oversight", href: "#" },
 ];
