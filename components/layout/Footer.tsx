@@ -122,9 +122,9 @@ const insightLinks: SimpleLink[] = [
 ];
 
 const legalLinks: SimpleLink[] = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Use", href: "#" },
-  { label: "Global Data Privacy (GDPR, CCPA)", href: "#" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Use", href: "/terms-of-use" },
+  { label: "Global Data Privacy (GDPR, CCPA)", href: "/gdp" },
   { label: "Accessibility Statement", href: "#" },
   { label: "Code of Ethics & Integrity", href: "#" },
   { label: "Supplier Code of Conduct", href: "#" },
