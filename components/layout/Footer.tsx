@@ -114,8 +114,8 @@ const partnerLinks: SimpleLink[] = [
 
 const insightLinks: SimpleLink[] = [
   { label: "Case Studies & Success Stories", href: "#" },
-  { label: "Product Demos & Tutorials", href: "#" },
-  { label: "White Papers & Technical Briefs", href: "#" },
+  { label: "Product Demos & Tutorials", href: "/product-demo" },
+  { label: "White Papers & Technical Briefs", href: "/white-papers" },
   { label: "Investor Relations & Disclosures", href: "#" },
   { label: "Analyst Reports & Market Trends", href: "#" },
   { label: "Global Support & Contact", href: "/global-support" },

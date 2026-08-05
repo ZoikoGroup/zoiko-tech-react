@@ -1,0 +1,9 @@
+export { default as WhitePapersHeroSection } from "./WhitePapersHeroSection";
+export { default as StrategicWhitePapersSection } from "./StrategicWhitePapersSection";
+export { default as EmbeddedComplianceWhitePaperSection } from "./EmbeddedComplianceWhitePaperSection";
+export { default as GlobalMvnoWhitePaperSection } from "./GlobalMvnoWhitePaperSection";
+export { default as TelecomEsgWhitePaperSection } from "./TelecomEsgWhitePaperSection";
+export { default as DigitizingGovernmentWhitePaperSection } from "./DigitizingGovernmentWhitePaperSection";
+export { default as TechnicalBriefsSection } from "./TechnicalBriefsSection";
+export { default as EmergingResearchSection } from "./EmergingResearchSection";
+export { default as AccessAndApplicationSection } from "./AccessAndApplicationSection";
