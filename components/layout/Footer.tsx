@@ -128,8 +128,8 @@ const legalLinks: SimpleLink[] = [
   { label: "Accessibility Statement", href: "/accessibility" },
   { label: "Code of Ethics & Integrity", href: "/code-of-ethics" },
   { label: "Supplier Code of Conduct", href: "/supplier" },
-  { label: "Anti-Corruption & Whistleblower Policy", href: "#" },
-  { label: "Governance & Risk Oversight", href: "#" },
+  { label: "Anti-Corruption & Whistleblower Policy", href: "/anti-corruption" },
+  { label: "Governance & Risk Oversight", href: "/governance-risk" },
 ];
 
 const developerLinks: SimpleLink[] = [
