@@ -134,10 +134,10 @@ const legalLinks: SimpleLink[] = [
 
 const developerLinks: SimpleLink[] = [
   { label: "API & SDK Documentation", href: "#" },
-  { label: "Sandbox Access", href: "#" },
-  { label: "Developer Portal", href: "#" },
-  { label: "Status Dashboard", href: "#" },
-  { label: "Engineering Blog", href: "#" },
+  { label: "Sandbox Access", href: "/sandbox-access" },
+  { label: "Developer Portal", href: "/developer-portal" },
+  { label: "Status Dashboard", href: "/status/dashboard" },
+  { label: "Engineering Blog", href: "/engineering-blog" },
 ];
 
 const clientPortalLinks: SimpleLink[] = [
