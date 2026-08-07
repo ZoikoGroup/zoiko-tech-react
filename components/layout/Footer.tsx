@@ -141,7 +141,7 @@ const developerLinks: SimpleLink[] = [
 ];
 
 const clientPortalLinks: SimpleLink[] = [
-  { label: "Customer Login", href: "#" },
+  { label: "Customer Login", href: "/customer-login" },
   { label: "Partner Login", href: "#" },
   { label: "Support Ticketing System", href: "#" },
   { label: "System Health & Uptime Monitor", href: "#" },
