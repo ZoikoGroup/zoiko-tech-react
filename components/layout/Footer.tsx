@@ -128,20 +128,20 @@ const legalLinks: SimpleLink[] = [
   { label: "Accessibility Statement", href: "/accessibility" },
   { label: "Code of Ethics & Integrity", href: "/code-of-ethics" },
   { label: "Supplier Code of Conduct", href: "/supplier" },
-  { label: "Anti-Corruption & Whistleblower Policy", href: "#" },
-  { label: "Governance & Risk Oversight", href: "#" },
+  { label: "Anti-Corruption & Whistleblower Policy", href: "/anti-corruption" },
+  { label: "Governance & Risk Oversight", href: "/governance-risk" },
 ];
 
 const developerLinks: SimpleLink[] = [
   { label: "API & SDK Documentation", href: "#" },
-  { label: "Sandbox Access", href: "#" },
-  { label: "Developer Portal", href: "#" },
-  { label: "Status Dashboard", href: "#" },
-  { label: "Engineering Blog", href: "#" },
+  { label: "Sandbox Access", href: "/sandbox-access" },
+  { label: "Developer Portal", href: "/developer-portal" },
+  { label: "Status Dashboard", href: "/status/dashboard" },
+  { label: "Engineering Blog", href: "/engineering-blog" },
 ];
 
 const clientPortalLinks: SimpleLink[] = [
-  { label: "Customer Login", href: "#" },
+  { label: "Customer Login", href: "/customer-login" },
   { label: "Partner Login", href: "#" },
   { label: "Support Ticketing System", href: "#" },
   { label: "System Health & Uptime Monitor", href: "#" },
