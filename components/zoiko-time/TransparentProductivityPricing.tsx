@@ -43,7 +43,7 @@ const zoikoTimePlans = [
     period: "",
     isRecommended: false,
     ctaText: "Contact Sales",
-    ctaHref: "/contact-sales?product=zoikotime",
+    ctaHref: "/contact-us",
     features: [
       "Private AI governance instance",
       "SOC2 compliance",

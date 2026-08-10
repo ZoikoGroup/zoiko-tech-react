@@ -1,8 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 
 export default function AboutZoikoTech() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const extraContentRef = useRef<HTMLDivElement>(null);
+
+  const toggleExpand = () => {
+    setIsExpanded((prev) => !prev);
+  };
+
   return (
     <section className="w-full bg-[#f8f9fd] text-[#0f1124] px-6 md:px-12 lg:px-16 py-20 md:py-28 flex flex-col items-center justify-center overflow-hidden">
       <style
@@ -23,7 +30,7 @@ export default function AboutZoikoTech() {
       {/* Main Container using Flexbox */}
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 animate-pop-up-about">
         {/* Left Content Column */}
-        <div className="w-full  flex flex-col items-start">
+        <div className="w-full flex flex-col items-start">
           <span className="text-[#207885] text-[13px] font-bold tracking-tight mb-2">
             About Zoiko Tech
           </span>
@@ -32,18 +39,46 @@ export default function AboutZoikoTech() {
             Intelligence. Infrastructure. Impact.
           </h2>
 
-          <p className="text-[#7d8296] text-[14px] md:text-[15px] leading-relaxed font-normal mb-8 max-w-xl">
-            ZoikoTech is a California-based global technology company building
-            the intelligent infrastructure of the future. At the heart of its
-            creation is the vision of Lennox McLeod - a tech-savvy, serial
-            entrepreneur whose deep expertise spans finance, technology, law,
-            and international strategy. With over three decades of global
-            business leadership, McLeod has consistently anticipated trends,
-            built transformative enterprises, and merged commercial....
-          </p>
+          <div className="text-[#7d8296] text-[14px] md:text-[15px] leading-relaxed font-normal max-w-xl">
+            {/* Primary content shown initially */}
+            <p className="mb-4">
+              ZoikoTech is a California-based global technology company building
+              the intelligent infrastructure of the future. At the heart of its
+              creation is the vision of Lennox McLeod - a tech-savvy, serial
+              entrepreneur whose deep expertise spans finance, technology, law,
+              and international strategy. With over three decades of global
+              business leadership, McLeod has consistently anticipated trends,
+              built transformative enterprises, and merged commercial success with
+              societal progress{!isExpanded && "...."}
+            </p>
 
-          <button className="bg-[#207885] hover:bg-[#185e68] text-white font-semibold text-[13px] px-7 py-3.5 rounded-lg transition-all shadow-sm active:scale-95">
-            Know More...
+            {/* Expanded content wrapper with smooth transition */}
+            <div
+              ref={extraContentRef}
+              className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                isExpanded ? "max-h-[1000px] opacity-100 mt-4" : "max-h-0 opacity-0"
+              }`}
+            >
+              <p className="mb-4">
+                At ZoikoTech, we pioneer solutions across artificial intelligence,
+                cloud computing, advanced cybersecurity, and enterprise-grade 
+                telecommunications infrastructure. Our mission is to bridge the gap 
+                between visionary technology and real-world execution.
+              </p>
+              <p className="mb-4">
+                By designing robust scalable platforms and secure communication ecosystem, 
+                we empower businesses, governments, and communities worldwide to transition 
+                seamlessly into the next digital era.
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={toggleExpand}
+            aria-expanded={isExpanded}
+            className="mt-6 bg-[#207885] hover:bg-[#185e68] text-white font-semibold text-[13px] px-7 py-3.5 rounded-lg transition-all shadow-sm active:scale-95 cursor-pointer"
+          >
+            {isExpanded ? "Show Less" : "Know More..."}
           </button>
         </div>
 
