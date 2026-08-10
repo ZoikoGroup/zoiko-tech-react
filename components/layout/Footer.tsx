@@ -136,7 +136,7 @@ const developerLinks: SimpleLink[] = [
   { label: "API & SDK Documentation", href: "#" },
   { label: "Sandbox Access", href: "/sandbox-access" },
   { label: "Developer Portal", href: "/developer-portal" },
-  { label: "Status Dashboard", href: "/status/dashboard" },
+  { label: "Status Dashboard", href: "/status-dashboard" },
   { label: "Engineering Blog", href: "/engineering-blog" },
 ];
 

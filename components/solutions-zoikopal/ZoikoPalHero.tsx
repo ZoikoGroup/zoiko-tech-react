@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 // Motion animation variants with typed custom easing
 const fadeUpVariant = {
@@ -18,6 +19,7 @@ const fadeUpVariant = {
 };
 
 export default function ZoikoPalHero() {
+  const router = useRouter();
   return (
     <section className="w-full bg-gradient-to-r from-[#0D8074] via-[#1AA192] to-[#25B4A4] py-28 px-6 md:px-12 lg:px-16 min-h-screen flex items-center justify-center text-white">
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center w-full">
@@ -57,7 +59,8 @@ export default function ZoikoPalHero() {
           className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 w-full"
         >
           {/* Primary Solid Dark Teal Button */}
-          <button className="px-7 py-3.5 bg-[#1B6258] hover:bg-[#155048] text-white font-medium text-[15px] rounded-lg shadow-[0_4px_12px_#0000001A] transition-colors duration-200 active:scale-95">
+          <button
+          onClick={()=>router.push("/zoiko-pal")} className="px-7 py-3.5 bg-[#1B6258] hover:bg-[#155048] text-white font-medium text-[15px] rounded-lg shadow-[0_4px_12px_#0000001A] transition-colors duration-200 active:scale-95">
             Explore ZoikoPal
           </button>
 

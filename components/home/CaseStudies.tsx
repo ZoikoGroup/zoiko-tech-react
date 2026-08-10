@@ -5,12 +5,26 @@ import React, { useState } from "react";
 export default function CaseStudies() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Track expanded state for each case study item individually
+  const [expandedItems, setExpandedItems] = useState<{
+    [key: number]: boolean;
+  }>({});
+
+  const toggleExpand = (id: number) => {
+    setExpandedItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   const cases = [
     {
       id: 1,
       title: "Telecoms | MVNO Go-Live in Just 60 Days",
-      description:
+      shortDescription:
         "A growing Mobile Virtual Network Operator (MVNO) needed to accelerate time-to-market in a highly competitive space. With ZoikoNex, our flagship OSS/ BSS platform, the",
+      fullDescription:
+        " team deployed an end-to-end cloud architecture featuring automated subscriber onboarding, real-time rating & charging, and dynamic eSIM provisioning. By leveraging pre-built API connectors and microservices, the client reduced operational costs by 35% while launching fully compliant commercial services in under two months.",
       imageMain: "/home/case 1.png",
       imageOverlap: "/home/case 2.png",
       reverse: false,
@@ -18,8 +32,10 @@ export default function CaseStudies() {
     {
       id: 2,
       title: "NGOs | Multilingual Citizen Platform in 6 Weeks",
-      description:
+      shortDescription:
         "An international NGO serving diverse populations needed to create an accessible, multilingual digital platform. We delivered a fully responsive,",
+      fullDescription:
+        " low-bandwidth web application supporting real-time offline data sync and local language translations across 12 regions. The platform enabled over 500,000 citizens to access essential public resources, track relief aid, and register feedback seamlessly.",
       imageMain: "/home/case 3.png",
       imageOverlap: "/home/case 4.png",
       reverse: true,
@@ -72,7 +88,7 @@ export default function CaseStudies() {
             <button
               onClick={handlePrev}
               aria-label="Previous case study"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#ebedf5] bg-white hover:bg-[#f0f2f7] text-[#0f1124] flex items-center justify-center shadow-xs transition-all duration-200 active:scale-95"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#ebedf5] bg-white hover:bg-[#f0f2f7] text-[#0f1124] flex items-center justify-center shadow-xs transition-all duration-200 active:scale-95 cursor-pointer"
             >
               <svg
                 className="w-4 h-4"
@@ -92,7 +108,7 @@ export default function CaseStudies() {
             <button
               onClick={handleNext}
               aria-label="Next case study"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#207885] hover:bg-[#185e68] text-white flex items-center justify-center shadow-md transition-all duration-200 active:scale-95"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#207885] hover:bg-[#185e68] text-white flex items-center justify-center shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
             >
               <svg
                 className="w-4 h-4"
@@ -113,58 +129,80 @@ export default function CaseStudies() {
 
         {/* Case Studies List Container */}
         <div className="flex flex-col gap-14 sm:gap-20 md:gap-28 w-full">
-          {cases.map((item) => (
-            <div
-              key={item.id}
-              className={`flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16 items-center ${
-                item.reverse ? "lg:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Overlapping Image Composition Column */}
-              <div className="w-full lg:w-1/2 relative flex items-center justify-center">
-                <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px] h-[220px] sm:h-[280px] md:h-[320px]">
-                  {/* Primary Background Image */}
-                  <div className="w-[72%] sm:w-[68%] h-[82%] rounded-xl overflow-hidden shadow-md absolute top-0 left-0 bg-gray-100">
-                    <img
-                      src={item.imageMain}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+          {cases.map((item) => {
+            const isExpanded = !!expandedItems[item.id];
 
-                  {/* Secondary Foreground Overlapping Image */}
-                  <div className="w-[62%] sm:w-[58%] h-[72%] rounded-xl overflow-hidden shadow-lg absolute bottom-0 right-0 bg-white border-2 border-white">
-                    <img
-                      src={item.imageOverlap}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
+            return (
+              <div
+                key={item.id}
+                className={`flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16 items-center ${
+                  item.reverse ? "lg:flex-row-reverse" : ""
+                }`}
+              >
+                {/* Overlapping Image Composition Column */}
+                <div className="w-full lg:w-1/2 relative flex items-center justify-center">
+                  <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px] h-[220px] sm:h-[280px] md:h-[320px]">
+                    {/* Primary Background Image */}
+                    <div className="w-[72%] sm:w-[68%] h-[82%] rounded-xl overflow-hidden shadow-md absolute top-0 left-0 bg-gray-100">
+                      <img
+                        src={item.imageMain}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Secondary Foreground Overlapping Image */}
+                    <div className="w-[62%] sm:w-[58%] h-[72%] rounded-xl overflow-hidden shadow-lg absolute bottom-0 right-0 bg-white border-2 border-white">
+                      <img
+                        src={item.imageOverlap}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Text Narrative Column */}
+                <div
+                  className={`w-full lg:w-1/2 flex flex-col items-start ${
+                    item.reverse
+                      ? "lg:items-end lg:text-right"
+                      : "lg:items-start lg:text-left"
+                  }`}
+                >
+                  <h3 className="text-xl sm:text-2xl md:text-[32px] font-extrabold tracking-tight text-[#0f1124] leading-tight mb-3 sm:mb-4 max-w-lg">
+                    {item.title}
+                  </h3>
+
+                  {/* Description Container */}
+                  <div className="text-[#6b719c] text-xs sm:text-[14px] md:text-[15px] leading-relaxed font-normal max-w-lg w-full">
+                    <p className="mb-2">
+                      <span>{item.shortDescription}</span>
+                      {!isExpanded && "..."}
+                      {isExpanded && <span>{item.fullDescription}</span>}
+                    </p>
+
+                    {/* Button wrapper inherits alignment (left for Card 1, right for Card 2) */}
+                    <div
+                      className={`w-full flex ${
+                        item.reverse
+                          ? "justify-start lg:justify-end"
+                          : "justify-start"
+                      }`}
+                    >
+                      <button
+                        onClick={() => toggleExpand(item.id)}
+                        aria-expanded={isExpanded}
+                        className="text-[#ff6b4a] hover:text-[#e55a39] font-bold text-xs sm:text-[14px] transition-colors cursor-pointer py-1"
+                      >
+                        {isExpanded ? "Show Less" : "Read More..."}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Text Narrative Column */}
-              <div
-                className={`w-full lg:w-1/2 flex flex-col items-start ${
-                  item.reverse
-                    ? "lg:items-end lg:text-right"
-                    : "lg:items-start lg:text-left"
-                }`}
-              >
-                <h3 className="text-xl sm:text-2xl md:text-[32px] font-extrabold tracking-tight text-[#0f1124] leading-tight mb-3 sm:mb-4 max-w-lg">
-                  {item.title}
-                </h3>
-
-                <p className="text-[#6b719c] text-xs sm:text-[14px] md:text-[15px] leading-relaxed font-normal mb-4 sm:mb-5 max-w-lg">
-                  {item.description}
-                </p>
-
-                <button className="text-[#ff6b4a] hover:text-[#e55a39] font-bold text-xs sm:text-[14px] transition-colors py-1">
-                  Read More...
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

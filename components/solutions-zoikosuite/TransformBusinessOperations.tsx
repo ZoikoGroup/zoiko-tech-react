@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 // Motion animation variants with typed custom easing
 const fadeUpVariant = {
@@ -25,6 +26,7 @@ const secondaryLinks = [
 ];
 
 export default function TransformBusinessOperations() {
+  const router = useRouter();
   return (
     <section className="w-full bg-gradient-to-r from-[#00695C] via-[#00897B] to-[#26A69A] py-24 px-6 md:px-12 lg:px-16 flex items-center justify-center text-white">
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center w-full">
@@ -55,10 +57,10 @@ export default function TransformBusinessOperations() {
           variants={fadeUpVariant}
           className="flex flex-wrap items-center justify-center gap-4 mb-10"
         >
-          <button className="px-8 py-3 bg-[#FF6B35] hover:bg-[#f05a24] text-white font-medium text-[15px] rounded-lg shadow-[0_4px_14px_rgba(255,107,53,0.4)] transition-all duration-200 active:scale-95">
+          <button onClick={()=>router.push("/product-demo")} className="cursor-pointer px-8 py-3 bg-[#FF6B35] hover:bg-[#f05a24] text-white font-medium text-[15px] rounded-lg shadow-[0_4px_14px_rgba(255,107,53,0.4)] transition-all duration-200 active:scale-95">
             Request Demo
           </button>
-          <button className="px-8 py-3 bg-[#20B2AA]/80 hover:bg-[#20B2AA] text-white font-medium text-[15px] rounded-lg transition-all duration-200 border border-white/20 active:scale-95">
+          <button className="px-8 py-3 bg-[#20B2AA]/80 hover:bg-[#20B2AA] cursor-pointer text-white font-medium text-[15px] rounded-lg transition-all duration-200 border border-white/20 active:scale-95">
             Explore Pricing
           </button>
         </motion.div>

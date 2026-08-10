@@ -1,8 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function PortfolioCarousel() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded((prev) => !prev);
+  };
+
   const portfolioItems = [
     {
       id: 1,
@@ -15,7 +21,7 @@ export default function PortfolioCarousel() {
       title: "Wireframe & Prototyping",
       image: "/home/card 7.png",
       alt: "UX UI wireframe sketch and design prototyping",
-    }
+    },
   ];
 
   return (
@@ -43,18 +49,43 @@ export default function PortfolioCarousel() {
             ZoikoTech Portfolio
           </h2>
 
-          <p className="text-[#686868] md:text-[20px] leading-relaxed font-normal mb-8 max-w-md">
-            ZoikoTech is the cutting-edge technology division of Zoiko Group. We
-            develop world-class, AI-powered platforms that serve individuals,
-            businesses, and governments across borders. Our solutions span time
-            optimization, financial intelligence, cybersecurity, compliance,
-            social connectivity, companionship, and motorist commerce: all
-            designed to solve real-world problems through intelligent
-            innovation.
-          </p>
+          <div className="text-[#686868] md:text-[20px] leading-relaxed font-normal mb-8 max-w-md">
+            {/* Primary description paragraph */}
+            <p className="mb-4">
+              ZoikoTech is the cutting-edge technology division of Zoiko Group. We
+              develop world-class, AI-powered platforms that serve individuals,
+              businesses, and governments across borders. Our solutions span time
+              optimization, financial intelligence, cybersecurity, compliance,
+              social connectivity, companionship, and motorist commerce: all
+              designed to solve real-world problems through intelligent
+              innovation{!isExpanded && "..."}
+            </p>
 
-          <button className="bg-[#207885] hover:bg-[#185e68] text-white font-semibold text-[13.5px] px-7 py-3 rounded-xl transition-all shadow-sm active:scale-95">
-            Know More...
+            {/* Hidden expanded content wrapper */}
+            <div
+              className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <p className="mb-4">
+                Our portfolio highlights custom enterprise software, mobile app
+                architectures, cloud-native API integrations, and robust user-centered
+                interface designs created to drive measurable business transformation.
+              </p>
+              <p>
+                Whether building scalable cloud platforms or cross-device consumer
+                experiences, our cross-functional teams build high-performance products
+                grounded in security and usability.
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={toggleExpand}
+            aria-expanded={isExpanded}
+            className="bg-[#207885] hover:bg-[#185e68] text-white font-semibold text-[13.5px] px-7 py-3 rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer"
+          >
+            {isExpanded ? "Show Less" : "Know More..."}
           </button>
         </div>
 

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 // Motion animation variants with typed custom easing
 const fadeUpVariant = {
@@ -18,6 +19,7 @@ const fadeUpVariant = {
 };
 
 export default function ZoikoSuiteHero() {
+  const router = useRouter();
   return (
     <section className="relative w-full bg-gradient-to-r from-[#00A896] via-[#028090] to-[#056676] py-24 px-6 md:px-12 lg:px-16 overflow-hidden min-h-screen flex items-center justify-center">
       {/* Background Decorative Geometric Shapes */}
@@ -75,12 +77,12 @@ export default function ZoikoSuiteHero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
           {/* Orange Primary Button */}
-          <button className="w-full sm:w-auto bg-[#FF6B4A] hover:bg-[#f05a38] text-white font-bold py-3.5 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-[14px]">
+          <button onClick={()=>router.push("/product-demo")} className="w-full sm:w-auto bg-[#FF6B4A] cursor-pointer hover:bg-[#f05a38] text-white font-bold py-3.5 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-[14px]">
             Request Demo
           </button>
 
           {/* Teal Secondary Button */}
-          <button className="w-full sm:w-auto bg-[#25A18E] hover:bg-[#1d8c7b] text-white font-semibold py-3.5 px-8 rounded-xl transition-all duration-200 text-[14px]">
+          <button onClick={()=>router.push("#features")} className="w-full cursor-pointer sm:w-auto bg-[#25A18E] hover:bg-[#1d8c7b] text-white font-semibold py-3.5 px-8 rounded-xl transition-all duration-200 text-[14px]">
             Explore Features
           </button>
         </motion.div>
