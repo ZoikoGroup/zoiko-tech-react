@@ -102,7 +102,7 @@ export default function GovernanceHero() {
 
           {/* Download Compliance White Paper Button */}
           <Link
-            href="/whitepaper/compliance"
+            href="/compliance"
             className="w-full sm:w-auto min-w-[240px] text-center bg-transparent border-2 border-white text-white font-semibold text-[15px] px-7 py-3.5 rounded-lg hover:bg-white/10 transition-all duration-300"
           >
             Download Compliance White Paper

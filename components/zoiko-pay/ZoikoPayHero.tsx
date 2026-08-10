@@ -88,7 +88,7 @@ export default function ZoikoPayHero() {
         >
           {/* Start Free Sandbox Button */}
           <Link
-            href="/sandbox"
+            href="/sandbox-access"
             className="w-full sm:w-auto min-w-[200px] text-center bg-white text-[#3ba8a0] font-semibold text-[15px] px-7 py-3.5 rounded-lg shadow-xs hover:bg-slate-50 transition-all duration-300"
           >
             Start Free Sandbox

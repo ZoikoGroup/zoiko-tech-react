@@ -19,7 +19,7 @@ const fadeUpVariant = {
 
 const secondaryLinks = [
   { label: "Download Overview", href: "#" },
-  { label: "Watch Demo", href: "#" },
+  { label: "Watch Demo", href: "/product-demo" },
   { label: "Request Partnership Call", href: "#" },
 ];
 
@@ -63,7 +63,7 @@ export default function TransformBusinessOperations() {
         >
           {/* Primary White Button */}
           <a
-            href="#"
+            href="/zoiko-pal"
             className="w-full sm:w-auto min-w-[180px] bg-white text-[#1F9F94] font-semibold py-3.5 px-8 rounded-lg text-[15px] hover:bg-white/90 transition-all duration-200 shadow-sm text-center active:scale-95"
           >
             Explore ZoikoPal

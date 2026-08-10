@@ -90,7 +90,7 @@ export default function ZoikoAxisHero() {
         >
           {/* Explore Solutions Button */}
           <Link
-            href="/solutions?product=zoikoaxis"
+            href="/solutions-zoikoaxis"
             className="w-full sm:w-auto min-w-[180px] text-center bg-white text-[#3ba8a0] font-semibold text-[15px] px-7 py-3 rounded-lg shadow-xs hover:bg-slate-50 transition-all duration-300"
           >
             Explore Solutions

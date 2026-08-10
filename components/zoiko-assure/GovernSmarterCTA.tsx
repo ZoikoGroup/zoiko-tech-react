@@ -73,7 +73,7 @@ export default function GovernSmarterCTA() {
 
           {/* Consult Compliance Specialist Button */}
           <Link
-            href="/consultation"
+            href="/compliance"
             className="w-full sm:w-auto min-w-[240px] text-center bg-transparent border-2 border-white text-white font-semibold text-[15px] px-7 py-3.5 rounded-lg hover:bg-white/10 transition-all duration-300"
           >
             Consult Compliance Specialist

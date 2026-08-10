@@ -11,6 +11,7 @@ import {
   Cloud,
   Activity,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // Motion animation variants with typed custom easing
 const fadeUpVariant = {
@@ -71,6 +72,7 @@ const stats = [
 ];
 
 export default function TelecomInfrastructureHero() {
+  const router = useRouter();
   return (
     <section className="w-full bg-[#008B8BCC] py-20 px-6 md:px-12 lg:px-16 overflow-hidden flex items-center justify-center">
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
@@ -115,7 +117,7 @@ export default function TelecomInfrastructureHero() {
           </button>
 
           {/* Secondary Teal Button */}
-          <button className="w-full sm:w-auto bg-[#25A18E] hover:bg-[#1d8c7b] text-white font-semibold py-3.5 px-8 rounded-xl transition-all duration-200 text-[14px]">
+          <button onClick={()=>router.push("/product-demo")} className="w-full cursor-pointer sm:w-auto bg-[#25A18E] hover:bg-[#1d8c7b] text-white font-semibold py-3.5 px-8 rounded-xl transition-all duration-200 text-[14px]">
             Download the Product Overview
           </button>
         </motion.div>
