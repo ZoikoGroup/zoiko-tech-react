@@ -1,27 +1,35 @@
 import {
-  ZoikotechBrandBanner,
-  AboutZoikoTech,
-  ServicesByIndustry,
-  PortfolioCarousel,
-  ProductEcosystemGrid,
-  WhyZoiko,
-  CaseStudies,
-  TestimonialSlider,
-  TalkToUsContact,
+  DeveloperPlatform,
+  EntityOverview,
+  GovernedAIFoundations,
+  IndustrySpecialization,
+  KnowledgeFrontier,
+  PlatformAccess,
+  ProductEcosystem,
+  SolutionsByOutcome,
+  TechnologyInPractice,
+  TechValues,
+  UnifiedArchitecture,
+  WhoWeAre,
+  ZoikoTech,
 } from "@/components/home";
 
-export default function HomePage() {
+export default function Page() {
   return (
     <main>
-      <ZoikotechBrandBanner />
-      <AboutZoikoTech />
-      <ServicesByIndustry />
-      <PortfolioCarousel />
-      <ProductEcosystemGrid />
-      <WhyZoiko />
-      <CaseStudies />
-      <TestimonialSlider />
-      <TalkToUsContact />
+      <ZoikoTech />
+      <TechValues />
+      <ProductEcosystem />
+      <UnifiedArchitecture />
+      <SolutionsByOutcome />
+      <IndustrySpecialization />
+      <GovernedAIFoundations />
+      <DeveloperPlatform />
+      <TechnologyInPractice />
+      <WhoWeAre />
+      <KnowledgeFrontier />
+      <EntityOverview />
+      <PlatformAccess />
     </main>
   );
 }
