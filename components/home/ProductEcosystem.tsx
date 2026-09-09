@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 type Product = {
@@ -7,6 +8,7 @@ type Product = {
   description: string;
   category: string;
   status: "LIVE" | "BETA";
+  link: string;
 };
 
 const categories = [
@@ -26,6 +28,7 @@ const products: Product[] = [
       "Agentic intelligence layer built for secure enterprise reasoning.",
     category: "Infrastructure",
     status: "LIVE",
+    link: "#",
   },
   {
     name: "ZoikoNex",
@@ -33,6 +36,7 @@ const products: Product[] = [
       "Global telecom billing & unified revenue engine.",
     category: "Infrastructure",
     status: "LIVE",
+    link: "/zoiko-nex",
   },
   {
     name: "ZoikoAssure",
@@ -40,6 +44,7 @@ const products: Product[] = [
       "Smart compliance, automated audits & corporate governance.",
     category: "Infrastructure",
     status: "LIVE",
+    link: "/zoiko-assure",
   },
   {
     name: "ZoikoPay",
@@ -47,6 +52,7 @@ const products: Product[] = [
       "Next-gen intelligent commerce & high-velocity global payments.",
     category: "Financial Stack",
     status: "LIVE",
+    link: "/zoiko-pay",
   },
   {
     name: "Zoiko Remit",
@@ -54,6 +60,7 @@ const products: Product[] = [
       "Secure cross-border remittance and automated treasury.",
     category: "Financial Stack",
     status: "LIVE",
+    link: "#",
   },
   {
     name: "Zoiko Payroll",
@@ -61,6 +68,7 @@ const products: Product[] = [
       "AI-driven global workforce payroll & automated compliance.",
     category: "Financial Stack",
     status: "BETA",
+    link: "#",
   },
   {
     name: "Zoiko Billing",
@@ -68,6 +76,7 @@ const products: Product[] = [
       "Flexible subscription billing models & modular taxation.",
     category: "Financial Stack",
     status: "LIVE",
+    link: "#",
   },
   {
     name: "ZoikoTime",
@@ -75,6 +84,7 @@ const products: Product[] = [
       "Workforce time optimization & productivity intelligence.",
     category: "Operations",
     status: "LIVE",
+    link: "/zoiko-time",
   },
   {
     name: "Zoiko Sema",
@@ -82,6 +92,7 @@ const products: Product[] = [
       "Global sovereign enterprise communications & secure messaging.",
     category: "Communications",
     status: "LIVE",
+    link: "#",
   },
   {
     name: "ZoikoVertex",
@@ -89,6 +100,7 @@ const products: Product[] = [
       "High-density serverless orchestration & computing.",
     category: "Infrastructure",
     status: "BETA",
+    link: "#",
   },
   {
     name: "Zoiko Arc",
@@ -96,6 +108,7 @@ const products: Product[] = [
       "SaaS migration engine & API-first middleware connector.",
     category: "Infrastructure",
     status: "LIVE",
+    link: "#",
   },
   {
     name: "Zoiko Local",
@@ -103,6 +116,7 @@ const products: Product[] = [
       "Regional hyper-local commerce enablement & logistics routing.",
     category: "Commerce",
     status: "LIVE",
+    link: "#",
   },
 ];
 
@@ -133,6 +147,7 @@ export default function ProductEcosystem() {
       className="w-full bg-white px-6 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24 xl:px-20"
     >
       <div className="mx-auto flex w-full max-w-[1296px] flex-col items-start gap-10 sm:gap-12 lg:gap-14">
+
         {/* Section Header */}
         <div className="flex w-full flex-col items-start gap-4">
           <span className="text-[10px] font-bold uppercase tracking-wide text-cyan-700">
@@ -207,15 +222,15 @@ export default function ProductEcosystem() {
                   {product.category}
                 </span>
 
-                <a
-                  href="#"
+                <Link
+                  href={product.link}
                   className="inline-flex items-center gap-1 text-xs font-semibold text-teal-700 transition hover:text-cyan-700"
                 >
                   Explore
                   <span aria-hidden="true" className="text-sm">
                     →
                   </span>
-                </a>
+                </Link>
               </div>
             </article>
           ))}

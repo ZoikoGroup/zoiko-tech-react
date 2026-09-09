@@ -47,7 +47,7 @@ export default function ZoikoTech() {
             </a>
 
             <a
-              href="/contact"
+              href="/contact-us"
               className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-950 sm:text-base"
             >
               Talk to Zoiko Tech
