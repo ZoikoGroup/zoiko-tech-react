@@ -1,28 +1,28 @@
 import {
-  AboutHero,
-  Thesis,
-  Platform,
-  Products,
   AI,
-  Industries,
-  Proof,
-  Governance,
-  Global,
-  Founder,
   Ambition,
   Contact,
+  Credibility,
+  Estate,
+  Founder,
+  Global,
+  Governance,
+  Hero,
+  Industries,
+  Platform,
+  Thesis,
 } from "@/components/about-us";
 
 export default function Page() {
   return (
     <main>
-      <AboutHero />
+      <Hero />
       <Thesis />
       <Platform />
-      <Products />
+      <Estate />
       <AI />
       <Industries />
-      <Proof />
+      <Credibility />
       <Governance />
       <Global />
       <Founder />
