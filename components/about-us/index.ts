@@ -1,10 +1,10 @@
-export { default as AboutHero } from "./AboutHero";
+export { default as Hero } from "./Hero";
 export { default as Thesis } from "./Thesis";
 export { default as Platform } from "./Platform";
-export { default as Products } from "./Products";
+export { default as Estate } from "./Estate";
 export { default as AI } from "./AI";
 export { default as Industries } from "./Industries";
-export { default as Proof } from "./Proof";
+export { default as Credibility } from "./Credibility";
 export { default as Governance } from "./Governance";
 export { default as Global } from "./Global";
 export { default as Founder } from "./Founder";

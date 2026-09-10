@@ -1,4 +1,6 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 
 const industries = [
   {
@@ -8,7 +10,7 @@ const industries = [
       "ZoikoNex, communications infrastructure, billing, eSIM, and operator integrations.",
   },
   {
-    image: "/about-us/finance1.png",
+    image: "/about-us/finance.png",
     title: "Financial & Business",
     description:
       "Comprehensive payroll, billing, accounting, financial logic, and professional intelligence.",
@@ -52,57 +54,94 @@ const industries = [
 ];
 
 export default function Industries() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.08,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full bg-white">
+    <section
+      ref={sectionRef}
+      className="w-full overflow-hidden bg-white"
+    >
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-14 lg:px-28 lg:py-24">
 
         {/* Header */}
-        <div className="flex w-full flex-col items-start gap-4">
-
+        <div
+          className={`flex w-full flex-col items-start gap-4 transition-all duration-1000 ease-out ${
+            visible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-12 opacity-0"
+          }`}
+        >
           {/* Badge */}
-          <div className="inline-flex items-center rounded-full border border-cyan-700/30 bg-cyan-700/10 px-3 py-1.5">
+          <div className="group inline-flex items-center gap-2 rounded-full border border-cyan-700/30 bg-cyan-700/10 px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-700/50 hover:bg-cyan-700/15">
             <span className="text-[10px] font-bold uppercase tracking-wide text-cyan-700">
               Technology for Complex Industries
             </span>
           </div>
 
           {/* Heading */}
-          <h2 className="w-full max-w-[1100px] text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-4xl lg:leading-[1.35]">
+          <h2 className="w-full text-3xl font-extrabold leading-tight tracking-tight text-slate-900 transition-transform duration-500 hover:translate-x-1 sm:text-4xl lg:text-4xl lg:leading-[1.35]">
             Strongest where software must do more than present information
           </h2>
         </div>
 
-        {/* Industry Cards */}
+        {/* Industry Grid */}
         <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {industries.map((industry) => (
+          {industries.map((industry, index) => (
             <article
               key={industry.title}
-              className="group flex min-h-[320px] flex-col gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className={`group flex min-h-[320px] flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all duration-700 ease-out hover:-translate-y-2 hover:border-cyan-700/30 hover:bg-white hover:shadow-[0_18px_40px_rgba(15,23,42,0.10)] ${
+                visible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-12 opacity-0"
+              }`}
+              style={{
+                transitionDelay: `${100 + index * 90}ms`,
+              }}
             >
               {/* Image */}
-              <div className="relative h-36 w-full overflow-hidden rounded-lg">
-                <Image
+              <div className="h-36 w-full overflow-hidden rounded-lg">
+                <img
                   src={industry.image}
                   alt={industry.title}
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 241px"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold leading-7 text-slate-900">
+              <h3 className="mt-4 text-lg font-bold leading-6 text-slate-900 transition-colors duration-300 group-hover:text-cyan-700">
                 {industry.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm font-normal leading-5 text-slate-500">
+              <p className="mt-2 text-sm font-normal leading-5 text-slate-500 transition-colors duration-300 group-hover:text-slate-600">
                 {industry.description}
               </p>
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );
