@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const developerSections = [
   {
@@ -47,142 +47,117 @@ const developerSections = [
 
 export default function Developers() {
   return (
-    <section className="w-full overflow-hidden bg-teal-50 px-4 py-16 sm:px-6 md:px-10 lg:px-20 lg:py-28">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 lg:gap-20">
+    <section className="w-full bg-teal-50 px-4 py-16 sm:px-6 md:px-10 lg:px-20 lg:py-28">
+      <div className="mx-auto w-full max-w-[1280px]">
         {/* Header */}
-        <Reveal>
-          <div className="flex w-full flex-col items-start gap-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-cyan-700">
-              ZOIKO FOR DEVELOPERS
-            </p>
+        <div className="mb-12 flex flex-col items-center text-center">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-cyan-700">
+            ZOIKO FOR DEVELOPERS
+          </p>
 
-            <h2 className="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl lg:text-5xl lg:leading-[1.2]">
-              Build on Zoiko technology
-            </h2>
+          <h2 className="text-3xl font-bold leading-tight text-slate-950 sm:text-4xl lg:text-5xl">
+            Build on Zoiko technology
+          </h2>
 
-            <p className="max-w-[900px] text-sm font-normal leading-6 text-slate-600 sm:text-base lg:text-lg lg:leading-7">
-              APIs, SDKs, model interfaces, webhooks, sandbox environments,
-              identity, observability, usage controls, documentation and
-              integrations form the common developer layer across the Zoiko
-              ecosystem.
-            </p>
-          </div>
-        </Reveal>
+          <p className="mt-5 max-w-[900px] text-sm leading-7 text-slate-500 sm:text-base">
+            APIs, SDKs, model interfaces, webhooks, sandbox environments,
+            identity, observability, usage controls, documentation and
+            integrations form the common developer layer across the Zoiko
+            ecosystem.
+          </p>
+        </div>
 
         {/* Developer Cards */}
-        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {developerSections.map((section, index) => (
-            <Reveal key={section.number} delay={index * 120}>
-              <div className="group flex min-h-[330px] w-full flex-col justify-between rounded-xl bg-white p-6 outline outline-1 outline-offset-[-1px] outline-neutral-200 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0px_14px_32px_0px_rgba(15,23,42,0.10)] sm:p-7">
-                <div className="flex w-full flex-col gap-4">
-                  {/* Card Header */}
-                  <div className="flex w-full items-center justify-between">
-                    <h3 className="text-2xl font-extrabold leading-9 text-zinc-900 transition-transform duration-300 group-hover:translate-x-1 sm:text-3xl">
-                      {section.title}
-                    </h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {developerSections.map((section) => (
+            <div
+              key={section.number}
+              className="
+                flex min-h-[360px] flex-col
+                rounded-2xl
+                border border-slate-200
+                bg-white
+                p-6
+                shadow-sm
+              "
+            >
+              {/* Card Header */}
+              <div className="flex items-center justify-between">
+                <h3 className="text-2xl font-bold text-slate-950 sm:text-3xl">
+                  {section.title}
+                </h3>
 
-                    <span className="text-xs font-bold tracking-wide text-cyan-700 opacity-40 transition-all duration-300 group-hover:opacity-70">
-                      {section.number}
-                    </span>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="h-px w-full bg-cyan-700/10 transition-all duration-500 group-hover:bg-cyan-700/20" />
-
-                  {/* Items */}
-                  <div className="flex w-full flex-col gap-3">
-                    {section.items.map((item, itemIndex) => (
-                      <div
-                        key={item}
-                        className="flex w-full items-center gap-2 transition-transform duration-300 group-hover:translate-x-0.5"
-                        style={{
-                          transitionDelay: `${itemIndex * 30}ms`,
-                        }}
-                      >
-                        <span className="flex size-3.5 shrink-0 items-center justify-center">
-                          <span className="h-1.5 w-3 rounded-full border-2 border-cyan-700 transition-all duration-300 group-hover:bg-cyan-700" />
-                        </span>
-
-                        <span className="min-w-0 flex-1 text-sm font-normal leading-5 text-slate-400">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <span className="text-xs font-semibold text-cyan-600">
+                  {section.number}
+                </span>
               </div>
-            </Reveal>
+
+              {/* Divider */}
+              <div className="mt-5 h-px w-full bg-cyan-700/20" />
+
+              {/* Items */}
+              <div className="mt-6 flex flex-col gap-4">
+                {section.items.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3"
+                  >
+                    <Image
+                      src="/home/developer-icon.png"
+                      alt=""
+                      width={18}
+                      height={18}
+                      className="mt-1 h-[18px] w-[18px] shrink-0 object-contain"
+                    />
+
+                    <p className="text-sm leading-6 text-slate-400">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Buttons */}
-        <Reveal delay={200}>
-          <div className="flex w-full flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center">
-            <a
-              href="#"
-              className="flex items-center justify-center gap-2 rounded-lg bg-cyan-700 px-6 py-3.5 text-center text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:opacity-90 hover:shadow-lg"
-            >
-              <span>Explore Developer Platform</span>
-            </a>
+        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="#"
+            className="
+              inline-flex w-full items-center justify-center
+              rounded-lg
+              bg-cyan-700
+              px-6 py-4
+              text-sm font-semibold
+              text-white
+              transition
+              hover:bg-cyan-800
+              sm:w-auto
+            "
+          >
+            Explore Developer Platform
+          </a>
 
-            <a
-              href="#"
-              className="flex items-center justify-center rounded-lg px-6 py-3.5 text-center text-base font-semibold text-cyan-700 outline outline-1 outline-offset-[-1px] outline-cyan-700 transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-700 hover:text-white hover:shadow-md"
-            >
-              Read documentation
-            </a>
-          </div>
-        </Reveal>
+          <a
+            href="#"
+            className="
+              inline-flex w-full items-center justify-center
+              rounded-lg
+              border border-cyan-700
+              bg-transparent
+              px-6 py-4
+              text-sm font-semibold
+              text-cyan-700
+              transition
+              hover:bg-cyan-700/5
+              sm:w-auto
+            "
+          >
+            Read documentation
+          </a>
+        </div>
       </div>
     </section>
-  );
-}
-
-/* Scroll Reveal */
-function Reveal({
-  children,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  delay?: number;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(element);
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`w-full transform transition-all duration-700 ease-out ${
-        visible
-          ? "translate-y-0 opacity-100"
-          : "translate-y-10 opacity-0"
-      }`}
-    >
-      {children}
-    </div>
   );
 }
