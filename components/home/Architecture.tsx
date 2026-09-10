@@ -38,7 +38,7 @@ const architectureLayers = [
 
 export default function Architecture() {
   return (
-    <section className="relative w-full overflow-hidden bg-emerald-500/5 px-4 py-16 sm:px-6 md:px-10 lg:px-20 lg:py-28">
+    <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 md:px-10 lg:px-20 lg:py-28">
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400 opacity-10 blur-3xl sm:h-96 sm:w-96" />
 

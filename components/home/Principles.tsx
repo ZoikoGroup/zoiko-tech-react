@@ -32,7 +32,7 @@ const principles = [
 
 export default function Principles() {
   return (
-    <section className="w-full bg-teal-400/5 px-5 py-12 sm:px-8 md:px-12 lg:px-20 lg:py-14">
+    <section className="w-full bg-[#f5fdfc] px-5 py-12 sm:px-8 md:px-12 lg:px-20 lg:py-14">
       <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {principles.map((item, index) => (
           <Reveal key={item.title} delay={index * 100}>
