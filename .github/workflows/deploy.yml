@@ -1,4 +1,4 @@
-name: Deploy Zoiko Tech Website
+name: Deploy to GCP VM
 
 on:
   push:
@@ -9,16 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SSH and deploy
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # v1.0.3
         with:
           host: ${{ secrets.GCP_SSH_HOST }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_KEY }}
           script: |
             set -e
-            cd /var/www/zoiko-tech/app
+            cd /home/lennox/zoiko-tech-react
             git pull origin main
-            npm install
+            npm ci
+            npm audit --audit-level=high
             npm run build
             pm2 restart zoiko-tech
             pm2 save
