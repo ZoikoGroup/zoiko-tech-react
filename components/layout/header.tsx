@@ -60,7 +60,7 @@ export default function Header() {
   };
 
   return (
-    <header className="relative z-50 h-24 w-full border-b border-zinc-200 bg-white">
+    <header className="fixed top-0 left-0 z-50 h-24 w-full border-b border-zinc-200 bg-white">
       <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-10">
 
         {/* Logo */}
@@ -70,7 +70,7 @@ export default function Header() {
           onClick={closeMenu}
         >
           <img
-            src="/zoikotech.png"
+            src="/logo.png"
             alt="Zoiko Tech"
             className="h-20 w-46 object-contain"
           />
