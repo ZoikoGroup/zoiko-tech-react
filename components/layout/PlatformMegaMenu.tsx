@@ -14,14 +14,21 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["400", "600", "700"],
 });
 
-type SolutionsMegaMenuProps = {
+type ProductMegaMenuProps = {
   isOpen: boolean;
   onLinkClick: () => void;
 };
 
-type SolutionItemProps = {
+type ProductItemProps = {
   title: string;
   description: string;
+  href: string;
+  icon: string;
+  onLinkClick: () => void;
+};
+
+type BottomLinkProps = {
+  title: string;
   href: string;
   icon: string;
   onLinkClick: () => void;
@@ -40,23 +47,23 @@ function Arrow() {
 }
 
 /* =========================
-   SOLUTION ITEM
+   PRODUCT ITEM
 ========================= */
 
-function SolutionItem({
+function ProductItem({
   title,
   description,
   href,
   icon,
   onLinkClick,
-}: SolutionItemProps) {
+}: ProductItemProps) {
   return (
     <Link
       href={href}
       onClick={onLinkClick}
-      className="group flex w-full items-start gap-2.5"
+      className="group flex w-full min-w-0 items-start gap-2.5"
     >
-      {/* Icon */}
+      {/* ICON */}
       <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-teal-700">
         <Image
           src={icon}
@@ -67,10 +74,10 @@ function SolutionItem({
         />
       </div>
 
-      {/* Text */}
+      {/* CONTENT */}
       <div className="min-w-0 flex-1 overflow-hidden">
-        {/* Title + Arrow */}
-        <div className="flex w-full items-center justify-between gap-2 overflow-hidden">
+        {/* TITLE + ARROW */}
+        <div className="flex min-w-0 w-full items-center justify-between gap-2">
           <span
             className={`${plusJakarta.className} min-w-0 flex-1 text-[14px] font-bold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
           >
@@ -80,9 +87,9 @@ function SolutionItem({
           <Arrow />
         </div>
 
-        {/* Description */}
+        {/* DESCRIPTION */}
         <p
-          className={`${poppins.className} mt-[3px] w-full text-[12px] font-normal leading-4 text-slate-300`}
+          className={`${poppins.className} mt-[3px] w-full pr-1 text-[11px] font-normal leading-[14px] text-gray-300`}
         >
           {description}
         </p>
@@ -102,7 +109,7 @@ function CategoryTitle({
 }) {
   return (
     <div
-      className={`${poppins.className} w-full text-[14px] font-bold uppercase leading-5 text-white`}
+      className={`${poppins.className} w-full shrink-0 text-[14px] font-bold uppercase leading-5 text-white`}
     >
       {children}
     </div>
@@ -110,107 +117,147 @@ function CategoryTitle({
 }
 
 /* =========================
-   CORE SOLUTIONS
+   BOTTOM LINK
 ========================= */
 
-const coreSolutions = [
+function BottomLink({
+  title,
+  href,
+  icon,
+  onLinkClick,
+}: BottomLinkProps) {
+  return (
+    <Link
+      href={href}
+      onClick={onLinkClick}
+      className="group flex w-full min-w-0 items-center gap-2"
+    >
+      {/* ICON */}
+      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-teal-700">
+        <Image
+          src={icon}
+          alt=""
+          width={14}
+          height={14}
+          className="size-3.5 object-contain"
+        />
+      </div>
+
+      {/* TITLE */}
+      <span
+        className={`${poppins.className} min-w-0 flex-1 text-[12px] font-semibold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
+      >
+        {title}
+      </span>
+
+      {/* ARROW */}
+      <Arrow />
+    </Link>
+  );
+}
+
+/* =========================
+   ENTERPRISE PRODUCTS
+========================= */
+
+const enterpriseProducts = [
   {
-    title: "Technology & SaaS",
+    title: "ZoikoTime",
     description:
-      "Modernize core work with integrated enterprise software",
+      "Governed workforce time, productivity and provenance",
     href: "#",
-    icon: "/SolutionsMegaMenu/technology-saas.png",
+    icon: "/PlatformMegaMenu/enterprise-zoikotime.png",
   },
   {
-    title: "AI & Agentic Automation",
+    title: "Zoiko HR",
     description:
-      "Apply governed AI and agents to repeatable business work",
+      "Global human resources and workforce operations",
     href: "#",
-    icon: "/SolutionsMegaMenu/ai-agentic-automation.png",
+    icon: "/PlatformMegaMenu/enterprise-zoiko-hr.png",
   },
   {
-    title: "Cloud & Developer Infrastructure",
+    title: "Zoiko Payroll",
     description:
-      "Build, integrate and operate on scalable platform foundations",
+      "Payroll operations, controls and multinational workflows",
     href: "#",
-    icon: "/SolutionsMegaMenu/cloud-developer-infrastructure.png",
+    icon: "/PlatformMegaMenu/enterprise-zoiko-payroll.png",
   },
   {
-    title: "Modernization & Integration",
+    title: "Zoiko Billing",
     description:
-      "Connect legacy systems, APIs, workflows and digital services",
+      "Billing, invoicing and revenue operations",
     href: "#",
-    icon: "/SolutionsMegaMenu/modernization-integration.png",
+    icon: "/PlatformMegaMenu/enterprise-zoiko-billing.png",
   },
 ];
 
 /* =========================
-   OPERATIONS & COMMUNICATIONS
+   AI / TELECOM PRODUCTS
 ========================= */
 
-const operationsSolutions = [
+const aiProducts = [
   {
-    title: "Workforce & Productivity",
+    title: "ZoikoVertex",
     description:
-      "Time, visibility, collaboration and operational accountability",
+      "Governed agentic execution and workflow automation",
     href: "#",
-    icon: "/SolutionsMegaMenu/workforce-productivity.png",
+    icon: "/PlatformMegaMenu/ai-zoikovertex.png",
   },
   {
-    title: "HR, Payroll & Revenue Operations",
+    title: "ZoikoNex",
     description:
-      "Run people, payroll, billing and recurring business processes",
+      "Telecom OSS/BSS, monetization and operator infrastructure",
     href: "#",
-    icon: "/SolutionsMegaMenu/hr-payroll-revenue-operations.png",
+    icon: "/PlatformMegaMenu/ai-zoikonex.png",
   },
   {
-    title: "Telecom Operations & Monetization",
+    title: "Zoiko Sema",
     description:
-      "Operate communications services with OSS/BSS infrastructure",
+      "Meetings, messaging and calling",
     href: "#",
-    icon: "/SolutionsMegaMenu/telecom-operations-monetization.png",
+    icon: "/PlatformMegaMenu/ai-zoiko-sema.png",
   },
   {
-    title: "Communications & Collaboration",
+    title: "Zoiko Local",
     description:
-      "Meetings, messaging, calling and business communications",
+      "Communications and local-number infrastructure",
     href: "#",
-    icon: "/SolutionsMegaMenu/communications-collaboration.png",
+    icon: "/PlatformMegaMenu/ai-zoiko-local.png",
+  },
+  {
+    title: "ZoikoStream Live Events",
+    description:
+      "Commercial live-event broadcasting technology",
+    href: "#",
+    icon: "/PlatformMegaMenu/ai-zoikostream.png",
   },
 ];
 
 /* =========================
-   TRUST / SECURITY / GOVERNANCE
+   GROUP PLATFORMS
 ========================= */
 
-const trustSolutions = [
+const groupProducts = [
   {
-    title: "Cybersecurity & Resilience",
+    title: "ZoikoMeds",
     description:
-      "Protect systems, users and business continuity",
+      "Zoiko Healthcare platform - medication and pharmacy-availability intelligence",
     href: "#",
-    icon: "/SolutionsMegaMenu/cybersecurity-resilience.png",
+    icon: "/PlatformMegaMenu/group-zoikomed.png",
   },
   {
-    title: "Identity & Access",
+    title: "Zoiko Social",
     description:
-      "Authenticate people, systems and delegated authority",
+      "Zoiko Media Corp. platform - social and community experience",
     href: "#",
-    icon: "/SolutionsMegaMenu/identity-access.png",
+    icon: "/PlatformMegaMenu/group-zoiko-social.png",
   },
   {
-    title: "Regulatory & Compliance",
+    title: "Zoiko Rooms",
     description:
-      "Evidence, obligations, controls and regulated workflows",
+      "Zoiko Realty Group platform - property and accommodation marketplace",
     href: "#",
-    icon: "/SolutionsMegaMenu/regulatory-compliance.png",
-  },
-  {
-    title: "AI Governance & Assurance",
-    description:
-      "Govern AI systems, agent behavior, evidence and approvals",
-    href: "#",
-    icon: "/SolutionsMegaMenu/ai-governance-assurance.png",
+    icon: "/PlatformMegaMenu/group-zoiko-rooms.png",
   },
 ];
 
@@ -218,10 +265,10 @@ const trustSolutions = [
    MAIN COMPONENT
 ========================= */
 
-export default function SolutionsMegaMenu({
+export default function ProductMegaMenu({
   isOpen,
   onLinkClick,
-}: SolutionsMegaMenuProps) {
+}: ProductMegaMenuProps) {
   return (
     <div
       className={`
@@ -251,6 +298,7 @@ export default function SolutionsMegaMenu({
 
       {/* =========================
           OUTER WHITE CONTAINER
+          SAME AS INDUSTRIES
       ========================== */}
 
       <div
@@ -265,7 +313,8 @@ export default function SolutionsMegaMenu({
         "
       >
         {/* =========================
-            GREEN BACKGROUND PANEL
+            INNER PANEL
+            SAME 384px HEIGHT
         ========================== */}
 
         <div
@@ -278,30 +327,43 @@ export default function SolutionsMegaMenu({
             shadow-[0px_4px_4px_0px_rgba(31,122,108,0.60)]
           "
         >
-          {/* Actual Figma background image */}
+          {/* =========================
+              BACKGROUND IMAGE
+          ========================== */}
+
+          <Image
+            src="/PlatformMegaMenu/platform-mega-menu-bg.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 1400px) calc(100vw - 160px), 1400px"
+            className="object-cover"
+          />
+
+          {/* =========================
+              GREEN OVERLAY
+          ========================== */}
+
           <div
             className="
               absolute
               inset-0
-              bg-cover
-              bg-center
-              bg-no-repeat
+              bg-gradient-to-r
+              from-emerald-900/35
+              via-emerald-900/20
+              to-teal-800/25
             "
-            style={{
-              backgroundImage:
-                "url('/SolutionsMegaMenu/solutions-mega-menu-bg.png')",
-            }}
           />
 
           {/* =========================
-              CONTENT
+              THREE COLUMNS
           ========================== */}
 
           <div className="relative z-10 flex h-full w-full">
 
             {/* =========================================
                 COLUMN 1
-                CORE SOLUTIONS
+                ENTERPRISE & WORKFORCE
             ========================================== */}
 
             <div
@@ -311,7 +373,6 @@ export default function SolutionsMegaMenu({
                 w-[31.5%]
                 min-w-0
                 flex-col
-                gap-8
                 overflow-hidden
                 border-r
                 border-gray-400/70
@@ -319,13 +380,18 @@ export default function SolutionsMegaMenu({
                 py-6
               "
             >
+              {/* TITLE */}
+
               <CategoryTitle>
-                Core Solutions
+                Enterprise &amp; Workforce
               </CategoryTitle>
 
-              <div className="flex w-full flex-col gap-[20px]">
-                {coreSolutions.map((item) => (
-                  <SolutionItem
+              {/* PRODUCTS
+                  CLOSER VERTICAL SPACING */}
+
+              <div className="flex w-full flex-col gap-[20px] pt-6">
+                {enterpriseProducts.map((item) => (
+                  <ProductItem
                     key={item.title}
                     title={item.title}
                     description={item.description}
@@ -339,7 +405,7 @@ export default function SolutionsMegaMenu({
 
             {/* =========================================
                 COLUMN 2
-                OPERATIONS & COMMUNICATIONS
+                AI, TELECOM & COMMUNICATIONS
             ========================================== */}
 
             <div
@@ -349,7 +415,6 @@ export default function SolutionsMegaMenu({
                 w-[37%]
                 min-w-0
                 flex-col
-                gap-8
                 overflow-hidden
                 border-r
                 border-gray-400/70
@@ -357,13 +422,18 @@ export default function SolutionsMegaMenu({
                 py-6
               "
             >
+              {/* TITLE */}
+
               <CategoryTitle>
-                Operations &amp; Communications
+                AI, Telecom &amp; Communications
               </CategoryTitle>
 
-              <div className="flex w-full flex-col gap-[20px]">
-                {operationsSolutions.map((item) => (
-                  <SolutionItem
+              {/* PRODUCTS
+                  CLOSER VERTICAL SPACING */}
+
+              <div className="flex w-full flex-col gap-[20px] pt-6">
+                {aiProducts.map((item) => (
+                  <ProductItem
                     key={item.title}
                     title={item.title}
                     description={item.description}
@@ -377,7 +447,7 @@ export default function SolutionsMegaMenu({
 
             {/* =========================================
                 COLUMN 3
-                TRUST, SECURITY & GOVERNANCE
+                GROUP PLATFORMS
             ========================================== */}
 
             <div
@@ -387,19 +457,22 @@ export default function SolutionsMegaMenu({
                 w-[31.5%]
                 min-w-0
                 flex-col
-                gap-8
                 overflow-hidden
                 px-8
                 py-6
               "
             >
+              {/* TITLE */}
+
               <CategoryTitle>
-                Trust, Security &amp; Governance
+                Group Platforms Powered by Zoiko Technology
               </CategoryTitle>
 
-              <div className="flex w-full flex-col gap-[20px]">
-                {trustSolutions.map((item) => (
-                  <SolutionItem
+              {/* GROUP PRODUCTS */}
+
+              <div className="flex min-h-0 flex-1 flex-col justify-between pt-6">
+                {groupProducts.map((item) => (
+                  <ProductItem
                     key={item.title}
                     title={item.title}
                     description={item.description}
@@ -408,9 +481,35 @@ export default function SolutionsMegaMenu({
                     onLinkClick={onLinkClick}
                   />
                 ))}
+
+                {/* =========================
+                    DIVIDER
+                ========================== */}
+
+                <div className="my-2 h-px w-full shrink-0 bg-gray-400/70" />
+
+                {/* =========================
+                    CTA GROUP
+                    CLOSE TOGETHER
+                ========================== */}
+
+                <div className="flex flex-col gap-[3px]">
+                  <BottomLink
+                    title="→ Explore All Platforms"
+                    href="#"
+                    icon="/PlatformMegaMenu/explore-all-platforms.png"
+                    onLinkClick={onLinkClick}
+                  />
+
+                  <BottomLink
+                    title="→ Platform Ecosystem"
+                    href="#"
+                    icon="/PlatformMegaMenu/platform-ecosystem.png"
+                    onLinkClick={onLinkClick}
+                  />
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

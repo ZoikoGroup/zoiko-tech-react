@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import ProductMegaMenu from "./ProductMegaMenu";
+import ProductMegaMenu from "./PlatformMegaMenu";
 import SolutionsMegaMenu from "./SolutionsMegaMenu";
 import IndustriesMegaMenu from "./IndustriesMegaMenu";
 import TechnologyMegaMenu from "./TechnologyMegaMenu";
