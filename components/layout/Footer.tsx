@@ -2,171 +2,429 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, ArrowRight } from "lucide-react";
 import {
-  FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
+  FaYoutube,
 } from "react-icons/fa6";
 
-// ----------------------------------------------------------------------------
-// Animation
-// ----------------------------------------------------------------------------
 const fadeUpVariant = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (customDelay: number) => ({
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.6,
       ease: [0.21, 0.47, 0.32, 0.98] as const,
-      delay: customDelay,
+      delay,
     },
   }),
 };
 
-// ----------------------------------------------------------------------------
-// Shared styles (kept identical to the original markup)
-// ----------------------------------------------------------------------------
-const linkClass = "hover:text-white hover:underline transition-all";
-const headingClass = "text-white font-bold text-[15px] mb-1 tracking-wide";
+type FooterItem = {
+  label: string;
+  href: string;
+};
 
-// ----------------------------------------------------------------------------
-// Data
-// ----------------------------------------------------------------------------
-type SimpleLink = { label: string; href: string };
-type PlatformLink = { name: string; description: string; href: string };
+type FooterColumnProps = {
+  title: string;
+  items: FooterItem[];
+  delay?: number;
+  exploreLabel?: string;
+  exploreHref?: string;
+};
 
-const discoverLinks: SimpleLink[] = [
-  { label: "About Us", href: "/about-us" },
-  { label: "Global Vision & ESG Commitments", href: "/global-vision" },
-  { label: "Leadership & Governance", href: "/leadership-and-governance" },
-  { label: "Innovation & R&D Hub", href: "/innovation-hub" },
-  { label: "Media Center & Announcements", href: "/media-center" },
-  { label: "Sustainability & Social Impact", href: "/sustainability" },
+const platforms: FooterItem[] = [
+  { label: "Zoiko AI", href: "/zoiko-ai" },
+  { label: "ZoikoTime", href: "/zoiko-time" },
+  { label: "ZoikoVertex", href: "/zoiko-vertex" },
+  { label: "ZoikoNex", href: "/zoiko-nex" },
+  { label: "Zoiko HR", href: "/zoiko-hr" },
+  { label: "Zoiko Payroll", href: "/zoiko-payroll" },
+  { label: "Zoiko Billing", href: "/zoiko-billing" },
+  { label: "Zoiko Local", href: "/zoiko-local" },
+  { label: "ZoikoMeds", href: "/zoiko-meds" },
+  { label: "Zoiko Sema", href: "/zoiko-sema" },
+  { label: "Zoiko Rooms", href: "/zoiko-rooms" },
+  { label: "ZoikoStream Live", href: "/zoiko-stream-live" },
+  { label: "Zoiko Social", href: "/zoiko-social" },
 ];
 
-const platformLinks: PlatformLink[] = [
+const solutions: FooterItem[] = [
   {
-    name: "ZoikoTime",
-    description: "Intelligent time tracking and productivity platform.",
-    href: "/zoiko-time",
+    label: "Technology & SaaS",
+    href: "/solutions/technology-saas",
   },
   {
-    name: "ZoikoSuite",
-    description: "Unified accounting, HR, and payroll automation.",
-    href: "/zoiko-suite",
+    label: "AI & Intelligent Automation",
+    href: "/solutions/ai-intelligent-automation",
   },
   {
-    name: "ZoikoNex",
-    description: "Global telecom billing and revenue engine.",
-    href: "/zoiko-nex",
+    label: "Workforce Productivity",
+    href: "/solutions/workforce-productivity",
   },
   {
-    name: "ZoikoAssure",
-    description: "Smart compliance and audit automation.",
-    href: "/zoiko-assure",
+    label: "Business Operations",
+    href: "/solutions/business-operations",
   },
   {
-    name: "ZoikoShield",
-    description: "AI-driven cybersecurity and fraud defense.",
-    href: "/zoiko-shield",
+    label: "Telecom Infrastructure",
+    href: "/solutions/telecom-infrastructure",
   },
   {
-    name: "ZoikoSocial",
-    description: "Social platform for animal lovers and advocates.",
-    href: "/zoiko-social",
+    label: "Cloud & Developer Infrastructure",
+    href: "/solutions/cloud-developer-infrastructure",
   },
   {
-    name: "ZoikoPal",
-    description: "Companion AI for the elderly and emotionally vulnerable.",
-    href: "/zoiko-pal",
+    label: "Cybersecurity & Protection",
+    href: "/solutions/cybersecurity-protection",
   },
   {
-    name: "BookingOrbit",
-    description: "Seamless AI booking for life, travel, and education.",
-    href: "/booking-orbit",
+    label: "Identity & Access",
+    href: "/solutions/identity-access",
   },
   {
-    name: "DriverXtra",
-    description: "Marketplace and perks for global drivers.",
-    href: "/driver-xtra",
+    label: "Regulatory & Compliance",
+    href: "/solutions/regulatory-compliance",
+  },
+  {
+    label: "Customer & Local Commerce",
+    href: "/solutions/customer-local-commerce",
+  },
+  {
+    label: "Healthcare & AgeTech",
+    href: "/solutions/healthcare-agetech",
+  },
+  {
+    label: "Media & Streaming",
+    href: "/solutions/media-streaming",
   },
 ];
 
-const industryLinks: SimpleLink[] = [
-  { label: "Telecommunications & MVNOs", href: "/telecom" },
-  { label: "SaaS & Cloud Enterprises", href: "/sme-saas" },
-  { label: "Finance, Banking & Fintech", href: "/fintech" },
-  { label: "Legal, Tax & Compliance Firms", href: "/compliance" },
-  { label: "Healthcare, Wellness & Elder Care", href: "/healthcare" },
-  { label: "NGOs, Conservation & Public Sector", href: "/social" },
+const industries: FooterItem[] = [
+  {
+    label: "Technology & SaaS",
+    href: "/industries/technology-saas",
+  },
+  {
+    label: "Telecommunications",
+    href: "/industries/telecommunications",
+  },
+  {
+    label: "Financial Services",
+    href: "/industries/financial-services",
+  },
+  {
+    label: "Healthcare & Life Sciences",
+    href: "/industries/healthcare-life-sciences",
+  },
+  {
+    label: "Media & Entertainment",
+    href: "/industries/media-entertainment",
+  },
+  {
+    label: "Retail & Commerce",
+    href: "/industries/retail-commerce",
+  },
+  {
+    label: "Travel & Mobility",
+    href: "/industries/travel-mobility",
+  },
+  {
+    label: "Real Estate & Property",
+    href: "/industries/real-estate-property",
+  },
+  {
+    label: "Professional Services",
+    href: "/industries/professional-services",
+  },
+  {
+    label: "Public Sector",
+    href: "/industries/public-sector",
+  },
+  {
+    label: "Regulated Industries",
+    href: "/industries/regulated-industries",
+  },
 ];
 
-const partnerLinks: SimpleLink[] = [
-  { label: "Strategic & Technology Alliances", href: "/strategy" },
-  { label: "Developer & Integration Network", href: "/developer-integration" },
-  { label: "Global Resellers & Channel Partners", href: "#" },
-  { label: "Incubation & Innovation Labs", href: "#" },
-  { label: "Careers, Internships & Leadership Programs", href: "#" },
+const technology: FooterItem[] = [
+  {
+    label: "Artificial Intelligence",
+    href: "/technology/artificial-intelligence",
+  },
+  {
+    label: "Agentic Systems",
+    href: "/technology/agentic-systems",
+  },
+  {
+    label: "Governed Work Orchestration",
+    href: "/technology/governed-work-orchestration",
+  },
+  {
+    label: "Cloud Infrastructure",
+    href: "/technology/cloud-infrastructure",
+  },
+  {
+    label: "Developer Platform",
+    href: "/developer-portal",
+  },
+  {
+    label: "Digital Identity",
+    href: "/technology/digital-identity",
+  },
+  {
+    label: "Cybersecurity",
+    href: "/technology/cybersecurity",
+  },
+  {
+    label: "Regulatory Technology",
+    href: "/technology/regulatory-technology",
+  },
+  {
+    label: "AI Safety & Governance",
+    href: "/technology/ai-safety-governance",
+  },
+  {
+    label: "Zoiko Research",
+    href: "/research",
+  },
+  {
+    label: "Frontier Technologies",
+    href: "/technology/frontier-technologies",
+  },
 ];
 
-const insightLinks: SimpleLink[] = [
-  { label: "Case Studies & Success Stories", href: "#" },
-  { label: "Product Demos & Tutorials", href: "/product-demo" },
-  { label: "White Papers & Technical Briefs", href: "/white-papers" },
-  { label: "Investor Relations & Disclosures", href: "/investors" },
-  { label: "Analyst Reports & Market Trends", href: "/analyst-reports" },
-  { label: "Global Support & Contact", href: "/global-support" },
+const resources: FooterItem[] = [
+  { label: "Insights", href: "/insights" },
+  { label: "Research", href: "/research" },
+  { label: "Customer Stories", href: "/customer-stories" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Guides & Reports", href: "/guides-reports" },
+  { label: "Documentation", href: "/documentation" },
+  { label: "Developer Resources", href: "/developer-resources" },
+  { label: "Trust Center", href: "/trust-center" },
+  { label: "Newsroom", href: "/newsroom" },
+  { label: "Press & Media", href: "/press-and-media" },
 ];
 
-const legalLinks: SimpleLink[] = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Use", href: "/terms-of-use" },
-  { label: "Global Data Privacy (GDPR, CCPA)", href: "/gdp" },
-  { label: "Accessibility Statement", href: "/accessibility" },
-  { label: "Code of Ethics & Integrity", href: "/code-of-ethics" },
-  { label: "Supplier Code of Conduct", href: "/supplier" },
-  { label: "Anti-Corruption & Whistleblower Policy", href: "/anti-corruption" },
-  { label: "Governance & Risk Oversight", href: "/governance-risk" },
+const company: FooterItem[] = [
+  { label: "About Zoiko Tech", href: "/about-us" },
+  {
+    label: "Leadership & Governance",
+    href: "/leadership-and-governance",
+  },
+  {
+    label: "Technology Strategy",
+    href: "/technology-strategy",
+  },
+  {
+    label: "Global Presence",
+    href: "/global-presence",
+  },
+  { label: "Careers", href: "/careers" },
+  { label: "Partners", href: "/partners" },
+  {
+    label: "Sustainability & Impact",
+    href: "/sustainability",
+  },
+  { label: "Newsroom", href: "/newsroom" },
+  { label: "Contact Us", href: "/contact-us" },
+  { label: "Zoiko Group", href: "/zoiko-group" },
 ];
 
-const developerLinks: SimpleLink[] = [
-  { label: "API & SDK Documentation", href: "#" },
-  { label: "Sandbox Access", href: "/sandbox-access" },
-  { label: "Developer Portal", href: "/developer-portal" },
-  { label: "Status Dashboard", href: "/status-dashboard" },
-  { label: "Engineering Blog", href: "/engineering-blog" },
+const developerItems = [
+  {
+    title: "Developer Platform",
+    description: "Entry point for Zoiko developer services",
+    href: "/developer-portal",
+  },
+  {
+    title: "Documentation",
+    description: "Technical product and integration documentation",
+    href: "/documentation",
+  },
+  {
+    title: "API & SDK Docs",
+    description: "Authoritative API and SDK references",
+    href: "/api-documentation",
+  },
+  {
+    title: "Integrations",
+    description: "Supported integration catalog and patterns",
+    href: "/integrations",
+  },
+  {
+    title: "Engineering Blog",
+    description: "Technical architecture and reliability content",
+    href: "/engineering-blog",
+  },
 ];
 
-const clientPortalLinks: SimpleLink[] = [
-  { label: "Customer Login", href: "/customer-login" },
-  { label: "Partner Login", href: "#" },
-  { label: "Support Ticketing System", href: "#" },
-  { label: "System Health & Uptime Monitor", href: "#" },
+const trustItems = [
+  {
+    title: "Trust Center",
+    description: "Security, privacy and compliance evidence",
+    href: "/trust-center",
+  },
+  {
+    title: "Security",
+    description: "Security program and product security information",
+    href: "/security",
+  },
+  {
+    title: "Privacy",
+    description: "Global privacy framework and notices",
+    href: "/privacy-policy",
+  },
+  {
+    title: "Responsible AI",
+    description: "AI governance, safety and accountability",
+    href: "/responsible-ai",
+  },
+  {
+    title: "Responsible Disclosure",
+    description: "Security vulnerability reporting route",
+    href: "/responsible-disclosure",
+  },
+];
+
+const supportItems = [
+  {
+    title: "Help & Support",
+    description: "Human-readable support entry point",
+    href: "/support",
+  },
+  {
+    title: "Customer Login",
+    description: "Customer account / platform access",
+    href: "/customer-login",
+  },
+  {
+    title: "Partner Portal",
+    description: "Approved partner access",
+    href: "/partner-portal",
+  },
+  {
+    title: "System Status",
+    description: "Service health and incident status",
+    href: "/status-dashboard",
+  },
+  {
+    title: "Contact Support",
+    description: "Support request route",
+    href: "/contact-support",
+  },
+];
+
+const partnerItems = [
+  {
+    title: "Technology Alliances",
+    description: "Strategic technology collaboration",
+    href: "/strategy",
+  },
+  {
+    title: "Integration Network",
+    description: "Technical ecosystem partnerships",
+    href: "/developer-integration",
+  },
+  {
+    title: "Resellers & Channels",
+    description: "Commercial routes to market",
+    href: "/resellers",
+  },
+  {
+    title: "Suppliers",
+    description: "Supplier and procurement information",
+    href: "/supplier",
+  },
+  {
+    title: "Partner With ZoikoTech",
+    description: "Primary partner inquiry destination",
+    href: "/partners",
+  },
 ];
 
 const socialLinks = [
-  { label: "Facebook", href: "#", Icon: FaFacebookF },
-  { label: "Instagram", href: "#", Icon: FaInstagram },
-  { label: "LinkedIn", href: "#", Icon: FaLinkedinIn },
-  { label: "X (Twitter)", href: "#", Icon: FaXTwitter },
+  {
+    label: "LinkedIn",
+    href: "#",
+    Icon: FaLinkedinIn,
+  },
+  {
+    label: "X",
+    href: "#",
+    Icon: FaXTwitter,
+  },
+  {
+    label: "YouTube",
+    href: "#",
+    Icon: FaYoutube,
+  },
+  {
+    label: "Instagram",
+    href: "#",
+    Icon: FaInstagram,
+  },
 ];
 
-// ----------------------------------------------------------------------------
-// Small reusable pieces
-// ----------------------------------------------------------------------------
-
-/** A footer column wrapper with the shared fade-up-on-scroll animation. */
 function FooterColumn({
+  title,
+  items,
+  delay = 0,
+  exploreLabel,
+  exploreHref,
+}: FooterColumnProps) {
+  return (
+    <motion.div
+      custom={delay}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={fadeUpVariant}
+      className="flex min-w-0 flex-1 flex-col items-start gap-3 overflow-hidden"
+    >
+      <h3 className="w-full text-xs font-bold uppercase text-zinc-100">
+        {title}
+      </h3>
+
+      <div className="h-px w-full border-t border-zinc-700" />
+
+      {items.map((item) => (
+        <a
+          key={item.label}
+          href={item.href}
+          className="w-full text-sm font-normal leading-5 text-zinc-400 transition-colors duration-200 hover:text-zinc-100"
+        >
+          {item.label}
+        </a>
+      ))}
+
+      {exploreLabel && (
+        <a
+          href={exploreHref || "/"}
+          className="w-full text-sm font-semibold leading-5 text-zinc-100 transition-colors duration-200 hover:text-teal-400"
+        >
+          → {exploreLabel}
+        </a>
+      )}
+    </motion.div>
+  );
+}
+
+function DetailColumn({
+  title,
+  items,
   delay,
-  className,
-  children,
 }: {
+  title: string;
+  items: {
+    title: string;
+    description: string;
+    href: string;
+  }[];
   delay: number;
-  className?: string;
-  children: React.ReactNode;
 }) {
   return (
     <motion.div
@@ -175,167 +433,361 @@ function FooterColumn({
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={fadeUpVariant}
-      className={className ?? "flex flex-col space-y-3"}
+      className="flex min-w-0 flex-1 flex-col items-start gap-4 overflow-hidden"
     >
-      {children}
+      <h3 className="w-full text-xs font-bold uppercase text-zinc-100">
+        {title}
+      </h3>
+
+      <div className="h-px w-full border-t border-zinc-700" />
+
+      {items.map((item) => (
+        <a
+          key={item.title}
+          href={item.href}
+          className="flex w-full flex-col items-start gap-1 overflow-hidden"
+        >
+          <div className="w-full text-sm font-semibold text-zinc-100 transition-colors duration-200 hover:text-teal-400">
+            {item.title}
+          </div>
+
+          <div className="w-full text-sm font-normal leading-5 text-zinc-400">
+            {item.description}
+          </div>
+        </a>
+      ))}
     </motion.div>
   );
 }
 
-/** Renders a simple list of text links under a heading. */
-function LinkList({ title, links }: { title: string; links: SimpleLink[] }) {
-  return (
-    <>
-      <h3 className={headingClass}>{title}</h3>
-      {links.map((link) => (
-        <a key={link.label} href={link.href} className={linkClass}>
-          {link.label}
-        </a>
-      ))}
-    </>
-  );
-}
-
-// ----------------------------------------------------------------------------
-// Footer
-// ----------------------------------------------------------------------------
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#186D7A] text-white/90 text-[13px] leading-relaxed py-16 px-6 md:px-12 lg:px-16 border-t border-white/10">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-12 mb-12">
-          {/* Column 1: Logo, Bio & Contact */}
-          <FooterColumn delay={0.1}>
-            <div className="mb-2">
-              <img
-                src="/logo.png"
-                alt="ZoikoTech Logo"
-                className="h-10 w-auto max-w-[180px] object-contain"
-              />
+    <footer className="relative w-full overflow-hidden bg-black text-white">
+      {/* BACKGROUND IMAGE */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/layout/footer-background.png')",
+        }}
+      />
+
+      {/* LIGHT OVERLAY - IMAGE IS NOW CLEARLY VISIBLE */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(4,47,46,0.38) 0%, rgba(4,47,46,0.28) 35%, rgba(0,0,0,0.18) 65%, rgba(0,0,0,0.45) 100%)",
+        }}
+      />
+
+      <div className="relative z-10">
+        {/* TOP SECTION */}
+        <div className="px-6 pb-16 pt-16 md:px-10 lg:px-14">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <FooterColumn
+              title="Platforms"
+              items={platforms}
+              delay={0.05}
+              exploreLabel="Explore All Platforms"
+              exploreHref="/platforms"
+            />
+
+            <FooterColumn
+              title="Solutions"
+              items={solutions}
+              delay={0.1}
+              exploreLabel="Explore All Solutions"
+              exploreHref="/solutions"
+            />
+
+            <FooterColumn
+              title="Industries"
+              items={industries}
+              delay={0.15}
+              exploreLabel="Explore All Industries"
+              exploreHref="/industries"
+            />
+
+            <FooterColumn
+              title="Technology"
+              items={technology}
+              delay={0.2}
+              exploreLabel="Explore Our Technology"
+              exploreHref="/technology"
+            />
+
+            <FooterColumn
+              title="Resources"
+              items={resources}
+              delay={0.25}
+              exploreLabel="View All Resources"
+              exploreHref="/resources"
+            />
+
+            <FooterColumn
+              title="Company"
+              items={company}
+              delay={0.3}
+              exploreLabel="Explore Company"
+              exploreHref="/company"
+            />
+          </div>
+        </div>
+
+        {/* SECOND SECTION */}
+        <div className="px-6 pb-16 md:px-10 lg:px-14">
+          <div className="grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            <DetailColumn
+              title="For Developers"
+              items={developerItems}
+              delay={0.35}
+            />
+
+            <DetailColumn
+              title="Trust & Security"
+              items={trustItems}
+              delay={0.4}
+            />
+
+            <DetailColumn
+              title="Support & Portals"
+              items={supportItems}
+              delay={0.45}
+            />
+
+            <DetailColumn
+              title="Partner With Us"
+              items={partnerItems}
+              delay={0.5}
+            />
+          </div>
+        </div>
+
+        {/* DIVIDER */}
+        <div className="h-px w-full border-t border-zinc-700" />
+
+        {/* COMPANY + NEWSLETTER */}
+        <div className="grid grid-cols-1 gap-14 px-6 py-16 md:px-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16 lg:px-14">
+          {/* COMPANY INFORMATION */}
+          <motion.div
+            custom={0.55}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={fadeUpVariant}
+            className="flex flex-col items-start gap-5"
+          >
+            <img
+              src="/layout/zoikotech-logo.png"
+              alt="ZoikoTech"
+              className="h-12 w-auto max-w-[160px] object-contain"
+            />
+
+            <div className="text-sm font-bold text-zinc-400">
+              INTELLIGENCE. INFRASTRUCTURE. IMPACT.
             </div>
 
-            <p className="text-white/80 leading-relaxed text-[13px]">
-              Engineering the Future. Across Borders. At Scale. ZoikoTech Inc.
-              is a California-headquartered global technology innovator,
-              delivering enterprise SaaS, AI-powered platforms, and intelligent
-              infrastructure for businesses and governments worldwide.
+            <p className="max-w-[760px] text-sm font-normal leading-6 text-zinc-100">
+              ZoikoTech Inc. is a California-based global technology company
+              building intelligent infrastructure, enterprise platforms and
+              domain-specific AI for organizations operating across industries,
+              jurisdictions and borders.
             </p>
 
-            <div className="pt-2 space-y-2 text-white/90 font-medium">
-              <a
-                href="mailto:support@zoikotech.com"
-                className="flex items-center gap-2.5 hover:text-white transition-colors duration-200"
-              >
-                <Mail className="w-4 h-4 shrink-0 text-white/80" />
-                <span>support@zoikotech.com</span>
-              </a>
-              <a
-                href="tel:+18004845564"
-                className="flex items-center gap-2.5 hover:text-white transition-colors duration-200"
-              >
-                <Phone className="w-4 h-4 shrink-0 text-white/80" />
-                <span>+1 (800) 484-5564</span>
-              </a>
-            </div>
-          </FooterColumn>
-
-          {/* Column 2: Discover ZoikoTech */}
-          <FooterColumn delay={0.15}>
-            <LinkList title="Discover ZoikoTech" links={discoverLinks} />
-          </FooterColumn>
-
-          {/* Column 3: Platforms & Solutions */}
-          <FooterColumn delay={0.2} className="flex flex-col space-y-2.5">
-            <h3 className={headingClass}>Platforms & Solutions</h3>
-            {platformLinks.map((platform) => (
-              <a key={platform.name} href={platform.href} className={linkClass}>
-                <strong className="font-semibold text-white">
-                  {platform.name}
-                </strong>{" "}
-                – {platform.description}
-              </a>
-            ))}
-          </FooterColumn>
-
-          {/* Column 4: Industries We Empower */}
-          <FooterColumn delay={0.25}>
-            <LinkList title="Industries We Empower" links={industryLinks} />
-          </FooterColumn>
-
-          {/* Column 5: Partner With Us */}
-          <FooterColumn delay={0.3}>
-            <LinkList title="Partner With Us" links={partnerLinks} />
-          </FooterColumn>
-
-          {/* Column 6: Insights & Resources */}
-          <FooterColumn delay={0.35}>
-            <LinkList title="Insights & Resources" links={insightLinks} />
-          </FooterColumn>
-
-          {/* Column 7: Legal & Corporate Governance */}
-          <FooterColumn delay={0.4}>
-            <LinkList title="Legal & Corporate Governance" links={legalLinks} />
-          </FooterColumn>
-
-          {/* Column 8: For Developers */}
-          <FooterColumn delay={0.45}>
-            <LinkList title="For Developers" links={developerLinks} />
-          </FooterColumn>
-
-          {/* Column 9: Client Portals & Stay Informed */}
-          <FooterColumn
-            delay={0.5}
-            className="flex flex-col justify-between space-y-8"
-          >
-            {/* Client Portals Sub-group */}
-            <div className="flex flex-col space-y-3">
-              <LinkList title="Client Portals" links={clientPortalLinks} />
+            <div className="text-sm font-normal text-zinc-400">
+              A Zoiko Group company
             </div>
 
-            {/* Stay Informed Newsletter Input & Socials */}
-            <div className="flex flex-col space-y-3 pt-2">
-              <h3 className="text-white font-bold text-[15px] tracking-wide">
-                Stay Informed
-              </h3>
-              <p className="text-[12px] text-white/80 leading-normal">
-                Join our global tech & innovation community. Get exclusive
-                updates, early releases, and strategic insights.
-              </p>
+            <div className="text-sm font-normal leading-5 text-zinc-400">
+              Headquarters: 1401 21st Street, Suite R, Sacramento, CA 95811,
+              United States
+            </div>
 
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="flex items-center w-full mt-2"
-              >
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full bg-white text-gray-800 placeholder-gray-400 px-3.5 py-2.5 text-[13px] rounded-l-md focus:outline-none focus:ring-1 focus:ring-teal-300"
-                />
-                <button
-                  type="submit"
-                  className="bg-[#00838F] hover:bg-[#006064] text-white px-3.5 py-2.5 rounded-r-md transition-colors duration-200 flex items-center justify-center shrink-0"
-                  aria-label="Subscribe"
+            <div className="text-sm font-normal leading-5 text-zinc-400">
+              European Headquarters: 167–169 Great Portland Street, 5th Floor,
+              London W1W 5PF, United Kingdom
+            </div>
+
+            <a
+              href="/global-presence"
+              className="text-sm font-semibold text-teal-500 transition-colors duration-200 hover:text-teal-300"
+            >
+              → Explore Global Locations
+            </a>
+
+            <div className="mt-1 flex items-center gap-3">
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="flex h-[42px] w-[42px] items-center justify-center rounded-sm bg-zinc-800 text-zinc-100 transition-colors duration-200 hover:bg-zinc-700 hover:text-white"
                 >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-
-              {/* Social Icons */}
-              <div className="flex items-center gap-2.5 pt-3">
-                {socialLinks.map(({ label, href, Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
-                    aria-label={label}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                  </a>
-                ))}
-              </div>
+                  <Icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
             </div>
-          </FooterColumn>
+          </motion.div>
+
+          {/* NEWSLETTER */}
+          <motion.div
+            custom={0.6}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={fadeUpVariant}
+            className="flex w-full max-w-[620px] flex-col items-start gap-4 lg:ml-auto"
+          >
+            <h3 className="text-lg font-bold text-zinc-100">
+              Stay informed
+            </h3>
+
+            <p className="text-sm font-normal leading-5 text-zinc-400">
+              Get Zoiko Tech research, product updates and company news.
+            </p>
+
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="flex w-full flex-col gap-3"
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                aria-label="Email address"
+                className="h-[52px] w-full rounded-sm border border-zinc-700 bg-zinc-800 px-4 text-sm font-normal text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-zinc-500"
+              />
+
+              <button
+                type="submit"
+                className="h-[52px] w-full rounded-sm bg-cyan-700 text-sm font-semibold text-zinc-100 transition-colors duration-200 hover:bg-cyan-600"
+              >
+                Subscribe
+              </button>
+            </form>
+
+            <p className="text-sm font-normal leading-5 text-neutral-400">
+              By subscribing, you agree to our{" "}
+              <a
+                href="/privacy-policy"
+                className="underline transition-colors hover:text-zinc-200"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="/terms-of-use"
+                className="underline transition-colors hover:text-zinc-200"
+              >
+                Terms of Use
+              </a>
+              . We respect your privacy and never share your information.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* BOTTOM LEGAL BAR */}
+        <div className="border-t border-zinc-700 bg-gray-900 px-6 pb-10 pt-9 md:px-10 lg:px-14">
+          <div className="flex flex-col gap-4 text-sm font-normal text-zinc-400">
+            <div>
+              © 2026 ZoikoTech Inc. All rights reserved.
+              <span className="mx-2">·</span>
+              ZoikoTech Inc. is a Zoiko Group company.
+            </div>
+
+            <div className="leading-5">
+              Headquarters: 1401 21st Street, Suite R, Sacramento, CA 95811,
+              United States.
+              <span className="mx-2">|</span>
+              European Headquarters: 167–169 Great Portland Street, 5th Floor,
+              London W1W 5PF, United Kingdom.
+            </div>
+
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              <a
+                href="/privacy-policy"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Privacy
+              </a>
+
+              <span>|</span>
+
+              <a
+                href="/terms-of-use"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Terms
+              </a>
+
+              <span>|</span>
+
+              <a
+                href="/cookies"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Cookies
+              </a>
+
+              <span>|</span>
+
+              <a
+                href="/accessibility"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Accessibility
+              </a>
+
+              <span>|</span>
+
+              <a
+                href="/legal"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Legal
+              </a>
+
+              <span>|</span>
+
+              <a
+                href="/security"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Security
+              </a>
+
+              <span>|</span>
+
+              <a
+                href="/responsible-disclosure"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Responsible Disclosure
+              </a>
+
+              <span>|</span>
+
+              <a
+                href="/privacy-choices"
+                className="transition-colors hover:text-zinc-200"
+              >
+                Privacy Choices
+              </a>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <span>United States / English</span>
+
+              <button
+                type="button"
+                className="transition-colors hover:text-zinc-200"
+                onClick={() => {
+                  // Connect this to your cookie settings implementation.
+                }}
+              >
+                🍪 Cookie Settings
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
