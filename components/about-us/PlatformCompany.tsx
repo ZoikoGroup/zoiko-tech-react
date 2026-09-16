@@ -8,28 +8,31 @@ import {
   Urbanist,
 } from "next/font/google";
 
-/* =========================
-   Fonts
-========================= */
+/* =========================================================
+   FONTS
+========================================================= */
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const urbanist = Urbanist({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-/* =========================
-   Reveal Animation
-========================= */
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
 function Reveal({
   children,
@@ -57,6 +60,7 @@ function Reveal({
       },
       {
         threshold: 0.12,
+        rootMargin: "0px 0px -60px 0px",
       }
     );
 
@@ -88,9 +92,9 @@ function Reveal({
   );
 }
 
-/* =========================
-   Platform Data
-========================= */
+/* =========================================================
+   PLATFORM DATA
+========================================================= */
 
 const platforms = [
   {
@@ -99,8 +103,7 @@ const platforms = [
     description:
       "Intelligence systems, agentic workflows, and decision infrastructure built to operate across complex environments.",
     icon: "/about-us/1.png",
-    position:
-      "lg:absolute lg:left-0 lg:top-[89px]",
+    position: "lg:absolute lg:left-0 lg:top-[89px]",
   },
   {
     number: "02",
@@ -117,8 +120,7 @@ const platforms = [
     description:
       "Technology platforms that modernize enterprise operations, financial workflows, and business infrastructure.",
     icon: "/about-us/3.png",
-    position:
-      "lg:absolute lg:right-0 lg:top-[89px]",
+    position: "lg:absolute lg:right-0 lg:top-[89px]",
   },
   {
     number: "04",
@@ -126,8 +128,7 @@ const platforms = [
     description:
       "Connected communication systems and media technologies built for modern digital experiences.",
     icon: "/about-us/4.png",
-    position:
-      "lg:absolute lg:left-0 lg:top-[546px]",
+    position: "lg:absolute lg:left-0 lg:top-[546px]",
   },
   {
     number: "05",
@@ -144,14 +145,13 @@ const platforms = [
     description:
       "Purpose-built technology solutions that address complex requirements across industries and markets.",
     icon: "/about-us/6.png",
-    position:
-      "lg:absolute lg:right-0 lg:top-[548px]",
+    position: "lg:absolute lg:right-0 lg:top-[548px]",
   },
 ];
 
-/* =========================
-   Connector
-========================= */
+/* =========================================================
+   CONNECTOR
+========================================================= */
 
 function Connector({
   className,
@@ -173,9 +173,9 @@ function Connector({
   );
 }
 
-/* =========================
-   Platform Card
-========================= */
+/* =========================================================
+   PLATFORM CARD
+========================================================= */
 
 function PlatformCard({
   item,
@@ -203,9 +203,9 @@ function PlatformCard({
           flex-col
           justify-between
           overflow-hidden
-          rounded-[14px]
-          border
-          border-cyan-300/50
+          rounded-[24px]
+          border-2
+          border-cyan-300
           bg-gradient-to-br
           from-teal-400
           via-teal-950
@@ -215,29 +215,42 @@ function PlatformCard({
           duration-500
           ease-out
           hover:-translate-y-2
-          hover:border-cyan-200
+          hover:border-cyan-100
           hover:shadow-[0_18px_50px_rgba(0,0,0,0.35)]
         "
       >
-        {/* Decorative glow */}
+        {/* =================================================
+            CARD LIGHT
+        ================================================= */}
+
         <div
           className="
             pointer-events-none
             absolute
-            -right-12
-            -top-12
-            h-32
-            w-32
-            rounded-full
-            bg-cyan-300/10
-            blur-2xl
-            transition-all
-            duration-500
-            group-hover:bg-cyan-200/20
+            inset-0
+            bg-[radial-gradient(circle_at_0%_0%,rgba(45,212,191,0.35),transparent_34%)]
           "
         />
 
+        {/* =================================================
+            DIAGONAL LIGHT
+        ================================================= */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            bg-[linear-gradient(145deg,transparent_25%,rgba(255,255,255,0.035)_48%,transparent_68%)]
+          "
+        />
+
+        {/* =================================================
+            TOP CONTENT
+        ================================================= */}
+
         <div className="relative z-10 flex items-start justify-between gap-4">
+          {/* Icon */}
           <div
             className="
               flex
@@ -264,18 +277,24 @@ function PlatformCard({
             />
           </div>
 
+          {/* Number */}
           <span
             className={`
               ${poppins.className}
+              pt-1
               text-[11px]
               font-semibold
               tracking-[0.16em]
-              text-cyan-100/70
+              text-cyan-100/80
             `}
           >
             {item.number}
           </span>
         </div>
+
+        {/* =================================================
+            TEXT
+        ================================================= */}
 
         <div className="relative z-10 mt-5">
           <h3
@@ -311,9 +330,9 @@ function PlatformCard({
   );
 }
 
-/* =========================
-   Main Component
-========================= */
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
 
 export default function PlatformCompany() {
   return (
@@ -327,9 +346,9 @@ export default function PlatformCompany() {
         bg-transparent
       "
     >
-      {/* =========================
-          Background Image
-      ========================= */}
+      {/* ===================================================
+          BACKGROUND IMAGE
+      =================================================== */}
 
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -338,18 +357,13 @@ export default function PlatformCompany() {
           fill
           priority
           sizes="100vw"
-          className="
-            object-cover
-            object-center
-          "
+          className="object-cover object-center"
         />
       </div>
 
-      {/* =========================
-          Background Gradient
-          Kept transparent enough
-          so bg2.png remains visible
-      ========================= */}
+      {/* ===================================================
+          BACKGROUND OVERLAY
+      =================================================== */}
 
       <div
         className="
@@ -364,9 +378,9 @@ export default function PlatformCompany() {
         "
       />
 
-      {/* =========================
-          Content
-      ========================= */}
+      {/* ===================================================
+          CONTENT
+      =================================================== */}
 
       <div
         className="
@@ -384,9 +398,9 @@ export default function PlatformCompany() {
           xl:py-[86px]
         "
       >
-        {/* =========================
-            Eyebrow
-        ========================= */}
+        {/* =================================================
+            EYEBROW
+        ================================================= */}
 
         <Reveal>
           <div className="flex w-full justify-center">
@@ -417,9 +431,9 @@ export default function PlatformCompany() {
           </div>
         </Reveal>
 
-        {/* =========================
-            Diagram
-        ========================= */}
+        {/* =================================================
+            DESKTOP DIAGRAM
+        ================================================= */}
 
         <div
           className="
@@ -433,11 +447,12 @@ export default function PlatformCompany() {
             lg:h-[825px]
           "
         >
-          {/* =========================
-              Connector Lines
-          ========================= */}
+          {/* =================================================
+              TOP CONNECTORS
+          ================================================= */}
 
-          {/* AI → center */}
+          {/* AI → Center */}
+
           <Connector
             className="
               left-[320px]
@@ -450,7 +465,8 @@ export default function PlatformCompany() {
             "
           />
 
-          {/* Cloud → center */}
+          {/* Cloud → Center */}
+
           <Connector
             className="
               left-[calc(50%-100px)]
@@ -463,7 +479,8 @@ export default function PlatformCompany() {
             "
           />
 
-          {/* Enterprise → center */}
+          {/* Enterprise → Center */}
+
           <Connector
             className="
               right-[320px]
@@ -476,7 +493,15 @@ export default function PlatformCompany() {
             "
           />
 
-          {/* Center → Communication */}
+          {/* =================================================
+              LOWER CONNECTORS
+
+              IMPORTANT:
+              No border-bottom / border-b here.
+              ================================================= */}
+
+          {/* Communication → Center */}
+
           <Connector
             className="
               left-[160px]
@@ -484,12 +509,12 @@ export default function PlatformCompany() {
               h-[82px]
               w-[160px]
               border-r
-              border-bottom
               rounded-br-[30px]
             "
           />
 
-          {/* Center → Security */}
+          {/* Security → Center */}
+
           <Connector
             className="
               left-1/2
@@ -501,7 +526,8 @@ export default function PlatformCompany() {
             "
           />
 
-          {/* Center → Industry */}
+          {/* Industry → Center */}
+
           <Connector
             className="
               right-[160px]
@@ -509,14 +535,15 @@ export default function PlatformCompany() {
               h-[84px]
               w-[160px]
               border-l
-              border-b
               rounded-bl-[30px]
             "
           />
 
-          {/* =========================
-              Connector Dots
-          ========================= */}
+          {/* =================================================
+              CONNECTOR DOTS
+          ================================================= */}
+
+          {/* AI dot */}
 
           <div
             className="
@@ -533,6 +560,8 @@ export default function PlatformCompany() {
             "
           />
 
+          {/* Cloud dot */}
+
           <div
             className="
               absolute
@@ -549,6 +578,8 @@ export default function PlatformCompany() {
             "
           />
 
+          {/* Enterprise dot */}
+
           <div
             className="
               absolute
@@ -564,9 +595,9 @@ export default function PlatformCompany() {
             "
           />
 
-          {/* =========================
-              Central Card
-          ========================= */}
+          {/* =================================================
+              CENTER CARD
+          ================================================= */}
 
           <Reveal
             delay={150}
@@ -587,40 +618,49 @@ export default function PlatformCompany() {
                 group
                 relative
                 overflow-hidden
-                rounded-[18px]
-                border
-                border-cyan-200/60
-                bg-black/50
+                rounded-[24px]
+                border-2
+                border-cyan-300
+                bg-gradient-to-br
+                from-teal-400
+                via-teal-950
+                to-teal-600
                 px-7
                 py-8
-                backdrop-blur-md
                 transition-all
                 duration-500
                 hover:-translate-y-1
                 hover:border-cyan-100
-                hover:bg-black/60
                 hover:shadow-[0_20px_70px_rgba(0,0,0,0.35)]
                 sm:px-10
                 sm:py-10
               "
             >
-              {/* Glow */}
+              {/* Center glow */}
+
               <div
                 className="
                   pointer-events-none
                   absolute
-                  left-1/2
-                  top-0
-                  h-24
-                  w-72
-                  -translate-x-1/2
-                  rounded-full
-                  bg-cyan-300/10
-                  blur-3xl
+                  inset-0
+                  bg-[radial-gradient(circle_at_0%_0%,rgba(45,212,191,0.35),transparent_35%)]
+                "
+              />
+
+              {/* Center diagonal light */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  bg-[linear-gradient(145deg,transparent_25%,rgba(255,255,255,0.035)_48%,transparent_68%)]
                 "
               />
 
               <div className="relative z-10">
+                {/* Small label */}
+
                 <p
                   className={`
                     ${poppins.className}
@@ -634,6 +674,8 @@ export default function PlatformCompany() {
                 >
                   PLATFORM ARCHITECTURE
                 </p>
+
+                {/* Heading */}
 
                 <h2
                   className={`
@@ -650,6 +692,8 @@ export default function PlatformCompany() {
                 >
                   Built as a Platform Company
                 </h2>
+
+                {/* Description */}
 
                 <p
                   className={`
@@ -672,9 +716,9 @@ export default function PlatformCompany() {
             </div>
           </Reveal>
 
-          {/* =========================
-              Desktop Platform Cards
-          ========================= */}
+          {/* =================================================
+              DESKTOP CARDS
+          ================================================= */}
 
           <div className="hidden lg:block">
             {platforms.map((item, index) => (
@@ -686,9 +730,9 @@ export default function PlatformCompany() {
             ))}
           </div>
 
-          {/* =========================
-              Mobile / Tablet Cards
-          ========================= */}
+          {/* =================================================
+              MOBILE / TABLET CARDS
+          ================================================= */}
 
           <div
             className="
@@ -713,22 +757,36 @@ export default function PlatformCompany() {
           </div>
         </div>
 
-        {/* =========================
-            Quote
-        ========================= */}
+        {/* =================================================
+            QUOTE BOX
+
+            FIGMA POSITION:
+            Diagram ends at approximately 980px.
+            Quote starts 80px later.
+
+            IMPORTANT:
+            lg:mt-[80px] is intentional.
+            ================================================= */}
 
         <Reveal delay={500}>
           <div
             className="
               mx-auto
               mt-16
-              max-w-[900px]
-              border-t
-              border-cyan-300/40
-              pt-8
+              flex
+              min-h-[64px]
+              w-full
+              max-w-[1252px]
+              items-center
+              justify-center
+              rounded-xl
+              border
+              border-cyan-700/30
+              bg-black/20
+              px-6
+              py-5
               sm:mt-20
-              sm:pt-10
-              lg:mt-4
+              lg:mt-[80px]
             "
           >
             <p
@@ -736,17 +794,15 @@ export default function PlatformCompany() {
                 ${urbanist.className}
                 w-full
                 text-center
-                text-base
+                text-[20px]
                 font-semibold
+                italic
                 leading-7
-                text-white
-                sm:text-lg
-                sm:leading-8
-                lg:text-xl
+                text-teal-400
               `}
             >
-              “Build technologies that can stand independently. Integrate
-              them where integration creates leverage.”
+              &quot;Build technologies that can stand independently. Integrate
+              them where integration creates leverage.&quot;
             </p>
           </div>
         </Reveal>
