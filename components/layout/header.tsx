@@ -59,275 +59,327 @@ export default function Header() {
     setOpenMenu(null);
   };
 
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    setOpenMenu(null);
+  };
+
   return (
-    <header className="relative z-50 h-24 w-full border-b border-zinc-200 bg-white">
-      <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-10">
+    <>
+      {/* =========================================================
+          FIXED HEADER
+          h-24 = 96px
+          fixed + top-0 keeps header visible while scrolling
+      ========================================================= */}
+      <header className="fixed left-0 right-0 top-0 z-[9999] h-24 w-full border-b border-zinc-200 bg-white">
+        <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-10">
 
-        {/* Logo */}
-        <Link
-          href="/"
-          className="shrink-0"
-          onClick={closeMenu}
-        >
-          <img
-            src="/zoikotech.png"
-            alt="Zoiko Tech"
-            className="h-20 w-46 object-contain"
-          />
-        </Link>
+          {/* =====================================================
+              LOGO
+          ===================================================== */}
+          <Link
+            href="/"
+            className="shrink-0"
+            onClick={closeMenu}
+          >
+            <img
+              src="/zoikotech.png"
+              alt="Zoiko Tech"
+              className="h-20 w-46 object-contain"
+            />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden h-full items-center gap-7 lg:flex">
-          {navItems.map((item) => {
-            const isOpen = openMenu === item.name;
+          {/* =====================================================
+              DESKTOP NAVIGATION
+          ===================================================== */}
+          <nav className="hidden h-full items-center gap-7 lg:flex">
+            {navItems.map((item) => {
+              const isOpen = openMenu === item.name;
 
-            return (
-              <div
-                key={item.name}
-                className="relative flex h-full items-center"
-                onMouseEnter={() => handleMenuEnter(item.name)}
-                onMouseLeave={handleMenuLeave}
-              >
-                {/* Navigation Item */}
-                <Link
-                  href={item.href}
-                  className="relative flex h-16 items-center justify-center pt-1"
+              return (
+                <div
+                  key={item.name}
+                  className="relative flex h-full items-center"
+                  onMouseEnter={() => handleMenuEnter(item.name)}
+                  onMouseLeave={handleMenuLeave}
                 >
-                  <span
-                    className={`
-                      flex
-                      items-center
-                      gap-1.5
-                      whitespace-nowrap
-                      text-base
-                      font-medium
-                      transition-colors
-                      duration-200
-                      ${
-                        isOpen
-                          ? "text-cyan-700"
-                          : "text-slate-900"
-                      }
-                    `}
+                  {/* Navigation Item */}
+                  <Link
+                    href={item.href}
+                    className="relative flex h-16 items-center justify-center pt-1"
                   >
-                    {item.name}
+                    <span
+                      className={`
+                        flex
+                        items-center
+                        gap-1.5
+                        whitespace-nowrap
+                        text-base
+                        font-medium
+                        transition-colors
+                        duration-200
+                        ${
+                          isOpen
+                            ? "text-cyan-700"
+                            : "text-slate-900"
+                        }
+                      `}
+                    >
+                      {item.name}
 
-                    {item.dropdown && (
-                      <span
-                        className={`
-                          relative
-                          mt-0.5
-                          flex
-                          h-2
-                          w-2
-                          items-center
-                          justify-center
-                          transition-transform
-                          duration-200
-                          ${isOpen ? "rotate-180" : ""}
-                        `}
-                      >
+                      {/* Dropdown Arrow */}
+                      {item.dropdown && (
                         <span
                           className={`
-                            absolute
-                            left-[1px]
-                            top-[1px]
-                            h-[5px]
-                            w-[5px]
-                            rotate-45
-                            border-b
-                            border-r
-                            transition-colors
+                            relative
+                            mt-0.5
+                            flex
+                            h-2
+                            w-2
+                            items-center
+                            justify-center
+                            transition-transform
                             duration-200
-                            ${
-                              isOpen
-                                ? "border-cyan-700"
-                                : "border-slate-500"
-                            }
+                            ${isOpen ? "rotate-180" : ""}
                           `}
-                        />
-                      </span>
-                    )}
-                  </span>
+                        >
+                          <span
+                            className={`
+                              absolute
+                              left-[1px]
+                              top-[1px]
+                              h-[5px]
+                              w-[5px]
+                              rotate-45
+                              border-b
+                              border-r
+                              transition-colors
+                              duration-200
+                              ${
+                                isOpen
+                                  ? "border-cyan-700"
+                                  : "border-slate-500"
+                              }
+                            `}
+                          />
+                        </span>
+                      )}
+                    </span>
 
-                  {/* Active Underline */}
-                  <span
-                    className={`
-                      absolute
-                      bottom-[7px]
-                      left-0
-                      h-[2px]
-                      rounded-full
-                      bg-cyan-700
-                      transition-all
-                      duration-200
-                      ${
-                        isOpen
-                          ? "w-full opacity-100"
-                          : "w-0 opacity-0"
-                      }
-                    `}
-                  />
-                </Link>
+                    {/* Active Underline */}
+                    <span
+                      className={`
+                        absolute
+                        bottom-[7px]
+                        left-0
+                        h-[2px]
+                        rounded-full
+                        bg-cyan-700
+                        transition-all
+                        duration-200
+                        ${
+                          isOpen
+                            ? "w-full opacity-100"
+                            : "w-0 opacity-0"
+                        }
+                      `}
+                    />
+                  </Link>
 
-                {/* Invisible Hover Bridge */}
-                <div className="absolute left-0 right-0 top-full h-5" />
+                  {/* =================================================
+                      INVISIBLE HOVER BRIDGE
 
-                {/* Platforms Dropdown */}
-                {item.name === "Platforms" && (
-                  <ProductMegaMenu
-                    isOpen={isOpen}
-                    onLinkClick={closeMenu}
-                  />
-                )}
+                      Keeps dropdown open while moving mouse
+                      from navigation item to mega menu.
+                  ================================================= */}
+                  <div className="absolute left-0 right-0 top-full h-5" />
 
-                {/* Solutions Dropdown */}
-                {item.name === "Solutions" && (
-                  <SolutionsMegaMenu
-                    isOpen={isOpen}
-                    onLinkClick={closeMenu}
-                  />
-                )}
+                  {/* =================================================
+                      PLATFORMS DROPDOWN
+                  ================================================= */}
+                  {item.name === "Platforms" && (
+                    <ProductMegaMenu
+                      isOpen={isOpen}
+                      onLinkClick={closeMenu}
+                    />
+                  )}
 
-                {/* Industries Dropdown */}
-                {item.name === "Industries" && (
-                  <IndustriesMegaMenu
-                    isOpen={isOpen}
-                    onLinkClick={closeMenu}
-                  />
-                )}
+                  {/* =================================================
+                      SOLUTIONS DROPDOWN
+                  ================================================= */}
+                  {item.name === "Solutions" && (
+                    <SolutionsMegaMenu
+                      isOpen={isOpen}
+                      onLinkClick={closeMenu}
+                    />
+                  )}
 
-                {/* Technology Dropdown */}
-                {item.name === "Technology" && (
-                  <TechnologyMegaMenu
-                    isOpen={isOpen}
-                    onLinkClick={closeMenu}
-                  />
-                )}
+                  {/* =================================================
+                      INDUSTRIES DROPDOWN
+                  ================================================= */}
+                  {item.name === "Industries" && (
+                    <IndustriesMegaMenu
+                      isOpen={isOpen}
+                      onLinkClick={closeMenu}
+                    />
+                  )}
 
-                {/* Resources Dropdown */}
-                {item.name === "Resources" && (
-                  <ResourcesMegaMenu
-                    isOpen={isOpen}
-                    onLinkClick={closeMenu}
-                  />
-                )}
+                  {/* =================================================
+                      TECHNOLOGY DROPDOWN
+                  ================================================= */}
+                  {item.name === "Technology" && (
+                    <TechnologyMegaMenu
+                      isOpen={isOpen}
+                      onLinkClick={closeMenu}
+                    />
+                  )}
 
-                {/* Company Dropdown */}
-                {item.name === "Company" && (
-                  <CompanyMegaMenu
-                    isOpen={isOpen}
-                    onLinkClick={closeMenu}
-                  />
-                )}
-              </div>
-            );
-          })}
-        </nav>
+                  {/* =================================================
+                      RESOURCES DROPDOWN
+                  ================================================= */}
+                  {item.name === "Resources" && (
+                    <ResourcesMegaMenu
+                      isOpen={isOpen}
+                      onLinkClick={closeMenu}
+                    />
+                  )}
 
-        {/* Right Side */}
-        <div className="hidden items-center gap-6 lg:flex">
+                  {/* =================================================
+                      COMPANY DROPDOWN
+                  ================================================= */}
+                  {item.name === "Company" && (
+                    <CompanyMegaMenu
+                      isOpen={isOpen}
+                      onLinkClick={closeMenu}
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </nav>
 
-          {/* Search */}
-          <button
-            type="button"
-            className="group flex items-center gap-2 text-slate-900"
-          >
-            <svg
-              className="h-[18px] w-[18px]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
+          {/* =====================================================
+              RIGHT SIDE
+          ===================================================== */}
+          <div className="hidden items-center gap-6 lg:flex">
+
+            {/* =================================================
+                SEARCH
+            ================================================= */}
+            <button
+              type="button"
+              className="group flex items-center gap-2 text-slate-900"
             >
-              <circle cx="11" cy="11" r="7" />
-              <path d="m20 20-4-4" />
-            </svg>
-
-            <span className="relative text-base font-normal">
-              Search
-
-              <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-cyan-700 transition-all duration-200 group-hover:w-full" />
-            </span>
-          </button>
-
-          {/* Contact Sales */}
-          <Link
-            href="/contact-us"
-            onClick={closeMenu}
-            className="flex h-11 items-center justify-center rounded-lg bg-cyan-700 px-6 transition-colors hover:bg-cyan-800"
-          >
-            <span className="text-sm font-semibold text-white">
-              CONTACT SALES
-            </span>
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-slate-900 lg:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          <svg
-            className="h-7 w-7"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            {mobileOpen ? (
-              <>
-                <path d="M6 6l12 12" />
-                <path d="M18 6 6 18" />
-              </>
-            ) : (
-              <>
-                <path d="M4 7h16" />
-                <path d="M4 12h16" />
-                <path d="M4 17h16" />
-              </>
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {mobileOpen && (
-        <div className="absolute left-0 right-0 z-50 border-b border-zinc-200 bg-white shadow-md lg:hidden">
-          <nav className="flex flex-col gap-5 px-6 py-5">
-
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-between text-base font-medium text-slate-900 transition-colors hover:text-cyan-700"
+              <svg
+                className="h-[18px] w-[18px]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
               >
-                {item.name}
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="7"
+                />
 
-                {item.dropdown && (
-                  <span className="h-2 w-2 rotate-45 border-b border-r border-slate-500" />
-                )}
-              </Link>
-            ))}
+                <path d="m20 20-4-4" />
+              </svg>
 
-            {/* Mobile Contact Sales */}
+              <span className="relative text-base font-normal">
+                Search
+
+                {/* Search underline */}
+                <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-cyan-700 transition-all duration-200 group-hover:w-full" />
+              </span>
+            </button>
+
+            {/* =================================================
+                CONTACT SALES
+            ================================================= */}
             <Link
               href="/contact-us"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMenu}
               className="flex h-11 items-center justify-center rounded-lg bg-cyan-700 px-6 transition-colors hover:bg-cyan-800"
             >
               <span className="text-sm font-semibold text-white">
                 CONTACT SALES
               </span>
             </Link>
+          </div>
 
-          </nav>
+          {/* =====================================================
+              MOBILE MENU BUTTON
+          ===================================================== */}
+          <button
+            type="button"
+            onClick={() => {
+              setMobileOpen(!mobileOpen);
+              setOpenMenu(null);
+            }}
+            className="text-slate-900 lg:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            <svg
+              className="h-7 w-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              {mobileOpen ? (
+                <>
+                  <path d="M6 6l12 12" />
+                  <path d="M18 6 6 18" />
+                </>
+              ) : (
+                <>
+                  <path d="M4 7h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 17h16" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
-      )}
-    </header>
+
+        {/* =======================================================
+            MOBILE NAVIGATION
+        ======================================================= */}
+        {mobileOpen && (
+          <div className="absolute left-0 right-0 top-full z-[9999] border-b border-zinc-200 bg-white shadow-md lg:hidden">
+            <nav className="flex flex-col gap-5 px-6 py-5">
+
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className="flex items-center justify-between text-base font-medium text-slate-900 transition-colors hover:text-cyan-700"
+                >
+                  {item.name}
+
+                  {item.dropdown && (
+                    <span className="h-2 w-2 rotate-45 border-b border-r border-slate-500" />
+                  )}
+                </Link>
+              ))}
+
+              {/* Mobile Contact Sales */}
+              <Link
+                href="/contact-us"
+                onClick={closeMobileMenu}
+                className="flex h-11 items-center justify-center rounded-lg bg-cyan-700 px-6 transition-colors hover:bg-cyan-800"
+              >
+                <span className="text-sm font-semibold text-white">
+                  CONTACT SALES
+                </span>
+              </Link>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
   );
 }

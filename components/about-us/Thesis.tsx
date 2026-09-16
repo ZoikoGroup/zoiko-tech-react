@@ -31,9 +31,20 @@ export default function Thesis() {
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden bg-white"
+      className="relative w-full overflow-hidden bg-white"
     >
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:px-28 lg:py-24">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0 bg-no-repeat"
+        style={{
+          backgroundImage: "url('/about-us/bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:px-28 lg:py-24">
 
         {/* Header */}
         <div
@@ -44,7 +55,7 @@ export default function Thesis() {
           }`}
         >
           {/* Badge */}
-          <div className="group inline-flex cursor-default items-center gap-2 rounded-full border border-cyan-700/30 bg-cyan-700/10 px-3 py-1.5 transition-all duration-300 hover:border-cyan-700/60 hover:bg-cyan-700/15 hover:-translate-y-0.5">
+          <div className="group inline-flex cursor-default items-center gap-2 rounded-full border border-cyan-700/30 bg-cyan-700/10 px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-700/60 hover:bg-cyan-700/15">
             <span className="text-[10px] font-bold uppercase tracking-wide text-cyan-700 transition-colors duration-300 group-hover:text-cyan-800">
               Our Thesis
             </span>
@@ -62,7 +73,7 @@ export default function Thesis() {
 
           {/* Paragraph 1 */}
           <p
-            className={`w-full text-base font-normal leading-7 text-slate-500 transition-all delay-100 duration-1000 ease-out hover:text-slate-700 sm:text-lg ${
+            className={`w-full text-base font-normal leading-7 text-slate-600 transition-all delay-100 duration-1000 ease-out hover:text-slate-800 sm:text-lg ${
               visible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
@@ -75,7 +86,7 @@ export default function Thesis() {
 
           {/* Paragraph 2 */}
           <p
-            className={`w-full text-base font-normal leading-7 text-slate-500 transition-all delay-200 duration-1000 ease-out hover:text-slate-700 sm:text-lg ${
+            className={`w-full text-base font-normal leading-7 text-slate-600 transition-all delay-200 duration-1000 ease-out hover:text-slate-800 sm:text-lg ${
               visible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
