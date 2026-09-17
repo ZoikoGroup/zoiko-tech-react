@@ -9,6 +9,10 @@ import {
   Manrope,
 } from "next/font/google";
 
+/* =========================================================
+   FONTS
+========================================================= */
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -27,11 +31,19 @@ const manrope = Manrope({
   display: "swap",
 });
 
+/* =========================================================
+   TYPES
+========================================================= */
+
 type SolutionItem = {
   title: string;
   description: string;
   icon: string;
 };
+
+/* =========================================================
+   SOLUTIONS
+========================================================= */
 
 const solutions: SolutionItem[] = [
   {
@@ -71,6 +83,10 @@ const solutions: SolutionItem[] = [
     icon: "/home/sol-6.png",
   },
 ];
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
 function Reveal({
   children,
@@ -128,6 +144,10 @@ function Reveal({
   );
 }
 
+/* =========================================================
+   ARROW ICON
+========================================================= */
+
 function ArrowIcon() {
   return (
     <svg
@@ -159,6 +179,10 @@ function ArrowIcon() {
     </svg>
   );
 }
+
+/* =========================================================
+   SOLUTION CARD
+========================================================= */
 
 function SolutionCard({
   solution,
@@ -341,6 +365,10 @@ function SolutionCard({
   );
 }
 
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function Solution() {
   return (
     <section
@@ -348,12 +376,35 @@ export default function Solution() {
         relative
         w-full
         overflow-hidden
-        bg-white
       "
     >
+      {/* =====================================================
+          BACKGROUND IMAGE
+          public/home/bg4.png
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/home/bg4.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="
+            object-cover
+            object-center
+          "
+        />
+      </div>
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
       <div
         className="
           relative
+          z-10
           mx-auto
           flex
           w-full

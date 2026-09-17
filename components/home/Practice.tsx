@@ -5,6 +5,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 
+/* =========================================================
+   FONTS
+========================================================= */
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -15,6 +19,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["400", "600", "700", "800"],
 });
 
+/* =========================================================
+   TYPES
+========================================================= */
+
 type CaseStudy = {
   category: string;
   metric: string;
@@ -23,6 +31,10 @@ type CaseStudy = {
   builtWith: string;
   icon: string;
 };
+
+/* =========================================================
+   CASE STUDIES
+========================================================= */
 
 const caseStudies: CaseStudy[] = [
   {
@@ -57,6 +69,10 @@ const caseStudies: CaseStudy[] = [
   },
 ];
 
+/* =========================================================
+   CASE STUDY CARD
+========================================================= */
+
 function CaseCard({
   item,
   index,
@@ -89,7 +105,8 @@ function CaseCard({
     >
       {/* =====================================================
           OUTER DECORATIVE BORDER
-          ===================================================== */}
+      ===================================================== */}
+
       <Image
         src="/home/border.png"
         alt=""
@@ -109,6 +126,7 @@ function CaseCard({
       />
 
       {/* Cyan glow behind the frame */}
+
       <div
         aria-hidden="true"
         className="
@@ -128,10 +146,8 @@ function CaseCard({
 
       {/* =====================================================
           WHITE INNER CARD
+      ===================================================== */}
 
-          Smaller than border.png so the decorative frame
-          remains clearly visible on every side.
-          ===================================================== */}
       <div
         className="
           absolute
@@ -156,11 +172,15 @@ function CaseCard({
         "
       >
         <div className="flex h-full w-full items-start justify-between gap-5">
+
           {/* =================================================
               LEFT CONTENT
-              ================================================= */}
+          ================================================= */}
+
           <div className="flex h-full min-w-0 flex-1 flex-col">
+
             {/* Category + Metric */}
+
             <div className="flex w-full items-center justify-between gap-3">
               <div
                 className={`
@@ -196,8 +216,11 @@ function CaseCard({
             </div>
 
             {/* Content */}
+
             <div className="mt-3 flex flex-1 flex-col">
+
               {/* Title */}
+
               <h3
                 className={`
                   ${plusJakarta.className}
@@ -213,6 +236,7 @@ function CaseCard({
               </h3>
 
               {/* Context */}
+
               <p
                 className={`
                   ${poppins.className}
@@ -227,10 +251,12 @@ function CaseCard({
                 <span className="font-semibold text-slate-900">
                   Context:{" "}
                 </span>
+
                 {item.context}
               </p>
 
               {/* Built With */}
+
               <p
                 className={`
                   ${poppins.className}
@@ -246,6 +272,7 @@ function CaseCard({
               </p>
 
               {/* CTA */}
+
               <Link
                 href="#"
                 className={`
@@ -300,7 +327,8 @@ function CaseCard({
 
           {/* =================================================
               ICON
-              ================================================= */}
+          ================================================= */}
+
           <div
             className="
               relative
@@ -323,6 +351,7 @@ function CaseCard({
             "
           >
             {/* Green gradient circle */}
+
             <div
               className="
                 absolute
@@ -338,6 +367,7 @@ function CaseCard({
             />
 
             {/* Saved icon */}
+
             <div
               className="
                 absolute
@@ -366,6 +396,10 @@ function CaseCard({
     </article>
   );
 }
+
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
 
 export default function Practice() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -401,47 +435,38 @@ export default function Practice() {
         relative
         w-full
         overflow-hidden
-        bg-[#e9fbfb]
       "
     >
       {/* =====================================================
-          FIGMA GRID BACKGROUND
-          ===================================================== */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          opacity-60
-          [background-image:linear-gradient(to_right,rgba(255,255,255,0.75)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.75)_1px,transparent_1px)]
-          [background-size:56px_56px]
-        "
-      />
+          BACKGROUND IMAGE
+          public/home/bg4.png
+      ===================================================== */}
 
-      {/* Background cyan glow */}
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-[42%]
-          h-[500px]
-          w-[1000px]
-          -translate-x-1/2
-          rounded-full
-          bg-cyan-300/10
-          blur-[110px]
-        "
-      />
+        className="pointer-events-none absolute inset-0"
+      >
+        <Image
+          src="/home/bg4.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="
+            object-cover
+            object-center
+          "
+        />
+      </div>
 
       {/* =====================================================
           CONTENT
-          ===================================================== */}
+      ===================================================== */}
+
       <div
         className="
           relative
+          z-10
           mx-auto
           w-full
           max-w-[1440px]
@@ -455,7 +480,8 @@ export default function Practice() {
       >
         {/* ===================================================
             HEADER
-            =================================================== */}
+        =================================================== */}
+
         <div
           className={`
             max-w-[800px]
@@ -470,6 +496,7 @@ export default function Practice() {
           `}
         >
           {/* Eyebrow */}
+
           <div
             className={`
               ${poppins.className}
@@ -484,6 +511,7 @@ export default function Practice() {
           </div>
 
           {/* Heading */}
+
           <h2
             className={`
               ${plusJakarta.className}
@@ -503,6 +531,7 @@ export default function Practice() {
           </h2>
 
           {/* Description */}
+
           <p
             className={`
               ${poppins.className}
@@ -523,7 +552,8 @@ export default function Practice() {
 
         {/* ===================================================
             CASE STUDY CARDS
-            =================================================== */}
+        =================================================== */}
+
         <div
           className="
             mt-12

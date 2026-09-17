@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Manrope, Plus_Jakarta_Sans, Poppins } from "next/font/google";
 
+/* =========================================================
+   FONTS
+========================================================= */
+
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["700"],
@@ -19,11 +23,19 @@ const poppins = Poppins({
   weight: ["400", "700"],
 });
 
+/* =========================================================
+   TYPES
+========================================================= */
+
 type Foundation = {
   title: string;
   description: string;
   image: string;
 };
+
+/* =========================================================
+   FOUNDATIONS
+========================================================= */
 
 const foundations: Foundation[] = [
   {
@@ -63,6 +75,10 @@ const foundations: Foundation[] = [
     image: "/home/image6.png",
   },
 ];
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
 function Reveal({
   children,
@@ -105,7 +121,9 @@ function Reveal({
       className={`transition-all duration-700 ease-out ${className}`}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(30px)",
+        transform: visible
+          ? "translateY(0)"
+          : "translateY(30px)",
         transitionDelay: `${delay}ms`,
       }}
     >
@@ -113,6 +131,10 @@ function Reveal({
     </div>
   );
 }
+
+/* =========================================================
+   FOUNDATION CARD
+========================================================= */
 
 function FoundationCard({
   item,
@@ -196,11 +218,46 @@ function FoundationCard({
   );
 }
 
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function Ai() {
   return (
-    <section className="relative w-full overflow-hidden bg-white">
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+      "
+    >
+      {/* =====================================================
+          BACKGROUND IMAGE
+          public/home/bg4.png
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/home/bg4.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="
+            object-cover
+            object-center
+          "
+        />
+      </div>
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
       <div
         className="
+          relative
+          z-10
           mx-auto
           flex
           w-full
@@ -216,6 +273,7 @@ export default function Ai() {
         "
       >
         {/* ================= HEADER ================= */}
+
         <Reveal className="w-full">
           <div
             className="
@@ -280,6 +338,7 @@ export default function Ai() {
         </Reveal>
 
         {/* ================= CARDS ================= */}
+
         <div className="w-full">
           <div
             className="
