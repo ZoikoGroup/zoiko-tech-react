@@ -45,8 +45,11 @@ export default function Hero() {
   /* =======================================================
      SCROLL-DRIVEN REVEAL
 
-     The animation starts when the hero enters the viewport.
-     No rotation or 3D animation is used.
+     The hero fades/slides into view when it enters
+     the viewport.
+     
+     The globe itself does NOT have any CSS rotation,
+     3D movement, scaling, or perspective animation.
   ======================================================= */
 
   useEffect(() => {
@@ -104,31 +107,23 @@ export default function Hero() {
       <div className="hero-soft-glow" />
 
       {/* =====================================================
-          GLOBE
+          GLOBE / GIF
 
-          IMPORTANT:
-          - No rotation
-          - No 2D animation
-          - No 3D animation
-          - No perspective
-          - Only scroll reveal
+          File:
+          public/about-us/gif.gif
+
+          The GIF is served directly without Next.js
+          image optimization so its animation remains intact.
       ===================================================== */}
 
       <div className="hero-globe-area">
         <div className="globe-wrapper">
           <Image
-            src="/about-us/image.png"
+            src="/about-us/gif.gif"
             alt="ZoikoTech global technology"
             fill
             priority
-            /*
-              IMPORTANT:
-              Keep sizes on ONE LINE.
-
-              A multiline value can cause Next.js/Turbopack
-              to generate an invalid querySelector selector
-              for the image preload element.
-            */
+            unoptimized
             sizes="(max-width: 640px) 430px, (max-width: 768px) 470px, (max-width: 1024px) 500px, (max-width: 1200px) 530px, 577px"
             className="globe-image"
           />
@@ -170,14 +165,6 @@ export default function Hero() {
           domain-specific AI for organizations operating across industries,
           jurisdictions and borders.
         </p>
-      </div>
-
-      {/* =====================================================
-          SCROLL INDICATOR
-      ===================================================== */}
-
-      <div className="hero-scroll-indicator">
-        <span />
       </div>
 
       {/* =====================================================
@@ -310,7 +297,7 @@ export default function Hero() {
         }
 
         /* =====================================================
-           GLOBE AREA
+           GLOBE / GIF AREA
         ===================================================== */
 
         .hero-globe-area {
@@ -363,7 +350,7 @@ export default function Hero() {
         }
 
         /* =====================================================
-           GLOBE IMAGE
+           GIF IMAGE
         ===================================================== */
 
         .globe-image {
@@ -390,7 +377,7 @@ export default function Hero() {
         }
 
         /* =====================================================
-           GLOBE HOVER
+           GIF HOVER
 
            Only glow enhancement.
            No movement.
@@ -564,58 +551,6 @@ export default function Hero() {
           opacity: 1;
 
           transform: translateY(0);
-        }
-
-        /* =====================================================
-           SCROLL INDICATOR
-        ===================================================== */
-
-        .hero-scroll-indicator {
-          position: absolute;
-
-          z-index: 6;
-
-          left: 50%;
-
-          bottom: 28px;
-
-          width: 22px;
-
-          height: 36px;
-
-          transform: translateX(-50%);
-
-          border: 1px solid rgba(94, 234, 212, 0.35);
-
-          border-radius: 20px;
-
-          display: flex;
-
-          align-items: flex-start;
-
-          justify-content: center;
-
-          padding-top: 7px;
-
-          opacity: 0;
-
-          transition: opacity 700ms ease 700ms;
-        }
-
-        .hero-visible .hero-scroll-indicator {
-          opacity: 0.65;
-        }
-
-        .hero-scroll-indicator span {
-          width: 3px;
-
-          height: 7px;
-
-          border-radius: 10px;
-
-          background: #5eead4;
-
-          opacity: 0.8;
         }
 
         /* =====================================================
@@ -852,7 +787,7 @@ export default function Hero() {
           }
 
           /* -------------------------------------------------
-             GLOBE
+             GLOBE / GIF
           ------------------------------------------------- */
 
           .hero-globe-area {
@@ -903,14 +838,6 @@ export default function Hero() {
             transform: translateX(-50%);
 
             filter: blur(90px);
-          }
-
-          /* -------------------------------------------------
-             SCROLL
-          ------------------------------------------------- */
-
-          .hero-scroll-indicator {
-            bottom: 20px;
           }
         }
 
@@ -1051,8 +978,7 @@ export default function Hero() {
           .hero-badge,
           .hero-content h1,
           .hero-content p,
-          .hero-globe-area,
-          .hero-scroll-indicator {
+          .hero-globe-area {
             opacity: 1;
 
             transform: none;
