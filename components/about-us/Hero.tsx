@@ -121,13 +121,15 @@ export default function Hero() {
             alt="ZoikoTech global technology"
             fill
             priority
-            sizes="
-              (max-width: 640px) 430px,
-              (max-width: 768px) 470px,
-              (max-width: 1024px) 500px,
-              (max-width: 1200px) 530px,
-              577px
-            "
+            /*
+              IMPORTANT:
+              Keep sizes on ONE LINE.
+
+              A multiline value can cause Next.js/Turbopack
+              to generate an invalid querySelector selector
+              for the image preload element.
+            */
+            sizes="(max-width: 640px) 430px, (max-width: 768px) 470px, (max-width: 1024px) 500px, (max-width: 1200px) 530px, 577px"
             className="globe-image"
           />
         </div>
@@ -319,10 +321,6 @@ export default function Hero() {
           width: 577px;
           height: 538px;
 
-          /*
-            Figma desktop position.
-          */
-
           left: calc(50% + 103px);
           top: 133px;
 
@@ -362,14 +360,6 @@ export default function Hero() {
 
           align-items: center;
           justify-content: center;
-
-          /*
-            Deliberately NO:
-            rotate()
-            perspective()
-            scale animation
-            3D transform
-          */
         }
 
         /* =====================================================
@@ -399,10 +389,14 @@ export default function Hero() {
             opacity 400ms ease;
         }
 
-        /*
-          Hover only enhances glow.
-          The globe does NOT move.
-        */
+        /* =====================================================
+           GLOBE HOVER
+
+           Only glow enhancement.
+           No movement.
+           No rotation.
+           No scaling.
+        ===================================================== */
 
         .hero-globe-area:hover .globe-image {
           filter:
@@ -713,10 +707,6 @@ export default function Hero() {
             min-height: 800px;
           }
 
-          /*
-            Content moves to the top.
-          */
-
           .hero-content {
             position: absolute;
 
@@ -754,10 +744,6 @@ export default function Hero() {
 
             text-align: center;
           }
-
-          /*
-            Globe goes underneath the content.
-          */
 
           .hero-globe-area {
             left: 50%;

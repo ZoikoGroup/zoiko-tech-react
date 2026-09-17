@@ -5,6 +5,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 
+/* =========================================================
+   FONTS
+========================================================= */
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -17,6 +21,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+/* =========================================================
+   TYPES
+========================================================= */
+
 type Product = {
   name: string;
   description: string;
@@ -27,6 +35,10 @@ type Product = {
   href: string;
 };
 
+/* =========================================================
+   FILTERS
+========================================================= */
+
 const filters = [
   "All Products",
   "Infrastructure",
@@ -36,6 +48,10 @@ const filters = [
   "Commerce & Intelligence",
   "Specialized",
 ];
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
 
 const products: Product[] = [
   {
@@ -200,6 +216,10 @@ const products: Product[] = [
   },
 ];
 
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
 function Reveal({
   children,
   delay = 0,
@@ -262,6 +282,10 @@ function Reveal({
   );
 }
 
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
 function ProductCard({
   product,
   index,
@@ -270,10 +294,7 @@ function ProductCard({
   index: number;
 }) {
   return (
-    <Reveal
-      delay={index * 45}
-      className="h-full"
-    >
+    <Reveal delay={index * 45} className="h-full">
       <Link
         href={product.href}
         className="group block h-full"
@@ -325,7 +346,7 @@ function ProductCard({
               gap-5
             "
           >
-            {/* Logo + status */}
+            {/* Logo + Status */}
             <div
               className="
                 flex
@@ -365,7 +386,7 @@ function ProductCard({
                 />
               </div>
 
-              {/* LIVE */}
+              {/* LIVE / BETA */}
               {product.status === "LIVE" ? (
                 <span
                   className="
@@ -401,7 +422,6 @@ function ProductCard({
                   </span>
                 </span>
               ) : (
-                /* BETA */
                 <span
                   className={`
                     ${poppins.className}
@@ -516,6 +536,10 @@ function ProductCard({
   );
 }
 
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function Eco() {
   const [activeFilter, setActiveFilter] =
     useState("All Products");
@@ -554,43 +578,51 @@ export default function Eco() {
         relative
         w-full
         overflow-hidden
-        bg-[#f4fbfb]
+        bg-white
       "
     >
-      {/* Background grid */}
+      {/* =====================================================
+          BACKGROUND IMAGE
+          public/home/bg4.png
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute inset-0 -z-0">
+        <Image
+          src="/home/bg4.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="
+            object-cover
+            object-center
+          "
+        />
+      </div>
+
+      {/* =====================================================
+          OPTIONAL LIGHT OVERLAY
+          Keeps text and cards readable over bg4.png
+      ===================================================== */}
+
       <div
         className="
           pointer-events-none
           absolute
           inset-0
-          opacity-40
+          -z-0
+          bg-white/10
         "
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(8,145,178,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(8,145,178,0.055) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
       />
 
-      {/* Background glow */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-0
-          h-[520px]
-          w-[900px]
-          -translate-x-1/2
-          rounded-full
-          bg-cyan-200/20
-          blur-[110px]
-        "
-      />
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
 
       <div
         className="
           relative
+          z-10
           mx-auto
           w-full
           max-w-[1440px]
@@ -602,7 +634,10 @@ export default function Eco() {
           lg:py-24
         "
       >
-        {/* Heading */}
+        {/* ===================================================
+            HEADING
+        =================================================== */}
+
         <Reveal>
           <div
             className="
@@ -662,7 +697,10 @@ export default function Eco() {
           </div>
         </Reveal>
 
-        {/* Filters */}
+        {/* ===================================================
+            FILTERS
+        =================================================== */}
+
         <Reveal delay={100}>
           <div
             className="
@@ -709,7 +747,10 @@ export default function Eco() {
           </div>
         </Reveal>
 
-        {/* Product cards */}
+        {/* ===================================================
+            PRODUCT CARDS
+        =================================================== */}
+
         <div className="mt-10">
           <div
             className="
