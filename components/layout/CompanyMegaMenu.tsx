@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 
 const poppins = Poppins({
@@ -13,6 +12,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
 });
+
+/* =========================================================
+   TYPES
+========================================================= */
 
 type CompanyMegaMenuProps = {
   isOpen: boolean;
@@ -33,8 +36,8 @@ type CompanyItemProps = {
 
 function Arrow() {
   return (
-    <span className="relative mt-[2px] size-4 shrink-0 overflow-hidden">
-      <span className="absolute left-[5px] top-[4px] block h-[7px] w-[7px] rotate-[-45deg] border-r-[1.5px] border-b-[1.5px] border-zinc-200" />
+    <span className="relative mt-[1px] h-4 w-7 shrink-0 origin-top-left -rotate-90 overflow-hidden">
+      <span className="absolute left-[6px] top-[4px] block h-2 w-1 border-r-[1.5px] border-b-[1.5px] border-zinc-200" />
     </span>
   );
 }
@@ -54,12 +57,14 @@ function CompanyItem({
     <Link
       href={href}
       onClick={onLinkClick}
-      className="group flex w-full min-w-0 items-start gap-2.5"
+      className="group flex w-full min-w-0 items-center gap-2.5 overflow-hidden"
     >
-      {/* ICON */}
+      {/* =================================================
+          ICON
+      ================================================== */}
 
-      <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-teal-700">
-        <Image
+      <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-teal-700">
+        <img
           src={icon}
           alt=""
           width={16}
@@ -68,14 +73,16 @@ function CompanyItem({
         />
       </div>
 
-      {/* CONTENT */}
+      {/* =================================================
+          CONTENT
+      ================================================== */}
 
       <div className="min-w-0 flex-1 overflow-hidden">
         {/* TITLE + ARROW */}
 
-        <div className="flex min-w-0 w-full items-center justify-between gap-2">
+        <div className="flex w-full min-w-0 items-center justify-between gap-2 overflow-hidden">
           <span
-            className={`${plusJakarta.className} min-w-0 flex-1 text-[14px] font-bold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
+            className={`${plusJakarta.className} min-w-0 flex-1 truncate text-xs font-bold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
           >
             {title}
           </span>
@@ -86,7 +93,7 @@ function CompanyItem({
         {/* DESCRIPTION */}
 
         <p
-          className={`${poppins.className} mt-[3px] w-full text-[12px] font-normal leading-4 text-gray-300`}
+          className={`${poppins.className} mt-[3px] w-full text-xs font-normal leading-4 text-gray-300`}
         >
           {description}
         </p>
@@ -106,7 +113,7 @@ function CategoryTitle({
 }) {
   return (
     <div
-      className={`${poppins.className} w-full shrink-0 text-[14px] font-bold uppercase leading-5 text-white`}
+      className={`${poppins.className} w-full shrink-0 text-xs font-bold uppercase leading-4 text-white`}
     >
       {children}
     </div>
@@ -114,35 +121,31 @@ function CategoryTitle({
 }
 
 /* =========================================================
-   ABOUT ZOIKOTECH
+   ABOUT ZOIKO TECH
 ========================================================= */
 
 const aboutZoikoTech = [
   {
-    title: "About ZoikoTech",
-    description:
-      "Corporate positioning, mission and operating model",
+    title: "About Zoiko Tech",
+    description: "Our purpose, people and impact",
     href: "#",
     icon: "/companymegamenu/about-zoikotech.png",
   },
   {
     title: "Leadership & Governance",
-    description:
-      "Executive leadership and governance information",
+    description: "Experienced leaders. Lasting value.",
     href: "#",
     icon: "/companymegamenu/leadership-governance.png",
   },
   {
     title: "Global Presence",
-    description:
-      "Headquarters, hubs and operating footprint",
+    description: "A growing global footprint",
     href: "#",
     icon: "/companymegamenu/global-presence.png",
   },
   {
     title: "Technology Strategy",
-    description:
-      "How Zoiko builds, integrates and governs technology",
+    description: "How Zoiko builds what's next.",
     href: "#",
     icon: "/companymegamenu/technology-strategy.png",
   },
@@ -155,24 +158,27 @@ const aboutZoikoTech = [
 const workWithUs = [
   {
     title: "Careers",
-    description:
-      "Global roles, culture and candidate information",
+    description: "Build your future with us",
     href: "#",
     icon: "/companymegamenu/careers.png",
   },
   {
     title: "Partners",
-    description:
-      "Technology, channel and strategic partnership paths",
+    description: "Stronger together",
     href: "#",
     icon: "/companymegamenu/partners.png",
   },
   {
     title: "Suppliers",
-    description:
-      "Procurement and supplier information",
+    description: "Join our global supply network",
     href: "#",
     icon: "/companymegamenu/suppliers.png",
+  },
+  {
+    title: "Investors",
+    description: "Long-term value. A brighter tomorrow.",
+    href: "#",
+    icon: "/companymegamenu/investors.png",
   },
 ];
 
@@ -183,91 +189,35 @@ const workWithUs = [
 const connectSupport = [
   {
     title: "Contact Us",
-    description:
-      "General enquiries and routed contact paths",
+    description: "Get in touch",
     href: "#",
     icon: "/companymegamenu/contact-us.png",
   },
   {
     title: "Support",
-    description:
-      "Customer support entry points and product routing",
+    description: "Find help and support",
     href: "#",
     icon: "/companymegamenu/support.png",
   },
   {
     title: "Zoiko Group",
-    description:
-      "Parent-group corporate website",
+    description: "Part of a stronger ecosystem",
     href: "#",
     icon: "/companymegamenu/zoiko-group.png",
   },
-];
-
-/* =========================================================
-   BOTTOM LINKS
-========================================================= */
-
-const companyResources = [
   {
-    title: "→ Legal & Privacy",
+    title: "Legal & Privacy",
+    description: "Policies, terms and compliance",
     href: "#",
     icon: "/companymegamenu/legal-privacy.png",
   },
   {
-    title: "→ Accessibility",
+    title: "Accessibility",
+    description: "Technology for everyone",
     href: "#",
     icon: "/companymegamenu/accessibility.png",
   },
 ];
-
-/* =========================================================
-   SMALL BOTTOM LINK
-========================================================= */
-
-function CompanyBottomLink({
-  title,
-  href,
-  icon,
-  onLinkClick,
-}: {
-  title: string;
-  href: string;
-  icon: string;
-  onLinkClick: () => void;
-}) {
-  return (
-    <Link
-      href={href}
-      onClick={onLinkClick}
-      className="group flex w-full items-center gap-2 overflow-hidden"
-    >
-      {/* SMALL ICON */}
-
-      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-teal-700">
-        <Image
-          src={icon}
-          alt=""
-          width={14}
-          height={14}
-          className="size-3.5 object-contain"
-        />
-      </div>
-
-      {/* TEXT */}
-
-      <span
-        className={`${poppins.className} min-w-0 flex-1 text-[12px] font-semibold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
-      >
-        {title}
-      </span>
-
-      {/* ARROW */}
-
-      <Arrow />
-    </Link>
-  );
-}
 
 /* =========================================================
    MAIN COMPONENT
@@ -310,6 +260,11 @@ export default function CompanyMegaMenu({
 
       <div
         className="
+          flex
+          w-full
+          flex-col
+          items-start
+          gap-5
           overflow-hidden
           rounded-2xl
           bg-white
@@ -320,24 +275,28 @@ export default function CompanyMegaMenu({
         "
       >
         {/* =================================================
-            INNER GREEN PANEL
+            INNER COMPANY PANEL
         ================================================== */}
 
         <div
           className="
             relative
-            h-[384px]
+            flex
+            h-96
             w-full
+            items-start
+            justify-between
             overflow-hidden
             rounded-lg
+            bg-gradient-to-r
+            from-emerald-800/40
+            via-emerald-900
+            to-teal-700/30
             shadow-[0px_4px_4px_0px_rgba(31,122,108,0.60)]
           "
         >
           {/* =================================================
-              ACTUAL BACKGROUND IMAGE
-
-              Do NOT use next/image here.
-              This prevents the hydration mismatch issue.
+              BACKGROUND IMAGE
           ================================================== */}
 
           <div
@@ -355,39 +314,40 @@ export default function CompanyMegaMenu({
           />
 
           {/* =================================================
-              THREE COLUMNS
+              MAIN CONTENT
           ================================================== */}
 
           <div className="relative z-10 flex h-full w-full">
-
             {/* =================================================
                 COLUMN 1
-                ABOUT ZOIKOTECH
+                ABOUT ZOIKO TECH
             ================================================== */}
 
             <div
               className="
                 flex
-                h-full
-                w-[31.5%]
-                min-w-0
+                h-96
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
                 border-r
-                border-slate-500/80
-                px-8
+                border-slate-500
+                px-7
                 py-6
               "
             >
-              {/* HEADING */}
+              {/* CATEGORY TITLE */}
 
               <CategoryTitle>
-                About ZoikoTech
+                About Zoiko Tech
               </CategoryTitle>
 
               {/* ITEMS */}
 
-              <div className="flex w-full flex-col gap-[24px] pt-8">
+              <div className="flex w-full flex-col items-start gap-6">
                 {aboutZoikoTech.map((item) => (
                   <CompanyItem
                     key={item.title}
@@ -409,18 +369,20 @@ export default function CompanyMegaMenu({
             <div
               className="
                 flex
-                h-full
-                w-[37%]
-                min-w-0
+                h-96
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
                 border-r
-                border-slate-500/80
-                px-8
+                border-slate-500
+                px-7
                 py-6
               "
             >
-              {/* HEADING */}
+              {/* CATEGORY TITLE */}
 
               <CategoryTitle>
                 Work With Us
@@ -428,7 +390,7 @@ export default function CompanyMegaMenu({
 
               {/* ITEMS */}
 
-              <div className="flex w-full flex-col gap-[24px] pt-8">
+              <div className="flex w-full flex-col items-start gap-6">
                 {workWithUs.map((item) => (
                   <CompanyItem
                     key={item.title}
@@ -450,24 +412,28 @@ export default function CompanyMegaMenu({
             <div
               className="
                 flex
-                h-full
-                w-[31.5%]
-                min-w-0
+                h-96
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
-                px-8
+                border-r
+                border-slate-500
+                px-7
                 py-6
               "
             >
-              {/* HEADING */}
+              {/* CATEGORY TITLE */}
 
               <CategoryTitle>
                 Connect &amp; Support
               </CategoryTitle>
 
-              {/* MAIN ITEMS */}
+              {/* ITEMS */}
 
-              <div className="flex w-full flex-col gap-[24px] pt-8">
+              <div className="flex w-full flex-col items-start gap-6">
                 {connectSupport.map((item) => (
                   <CompanyItem
                     key={item.title}
@@ -479,30 +445,101 @@ export default function CompanyMegaMenu({
                   />
                 ))}
               </div>
-
-              {/* =================================================
-                  DIVIDER
-              ================================================== */}
-
-              <div className="my-6 h-px w-full shrink-0 bg-slate-400/80" />
-
-              {/* =================================================
-                  BOTTOM LINKS
-              ================================================== */}
-
-              <div className="flex w-full flex-col gap-3">
-                {companyResources.map((item) => (
-                  <CompanyBottomLink
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                    icon={item.icon}
-                    onLinkClick={onLinkClick}
-                  />
-                ))}
-              </div>
             </div>
 
+            {/* =================================================
+                RIGHT HERO
+            ================================================== */}
+
+            <div
+              className="
+                relative
+                h-96
+                w-96
+                shrink-0
+                overflow-hidden
+                rounded-br-lg
+                rounded-tr-lg
+              "
+            >
+              {/* HERO IMAGE */}
+
+              <img
+                src="/companymegamenu/image.png"
+                alt="Zoiko Tech"
+                className="
+                  absolute
+                  inset-0
+                  size-full
+                  object-cover
+                "
+              />
+
+              {/* IMAGE OVERLAY */}
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-b
+                  from-teal-950/90
+                  via-emerald-900/55
+                  to-black/0
+                "
+              />
+
+              {/* =================================================
+                  HERO CONTENT
+              ================================================== */}
+
+              <div
+                className="
+                  absolute
+                  left-0
+                  top-0
+                  flex
+                  w-full
+                  flex-col
+                  items-start
+                  gap-4
+                  px-7
+                  py-7
+                "
+              >
+                <div className="flex w-full flex-col items-start gap-4">
+                  {/* HEADING */}
+
+                  <div
+                    className={`${poppins.className} w-full text-2xl font-bold leading-9`}
+                  >
+                    <span className="text-white">
+                      PEOPLE,
+                      <br />
+                      PARTNERSHIPS
+                      <br />
+                      AND PROGRESS
+                      <br />
+                    </span>
+
+                    <span className="text-teal-500">
+                      WORLDWIDE.
+                    </span>
+                  </div>
+
+                  {/* DIVIDER */}
+
+                  <div className="h-[3px] w-10 rounded-sm bg-teal-500" />
+
+                  {/* TAGLINE */}
+
+                  <div
+                    className={`${poppins.className} w-full text-sm font-normal leading-5 text-slate-300`}
+                  >
+                    A More Connected Tomorrow.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

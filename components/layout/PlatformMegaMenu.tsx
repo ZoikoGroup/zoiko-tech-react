@@ -6,7 +6,7 @@ import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -14,12 +14,16 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["400", "600", "700"],
 });
 
-type ProductMegaMenuProps = {
+/* =========================================================
+   TYPES
+========================================================= */
+
+type PlatformMegaMenuProps = {
   isOpen: boolean;
   onLinkClick: () => void;
 };
 
-type ProductItemProps = {
+type PlatformItemProps = {
   title: string;
   description: string;
   href: string;
@@ -29,42 +33,75 @@ type ProductItemProps = {
 
 type BottomLinkProps = {
   title: string;
+  description: string;
   href: string;
   icon: string;
   onLinkClick: () => void;
 };
 
-/* =========================
+/* =========================================================
    ARROW
-========================= */
+========================================================= */
 
 function Arrow() {
   return (
-    <span className="relative mt-[2px] size-4 shrink-0 overflow-hidden">
-      <span className="absolute left-[5px] top-[4px] block h-[7px] w-[7px] rotate-[-45deg] border-r-[1.5px] border-b-[1.5px] border-zinc-200" />
+    <span className="relative mt-[1px] size-4 shrink-0 overflow-hidden">
+      <span
+        className="
+          absolute
+          left-[5px]
+          top-[4px]
+          block
+          h-[7px]
+          w-[7px]
+          rotate-[-45deg]
+          border-r-[1.5px]
+          border-b-[1.5px]
+          border-zinc-200
+        "
+      />
     </span>
   );
 }
 
-/* =========================
-   PRODUCT ITEM
-========================= */
+/* =========================================================
+   PLATFORM ITEM
+========================================================= */
 
-function ProductItem({
+function PlatformItem({
   title,
   description,
   href,
   icon,
   onLinkClick,
-}: ProductItemProps) {
+}: PlatformItemProps) {
   return (
     <Link
       href={href}
       onClick={onLinkClick}
-      className="group flex w-full min-w-0 items-start gap-2.5"
+      className="
+        group
+        flex
+        w-full
+        min-w-0
+        items-start
+        gap-2.5
+        overflow-hidden
+      "
     >
       {/* ICON */}
-      <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-teal-700">
+
+      <div
+        className="
+          flex
+          size-8
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-teal-700
+        "
+      >
         <Image
           src={icon}
           alt=""
@@ -75,11 +112,24 @@ function ProductItem({
       </div>
 
       {/* CONTENT */}
+
       <div className="min-w-0 flex-1 overflow-hidden">
         {/* TITLE + ARROW */}
-        <div className="flex min-w-0 w-full items-center justify-between gap-2">
+
+        <div className="flex w-full min-w-0 items-center justify-between gap-2">
           <span
-            className={`${plusJakarta.className} min-w-0 flex-1 text-[14px] font-bold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
+            className={`
+              ${plusJakarta.className}
+              min-w-0
+              flex-1
+              text-[12px]
+              font-bold
+              leading-4
+              text-white
+              transition-colors
+              duration-150
+              group-hover:text-teal-200
+            `}
           >
             {title}
           </span>
@@ -88,8 +138,17 @@ function ProductItem({
         </div>
 
         {/* DESCRIPTION */}
+
         <p
-          className={`${poppins.className} mt-[3px] w-full pr-1 text-[11px] font-normal leading-[14px] text-gray-300`}
+          className={`
+            ${poppins.className}
+            mt-[3px]
+            w-full
+            text-[10px]
+            font-normal
+            leading-3
+            text-gray-300
+          `}
         >
           {description}
         </p>
@@ -98,9 +157,9 @@ function ProductItem({
   );
 }
 
-/* =========================
+/* =========================================================
    CATEGORY TITLE
-========================= */
+========================================================= */
 
 function CategoryTitle({
   children,
@@ -109,19 +168,29 @@ function CategoryTitle({
 }) {
   return (
     <div
-      className={`${poppins.className} w-full shrink-0 text-[14px] font-bold uppercase leading-5 text-white`}
+      className={`
+        ${poppins.className}
+        w-full
+        shrink-0
+        text-[12px]
+        font-bold
+        uppercase
+        leading-4
+        text-white
+      `}
     >
       {children}
     </div>
   );
 }
 
-/* =========================
+/* =========================================================
    BOTTOM LINK
-========================= */
+========================================================= */
 
 function BottomLink({
   title,
+  description,
   href,
   icon,
   onLinkClick,
@@ -130,10 +199,29 @@ function BottomLink({
     <Link
       href={href}
       onClick={onLinkClick}
-      className="group flex w-full min-w-0 items-center gap-2"
+      className="
+        group
+        flex
+        w-full
+        min-w-0
+        items-center
+        gap-2
+        overflow-hidden
+      "
     >
       {/* ICON */}
-      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-teal-700">
+
+      <div
+        className="
+          flex
+          size-7
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-teal-700
+        "
+      >
         <Image
           src={icon}
           alt=""
@@ -143,132 +231,164 @@ function BottomLink({
         />
       </div>
 
-      {/* TITLE */}
-      <span
-        className={`${poppins.className} min-w-0 flex-1 text-[12px] font-semibold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
-      >
-        {title}
-      </span>
+      {/* CONTENT */}
 
-      {/* ARROW */}
-      <Arrow />
+      <div className="min-w-0 flex-1 overflow-hidden">
+        {/* TITLE + ARROW */}
+
+        <div className="flex w-full items-center justify-between gap-2">
+          <span
+            className={`
+              ${poppins.className}
+              min-w-0
+              flex-1
+              text-[12px]
+              font-semibold
+              leading-4
+              text-white
+              transition-colors
+              duration-150
+              group-hover:text-teal-200
+            `}
+          >
+            {title}
+          </span>
+
+          <Arrow />
+        </div>
+
+        {/* DESCRIPTION */}
+
+        <p
+          className={`
+            ${poppins.className}
+            mt-0.5
+            text-[10px]
+            font-normal
+            leading-3
+            text-gray-300
+          `}
+        >
+          {description}
+        </p>
+      </div>
     </Link>
   );
 }
 
-/* =========================
-   ENTERPRISE PRODUCTS
-========================= */
+/* =========================================================
+   ENTERPRISE & WORKFORCE
+========================================================= */
 
 const enterpriseProducts = [
   {
     title: "ZoikoTime",
-    description:
-      "Governed workforce time, productivity and provenance",
+    description: "Time, scheduling and workforce management",
     href: "#",
     icon: "/PlatformMegaMenu/enterprise-zoikotime.png",
   },
   {
     title: "Zoiko HR",
-    description:
-      "Global human resources and workforce operations",
+    description: "People operations for a modern workforce",
     href: "#",
     icon: "/PlatformMegaMenu/enterprise-zoiko-hr.png",
   },
   {
     title: "Zoiko Payroll",
-    description:
-      "Payroll operations, controls and multinational workflows",
+    description: "Payroll, benefits and global pay",
     href: "#",
     icon: "/PlatformMegaMenu/enterprise-zoiko-payroll.png",
   },
   {
     title: "Zoiko Billing",
-    description:
-      "Billing, invoicing and revenue operations",
+    description: "Billing, invoicing and revenue operations",
     href: "#",
     icon: "/PlatformMegaMenu/enterprise-zoiko-billing.png",
   },
 ];
 
-/* =========================
-   AI / TELECOM PRODUCTS
-========================= */
+/* =========================================================
+   AI, COMMUNICATIONS & DIGITAL PLATFORMS
+========================================================= */
 
-const aiProducts = [
+const digitalProducts = [
   {
     title: "ZoikoVertex",
-    description:
-      "Governed agentic execution and workflow automation",
+    description: "AI and analytics for real-world impact",
     href: "#",
     icon: "/PlatformMegaMenu/ai-zoikovertex.png",
   },
   {
     title: "ZoikoNex",
-    description:
-      "Telecom OSS/BSS, monetization and operator infrastructure",
+    description: "Next-generation communications platform",
     href: "#",
     icon: "/PlatformMegaMenu/ai-zoikonex.png",
   },
   {
     title: "Zoiko Sema",
-    description:
-      "Meetings, messaging and calling",
+    description: "Intelligent messaging and AI agents",
     href: "#",
     icon: "/PlatformMegaMenu/ai-zoiko-sema.png",
   },
   {
+    title: "Zoiko Social",
+    description: "Social platforms for communities and brands",
+    href: "#",
+    icon: "/PlatformMegaMenu/group-zoiko-social.png",
+  },
+  {
     title: "Zoiko Local",
-    description:
-      "Communications and local-number infrastructure",
+    description: "Location intelligence and local engagement",
     href: "#",
     icon: "/PlatformMegaMenu/ai-zoiko-local.png",
   },
   {
     title: "ZoikoStream Live Events",
-    description:
-      "Commercial live-event broadcasting technology",
+    description: "Live streaming, virtual and hybrid events",
     href: "#",
     icon: "/PlatformMegaMenu/ai-zoikostream.png",
   },
 ];
 
-/* =========================
-   GROUP PLATFORMS
-========================= */
+/* =========================================================
+   CONNECTED GROUP PLATFORMS
+========================================================= */
 
 const groupProducts = [
   {
     title: "ZoikoMeds",
-    description:
-      "Zoiko Healthcare platform - medication and pharmacy-availability intelligence",
+    description: "Healthcare access and patient experiences",
     href: "#",
     icon: "/PlatformMegaMenu/group-zoikomed.png",
   },
   {
-    title: "Zoiko Social",
-    description:
-      "Zoiko Media Corp. platform - social and community experience",
-    href: "#",
-    icon: "/PlatformMegaMenu/group-zoiko-social.png",
-  },
-  {
     title: "Zoiko Rooms",
-    description:
-      "Zoiko Realty Group platform - property and accommodation marketplace",
+    description: "Smart rooms and workspace experiences",
     href: "#",
     icon: "/PlatformMegaMenu/group-zoiko-rooms.png",
   },
+  {
+    title: "Zoiko Pay",
+    description: "Payments and financial experiences",
+    href: "#",
+    icon: "/PlatformMegaMenu/group-zoiko-pay.png",
+  },
+  {
+    title: "Zoiko Travel",
+    description: "Travel and mobility platform",
+    href: "#",
+    icon: "/PlatformMegaMenu/group-zoiko-travel.png",
+  },
 ];
 
-/* =========================
+/* =========================================================
    MAIN COMPONENT
-========================= */
+========================================================= */
 
-export default function ProductMegaMenu({
+export default function PlatformMegaMenu({
   isOpen,
   onLinkClick,
-}: ProductMegaMenuProps) {
+}: PlatformMegaMenuProps) {
   return (
     <div
       className={`
@@ -276,8 +396,8 @@ export default function ProductMegaMenu({
         left-1/2
         top-[95px]
         z-[100]
-        w-[calc(100vw-64px)]
-        max-w-[1400px]
+        w-[calc(100vw-128px)]
+        max-w-[1440px]
         -translate-x-1/2
         max-md:hidden
         transition-all
@@ -290,21 +410,27 @@ export default function ProductMegaMenu({
         }
       `}
     >
-      {/* =========================
+      {/* =====================================================
           HOVER BRIDGE
-      ========================== */}
+      ===================================================== */}
 
       <div className="absolute -top-5 left-0 h-5 w-full" />
 
-      {/* =========================
+      {/* =====================================================
           OUTER WHITE CONTAINER
-          SAME AS INDUSTRIES
-      ========================== */}
+
+          No fixed height.
+          Only the required padding remains.
+      ===================================================== */}
 
       <div
         className="
+          flex
+          w-full
+          flex-col
+          items-start
+          justify-start
           overflow-hidden
-          rounded-2xl
           bg-white
           px-12
           pb-8
@@ -312,86 +438,83 @@ export default function ProductMegaMenu({
           shadow-[0px_12px_28px_0px_rgba(15,23,42,0.08)]
         "
       >
-        {/* =========================
-            INNER PANEL
-            SAME 384px HEIGHT
-        ========================== */}
+        {/* ===================================================
+            INNER MEGA MENU
+        =================================================== */}
 
         <div
           className="
             relative
-            h-[384px]
+            flex
+            h-96
             w-full
             overflow-hidden
             rounded-lg
             shadow-[0px_4px_4px_0px_rgba(31,122,108,0.60)]
           "
         >
-          {/* =========================
-              BACKGROUND IMAGE
-          ========================== */}
+          {/* =================================================
+              MAIN BACKGROUND IMAGE
+
+              No gradient.
+              No color overlay.
+              The PNG itself controls the background.
+          ================================================= */}
 
           <Image
             src="/PlatformMegaMenu/platform-mega-menu-bg.png"
             alt=""
             fill
             priority
-            sizes="(max-width: 1400px) calc(100vw - 160px), 1400px"
-            className="object-cover"
-          />
-
-          {/* =========================
-              GREEN OVERLAY
-          ========================== */}
-
-          <div
+            sizes="(max-width: 1440px) 100vw, 1440px"
             className="
               absolute
               inset-0
-              bg-gradient-to-r
-              from-emerald-900/35
-              via-emerald-900/20
-              to-teal-800/25
+              z-0
+              object-cover
             "
           />
 
-          {/* =========================
-              THREE COLUMNS
-          ========================== */}
+          {/* =================================================
+              CONTENT
+          ================================================= */}
 
           <div className="relative z-10 flex h-full w-full">
-
-            {/* =========================================
+            {/* =================================================
                 COLUMN 1
                 ENTERPRISE & WORKFORCE
-            ========================================== */}
+            ================================================= */}
 
             <div
               className="
                 flex
                 h-full
-                w-[31.5%]
-                min-w-0
+                w-[25%]
+                shrink-0
                 flex-col
                 overflow-hidden
                 border-r
-                border-gray-400/70
+                border-slate-400/60
                 px-8
-                py-6
+                py-7
               "
             >
-              {/* TITLE */}
-
               <CategoryTitle>
                 Enterprise &amp; Workforce
               </CategoryTitle>
 
-              {/* PRODUCTS
-                  CLOSER VERTICAL SPACING */}
-
-              <div className="flex w-full flex-col gap-[20px] pt-6">
+              <div
+                className="
+                  mt-6
+                  flex
+                  w-full
+                  flex-col
+                  gap-[19px]
+                  overflow-hidden
+                "
+              >
                 {enterpriseProducts.map((item) => (
-                  <ProductItem
+                  <PlatformItem
                     key={item.title}
                     title={item.title}
                     description={item.description}
@@ -403,37 +526,43 @@ export default function ProductMegaMenu({
               </div>
             </div>
 
-            {/* =========================================
+            {/* =================================================
                 COLUMN 2
-                AI, TELECOM & COMMUNICATIONS
-            ========================================== */}
+                AI, COMMUNICATIONS & DIGITAL PLATFORMS
+            ================================================= */}
 
             <div
               className="
                 flex
                 h-full
-                w-[37%]
-                min-w-0
+                w-[25%]
+                shrink-0
                 flex-col
                 overflow-hidden
                 border-r
-                border-gray-400/70
+                border-slate-400/60
                 px-8
                 py-6
               "
             >
-              {/* TITLE */}
-
               <CategoryTitle>
-                AI, Telecom &amp; Communications
+                AI, Communications &amp; Digital
+                <br />
+                Platforms
               </CategoryTitle>
 
-              {/* PRODUCTS
-                  CLOSER VERTICAL SPACING */}
-
-              <div className="flex w-full flex-col gap-[20px] pt-6">
-                {aiProducts.map((item) => (
-                  <ProductItem
+              <div
+                className="
+                  mt-6
+                  flex
+                  w-full
+                  flex-col
+                  gap-[13px]
+                  overflow-hidden
+                "
+              >
+                {digitalProducts.map((item) => (
+                  <PlatformItem
                     key={item.title}
                     title={item.title}
                     description={item.description}
@@ -445,34 +574,43 @@ export default function ProductMegaMenu({
               </div>
             </div>
 
-            {/* =========================================
+            {/* =================================================
                 COLUMN 3
-                GROUP PLATFORMS
-            ========================================== */}
+                CONNECTED GROUP PLATFORMS
+            ================================================= */}
 
             <div
               className="
                 flex
                 h-full
-                w-[31.5%]
-                min-w-0
+                w-[25%]
+                shrink-0
                 flex-col
                 overflow-hidden
+                border-r
+                border-slate-400/60
                 px-8
                 py-6
               "
             >
-              {/* TITLE */}
-
               <CategoryTitle>
-                Group Platforms Powered by Zoiko Technology
+                Connected Group Platforms
+                <br />
+                Powered by Zoiko Technology
               </CategoryTitle>
 
-              {/* GROUP PRODUCTS */}
-
-              <div className="flex min-h-0 flex-1 flex-col justify-between pt-6">
+              <div
+                className="
+                  mt-6
+                  flex
+                  w-full
+                  flex-col
+                  gap-[14px]
+                  overflow-hidden
+                "
+              >
                 {groupProducts.map((item) => (
-                  <ProductItem
+                  <PlatformItem
                     key={item.title}
                     title={item.title}
                     description={item.description}
@@ -481,32 +619,202 @@ export default function ProductMegaMenu({
                     onLinkClick={onLinkClick}
                   />
                 ))}
+              </div>
 
-                {/* =========================
-                    DIVIDER
-                ========================== */}
+              {/* DIVIDER */}
 
-                <div className="my-2 h-px w-full shrink-0 bg-gray-400/70" />
+              <div
+                className="
+                  mt-4
+                  h-px
+                  w-full
+                  shrink-0
+                  bg-slate-400/70
+                "
+              />
 
-                {/* =========================
-                    CTA GROUP
-                    CLOSE TOGETHER
-                ========================== */}
+              {/* BOTTOM LINKS */}
 
-                <div className="flex flex-col gap-[3px]">
-                  <BottomLink
-                    title="→ Explore All Platforms"
-                    href="#"
-                    icon="/PlatformMegaMenu/explore-all-platforms.png"
-                    onLinkClick={onLinkClick}
-                  />
+              <div
+                className="
+                  mt-3
+                  flex
+                  w-full
+                  flex-col
+                  gap-3
+                  overflow-hidden
+                "
+              >
+                <BottomLink
+                  title="Explore All Platforms"
+                  description="Discover the full platform portfolio"
+                  href="#"
+                  icon="/PlatformMegaMenu/explore-all-platforms.png"
+                  onLinkClick={onLinkClick}
+                />
 
-                  <BottomLink
-                    title="→ Platform Ecosystem"
-                    href="#"
-                    icon="/PlatformMegaMenu/platform-ecosystem.png"
-                    onLinkClick={onLinkClick}
-                  />
+                <BottomLink
+                  title="Platform Ecosystem"
+                  description="An open ecosystem for partners"
+                  href="#"
+                  icon="/PlatformMegaMenu/platform-ecosystem.png"
+                  onLinkClick={onLinkClick}
+                />
+              </div>
+            </div>
+
+            {/* =================================================
+                COLUMN 4
+                RIGHT HERO IMAGE
+
+                No gradient overlay.
+            ================================================= */}
+
+            <div
+              className="
+                relative
+                h-full
+                min-w-0
+                flex-1
+                overflow-hidden
+                rounded-tr-lg
+                rounded-br-lg
+              "
+            >
+              {/* =================================================
+                  RIGHT SIDE BACKGROUND IMAGE
+              ================================================= */}
+
+              <Image
+                src="/PlatformMegaMenu/image.png"
+                alt=""
+                fill
+                priority
+                sizes="480px"
+                className="
+                  object-cover
+                  object-center
+                "
+              />
+
+              {/* =================================================
+                  HERO CONTENT
+              ================================================= */}
+
+              <div
+                className="
+                  relative
+                  z-10
+                  flex
+                  h-full
+                  w-full
+                  flex-col
+                  items-start
+                  px-8
+                  py-7
+                "
+              >
+                {/* HEADING */}
+
+                <div
+                  className={`
+                    ${poppins.className}
+                    flex
+                    flex-col
+                    items-start
+                    gap-0
+                  `}
+                >
+                  <span
+                    className="
+                      text-[30px]
+                      font-extrabold
+                      leading-8
+                      text-white
+                    "
+                  >
+                    PLATFORMS
+                  </span>
+
+                  <span
+                    className="
+                      text-[30px]
+                      font-extrabold
+                      leading-8
+                      text-white
+                    "
+                  >
+                    THAT MOVE
+                  </span>
+
+                  <span
+                    className="
+                      text-[30px]
+                      font-extrabold
+                      leading-8
+                      text-white
+                    "
+                  >
+                    THE WORLD
+                  </span>
+
+                  <span
+                    className="
+                      text-[30px]
+                      font-extrabold
+                      leading-8
+                      text-teal-400
+                    "
+                  >
+                    FORWARD.
+                  </span>
+                </div>
+
+                {/* TEAL LINE */}
+
+                <div
+                  className="
+                    mt-4
+                    h-[3px]
+                    w-10
+                    shrink-0
+                    rounded-sm
+                    bg-teal-400
+                  "
+                />
+
+                {/* TAGLINE */}
+
+                <div
+                  className={`
+                    ${poppins.className}
+                    mt-3
+                    flex
+                    flex-col
+                    gap-0.5
+                  `}
+                >
+                  <span
+                    className="
+                      text-[12px]
+                      font-medium
+                      leading-5
+                      text-sky-100
+                    "
+                  >
+                    People. Possibilities.
+                  </span>
+
+                  <span
+                    className="
+                      text-[12px]
+                      font-medium
+                      leading-5
+                      text-sky-100
+                    "
+                  >
+                    A More Connected Tomorrow.
+                  </span>
                 </div>
               </div>
             </div>

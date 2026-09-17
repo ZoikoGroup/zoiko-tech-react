@@ -1,6 +1,6 @@
 export { default as Hero } from "./Hero";
 export { default as Thesis } from "./Thesis";
-export { default as Platform } from "./Platform";
+export { default as Platform } from "./PlatformCompany";
 export { default as Estate } from "./Estate";
 export { default as AI } from "./AI";
 export { default as Industries } from "./Industries";

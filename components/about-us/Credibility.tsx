@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const proofPoints = [
@@ -46,10 +47,21 @@ export default function Credibility() {
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden border-b border-gray-800 bg-cyan-900/90"
+      className="relative w-full overflow-hidden border-b border-gray-800"
     >
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-16 lg:px-28 lg:py-28">
+      {/* Main section background */}
+      <Image
+        src="/about-us/bg4.png"
+        alt=""
+        fill
+        priority={false}
+        className="object-cover"
+      />
 
+      {/* Subtle overlay */}
+      <div className="absolute inset-0 bg-black/20" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-16 lg:px-28 lg:py-28">
         {/* Header */}
         <div
           className={`flex w-full flex-col items-start gap-4 transition-all duration-1000 ease-out ${
@@ -59,7 +71,7 @@ export default function Credibility() {
           }`}
         >
           {/* Badge */}
-          <div className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/15">
+          <div className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-transparent px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40">
             <span className="text-[10px] font-bold uppercase tracking-wide text-teal-400">
               Execution, Not Adjectives
             </span>
@@ -76,7 +88,7 @@ export default function Credibility() {
           {proofPoints.map((point, index) => (
             <article
               key={point.title}
-              className={`group flex flex-col gap-5 rounded-2xl border border-gray-800 bg-gray-800 p-6 transition-all duration-700 ease-out hover:-translate-y-2 hover:border-gray-600 hover:shadow-[0_20px_45px_rgba(0,0,0,0.25)] sm:p-8 ${
+              className={`group relative flex min-h-[280px] flex-col gap-5 overflow-hidden rounded-2xl border border-white/15 p-6 transition-all duration-700 ease-out hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_20px_45px_rgba(0,0,0,0.25)] sm:p-8 ${
                 visible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-14 opacity-0"
@@ -85,27 +97,41 @@ export default function Credibility() {
                 transitionDelay: `${150 + index * 150}ms`,
               }}
             >
-              {/* Metric */}
-              <div className="text-2xl font-extrabold text-teal-400 transition-transform duration-500 group-hover:translate-x-1 sm:text-3xl">
-                {point.metric}
+              {/* Card background */}
+              <Image
+                src="/about-us/bg4.png"
+                alt=""
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Card overlay */}
+              <div className="absolute inset-0 bg-black/30 transition-colors duration-500 group-hover:bg-black/20" />
+
+              {/* Card content */}
+              <div className="relative z-10 flex flex-col gap-5">
+                {/* Metric */}
+                <div className="text-2xl font-extrabold text-teal-400 transition-transform duration-500 group-hover:translate-x-1 sm:text-3xl">
+                  {point.metric}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-extrabold text-white transition-colors duration-300 group-hover:text-teal-300 sm:text-xl">
+                  {point.title}
+                </h3>
+
+                {/* Description */}
+                <p className="max-w-[95%] text-sm font-normal leading-5 text-slate-200 transition-colors duration-300 group-hover:text-white">
+                  {point.description}
+                </p>
               </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-extrabold text-white transition-colors duration-300 group-hover:text-teal-300 sm:text-xl">
-                {point.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm font-normal leading-5 text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
-                {point.description}
-              </p>
             </article>
           ))}
         </div>
 
         {/* Engineering Scale */}
         <div
-          className={`group flex w-full flex-col items-start gap-4 rounded-xl border border-cyan-700/30 bg-cyan-700/60 p-6 transition-all duration-1000 ease-out hover:border-cyan-500/50 hover:bg-cyan-700/70 sm:flex-row sm:items-center sm:gap-5 sm:p-7 ${
+          className={`group relative flex w-full flex-col items-start gap-4 overflow-hidden rounded-xl border border-white/15 p-6 transition-all duration-1000 ease-out hover:-translate-y-1 hover:border-white/30 hover:shadow-[0_15px_35px_rgba(0,0,0,0.2)] sm:flex-row sm:items-center sm:gap-5 sm:p-7 ${
             visible
               ? "translate-y-0 opacity-100"
               : "translate-y-12 opacity-0"
@@ -114,14 +140,30 @@ export default function Credibility() {
             transitionDelay: "500ms",
           }}
         >
-          {/* Indicator */}
-          <div className="relative flex h-6 w-6 shrink-0 items-center justify-center">
-            <span className="absolute h-5 w-5 rounded-full border-2 border-teal-400 transition-transform duration-500 group-hover:scale-110" />
-            <span className="h-1.5 w-1.5 rounded-full bg-teal-400 transition-transform duration-500 group-hover:scale-125" />
+          {/* Engineering Scale background */}
+          <Image
+            src="/about-us/bg4.png"
+            alt=""
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/25 transition-colors duration-500 group-hover:bg-black/15" />
+
+          {/* CPU Icon */}
+          <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+            <Image
+              src="/about-us/cpu.png"
+              alt="Engineering scale"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain transition-transform duration-500 group-hover:scale-110"
+            />
           </div>
 
           {/* Text */}
-          <p className="flex-1 text-sm font-normal leading-6 text-slate-50 sm:text-base">
+          <p className="relative z-10 flex-1 text-sm font-normal leading-6 text-slate-50 sm:text-base">
             <strong className="font-bold text-white">
               Engineering Scale:
             </strong>{" "}

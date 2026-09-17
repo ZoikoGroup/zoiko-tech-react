@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const domains = [
   "Logistics & Supply Chain",
@@ -43,6 +44,7 @@ export default function AI() {
       },
       {
         threshold: 0.1,
+        rootMargin: "0px 0px -70px 0px",
       }
     );
 
@@ -54,11 +56,33 @@ export default function AI() {
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden border-b border-gray-800 bg-[#071A1F]"
+      className="relative w-full overflow-hidden border-b border-gray-800"
     >
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-14 lg:px-28 lg:py-24">
+      {/* =====================================================
+          BACKGROUND IMAGE
+      ===================================================== */}
 
-        {/* Header */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/about-us/bg4.png"
+          alt=""
+          fill
+          sizes="100vw"
+          priority={false}
+          className="object-cover object-center"
+        />
+      </div>
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-14 lg:px-28 lg:py-24">
+
+        {/* ===================================================
+            HEADER
+        =================================================== */}
+
         <div
           className={`flex w-full flex-col items-start gap-4 transition-all duration-1000 ease-out ${
             visible
@@ -67,18 +91,21 @@ export default function AI() {
           }`}
         >
           {/* Badge */}
-          <div className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/15">
+
+          <div className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-transparent px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400/60">
             <span className="text-[10px] font-bold uppercase tracking-wide text-teal-400">
               Artificial Intelligence
             </span>
           </div>
 
           {/* Heading */}
+
           <h2 className="w-full text-3xl font-extrabold leading-tight tracking-tight text-white transition-transform duration-500 hover:translate-x-1 sm:text-4xl lg:text-4xl lg:leading-[1.35]">
             Intelligence with Domain Depth
           </h2>
 
           {/* Description */}
+
           <p className="w-full max-w-[1100px] text-base font-normal leading-7 text-slate-100 sm:text-lg">
             ZoikoTech&apos;s AI strategy is not based on attaching a chatbot
             to every application. We build domain intelligence around the
@@ -87,10 +114,16 @@ export default function AI() {
           </p>
         </div>
 
-        {/* Domains + Capabilities */}
+        {/* ===================================================
+            DOMAINS + CAPABILITIES
+        =================================================== */}
+
         <div className="grid w-full grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-8">
 
-          {/* Domain Stacks */}
+          {/* =================================================
+              DOMAIN STACKS
+          ================================================= */}
+
           <div
             className={`flex w-full flex-col gap-5 transition-all duration-1000 ease-out ${
               visible
@@ -109,13 +142,13 @@ export default function AI() {
               {domains.map((domain, index) => (
                 <div
                   key={domain}
-                  className="group flex w-full items-center gap-3 border-b border-gray-800 pb-2 transition-all duration-300 hover:border-teal-400/50 hover:pl-2"
+                  className="group flex w-full items-center gap-3 border-b border-white/15 pb-2 transition-all duration-300 hover:border-teal-400/60 hover:pl-2"
                 >
                   <span className="w-8 text-base font-bold text-white">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <span className="flex-1 text-sm font-normal text-slate-400 transition-colors duration-300 group-hover:text-white sm:text-base">
+                  <span className="flex-1 text-sm font-normal text-slate-300 transition-colors duration-300 group-hover:text-white sm:text-base">
                     {domain}
                   </span>
                 </div>
@@ -123,7 +156,10 @@ export default function AI() {
             </div>
           </div>
 
-          {/* Capabilities */}
+          {/* =================================================
+              CAPABILITIES
+          ================================================= */}
+
           <div
             className={`flex w-full flex-col gap-6 transition-all duration-1000 ease-out ${
               visible
@@ -134,16 +170,19 @@ export default function AI() {
               transitionDelay: "250ms",
             }}
           >
-            {capabilities.map((item) => (
+            {capabilities.map((item, index) => (
               <article
                 key={item.title}
-                className="group rounded-xl border border-gray-800 bg-gray-800 p-6 transition-all duration-400 hover:-translate-y-1 hover:border-gray-600 hover:shadow-[0_16px_35px_rgba(0,0,0,0.25)]"
+                className="group rounded-xl border border-white/15 bg-transparent p-6 transition-all duration-500 hover:-translate-y-2 hover:border-teal-400/60 hover:bg-black/10 hover:shadow-[0_16px_35px_rgba(0,0,0,0.25)]"
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                }}
               >
                 <h3 className="mb-3 text-xl font-extrabold text-white transition-colors duration-300 group-hover:text-teal-300">
                   {item.title}
                 </h3>
 
-                <p className="text-sm font-normal leading-5 text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
+                <p className="text-sm font-normal leading-5 text-slate-300 transition-colors duration-300 group-hover:text-white">
                   {item.description}
                 </p>
               </article>
@@ -151,9 +190,12 @@ export default function AI() {
           </div>
         </div>
 
-        {/* ZoikoLogia Core */}
+        {/* ===================================================
+            ZOIKOLOGIA CORE
+        =================================================== */}
+
         <div
-          className={`group flex w-full flex-col gap-6 rounded-2xl border border-cyan-700/30 bg-gray-800 p-6 transition-all duration-1000 ease-out hover:border-cyan-600/60 hover:shadow-[0_20px_45px_rgba(0,0,0,0.25)] sm:p-8 lg:flex-row lg:items-center lg:gap-6 ${
+          className={`group flex w-full flex-col gap-6 rounded-2xl border border-cyan-400/30 bg-transparent p-6 transition-all duration-1000 ease-out hover:-translate-y-1 hover:border-cyan-400/60 hover:bg-black/10 hover:shadow-[0_20px_45px_rgba(0,0,0,0.25)] sm:p-8 lg:flex-row lg:items-center lg:gap-6 ${
             visible
               ? "translate-y-0 opacity-100"
               : "translate-y-12 opacity-0"
@@ -163,12 +205,13 @@ export default function AI() {
           }}
         >
           {/* Text */}
+
           <div className="flex flex-1 flex-col gap-3">
             <h3 className="text-2xl font-extrabold text-teal-400 transition-transform duration-500 group-hover:translate-x-1 sm:text-3xl">
               ZoikoLogia Core
             </h3>
 
-            <p className="text-sm font-normal leading-6 text-slate-400 sm:text-base">
+            <p className="text-sm font-normal leading-6 text-slate-200 sm:text-base">
               A specialist LLM environment for accounting, finance and
               public-markets professionals.{" "}
               <strong className="font-bold text-white">
@@ -183,7 +226,8 @@ export default function AI() {
           </div>
 
           {/* Image */}
-          <div className="h-28 w-full shrink-0 overflow-hidden rounded-lg sm:h-32 lg:w-44">
+
+          <div className="h-28 w-full shrink-0 overflow-hidden rounded-lg border border-white/10 sm:h-32 lg:w-44">
             <img
               src="/about-us/logia.png"
               alt="ZoikoLogia Core"

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 
 const poppins = Poppins({
@@ -33,8 +32,8 @@ type ResourceItemProps = {
 
 function Arrow() {
   return (
-    <span className="relative mt-[2px] size-4 shrink-0 overflow-hidden">
-      <span className="absolute left-[5px] top-[4px] block h-[7px] w-[7px] rotate-[-45deg] border-r-[1.5px] border-b-[1.5px] border-zinc-200" />
+    <span className="relative mt-[1px] h-4 w-7 shrink-0 origin-top-left -rotate-90 overflow-hidden">
+      <span className="absolute left-[6px] top-[4px] block h-2 w-1 border-r-[1.5px] border-b-[1.5px] border-zinc-200" />
     </span>
   );
 }
@@ -54,14 +53,12 @@ function ResourceItem({
     <Link
       href={href}
       onClick={onLinkClick}
-      className="group flex w-full min-w-0 items-start gap-2.5"
+      className="group flex w-full min-w-0 items-start gap-2.5 overflow-hidden"
     >
-      {/* =================================================
-          ICON
-      ================================================== */}
+      {/* ICON */}
 
       <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-teal-700">
-        <Image
+        <img
           src={icon}
           alt=""
           width={16}
@@ -70,16 +67,14 @@ function ResourceItem({
         />
       </div>
 
-      {/* =================================================
-          CONTENT
-      ================================================== */}
+      {/* CONTENT */}
 
       <div className="min-w-0 flex-1 overflow-hidden">
         {/* TITLE + ARROW */}
 
-        <div className="flex min-w-0 w-full items-center justify-between gap-2 overflow-hidden">
+        <div className="flex w-full min-w-0 items-center justify-between gap-2 overflow-hidden">
           <span
-            className={`${plusJakarta.className} min-w-0 flex-1 text-[14px] font-bold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
+            className={`${plusJakarta.className} min-w-0 flex-1 truncate text-xs font-bold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
           >
             {title}
           </span>
@@ -90,7 +85,7 @@ function ResourceItem({
         {/* DESCRIPTION */}
 
         <p
-          className={`${poppins.className} mt-[3px] w-full text-[12px] font-normal leading-4 text-gray-300`}
+          className={`${poppins.className} mt-[3px] w-full text-xs font-normal leading-4 text-gray-300`}
         >
           {description}
         </p>
@@ -110,7 +105,7 @@ function CategoryTitle({
 }) {
   return (
     <div
-      className={`${poppins.className} w-full shrink-0 text-[14px] font-bold uppercase leading-5 text-white`}
+      className={`${poppins.className} w-full shrink-0 text-xs font-bold uppercase leading-4 text-white`}
     >
       {children}
     </div>
@@ -124,29 +119,25 @@ function CategoryTitle({
 const learnDiscover = [
   {
     title: "Insights & Analysis",
-    description:
-      "Executive, product and industry perspectives",
+    description: "Expert perspectives on what's next",
     href: "#",
     icon: "/resourcemegamenu/insights-analysis.png",
   },
   {
     title: "Research",
-    description:
-      "Technical papers, benchmarks and research outputs",
+    description: "Original research and insights",
     href: "#",
     icon: "/resourcemegamenu/research.png",
   },
   {
     title: "Guides & Reports",
-    description:
-      "Structured downloadable resources",
+    description: "Practical guidance for real impact",
     href: "#",
     icon: "/resourcemegamenu/guides-reports.png",
   },
   {
     title: "Customer Stories",
-    description:
-      "Evidence-led case studies and results",
+    description: "Real customers. Real results.",
     href: "#",
     icon: "/resourcemegamenu/customer-stories.png",
   },
@@ -159,29 +150,25 @@ const learnDiscover = [
 const buildEvaluate = [
   {
     title: "Documentation",
-    description:
-      "Product and platform documentation",
+    description: "Technical docs and product guides",
     href: "#",
     icon: "/resourcemegamenu/documentation.png",
   },
   {
     title: "Developer Resources",
-    description:
-      "APIs, SDKs, integration guides and developer tools",
+    description: "Tools, SDKs and development support",
     href: "#",
     icon: "/resourcemegamenu/developer-resources.png",
   },
   {
     title: "Trust Center",
-    description:
-      "Security, privacy, compliance and resilience evidence",
+    description: "Security, compliance and transparency",
     href: "#",
     icon: "/resourcemegamenu/trust-center.png",
   },
   {
     title: "Status",
-    description:
-      "Current service availability and incident communications",
+    description: "System status and service health",
     href: "#",
     icon: "/resourcemegamenu/status.png",
   },
@@ -194,22 +181,19 @@ const buildEvaluate = [
 const newsCompany = [
   {
     title: "Newsroom",
-    description:
-      "Corporate news and announcements",
+    description: "Latest news and announcements",
     href: "#",
     icon: "/resourcemegamenu/newsroom.png",
   },
   {
     title: "Press Releases",
-    description:
-      "Official company releases",
+    description: "Official press releases",
     href: "#",
     icon: "/resourcemegamenu/press-releases.png",
   },
   {
     title: "Media Resources",
-    description:
-      "Approved logos, facts and media assets",
+    description: "Logos, media kits and brand assets",
     href: "#",
     icon: "/resourcemegamenu/media-resources.png",
   },
@@ -256,6 +240,11 @@ export default function ResourcesMegaMenu({
 
       <div
         className="
+          flex
+          w-full
+          flex-col
+          items-start
+          gap-5
           overflow-hidden
           rounded-2xl
           bg-white
@@ -266,24 +255,27 @@ export default function ResourcesMegaMenu({
         "
       >
         {/* =================================================
-            INNER GREEN PANEL
+            INNER RESOURCE PANEL
         ================================================== */}
 
         <div
           className="
             relative
+            flex
             h-[384px]
             w-full
+            items-start
             overflow-hidden
             rounded-lg
+            bg-gradient-to-r
+            from-emerald-800/40
+            via-emerald-900
+            to-teal-700/30
             shadow-[0px_4px_4px_0px_rgba(31,122,108,0.60)]
           "
         >
           {/* =================================================
-              ACTUAL BACKGROUND IMAGE
-
-              Using backgroundImage instead of <Image>
-              prevents the hydration mismatch issue.
+              BACKGROUND IMAGE
           ================================================== */}
 
           <div
@@ -301,11 +293,10 @@ export default function ResourcesMegaMenu({
           />
 
           {/* =================================================
-              THREE COLUMNS
+              CONTENT
           ================================================== */}
 
           <div className="relative z-10 flex h-full w-full">
-
             {/* =================================================
                 COLUMN 1
                 LEARN & DISCOVER
@@ -315,25 +306,23 @@ export default function ResourcesMegaMenu({
               className="
                 flex
                 h-full
-                w-[31.5%]
-                min-w-0
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
                 border-r
-                border-gray-400/70
+                border-gray-400
                 px-8
                 py-6
               "
             >
-              {/* CATEGORY TITLE */}
-
               <CategoryTitle>
                 Learn &amp; Discover
               </CategoryTitle>
 
-              {/* ITEMS */}
-
-              <div className="flex w-full flex-col gap-[24px] pt-7">
+              <div className="flex w-full flex-col items-start gap-6">
                 {learnDiscover.map((item) => (
                   <ResourceItem
                     key={item.title}
@@ -356,25 +345,23 @@ export default function ResourcesMegaMenu({
               className="
                 flex
                 h-full
-                w-[37%]
-                min-w-0
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
                 border-r
-                border-gray-400/70
+                border-gray-400
                 px-8
                 py-6
               "
             >
-              {/* CATEGORY TITLE */}
-
               <CategoryTitle>
                 Build &amp; Evaluate
               </CategoryTitle>
 
-              {/* ITEMS */}
-
-              <div className="flex w-full flex-col gap-[24px] pt-7">
+              <div className="flex w-full flex-col items-start gap-6">
                 {buildEvaluate.map((item) => (
                   <ResourceItem
                     key={item.title}
@@ -397,23 +384,23 @@ export default function ResourcesMegaMenu({
               className="
                 flex
                 h-full
-                w-[31.5%]
-                min-w-0
+                w-72
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
+                border-r
+                border-gray-400
                 px-8
                 py-6
               "
             >
-              {/* CATEGORY TITLE */}
-
               <CategoryTitle>
                 News &amp; Company
               </CategoryTitle>
 
-              {/* ITEMS */}
-
-              <div className="flex w-full flex-col gap-[24px] pt-7">
+              <div className="flex w-full flex-col items-start gap-6">
                 {newsCompany.map((item) => (
                   <ResourceItem
                     key={item.title}
@@ -427,6 +414,112 @@ export default function ResourcesMegaMenu({
               </div>
             </div>
 
+            {/* =================================================
+                RIGHT HERO IMAGE
+            ================================================== */}
+
+            <div
+              className="
+                relative
+                h-96
+                w-96
+                shrink-0
+                overflow-hidden
+                rounded-br-lg
+                rounded-tr-lg
+              "
+            >
+              {/* IMAGE */}
+
+              <img
+                src="/resourcemegamenu/image.png"
+                alt="Resources"
+                className="
+                  absolute
+                  inset-0
+                  size-full
+                  object-cover
+                "
+              />
+
+              {/* GRADIENT */}
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-b
+                  from-teal-950
+                  via-emerald-900/80
+                  to-black/0
+                "
+              />
+
+              {/* HERO CONTENT */}
+
+              <div
+                className="
+                  absolute
+                  left-0
+                  top-0
+                  flex
+                  w-full
+                  flex-col
+                  items-start
+                  gap-4
+                  px-7
+                  py-8
+                "
+              >
+                {/* HEADING */}
+
+                <div className="flex w-full flex-col items-start">
+                  <div
+                    className={`${poppins.className} w-full text-xl font-extrabold leading-6 text-white`}
+                  >
+                    IDEAS, INSIGHTS
+                  </div>
+
+                  <div
+                    className={`${poppins.className} w-full text-xl font-extrabold leading-6 text-white`}
+                  >
+                    AND IMPACT
+                  </div>
+
+                  <div
+                    className={`${poppins.className} w-full text-xl font-extrabold leading-9 text-white`}
+                  >
+                    FOR WHAT&apos;S
+                  </div>
+
+                  <div
+                    className={`${poppins.className} w-full text-xl font-extrabold leading-6 text-teal-400`}
+                  >
+                    NEXT.
+                  </div>
+
+                  {/* DIVIDER */}
+
+                  <div className="mt-1 h-[3px] w-10 rounded-sm bg-teal-400" />
+                </div>
+
+                {/* TAGLINE */}
+
+                <div className="flex w-full flex-col items-start gap-0.5">
+                  <div
+                    className={`${poppins.className} w-full text-xs font-normal leading-4 text-slate-300`}
+                  >
+                    People. Possibilities.
+                  </div>
+
+                  <div
+                    className={`${poppins.className} w-full text-xs font-normal leading-4 text-slate-300`}
+                  >
+                    A More Connected Tomorrow.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

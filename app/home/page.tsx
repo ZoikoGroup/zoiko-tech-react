@@ -1,35 +1,35 @@
 import {
-  Architecture,
-  CaseStudies,
-  DeepSpecialization,
-  Developers,
+  Ai,
+  Arch,
+  BuildNext,
+  CorePillars,
+  Developer,
+  Eco,
   EntityOverview,
   GlobalPresence,
-  GovernedAI,
+  HomeHero,
+  Industry,
   KnowledgeFrontier,
-  Platform,
-  PlatformAccess,
-  Principles,
-  Solutions,
-  ZoikoTechHero,
-} from '@/components/home'
+  Practice,
+  Solution,
+} from "@/components/home";
 
 export default function Page() {
   return (
     <main>
-      <ZoikoTechHero />
-      <Principles />
-      <Platform />
-      <Architecture />
-      <Solutions />
-      <DeepSpecialization />
-      <GovernedAI />
-      <Developers />
-      <CaseStudies />
+      <HomeHero />
+      <CorePillars />
+      <Eco />
+      <Arch />
+      <Solution />
+      <Industry />
+      <Ai />
+      <Developer />
+      <Practice />
       <GlobalPresence />
-      <KnowledgeFrontier />
       <EntityOverview />
-      <PlatformAccess />
+      <KnowledgeFrontier />
+      <BuildNext />
     </main>
-  )
+  );
 }

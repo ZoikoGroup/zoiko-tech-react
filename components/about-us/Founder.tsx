@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Founder() {
@@ -31,11 +32,30 @@ export default function Founder() {
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden bg-white"
+      className="relative w-full overflow-hidden"
     >
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-12 lg:px-28 lg:py-24">
+      {/* =====================================================
+          SECTION BACKGROUND
+          public/about-us/bg3.png
+      ===================================================== */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/about-us/bg3.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
 
-        {/* Header */}
+      {/* Very subtle overlay only for text readability */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-white/5" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-12 lg:px-28 lg:py-24">
+        {/* =================================================
+            HEADER
+        ================================================= */}
         <div
           className={`flex w-full flex-col items-start gap-4 transition-all duration-1000 ease-out ${
             visible
@@ -44,7 +64,7 @@ export default function Founder() {
           }`}
         >
           {/* Badge */}
-          <div className="group inline-flex items-center gap-2 rounded-full border border-cyan-700/30 bg-cyan-700/10 px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-700/60 hover:bg-cyan-700/15">
+          <div className="group inline-flex items-center gap-2 rounded-full border border-cyan-700/30 bg-transparent px-3 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-700/60">
             <span className="text-[10px] font-bold uppercase tracking-wide text-cyan-700">
               Founder-Led. Institution-Building.
             </span>
@@ -57,10 +77,13 @@ export default function Founder() {
           </h2>
         </div>
 
-        {/* Founder Content */}
+        {/* =================================================
+            FOUNDER CONTENT
+        ================================================= */}
         <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-12">
-
-          {/* Founder Image */}
+          {/* =================================================
+              FOUNDER IMAGE
+          ================================================= */}
           <div
             className={`group w-full shrink-0 transition-all duration-1000 ease-out lg:w-[360px] ${
               visible
@@ -71,7 +94,7 @@ export default function Founder() {
               transitionDelay: "150ms",
             }}
           >
-            <div className="aspect-[6/7] w-full overflow-hidden rounded-2xl bg-slate-100 sm:aspect-[4/5] lg:h-[420px] lg:aspect-auto">
+            <div className="aspect-[6/7] w-full overflow-hidden rounded-2xl bg-transparent sm:aspect-[4/5] lg:h-[420px] lg:aspect-auto">
               <img
                 src="/about-us/founder.png"
                 alt="Lennox McLeod"
@@ -80,7 +103,9 @@ export default function Founder() {
             </div>
           </div>
 
-          {/* Founder Details */}
+          {/* =================================================
+              FOUNDER DETAILS
+          ================================================= */}
           <div
             className={`flex w-full flex-1 flex-col items-start gap-6 transition-all duration-1000 ease-out ${
               visible
@@ -102,7 +127,7 @@ export default function Founder() {
             </p>
 
             {/* Paragraph 1 */}
-            <p className="text-base font-normal leading-7 text-slate-500 transition-colors duration-300 hover:text-slate-700 sm:text-lg">
+            <p className="text-base font-normal leading-7 text-slate-600 transition-colors duration-300 hover:text-slate-800 sm:text-lg">
               ZoikoTech was founded by Lennox McLeod, Founder and Executive
               Chairman of Zoiko Group. His background spans accounting,
               finance, law, technology strategy and cross-border enterprise
@@ -110,7 +135,7 @@ export default function Founder() {
             </p>
 
             {/* Paragraph 2 */}
-            <p className="text-base font-normal leading-7 text-slate-500 transition-colors duration-300 hover:text-slate-700 sm:text-lg">
+            <p className="text-base font-normal leading-7 text-slate-600 transition-colors duration-300 hover:text-slate-800 sm:text-lg">
               Under his direction, ZoikoTech Inc. has scaled as a fundamental
               technology core division of the wider Zoiko Group, developing
               next-gen tools for both external enterprise customers and

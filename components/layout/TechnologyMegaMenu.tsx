@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 
 const poppins = Poppins({
@@ -27,21 +26,34 @@ type TechnologyItemProps = {
   onLinkClick: () => void;
 };
 
-/* =========================
+/* =========================================================
    ARROW
-========================= */
+========================================================= */
 
 function Arrow() {
   return (
-    <span className="relative mt-[2px] size-4 shrink-0 overflow-hidden">
-      <span className="absolute left-[5px] top-[4px] block h-[7px] w-[7px] rotate-[-45deg] border-r-[1.5px] border-b-[1.5px] border-zinc-200" />
+    <span className="relative mt-[1px] h-4 w-7 shrink-0 overflow-hidden">
+      <span
+        className="
+          absolute
+          left-[6px]
+          top-[4px]
+          block
+          h-2
+          w-1
+          rotate-[-45deg]
+          border-r-[1.5px]
+          border-b-[1.5px]
+          border-zinc-200
+        "
+      />
     </span>
   );
 }
 
-/* =========================
+/* =========================================================
    TECHNOLOGY ITEM
-========================= */
+========================================================= */
 
 function TechnologyItem({
   title,
@@ -54,11 +66,32 @@ function TechnologyItem({
     <Link
       href={href}
       onClick={onLinkClick}
-      className="group flex w-full min-w-0 items-start gap-2.5"
+      className="
+        group
+        flex
+        w-full
+        min-w-0
+        items-start
+        gap-2.5
+        overflow-hidden
+      "
     >
-      {/* Icon */}
-      <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-teal-700">
-        <Image
+      {/* =================================================
+          ICON
+      ================================================= */}
+
+      <div
+        className="
+          flex
+          size-9
+          shrink-0
+          items-center
+          justify-center
+          rounded-lg
+          bg-teal-700
+        "
+      >
+        <img
           src={icon}
           alt=""
           width={16}
@@ -67,12 +100,37 @@ function TechnologyItem({
         />
       </div>
 
-      {/* Content */}
+      {/* =================================================
+          CONTENT
+      ================================================= */}
+
       <div className="min-w-0 flex-1 overflow-hidden">
-        {/* Title + Arrow */}
-        <div className="flex min-w-0 w-full items-center justify-between gap-2">
+        {/* TITLE + ARROW */}
+
+        <div
+          className="
+            flex
+            w-full
+            min-w-0
+            items-center
+            justify-between
+            gap-2
+            overflow-hidden
+          "
+        >
           <span
-            className={`${plusJakarta.className} min-w-0 flex-1 text-[14px] font-bold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
+            className={`
+              ${plusJakarta.className}
+              min-w-0
+              flex-1
+              text-xs
+              font-bold
+              leading-4
+              text-white
+              transition-colors
+              duration-150
+              group-hover:text-teal-200
+            `}
           >
             {title}
           </span>
@@ -80,9 +138,18 @@ function TechnologyItem({
           <Arrow />
         </div>
 
-        {/* Description */}
+        {/* DESCRIPTION */}
+
         <p
-          className={`${poppins.className} mt-[3px] w-full text-[12px] font-normal leading-4 text-gray-300`}
+          className={`
+            ${poppins.className}
+            mt-[3px]
+            w-full
+            text-xs
+            font-normal
+            leading-4
+            text-gray-300
+          `}
         >
           {description}
         </p>
@@ -91,9 +158,9 @@ function TechnologyItem({
   );
 }
 
-/* =========================
+/* =========================================================
    CATEGORY TITLE
-========================= */
+========================================================= */
 
 function CategoryTitle({
   children,
@@ -102,110 +169,109 @@ function CategoryTitle({
 }) {
   return (
     <div
-      className={`${poppins.className} w-full shrink-0 text-[14px] font-bold uppercase leading-5 text-white`}
+      className={`
+        ${poppins.className}
+        w-full
+        shrink-0
+        text-xs
+        font-bold
+        uppercase
+        leading-4
+        text-white
+      `}
     >
       {children}
     </div>
   );
 }
 
-/* =========================
+/* =========================================================
    AI & INFRASTRUCTURE
-========================= */
+========================================================= */
 
 const aiInfrastructure = [
   {
     title: "Artificial Intelligence & Agentic Systems",
-    description:
-      "Domain-specific AI, governed execution and orchestration",
+    description: "From models to real-world outcomes",
     href: "#",
     icon:
       "/technologymegamenu/artificial-intelligence-agentic-systems.png",
   },
   {
     title: "Cloud & Digital Infrastructure",
-    description:
-      "Zoiko Cloud, developer platform and ecosystem services",
+    description: "Secure, scalable and always on",
     href: "#",
     icon:
       "/technologymegamenu/cloud-digital-infrastructure.png",
   },
   {
     title: "Developer Platform",
-    description:
-      "APIs, SDKs, tooling and integration resources",
+    description: "Build without limits",
     href: "#",
     icon:
       "/technologymegamenu/developer-platform.png",
   },
 ];
 
-/* =========================
-   OPERATIONS & COMMUNICATIONS
-========================= */
+/* =========================================================
+   OPERATIONS & PLATFORMS
+========================================================= */
 
-const operationsCommunications = [
+const operationsPlatforms = [
   {
     title: "Enterprise & Financial Operations",
-    description:
-      "Business operating systems and professional intelligence",
+    description: "Intelligent operations at scale",
     href: "#",
     icon:
       "/technologymegamenu/enterprise-financial-operations.png",
   },
   {
     title: "Communications & Media Infrastructure",
-    description:
-      "Telecom, real-time communications and streaming",
+    description: "Networks, platforms and possibilities",
     href: "#",
     icon:
       "/technologymegamenu/communications-media-infrastructure.png",
   },
+  {
+    title: "Industry Platforms & Systems",
+    description: "Purpose-built for what's next",
+    href: "#",
+    icon:
+      "/technologymegamenu/industry-platforms-systems.png",
+  },
 ];
 
-/* =========================
-   SECURITY & TRUST
-========================= */
+/* =========================================================
+   SECURITY, TRUST & RESEARCH
+========================================================= */
 
-const securityTrust = [
+const securityTrustResearch = [
   {
     title: "Security, Identity & Assurance",
-    description:
-      "Cybersecurity, identity, authentication and evidence",
+    description: "Built for a safer, more open future",
     href: "#",
     icon:
       "/technologymegamenu/security-identity-assurance.png",
   },
   {
-    title: "Industry Technology",
-    description:
-      "Telecom, healthcare, finance and sector-specific systems",
+    title: "Zoiko Research",
+    description: "Insights for what's next",
     href: "#",
     icon:
-      "/technologymegamenu/industry-technology.png",
+      "/technologymegamenu/zoiko-research.png",
+  },
+  {
+    title: "Frontier Technologies",
+    description: "Exploring today, building tomorrow",
+    href: "#",
+    icon:
+      "/technologymegamenu/frontier-technologies.png",
   },
 ];
 
-/* =========================
-   BOTTOM TECHNOLOGY LINKS
-========================= */
-
-const technologyResources = [
-  {
-    title: "→ Zoiko Research",
-    href: "#",
-    icon: "/technologymegamenu/zoiko-research.png",
-  },
-  {
-    title: "→ Frontier Technologies",
-    href: "#",
-    icon: "/technologymegamenu/frontier-technologies.png",
-  },
-];
-
-/* =========================
+/* =========================================================
    MAIN COMPONENT
-========================= */
+========================================================= */
 
 export default function TechnologyMegaMenu({
   isOpen,
@@ -232,17 +298,31 @@ export default function TechnologyMegaMenu({
         }
       `}
     >
-      {/* Hover bridge */}
+      {/* =====================================================
+          HOVER BRIDGE
+      ===================================================== */}
+
       <div className="absolute -top-5 left-0 h-5 w-full" />
 
-      {/* =========================
+      {/* =====================================================
           OUTER WHITE CONTAINER
-      ========================== */}
+
+          Figma:
+          px-12
+          pt-7
+          pb-8
+          gap-5
+      ===================================================== */}
 
       <div
         className="
+          flex
+          w-full
+          flex-col
+          items-start
+          justify-start
+          gap-5
           overflow-hidden
-          rounded-2xl
           bg-white
           px-12
           pb-8
@@ -250,21 +330,30 @@ export default function TechnologyMegaMenu({
           shadow-[0px_12px_28px_0px_rgba(15,23,42,0.08)]
         "
       >
-        {/* =========================
-            GREEN TECHNOLOGY PANEL
-        ========================== */}
+        {/* ===================================================
+            TECHNOLOGY PANEL
+
+            Figma:
+            h-80 = 320px
+        =================================================== */}
 
         <div
           className="
             relative
-            h-[384px]
+            flex
+            h-80
             w-full
+            items-start
+            justify-start
             overflow-hidden
             rounded-lg
             shadow-[0px_4px_4px_0px_rgba(31,122,108,0.60)]
           "
         >
-          {/* Actual background image */}
+          {/* =================================================
+              MAIN BACKGROUND IMAGE
+          ================================================= */}
+
           <div
             className="
               absolute
@@ -279,38 +368,56 @@ export default function TechnologyMegaMenu({
             }}
           />
 
-          {/* =========================
-              THREE COLUMNS
-          ========================== */}
+          {/* =================================================
+              CONTENT
+          ================================================= */}
 
           <div className="relative z-10 flex h-full w-full">
 
-            {/* =========================================
+            {/* =================================================
                 COLUMN 1
                 AI & INFRASTRUCTURE
-            ========================================== */}
+
+                Figma:
+                size-80
+                px-7
+                py-6
+                border-r
+            ================================================= */}
 
             <div
               className="
                 flex
-                h-full
-                w-[31.5%]
-                min-w-0
+                h-80
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
                 border-r
-                border-slate-500/80
-                px-8
+                border-slate-500
+                px-7
                 py-6
               "
             >
-              {/* Heading */}
+              {/* TITLE */}
+
               <CategoryTitle>
                 AI &amp; Infrastructure
               </CategoryTitle>
 
-              {/* Items */}
-              <div className="flex w-full flex-col gap-[24px] pt-8">
+              {/* ITEMS */}
+
+              <div
+                className="
+                  flex
+                  w-full
+                  flex-col
+                  gap-6
+                  overflow-hidden
+                "
+              >
                 {aiInfrastructure.map((item) => (
                   <TechnologyItem
                     key={item.title}
@@ -324,33 +431,51 @@ export default function TechnologyMegaMenu({
               </div>
             </div>
 
-            {/* =========================================
+            {/* =================================================
                 COLUMN 2
-                OPERATIONS & COMMUNICATIONS
-            ========================================== */}
+                OPERATIONS & PLATFORMS
+
+                Figma:
+                size-80
+                px-7
+                py-6
+                border-r
+            ================================================= */}
 
             <div
               className="
                 flex
-                h-full
-                w-[37%]
-                min-w-0
+                h-80
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
                 border-r
-                border-slate-500/80
-                px-8
+                border-slate-500
+                px-7
                 py-6
               "
             >
-              {/* Heading */}
+              {/* TITLE */}
+
               <CategoryTitle>
-                Operations &amp; Communications
+                Operations &amp; Platforms
               </CategoryTitle>
 
-              {/* Items */}
-              <div className="flex w-full flex-col gap-[24px] pt-8">
-                {operationsCommunications.map((item) => (
+              {/* ITEMS */}
+
+              <div
+                className="
+                  flex
+                  w-full
+                  flex-col
+                  gap-6
+                  overflow-hidden
+                "
+              >
+                {operationsPlatforms.map((item) => (
                   <TechnologyItem
                     key={item.title}
                     title={item.title}
@@ -363,31 +488,51 @@ export default function TechnologyMegaMenu({
               </div>
             </div>
 
-            {/* =========================================
+            {/* =================================================
                 COLUMN 3
-                SECURITY & TRUST
-            ========================================== */}
+                SECURITY, TRUST & RESEARCH
+
+                Figma:
+                size-80
+                px-7
+                py-6
+                border-r
+            ================================================= */}
 
             <div
               className="
                 flex
-                h-full
-                w-[31.5%]
-                min-w-0
+                h-80
+                w-80
+                shrink-0
                 flex-col
+                items-start
+                gap-6
                 overflow-hidden
-                px-8
+                border-r
+                border-slate-500
+                px-7
                 py-6
               "
             >
-              {/* Heading */}
+              {/* TITLE */}
+
               <CategoryTitle>
-                Security &amp; Trust
+                Security, Trust &amp; Research
               </CategoryTitle>
 
-              {/* Main items */}
-              <div className="flex w-full flex-col gap-[24px] pt-8">
-                {securityTrust.map((item) => (
+              {/* ITEMS */}
+
+              <div
+                className="
+                  flex
+                  w-full
+                  flex-col
+                  gap-6
+                  overflow-hidden
+                "
+              >
+                {securityTrustResearch.map((item) => (
                   <TechnologyItem
                     key={item.title}
                     title={item.title}
@@ -398,44 +543,156 @@ export default function TechnologyMegaMenu({
                   />
                 ))}
               </div>
-
-              {/* Divider */}
-              <div className="my-6 h-px w-full shrink-0 bg-slate-400/80" />
-
-              {/* Bottom links */}
-              <div className="flex w-full flex-col gap-3">
-                {technologyResources.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    onClick={onLinkClick}
-                    className="group flex w-full items-center gap-2"
-                  >
-                    {/* Small icon */}
-                    <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-teal-700">
-                      <Image
-                        src={item.icon}
-                        alt=""
-                        width={14}
-                        height={14}
-                        className="size-3.5 object-contain"
-                      />
-                    </div>
-
-                    {/* Text */}
-                    <span
-                      className={`${poppins.className} min-w-0 flex-1 text-[12px] font-semibold leading-4 text-white transition-colors duration-150 group-hover:text-teal-200`}
-                    >
-                      {item.title}
-                    </span>
-
-                    {/* Arrow */}
-                    <Arrow />
-                  </Link>
-                ))}
-              </div>
             </div>
 
+            {/* =================================================
+                RIGHT HERO
+
+                Figma:
+                w-96
+                h-80
+                px-7
+                pt-7
+                gap-4
+
+                Image:
+                /technologymegamenu/image.png
+            ================================================= */}
+
+            <div
+              className="
+                relative
+                h-80
+                w-96
+                shrink-0
+                overflow-hidden
+                rounded-tr-lg
+                rounded-br-lg
+              "
+            >
+              {/* =================================================
+                  RIGHT SIDE BACKGROUND IMAGE
+              ================================================= */}
+
+              <img
+                src="/technologymegamenu/image.png"
+                alt=""
+                className="
+                  absolute
+                  inset-0
+                  h-full
+                  w-full
+                  object-cover
+                  object-center
+                "
+              />
+
+              {/* =================================================
+                  RIGHT SIDE GRADIENT
+
+                  Figma:
+                  from-emerald-900
+                  via-teal-950/60
+                  to-black/0
+              ================================================= */}
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-b
+                  from-emerald-900
+                  via-teal-950/60
+                  to-black/0
+                "
+              />
+
+              {/* =================================================
+                  HERO CONTENT
+              ================================================= */}
+
+              <div
+                className="
+                  relative
+                  z-10
+                  flex
+                  h-full
+                  w-full
+                  flex-col
+                  items-start
+                  justify-start
+                  gap-4
+                  overflow-hidden
+                  px-7
+                  pt-7
+                "
+              >
+                {/* =================================================
+                    HEADING
+                ================================================= */}
+
+                <div
+                  className={`
+                    ${poppins.className}
+                    flex
+                    w-full
+                    flex-col
+                    items-start
+                    gap-3
+                  `}
+                >
+                  <div
+                    className="
+                      w-full
+                      text-2xl
+                      font-extrabold
+                      leading-7
+                      text-white
+                    "
+                  >
+                    TECHNOLOGY
+                    <br />
+                    FOR A BOLDER
+                    <br />
+                    <span className="text-teal-500">
+                      TOMORROW.
+                    </span>
+                  </div>
+
+                  {/* =================================================
+                      DIVIDER
+                  ================================================= */}
+
+                  <div
+                    className="
+                      h-[3px]
+                      w-9
+                      shrink-0
+                      rounded-sm
+                      bg-teal-500
+                    "
+                  />
+
+                  {/* =================================================
+                      TAGLINE
+                  ================================================= */}
+
+                  <div
+                    className="
+                      w-full
+                      text-xs
+                      font-normal
+                      leading-5
+                      text-slate-300
+                    "
+                  >
+                    People. Possibilities.
+                    <br />
+                    A More Connected Tomorrow.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

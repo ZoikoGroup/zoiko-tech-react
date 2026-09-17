@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Contact() {
@@ -31,16 +32,30 @@ export default function Contact() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-white/10 bg-gradient-to-r from-[#0B1720] via-[#0A3038] to-[#0B3D43] px-6 py-20 sm:px-10 sm:py-24 lg:px-20 lg:py-28"
+      className="relative w-full overflow-hidden border-b border-white/10 px-6 py-20 sm:px-10 sm:py-24 lg:px-20 lg:py-28"
     >
-      {/* Subtle background glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-40 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-cyan-500/5 blur-3xl" />
-        <div className="absolute -right-40 top-1/3 h-96 w-96 rounded-full bg-teal-400/5 blur-3xl" />
+      {/* =====================================================
+          SECTION BACKGROUND
+          public/about-us/bg7.png
+      ===================================================== */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/about-us/bg7.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
       </div>
 
+      {/* Very subtle overlay */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-black/5" />
+
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-stretch gap-12 lg:flex-row lg:items-center lg:gap-20">
-        {/* Left Content */}
+        {/* =================================================
+            LEFT CONTENT
+        ================================================= */}
         <div
           className={`flex min-w-0 flex-1 flex-col items-start gap-8 transition-all duration-1000 ease-out ${
             visible
@@ -49,7 +64,7 @@ export default function Contact() {
           }`}
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 transition-all duration-300 hover:border-teal-400/50 hover:bg-white/15">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-transparent px-3 py-1.5 transition-all duration-300 hover:border-teal-400/50">
             <span className="text-[10px] font-bold uppercase tracking-wide text-teal-400">
               Work With ZoikoTech
             </span>
@@ -61,7 +76,7 @@ export default function Contact() {
           </h2>
 
           {/* Description */}
-          <p className="w-full text-base font-normal leading-7 text-slate-50 sm:text-lg">
+          <p className="w-full text-base font-normal leading-7 text-white sm:text-lg">
             We work with enterprises, telecom operators, public institutions,
             nonprofits, technology partners and organizations that need
             sophisticated systems.
@@ -69,11 +84,11 @@ export default function Contact() {
 
           {/* Contact Details */}
           <div className="flex flex-col gap-3 pt-2">
-            <p className="text-sm font-normal text-slate-400 transition-colors duration-300 hover:text-slate-200">
+            <p className="text-sm font-normal text-white/80 transition-colors duration-300 hover:text-white">
               zoikotech.com | info@zoikotech.com | +1 (800) 484-5574
             </p>
 
-            <p className="text-sm font-normal text-slate-400 transition-colors duration-300 hover:text-slate-200">
+            <p className="text-sm font-normal text-white/80 transition-colors duration-300 hover:text-white">
               Sacramento, California
             </p>
           </div>
@@ -89,16 +104,18 @@ export default function Contact() {
 
             <button
               type="button"
-              className="rounded-lg border border-white px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
+              className="rounded-lg border border-white bg-transparent px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
             >
               Explore all platforms
             </button>
           </div>
         </div>
 
-        {/* Request Platform Access Card */}
+        {/* =================================================
+            RIGHT SIDE - WHITE CARD
+        ================================================= */}
         <div
-          className={`w-full shrink-0 rounded-2xl bg-white p-6 shadow-[0px_12px_24px_0px_rgba(15,23,42,0.15)] transition-all duration-1000 delay-200 ease-out hover:-translate-y-2 hover:shadow-[0px_20px_40px_0px_rgba(15,23,42,0.25)] sm:p-8 lg:w-[480px] ${
+          className={`w-full shrink-0 rounded-2xl border border-white/80 bg-white p-6 shadow-[0px_12px_24px_0px_rgba(15,23,42,0.15)] transition-all duration-1000 delay-200 ease-out hover:-translate-y-2 hover:shadow-[0px_20px_40px_0px_rgba(15,23,42,0.25)] sm:p-8 lg:w-[480px] ${
             visible
               ? "translate-x-0 opacity-100"
               : "translate-x-10 opacity-0"
