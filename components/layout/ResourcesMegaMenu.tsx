@@ -120,7 +120,7 @@ const learnDiscover = [
   {
     title: "Insights & Analysis",
     description: "Expert perspectives on what's next",
-    href: "#",
+    href: "/insights",
     icon: "/resourcemegamenu/insights-analysis.png",
   },
   {

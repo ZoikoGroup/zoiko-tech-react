@@ -45,7 +45,10 @@ type BottomLinkProps = {
 
 function Arrow() {
   return (
-    <span className="relative mt-[1px] size-4 shrink-0 overflow-hidden">
+    <span
+      aria-hidden="true"
+      className="relative mt-[1px] size-4 shrink-0 overflow-hidden"
+    >
       <span
         className="
           absolute
@@ -76,7 +79,7 @@ function PlatformItem({
   onLinkClick,
 }: PlatformItemProps) {
   return (
-    <Link
+    <a
       href={href}
       onClick={onLinkClick}
       className="
@@ -87,6 +90,14 @@ function PlatformItem({
         items-start
         gap-2.5
         overflow-hidden
+        rounded-md
+        outline-none
+        transition-colors
+        duration-150
+        focus-visible:ring-2
+        focus-visible:ring-teal-400
+        focus-visible:ring-offset-2
+        focus-visible:ring-offset-transparent
       "
     >
       {/* ICON */}
@@ -153,7 +164,7 @@ function PlatformItem({
           {description}
         </p>
       </div>
-    </Link>
+    </a>
   );
 }
 
@@ -207,6 +218,12 @@ function BottomLink({
         items-center
         gap-2
         overflow-hidden
+        rounded-md
+        outline-none
+        focus-visible:ring-2
+        focus-visible:ring-teal-400
+        focus-visible:ring-offset-2
+        focus-visible:ring-offset-transparent
       "
     >
       {/* ICON */}
@@ -284,25 +301,25 @@ const enterpriseProducts = [
   {
     title: "ZoikoTime",
     description: "Time, scheduling and workforce management",
-    href: "#",
+    href: "https://zoikotime.com",
     icon: "/PlatformMegaMenu/enterprise-zoikotime.png",
   },
   {
     title: "Zoiko HR",
     description: "People operations for a modern workforce",
-    href: "#",
+    href: "https://zoikohr.com",
     icon: "/PlatformMegaMenu/enterprise-zoiko-hr.png",
   },
   {
     title: "Zoiko Payroll",
     description: "Payroll, benefits and global pay",
-    href: "#",
+    href: "https://zoikopayroll.com",
     icon: "/PlatformMegaMenu/enterprise-zoiko-payroll.png",
   },
   {
     title: "Zoiko Billing",
     description: "Billing, invoicing and revenue operations",
-    href: "#",
+    href: "https://zoikobilling.com",
     icon: "/PlatformMegaMenu/enterprise-zoiko-billing.png",
   },
 ];
@@ -315,37 +332,37 @@ const digitalProducts = [
   {
     title: "ZoikoVertex",
     description: "AI and analytics for real-world impact",
-    href: "#",
+    href: "https://zoikovertex.com",
     icon: "/PlatformMegaMenu/ai-zoikovertex.png",
   },
   {
     title: "ZoikoNex",
     description: "Next-generation communications platform",
-    href: "#",
+    href: "https://zoikonex.com",
     icon: "/PlatformMegaMenu/ai-zoikonex.png",
   },
   {
     title: "Zoiko Sema",
     description: "Intelligent messaging and AI agents",
-    href: "#",
+    href: "https://zoikosema.com",
     icon: "/PlatformMegaMenu/ai-zoiko-sema.png",
   },
   {
     title: "Zoiko Social",
     description: "Social platforms for communities and brands",
-    href: "#",
+    href: "https://zoikosocial.com",
     icon: "/PlatformMegaMenu/group-zoiko-social.png",
   },
   {
     title: "Zoiko Local",
     description: "Location intelligence and local engagement",
-    href: "#",
+    href: "https://zoikolocal.com",
     icon: "/PlatformMegaMenu/ai-zoiko-local.png",
   },
   {
     title: "ZoikoStream Live Events",
     description: "Live streaming, virtual and hybrid events",
-    href: "#",
+    href: "https://zoikostream.com",
     icon: "/PlatformMegaMenu/ai-zoikostream.png",
   },
 ];
@@ -358,25 +375,25 @@ const groupProducts = [
   {
     title: "ZoikoMeds",
     description: "Healthcare access and patient experiences",
-    href: "#",
+    href: "https://zoikomeds.com",
     icon: "/PlatformMegaMenu/group-zoikomed.png",
   },
   {
     title: "Zoiko Rooms",
     description: "Smart rooms and workspace experiences",
-    href: "#",
+    href: "https://zoikorooms.com",
     icon: "/PlatformMegaMenu/group-zoiko-rooms.png",
   },
   {
     title: "Zoiko Pay",
     description: "Payments and financial experiences",
-    href: "#",
+    href: "https://zoikopay.com",
     icon: "/PlatformMegaMenu/group-zoiko-pay.png",
   },
   {
     title: "Zoiko Travel",
     description: "Travel and mobility platform",
-    href: "#",
+    href: "https://zoikotravel.com",
     icon: "/PlatformMegaMenu/group-zoiko-travel.png",
   },
 ];
@@ -418,9 +435,6 @@ export default function PlatformMegaMenu({
 
       {/* =====================================================
           OUTER WHITE CONTAINER
-
-          No fixed height.
-          Only the required padding remains.
       ===================================================== */}
 
       <div
@@ -455,10 +469,6 @@ export default function PlatformMegaMenu({
         >
           {/* =================================================
               MAIN BACKGROUND IMAGE
-
-              No gradient.
-              No color overlay.
-              The PNG itself controls the background.
           ================================================= */}
 
           <Image
@@ -482,7 +492,6 @@ export default function PlatformMegaMenu({
           <div className="relative z-10 flex h-full w-full">
             {/* =================================================
                 COLUMN 1
-                ENTERPRISE & WORKFORCE
             ================================================= */}
 
             <div
@@ -528,7 +537,6 @@ export default function PlatformMegaMenu({
 
             {/* =================================================
                 COLUMN 2
-                AI, COMMUNICATIONS & DIGITAL PLATFORMS
             ================================================= */}
 
             <div
@@ -576,7 +584,6 @@ export default function PlatformMegaMenu({
 
             {/* =================================================
                 COLUMN 3
-                CONNECTED GROUP PLATFORMS
             ================================================= */}
 
             <div
@@ -648,7 +655,7 @@ export default function PlatformMegaMenu({
                 <BottomLink
                   title="Explore All Platforms"
                   description="Discover the full platform portfolio"
-                  href="#"
+                  href="/platforms"
                   icon="/PlatformMegaMenu/explore-all-platforms.png"
                   onLinkClick={onLinkClick}
                 />
@@ -656,7 +663,7 @@ export default function PlatformMegaMenu({
                 <BottomLink
                   title="Platform Ecosystem"
                   description="An open ecosystem for partners"
-                  href="#"
+                  href="/platform-ecosystem"
                   icon="/PlatformMegaMenu/platform-ecosystem.png"
                   onLinkClick={onLinkClick}
                 />
@@ -666,8 +673,6 @@ export default function PlatformMegaMenu({
             {/* =================================================
                 COLUMN 4
                 RIGHT HERO IMAGE
-
-                No gradient overlay.
             ================================================= */}
 
             <div
@@ -681,9 +686,7 @@ export default function PlatformMegaMenu({
                 rounded-br-lg
               "
             >
-              {/* =================================================
-                  RIGHT SIDE BACKGROUND IMAGE
-              ================================================= */}
+              {/* RIGHT SIDE BACKGROUND IMAGE */}
 
               <Image
                 src="/PlatformMegaMenu/image.png"
@@ -697,9 +700,7 @@ export default function PlatformMegaMenu({
                 "
               />
 
-              {/* =================================================
-                  HERO CONTENT
-              ================================================= */}
+              {/* HERO CONTENT */}
 
               <div
                 className="

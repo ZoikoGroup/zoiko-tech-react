@@ -372,7 +372,7 @@ export default function HomeHero() {
                 TALK TO ZOIKO TECH
             ================================================= */}
             <Link
-              href="/talk-to-zoiko-tech"
+              href="/contact-us"
               className={`
                 ${poppins.className}
                 inline-flex

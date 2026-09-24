@@ -36,19 +36,19 @@ type FooterColumnProps = {
 };
 
 const platforms: FooterItem[] = [
-  { label: "Zoiko AI", href: "/zoiko-ai" },
-  { label: "ZoikoTime", href: "/zoiko-time" },
-  { label: "ZoikoVertex", href: "/zoiko-vertex" },
-  { label: "ZoikoNex", href: "/zoiko-nex" },
-  { label: "Zoiko HR", href: "/zoiko-hr" },
-  { label: "Zoiko Payroll", href: "/zoiko-payroll" },
-  { label: "Zoiko Billing", href: "/zoiko-billing" },
-  { label: "Zoiko Local", href: "/zoiko-local" },
-  { label: "ZoikoMeds", href: "/zoiko-meds" },
-  { label: "Zoiko Sema", href: "/zoiko-sema" },
-  { label: "Zoiko Rooms", href: "/zoiko-rooms" },
-  { label: "ZoikoStream Live", href: "/zoiko-stream-live" },
-  { label: "Zoiko Social", href: "/zoiko-social" },
+  { label: "Zoiko AI", href: "https://zoikoai.com" },
+  { label: "ZoikoTime", href: "https://zoikotime.com" },
+  { label: "ZoikoVertex", href: "https://www.zoikovertex.com" },
+  { label: "ZoikoNex", href: "https://zoikonex.com" },
+  { label: "Zoiko HR", href: "https://zoikohr.com" },
+  { label: "Zoiko Payroll", href: "https://zoikopayroll.com" },
+  { label: "Zoiko Billing", href: "https://zoikobilling.com" },
+  { label: "Zoiko Local", href: "https://zoikolocal.com" },
+  { label: "ZoikoMeds", href: "https://zoikomeds.com" },
+  { label: "Zoiko Sema", href: "https://www.zoikosema.com" },
+  { label: "Zoiko Rooms", href: "https://zoikorooms.com" },
+  { label: "ZoikoStream Live", href: "https://zoikostream.com" },
+  { label: "Zoiko Social", href: "https://zoikosocial.com" },
 ];
 
 const solutions: FooterItem[] = [
@@ -98,7 +98,7 @@ const solutions: FooterItem[] = [
   },
   {
     label: "Media & Streaming",
-    href: "/solutions/media-streaming",
+    href: "/media-center",
   },
 ];
 
@@ -109,7 +109,7 @@ const industries: FooterItem[] = [
   },
   {
     label: "Telecommunications",
-    href: "/industries/telecommunications",
+    href: "/telecom",
   },
   {
     label: "Financial Services",
@@ -117,7 +117,7 @@ const industries: FooterItem[] = [
   },
   {
     label: "Healthcare & Life Sciences",
-    href: "/industries/healthcare-life-sciences",
+    href: "/healthcare",
   },
   {
     label: "Media & Entertainment",
