@@ -128,13 +128,13 @@ const aboutZoikoTech = [
   {
     title: "About Zoiko Tech",
     description: "Our purpose, people and impact",
-    href: "#",
+    href: "/about-us",
     icon: "/companymegamenu/about-zoikotech.png",
   },
   {
     title: "Leadership & Governance",
     description: "Experienced leaders. Lasting value.",
-    href: "#",
+    href: "/leadership-and-governance",
     icon: "/companymegamenu/leadership-governance.png",
   },
   {
@@ -171,13 +171,13 @@ const workWithUs = [
   {
     title: "Suppliers",
     description: "Join our global supply network",
-    href: "#",
+    href: "/supplier",
     icon: "/companymegamenu/suppliers.png",
   },
   {
     title: "Investors",
     description: "Long-term value. A brighter tomorrow.",
-    href: "#",
+    href: "/investors",
     icon: "/companymegamenu/investors.png",
   },
 ];
@@ -190,7 +190,7 @@ const connectSupport = [
   {
     title: "Contact Us",
     description: "Get in touch",
-    href: "#",
+    href: "/contact-us",
     icon: "/companymegamenu/contact-us.png",
   },
   {
@@ -214,7 +214,7 @@ const connectSupport = [
   {
     title: "Accessibility",
     description: "Technology for everyone",
-    href: "#",
+    href: "/accessibility",
     icon: "/companymegamenu/accessibility.png",
   },
 ];

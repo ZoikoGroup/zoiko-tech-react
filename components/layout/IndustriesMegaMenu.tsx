@@ -202,7 +202,7 @@ const coreIndustries = [
   {
     title: "Telecommunications",
     description: "Powering a more connected world",
-    href: "#",
+    href: "/telecom",
     icon: "/IndustriesMegaMenu/telecommunications.png",
   },
   {
@@ -214,7 +214,7 @@ const coreIndustries = [
   {
     title: "Healthcare & Life Sciences",
     description: "Better care through technology",
-    href: "#",
+    href: "/healthcare",
     icon: "/IndustriesMegaMenu/healthcare-life-sciences.png",
   },
   {

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
 
@@ -62,7 +61,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-ai.png",
     logoWidth: 105,
-    href: "/zoiko-ai",
+    href: "https://zoikoai.com",
   },
   {
     name: "Zoiko Tax",
@@ -72,7 +71,7 @@ const products: Product[] = [
     status: "BETA",
     logo: "/home/zoiko-tax.png",
     logoWidth: 115,
-    href: "/zoiko-tax",
+    href: "https://zoikotax.com",
   },
   {
     name: "Zoiko Assurance",
@@ -82,7 +81,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-assurance1.png",
     logoWidth: 105,
-    href: "/zoiko-assurance",
+    href: "https://zoikoassure.com",
   },
   {
     name: "Zoiko Mail",
@@ -92,7 +91,7 @@ const products: Product[] = [
     status: "BETA",
     logo: "/home/zoiko-mail.png",
     logoWidth: 120,
-    href: "/zoiko-mail",
+    href: "https://zoikomail.com",
   },
   {
     name: "Zoiko One",
@@ -102,7 +101,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-one.png",
     logoWidth: 115,
-    href: "/zoiko-one",
+    href: "https://www.zoikoone.com",
   },
   {
     name: "Zoiko Payroll",
@@ -112,7 +111,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-payroll.png",
     logoWidth: 115,
-    href: "/zoiko-payroll",
+    href: "https://zoikopayroll.com",
   },
   {
     name: "Zoiko Billing",
@@ -122,7 +121,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-billing.png",
     logoWidth: 110,
-    href: "/zoiko-billing",
+    href: "https://zoikobilling.com",
   },
   {
     name: "Zoiko Time",
@@ -132,7 +131,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-time.png",
     logoWidth: 110,
-    href: "/zoiko-time",
+    href: "https://zoikotime.com",
   },
   {
     name: "Zoiko Sema",
@@ -142,7 +141,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-sema.png",
     logoWidth: 115,
-    href: "/zoiko-sema",
+    href: "https://www.zoikosema.com",
   },
   {
     name: "Zoiko Cloud",
@@ -152,7 +151,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-cloud.png",
     logoWidth: 115,
-    href: "/zoiko-cloud",
+    href: "https://zoikocloud.com",
   },
   {
     name: "Zoiko Vertex",
@@ -162,7 +161,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-vertex.png",
     logoWidth: 115,
-    href: "/zoiko-vertex",
+    href: "https://www.zoikovertex.com",
   },
   {
     name: "Zoiko Logia",
@@ -172,7 +171,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-logia.png",
     logoWidth: 115,
-    href: "/zoiko-logia",
+    href: "https://zoikologia.com",
   },
   {
     name: "Zoiko Shield",
@@ -182,7 +181,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-shield.png",
     logoWidth: 105,
-    href: "/zoiko-shield",
+    href: "https://zoikoshield.com",
   },
   {
     name: "Zoiko Suite",
@@ -192,7 +191,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-suite.png",
     logoWidth: 115,
-    href: "/zoiko-suite",
+    href: "https://zoikosuite.com",
   },
   {
     name: "Zoiko HR",
@@ -202,7 +201,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-hr.png",
     logoWidth: 105,
-    href: "/zoiko-hr",
+    href: "https://zoikohr.com",
   },
   {
     name: "Zoiko ID",
@@ -212,7 +211,7 @@ const products: Product[] = [
     status: "LIVE",
     logo: "/home/zoiko-id.png",
     logoWidth: 110,
-    href: "/zoiko-id",
+    href: "https://zoikoid.com",
   },
 ];
 
@@ -295,7 +294,7 @@ function ProductCard({
 }) {
   return (
     <Reveal delay={index * 45} className="h-full">
-      <Link
+      <a
         href={product.href}
         className="group block h-full"
       >
@@ -531,7 +530,7 @@ function ProductCard({
             </div>
           </div>
         </article>
-      </Link>
+      </a>
     </Reveal>
   );
 }
