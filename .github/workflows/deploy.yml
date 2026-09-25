@@ -14,6 +14,9 @@ jobs:
           host: ${{ secrets.GCP_SSH_HOST }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_KEY }}
+          # Default command_timeout is 10m; `next build` on the VM takes longer.
+          timeout: 60s
+          command_timeout: 30m
           script: |
             set -e
             cd /var/www/zoiko-tech/app
