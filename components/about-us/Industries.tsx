@@ -2,36 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import {
-  Manrope,
-  Plus_Jakarta_Sans,
-  Urbanist,
-  Poppins,
-} from "next/font/google";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-manrope",
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["800"],
-  variable: "--font-plus-jakarta",
-});
-
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-urbanist",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-poppins",
-});
+import { manrope, plusJakarta, urbanist, poppins } from "@/fonts";
 
 const industries = [
   {

@@ -2,17 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Urbanist, Poppins } from "next/font/google";
-
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
+import { urbanist, poppins } from "@/fonts";
 
 type Pillar = {
   title: string;

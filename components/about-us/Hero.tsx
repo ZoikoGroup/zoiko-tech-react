@@ -2,36 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import {
-  Manrope,
-  Plus_Jakarta_Sans,
-  Poppins,
-} from "next/font/google";
+import { manrope, plusJakarta, poppins } from "@/fonts";
 
 /* =========================================================
    FONTS
 ========================================================= */
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["800"],
-  variable: "--font-plus-jakarta",
-  display: "swap",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-poppins",
-  display: "swap",
-});
 
 /* =========================================================
    HERO

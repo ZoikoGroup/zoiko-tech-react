@@ -2,23 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
+import { poppins, plusJakarta } from "@/fonts";
 
 /* =========================================================
    FONTS
 ========================================================= */
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
 
 /* =========================================================
    TYPES

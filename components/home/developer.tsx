@@ -3,26 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import {
-  Manrope,
-  Plus_Jakarta_Sans,
-  Poppins,
-} from "next/font/google";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["700"],
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "700", "800"],
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-});
+import { manrope, plusJakarta, poppins } from "@/fonts";
 
 type DeveloperCard = {
   number: string;
