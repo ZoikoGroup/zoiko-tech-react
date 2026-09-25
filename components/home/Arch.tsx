@@ -2,29 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import {
-  Poppins,
-  Plus_Jakarta_Sans,
-  Manrope,
-} from "next/font/google";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
+import { poppins, plusJakarta, manrope } from "@/fonts";
 
 type ArchitectureCard = {
   title: string;

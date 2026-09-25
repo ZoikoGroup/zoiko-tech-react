@@ -3,29 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import {
-  Manrope,
-  Poppins,
-  Plus_Jakarta_Sans,
-} from "next/font/google";
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["800"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["700"],
-  display: "swap",
-});
+import { plusJakarta, poppins, manrope } from "@/fonts";
 
 export default function HomeHero() {
   const heroRef = useRef<HTMLElement | null>(null);

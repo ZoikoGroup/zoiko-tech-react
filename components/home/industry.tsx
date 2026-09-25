@@ -2,22 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Poppins, Plus_Jakarta_Sans, Urbanist } from "next/font/google";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "700", "800"],
-});
-
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["700"],
-});
+import { poppins, plusJakarta, urbanist } from "@/fonts";
 
 type Industry = {
   title: string;

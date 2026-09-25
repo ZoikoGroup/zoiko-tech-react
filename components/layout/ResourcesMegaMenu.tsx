@@ -1,17 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Poppins, Plus_Jakarta_Sans } from "next/font/google";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
+import { poppins, plusJakarta } from "@/fonts";
 
 type ResourcesMegaMenuProps = {
   isOpen: boolean;
