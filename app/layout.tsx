@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { geistSans, geistMono } from "@/fonts";
+import { geistSans, geistMono, poppins } from "@/fonts";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import GlobalPresence from "@/components/layout/GlobalPresence";
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col">
         <Navbar />

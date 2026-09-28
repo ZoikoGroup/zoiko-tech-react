@@ -58,7 +58,7 @@ const solutions: FooterItem[] = [
   },
   {
     label: "AI & Intelligent Automation",
-    href: "/solutions/ai-intelligent-automation",
+    href: "/solution-zoiko-ai-agentic-automation",
   },
   {
     label: "Workforce Productivity",
@@ -74,7 +74,7 @@ const solutions: FooterItem[] = [
   },
   {
     label: "Cloud & Developer Infrastructure",
-    href: "/solutions/cloud-developer-infrastructure",
+    href: "/solution-zoiko-cloud-developer-infrastructure",
   },
   {
     label: "Cybersecurity & Protection",
@@ -86,7 +86,7 @@ const solutions: FooterItem[] = [
   },
   {
     label: "Regulatory & Compliance",
-    href: "/solutions/regulatory-compliance",
+    href: "/solution-zoiko-regulatory-compliance",
   },
   {
     label: "Customer & Local Commerce",
