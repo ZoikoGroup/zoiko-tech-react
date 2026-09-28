@@ -1,0 +1,17 @@
+export { default as Hero } from "./Hero";
+export { default as TechnicalIntentRouter } from "./TechnicalIntentRouter";
+export { default as WhySharedFoundations } from "./WhySharedFoundations";
+export { default as PlatformFoundationArchitecture } from "./PlatformFoundationArchitecture";
+export { default as DeveloperEntryPoints } from "./DeveloperEntryPoints";
+export { default as IntegrationPatterns } from "./IntegrationPatterns";
+export { default as DocumentationLearningPath } from "./DocumentationLearningPath";
+export { default as TestEnvironmentsValidation } from "./TestEnvironmentsValidation";
+export { default as OperationalMaturity } from "./OperationalMaturity";
+export { default as GovernIdentitySecurityChange } from "./GovernIdentitySecurityChange";
+export { default as PlatformEvidenceLayer } from "./PlatformEvidenceLayer";
+export { default as ReusableImplementationPatterns } from "./ReusableImplementationPatterns";
+export { default as SixStagesAdoption } from "./SixStagesAdoption";
+export { default as EvidenceFirstTechnicalProof } from "./EvidenceFirstTechnicalProof";
+export { default as ReuseFoundationAcrossPlatforms } from "./ReuseFoundationAcrossPlatforms";
+export { default as DirectAnswersFAQ } from "./DirectAnswersFAQ";
+export { default as BuildOnFoundationCTA } from "./BuildOnFoundationCTA";
