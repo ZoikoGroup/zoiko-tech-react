@@ -60,3 +60,17 @@ export const roboto = localFont({
   variable: "--font-roboto",
   display: "swap",
 });
+
+export const inter = localFont({
+  src: "./inter-latin-wght-normal.woff2",
+  weight: "100 900",
+  variable: "--font-inter",
+  display: "swap",
+});
+
+export const sora = localFont({
+  src: "./sora-latin-wght-normal.woff2",
+  weight: "100 900",
+  variable: "--font-sora",
+  display: "swap",
+});

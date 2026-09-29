@@ -82,7 +82,7 @@ const solutions: FooterItem[] = [
   },
   {
     label: "Identity & Access",
-    href: "/solutions/identity-access",
+    href: "/solution-zoiko-identity-access",
   },
   {
     label: "Regulatory & Compliance",
