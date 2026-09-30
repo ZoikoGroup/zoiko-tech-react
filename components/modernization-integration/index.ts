@@ -1,0 +1,17 @@
+export { default as ModernizationSection } from "./ModernizationSection";
+export { default as ChangeIntentSection } from "./ChangeIntentSection";
+export { default as WhyModernizationFailsSection } from "./WhyModernizationFailsSection";
+export { default as EstateDiscoverySection } from "./EstateDiscoverySection";
+export { default as SixModernizationPatternsSection } from "./SixModernizationPatternsSection";
+export { default as TargetIntegrationArchitectureSection } from "./TargetIntegrationArchitectureSection";
+export { default as DataAndSystemStrategySection } from "./DataAndSystemStrategySection";
+export { default as WorkflowModernizationSection } from "./WorkflowModernizationSection";
+export { default as MigrationWavesSection } from "./MigrationWavesSection";
+export { default as SecurityRiskSection } from "./SecurityRiskSection";
+export { default as DeveloperAndIntegrationLayerSection } from "./DeveloperAndIntegrationLayerSection";
+export { default as PlatformAndCapabilityEvidenceSection } from "./PlatformAndCapabilityEvidenceSection";
+export { default as OperationalHandoverSection } from "./OperationalHandoverSection";
+export { default as TechnologyInPracticeSection } from "./TechnologyInPracticeSection";
+export { default as WhereTeamsGoNextSection } from "./WhereTeamsGoNextSection";
+export { default as BuyerQuestionsSection } from "./BuyerQuestionsSection";
+export { default as ModernizeEstateSection } from "./ModernizeEstateSection";

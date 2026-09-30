@@ -207,7 +207,7 @@ const coreSolutions = [
   {
     title: "Modernization & Integration",
     description: "Connect, modernize and transform",
-    href: "#",
+    href: "/modernization-integration",
     icon: "/SolutionsMegaMenu/modernization-integration.png",
   },
 ];
@@ -232,7 +232,7 @@ const operationsSolutions = [
   {
     title: "Telecom Operations & Monetization",
     description: "Optimize operations and unlock growth",
-    href: "#",
+    href: "/telecom-operations",
     icon: "/SolutionsMegaMenu/telecom-operations-monetization.png",
   },
   {
