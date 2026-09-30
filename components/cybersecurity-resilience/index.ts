@@ -1,0 +1,17 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as IntentRouterSection } from "./IntentRouterSection";
+export { default as WhySilosFailSection } from "./WhySilosFailSection";
+export { default as SecurityArchitectureSection } from "./SecurityArchitectureSection";
+export { default as PostureExposureSection } from "./PostureExposureSection";
+export { default as IdentityAccessSection } from "./IdentityAccessSection";
+export { default as DetectionResponseSection } from "./DetectionResponseSection";
+export { default as SecureEngineeringSection } from "./SecureEngineeringSection";
+export { default as ResilienceContinuitySection } from "./ResilienceContinuitySection";
+export { default as ResponsibleEvidenceSection } from "./ResponsibleEvidenceSection";
+export { default as PlatformEvidenceSection } from "./PlatformEvidenceSection";
+export { default as IntegrationContextSection } from "./IntegrationContextSection";
+export { default as ImplementationJourneySection } from "./ImplementationJourneySection";
+export { default as TechnologyInPracticeSection } from "./TechnologyInPracticeSection";
+export { default as WhereTeamsGoNextSection } from "./WhereTeamsGoNextSection";
+export { default as FaqSection } from "./FaqSection";
+export { default as ContactSalesCtaSection } from "./ContactSalesCtaSection";
