@@ -29,6 +29,42 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ===== AI Governance & Assurance — Figma design tokens ===== */
+.zk-heading {
+  font-family: var(--font-poppins), sans-serif;
+}
+.zk-body {
+  font-family: var(--font-inter), sans-serif;
+}
+@theme {
+  --color-color-black-solid: #010f14;
+  --color-color-white-solid: #ffffff;
+  --color-color-cyan-6: #071f23;
+  --color-color-cyan-7: #0b333a;
+  --color-color-cyan-8: #10343c;
+  --color-color-cyan-19: #1b6772;
+  --color-color-cyan-25: #1a737c;
+  --color-color-cyan-32: #295a60;
+  --color-color-cyan-35-2: #4a5f63;
+  --color-color-cyan-66: #144b55;
+  --color-color-cyan-67: #7fd0d9;
+  --color-color-cyan-73: #d7f5f8;
+  --color-color-cyan-77: #24404a;
+  --color-color-cyan-78: #22444d;
+  --color-color-cyan-87: #d5eaea;
+  --color-color-cyan-90: #a9c7cc;
+  --color-color-grey-92: #615929;
+  --color-color-grey-93: #5b5b52;
+  --color-color-grey-93-2: #676767;
+  --color-color-grey-94: #4d4538;
+  --color-color-grey-97: #f3f9fa;
+  --color-color-orange-21: #9f8a55;
+  --color-color-orange-25: #dd804c;
+  --color-color-orange-77-2: #8c4a2e;
+  --color-color-yellow-73: #8a7a3a;
+}
+
+
 .font-poppins {
   font-family: var(--font-poppins), sans-serif;
 }
