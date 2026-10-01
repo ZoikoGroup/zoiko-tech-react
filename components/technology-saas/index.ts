@@ -1,0 +1,15 @@
+export { default as Hero } from "./Hero";
+export { default as WhatDoYouNeedToGovern } from "./WhatDoYouNeedToGovern";
+export { default as WhyGovernanceBreaksDown } from "./WhyGovernanceBreaksDown";
+export { default as OutcomeArchitecture } from "./OutcomeArchitecture";
+export { default as OneTechnologyFoundation } from "./OneTechnologyFoundation";
+export { default as DeliveryPatterns } from "./DeliveryPatterns";
+export { default as SolutionCapabilityMatrix } from "./SolutionCapabilityMatrix";
+export { default as PlatformEvidence } from "./PlatformEvidence";
+export { default as ResponsibleAiSecurityPrivacy } from "./ResponsibleAiSecurityPrivacy";
+export { default as IntegrationDeveloperLayer } from "./IntegrationDeveloperLayer";
+export { default as StartWithInventory } from "./StartWithInventory";
+export { default as TechnologyInPractice } from "./TechnologyInPractice";
+export { default as WhereTeamsGoNext } from "./WhereTeamsGoNext";
+export { default as BuyerQuestionsFaq } from "./BuyerQuestionsFaq";
+export { default as MoveGovernanceCta } from "./MoveGovernanceCta";

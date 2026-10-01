@@ -20,6 +20,19 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${plusJakarta.variable} ${inter.variable} ${sora.variable} h-full antialiased`}
     >
+      <head>
+        {/* Browser extensions (e.g. form fillers) inject attributes such as
+            fdprocessedid into the DOM before React hydrates, causing hydration
+            mismatch errors. This runs synchronously during HTML parsing, before
+            first paint, and blocks/strips those attributes. Add other extension
+            attributes to BLOCKED_ATTRS if new mismatches appear.
+            Pattern per https://nextjs.org/docs/app/guides/preventing-flash-before-hydration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var BLOCKED_ATTRS=["fdprocessedid"];var d=Object.getOwnPropertyDescriptor(Element.prototype,"setAttribute");if(d&&d.value&&!d.value.__fdGuard){var o=d.value;var p=function(n,v){if(BLOCKED_ATTRS.indexOf(n)!==-1)return;return o.call(this,n,v)};p.__fdGuard=true;Object.defineProperty(Element.prototype,"setAttribute",{value:p,writable:true,configurable:true,enumerable:d.enumerable})}var strip=function(a){for(var i=0;i<a.length;i++){var e=document.querySelectorAll("["+a[i]+"]");for(var j=0;j<e.length;j++)e[j].removeAttribute(a[i])}};if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){strip(BLOCKED_ATTRS)})}else{strip(BLOCKED_ATTRS)}var mo=new MutationObserver(function(rs){for(var i=0;i<rs.length;i++){var t=rs[i].target;if(t&&t.getAttribute&&t.getAttribute("fdprocessedid")!==null)t.removeAttribute("fdprocessedid")}});mo.observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:BLOCKED_ATTRS})}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1 pt-24">{children}</main>
