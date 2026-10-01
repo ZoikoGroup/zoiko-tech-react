@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { SectionHeader } from "./shared";
+import { SectionHeader, gradDarkToTeal } from "./shared";
 
 const faqs = [
   { q: "What is Zoiko Tech AI Governance & Assurance?" },
@@ -17,12 +17,7 @@ export default function BuyerQuestionsFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section
-      className="w-full px-8 md:px-32 py-24"
-      style={{
-        backgroundImage: "linear-gradient(157deg, #000000 0%, #0c2729 100%)",
-      }}
-    >
+    <section className="w-full px-8 md:px-32 py-24" style={gradDarkToTeal}>
       <div className="max-w-[1180px] mx-auto flex flex-col items-start">
         <div className="pb-5">
           <SectionHeader light title="Buyer questions, answered directly" />
@@ -32,20 +27,20 @@ export default function BuyerQuestionsFaq() {
           return (
             <div
               key={faq.q}
-              className="self-stretch py-3 border-b border-color-cyan-67/30 flex flex-col justify-start items-start"
+              className="self-stretch py-3 border-b border-color-cyan-67/25 flex flex-col justify-start items-start"
             >
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="self-stretch min-h-11 py-2 flex items-center gap-4 text-left"
+                className="self-stretch min-h-11 py-2 flex items-center gap-4 text-left cursor-pointer"
               >
                 <span className="flex-1 zk-body text-color-white-solid text-base font-semibold leading-7">
                   {faq.q}
                 </span>
                 <span className="size-6 relative shrink-0">
-                  <span className="absolute w-3.5 h-0.5 left-[5px] top-[11px] bg-teal-700 rounded-[1px]" />
+                  <span className="absolute w-3.5 h-0.5 left-[5px] top-[11px] bg-color-cyan-25 rounded-[1px]" />
                   {!isOpen && (
-                    <span className="absolute w-0.5 h-3.5 left-[11px] top-[5px] bg-teal-700 rounded-[1px]" />
+                    <span className="absolute w-0.5 h-3.5 left-[11px] top-[5px] bg-color-cyan-25 rounded-[1px]" />
                   )}
                 </span>
               </button>
