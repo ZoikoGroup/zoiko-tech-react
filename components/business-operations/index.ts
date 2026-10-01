@@ -1,0 +1,10 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as IntentRouterSection } from "./IntentRouterSection";
+export { default as FrictionBetweenTeamsSection } from "./FrictionBetweenTeamsSection";
+export { default as OperatingSpineSection } from "./OperatingSpineSection";
+export { default as SixDomainsSection } from "./SixDomainsSection";
+export { default as ExceptionQueueSection } from "./ExceptionQueueSection";
+export { default as SpecialistPlatformsSection } from "./SpecialistPlatformsSection";
+export { default as ImplementationSection } from "./ImplementationSection";
+export { default as FaqSection } from "./FaqSection";
+export { default as ContactSalesCtaSection } from "./ContactSalesCtaSection";
