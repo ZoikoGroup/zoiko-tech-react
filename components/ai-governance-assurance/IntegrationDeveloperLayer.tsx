@@ -1,31 +1,26 @@
-import { SectionHeader, cardDark, body, integrationImg } from "./shared";
+import { SectionHeader, cardDark, body, integrationImg, gradDarkToTeal } from "./shared";
 
 const cards = [
   {
     title: (
       <>
-        Model / AI service
-        <br />
+        Model / AI service<br />
         interfaces
       </>
     ),
     desc: (
       <>
-        Exact model APIs and providers
-        <br />
+        Exact model APIs and providers<br />
         only where public and approved.
       </>
     ),
-    pb: "pb-6",
   },
   {
     title: "Agent / workflow identity",
     desc: (
       <>
-        Named identity, owner, scopes
-        <br />
-        and delegated authority where
-        <br />
+        Named identity, owner, scopes<br />
+        and delegated authority where<br />
         supported.
       </>
     ),
@@ -34,10 +29,8 @@ const cards = [
     title: "Tools / connectors",
     desc: (
       <>
-        Approved tool registry,
-        <br />
-        permissions, environment and
-        <br />
+        Approved tool registry,<br />
+        permissions, environment and<br />
         health.
       </>
     ),
@@ -46,10 +39,8 @@ const cards = [
     title: "Events / webhooks",
     desc: (
       <>
-        Governance, approval, incident
-        <br />
-        and change events where
-        <br />
+        Governance, approval, incident<br />
+        and change events where<br />
         supported.
       </>
     ),
@@ -58,10 +49,8 @@ const cards = [
     title: "Evaluation tooling",
     desc: (
       <>
-        Scenario suites, test fixtures,
-        <br />
-        versioning and evidence at
-        <br />
+        Scenario suites, test fixtures,<br />
+        versioning and evidence at<br />
         approved scope.
       </>
     ),
@@ -70,10 +59,8 @@ const cards = [
     title: "Observability",
     desc: (
       <>
-        Logs, events, policy decisions,
-        <br />
-        tool calls, approvals and state
-        <br />
+        Logs, events, policy decisions,<br />
+        tool calls, approvals and state<br />
         where exposed.
       </>
     ),
@@ -84,9 +71,7 @@ export default function IntegrationDeveloperLayer() {
   return (
     <section
       className="w-full px-8 md:px-32 py-24"
-      style={{
-        backgroundImage: "linear-gradient(157deg, #000000 0%, #0c2729 100%)",
-      }}
+      style={gradDarkToTeal}
     >
       <div className="max-w-[1180px] mx-auto flex flex-col gap-5">
         <SectionHeader light title="Integration and developer layer" />
@@ -95,7 +80,7 @@ export default function IntegrationDeveloperLayer() {
             {cards.map((c, i) => (
               <div
                 key={i}
-                className={`w-[283px] p-5 ${c.pb ? `px-5 pt-5 ${c.pb}` : ""} ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
+                className={`w-[283px] px-4 pt-5 pb-5 ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
               >
                 <div className="self-stretch">
                   <p className="zk-heading text-color-white-solid text-base font-bold leading-5">
@@ -103,7 +88,7 @@ export default function IntegrationDeveloperLayer() {
                   </p>
                 </div>
                 <div className="w-full max-w-[670.68px] pb-[0.63px]">
-                  <p className={`${body} text-color-cyan-90`}>{c.desc}</p>
+                  <p className={`${body} tracking-tight text-color-cyan-90`}>{c.desc}</p>
                 </div>
               </div>
             ))}

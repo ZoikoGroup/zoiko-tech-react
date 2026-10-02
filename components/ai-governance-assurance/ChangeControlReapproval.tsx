@@ -3,120 +3,82 @@ import { SectionHeader, ThumbCard, thumb, body } from "./shared";
 const cards = [
   {
     img: thumb.modelProvider,
-    title: (
-      <>
-        Model / provider change
-      </>
-    ),
+    title: "Model / provider change",
     desc: (
       <>
-        Review applicability of prior
-        <br />
-        evaluation; re-test affected
-        <br />
+        Review applicability of prior<br />
+        evaluation; re-test affected<br />
         scenarios.
       </>
     ),
-    pb: "pb-10",
   },
   {
     img: thumb.modelVersion,
     title: "Model version change",
     desc: (
       <>
-        Determine materiality and the
-        <br />
-        regression, safety and policy
-        <br />
+        Determine materiality and the<br />
+        regression, safety and policy<br />
         evaluation required.
       </>
     ),
-    pb: "pb-10",
   },
   {
     img: thumb.promptInstruction,
     title: (
       <>
-        Prompt / system
-        <br />
+        Prompt / system<br />
         instruction
       </>
     ),
     desc: (
       <>
-        Version and review if it materially
-        <br />
-        changes behavior or policy
-        <br />
+        Version and review if it materially<br />
+        changes behavior or policy<br />
         enforcement.
       </>
     ),
   },
   {
     img: thumb.dataSource,
-    title: (
-      <>
-        Data / knowledge source
-      </>
-    ),
+    title: "Data / knowledge source",
     desc: (
       <>
-        Review provenance, freshness,
-        <br />
-        sensitivity, jurisdiction and
-        <br />
+        Review provenance, freshness,<br />
+        sensitivity, jurisdiction and<br />
         outcome impact.
       </>
     ),
-    pb: "pb-10",
   },
   {
     img: thumb.toolApi,
-    title: (
-      <>
-        Tool / API / permission
-      </>
-    ),
+    title: "Tool / API / permission",
     desc: (
       <>
-        Reassess action authority, failure
-        <br />
-        modes and security / privacy
-        <br />
+        Reassess action authority, failure<br />
+        modes and security / privacy<br />
         boundaries.
       </>
     ),
   },
   {
     img: thumb.workflowLogic,
-    title: (
-      <>
-        Workflow / approval logic
-      </>
-    ),
+    title: "Workflow / approval logic",
     desc: (
       <>
-        Re-evaluate authority and
-        <br />
-        separation-of-duties
-        <br />
+        Re-evaluate authority and<br />
+        separation-of-duties<br />
         implications.
       </>
     ),
   },
   {
     img: thumb.policyChange,
-    title: (
-      <>
-        Policy / regulatory change
-      </>
-    ),
+    title: "Policy / regulatory change",
     desc: (
       <>
-        Route for qualified review;
-        <br />
-        update requirements only after
-        <br />
+        Route for qualified review;<br />
+        update requirements only after<br />
         approval.
       </>
     ),
@@ -139,14 +101,7 @@ export default function ChangeControlReapproval() {
       <div className="max-w-[1180px] mx-auto pb-3 flex flex-col gap-5">
         <SectionHeader
           title="Change control and re-approval"
-          subtitle={
-            <>
-              Material changes trigger explicit evaluation and approval, never
-              silently inheriting old
-              <br />
-              evidence.
-            </>
-          }
+          subtitle="Material changes trigger explicit evaluation and approval, never silently inheriting old evidence."
         />
         <div className="self-stretch grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {cards.map((c, i) => (
@@ -155,7 +110,7 @@ export default function ChangeControlReapproval() {
               img={c.img}
               title={c.title}
               desc={c.desc}
-              pb={c.pb ?? "pb-5"}
+              pb="pb-10"
               shadow="shadow-[0px_8px_18px_0px_rgba(0,31,36,0.32)]"
               titleClass="zk-heading text-color-cyan-6 text-base font-bold leading-5"
             />
@@ -171,12 +126,12 @@ export default function ChangeControlReapproval() {
           {states.map(([name, detail]) => (
             <div
               key={name}
-              className="h-16 px-4 py-2.5 bg-color-grey-97 rounded-[10px] outline outline-1 -outline-offset-1 outline-color-cyan-87 flex flex-col justify-start items-start"
+              className="h-16 px-3.5 py-2 bg-color-grey-97 rounded-[10px] outline outline-1 -outline-offset-1 outline-color-cyan-87 flex flex-col justify-start items-start overflow-hidden"
             >
               <p className="zk-body text-color-cyan-6 text-sm font-bold leading-6">
                 {name}
               </p>
-              <p className={`${body} text-sm text-color-cyan-35-2`}>{detail}</p>
+              <p className={`${body} text-sm tracking-tight whitespace-nowrap text-color-cyan-35-2`}>{detail}</p>
             </div>
           ))}
         </div>

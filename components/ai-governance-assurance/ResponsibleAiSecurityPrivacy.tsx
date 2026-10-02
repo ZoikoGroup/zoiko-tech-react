@@ -1,14 +1,12 @@
-import { SectionHeader, cardDark, body, primaryBtn, ghostBtn } from "./shared";
+import { SectionHeader, cardDark, body, primaryBtn, ghostBtn, gradDarkToTeal } from "./shared";
 
 const pillars = [
   {
     title: "Responsible AI",
     desc: (
       <>
-        Governance, human oversight,
-        <br />
-        evaluation and accountable
-        <br />
+        Governance, human oversight,<br />
+        evaluation and accountable<br />
         deployment.
       </>
     ),
@@ -18,12 +16,9 @@ const pillars = [
     title: "Security",
     desc: (
       <>
-        Identity, least privilege, tool and
-        <br />
-        credential boundaries, secure
-        <br />
-        integration, incident response,
-        <br />
+        Identity, least privilege, tool and<br />
+        credential boundaries, secure<br />
+        integration, incident response,<br />
         containment.
       </>
     ),
@@ -32,10 +27,8 @@ const pillars = [
     title: "Privacy",
     desc: (
       <>
-        Purpose limitation, data
-        <br />
-        minimization, sensitive-data
-        <br />
+        Purpose limitation, data<br />
+        minimization, sensitive-data<br />
         boundaries, retention.
       </>
     ),
@@ -45,10 +38,8 @@ const pillars = [
     title: "Compliance",
     desc: (
       <>
-        Applicable obligations and
-        <br />
-        evidence only where legally and
-        <br />
+        Applicable obligations and<br />
+        evidence only where legally and<br />
         product-wise verified.
       </>
     ),
@@ -58,10 +49,8 @@ const pillars = [
     title: "Reliability",
     desc: (
       <>
-        System and tool health, failure
-        <br />
-        handling, versioning, rollback,
-        <br />
+        System and tool health, failure<br />
+        handling, versioning, rollback,<br />
         ownership.
       </>
     ),
@@ -70,17 +59,14 @@ const pillars = [
   {
     title: (
       <>
-        Accessibility / human-
-        <br />
+        Accessibility / human-<br />
         centered design
       </>
     ),
     desc: (
       <>
-        Review interfaces, notices and
-        <br />
-        human decision points are
-        <br />
+        Review interfaces, notices and<br />
+        human decision points are<br />
         accessible and understandable.
       </>
     ),
@@ -92,9 +78,7 @@ export default function ResponsibleAiSecurityPrivacy() {
     <section
       id="responsible-ai"
       className="w-full px-8 md:px-32 py-24"
-      style={{
-        backgroundImage: "linear-gradient(157deg, #000000 0%, #0c2729 100%)",
-      }}
+      style={gradDarkToTeal}
     >
       <div className="max-w-[1180px] mx-auto flex flex-col gap-5">
         <SectionHeader light title="Responsible AI, security and privacy" />
@@ -102,7 +86,7 @@ export default function ResponsibleAiSecurityPrivacy() {
           {pillars.map((c, i) => (
             <div
               key={i}
-              className={`w-[283px] px-5 pt-5 ${c.pb ?? "p-5"} ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
+              className={`w-[283px] px-4 pt-5 ${c.pb ?? "p-5"} ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
             >
               <div className="self-stretch">
                 <p className="zk-heading text-color-white-solid text-base font-bold leading-5">
@@ -110,7 +94,7 @@ export default function ResponsibleAiSecurityPrivacy() {
                 </p>
               </div>
               <div className="w-full max-w-[670.68px] pb-[0.63px]">
-                <p className={`${body} text-color-cyan-90`}>{c.desc}</p>
+                <p className={`${body} tracking-tight text-color-cyan-90`}>{c.desc}</p>
               </div>
             </div>
           ))}

@@ -106,7 +106,7 @@ export const heroImg = { src: asset("ss.png") };
 /* 281×140 card thumbnails (w-72 h-36 slots) */
 export const thumb = {
   inventory: asset("photo-1518770660439-4636190af475.png"),
-  approve: asset("photo-1460925895917-afdab827c52f (2).png"),
+  approve: asset("oo.png"),
   agent: asset("photo-1450101499163-c8848c66ca85.png"),
   evaluate: asset("photo-1563986768609-322da13575f3.png"),
   prove: asset("photo-1460925895917-afdab827c52f.png"),
@@ -114,7 +114,7 @@ export const thumb = {
   decisionImpact: asset("photo-1531482615713-2afd69097998 (1).png"),
   affectedParties: asset("photo-1522071820081-009f0129c71c.png"),
   domainSensitivity: asset("photo-1518770660439-4636190af475.png"),
-  dataSensitivity: asset("photo-1460925895917-afdab827c52f (2).png"),
+  dataSensitivity: asset("oo.png"),
   reversibility: asset("photo-1450101499163-c8848c66ca85.png"),
   autonomy: asset("photo-1563986768609-322da13575f3.png"),
   externalDependency: asset("photo-1460925895917-afdab827c52f.png"),
@@ -122,35 +122,35 @@ export const thumb = {
   taskQuality: asset("photo-1531482615713-2afd69097998 (1).png"),
   policyAdherence: asset("photo-1522071820081-009f0129c71c.png"),
   safetyScenarios: asset("photo-1518770660439-4636190af475.png"),
-  toolBehavior: asset("photo-1460925895917-afdab827c52f (2).png"),
+  toolBehavior: asset("oo.png"),
   humanReview: asset("photo-1450101499163-c8848c66ca85.png"),
   privacySecurity: asset("photo-1563986768609-322da13575f3.png"),
   operationalPerf: asset("photo-1460925895917-afdab827c52f.png"),
   knownLimitations: asset("photo-1504384308090-c894fdcc538d.png"),
-  systemEvidence: asset("photo-1504384308090-c894fdcc538d (3).png"),
-  evaluationEvidence: asset("photo-1460925895917-afdab827c52f (1).png"),
-  policyEvidence: asset("photo-1450101499163-c8848c66ca85 (1).png"),
-  securityEvidence: asset("photo-1518770660439-4636190af475 (1).png"),
+  systemEvidence: asset("photo-1531482615713-2afd69097998 (1).png"),
+  evaluationEvidence: asset("photo-1522071820081-009f0129c71c.png"),
+  policyEvidence: asset("photo-1518770660439-4636190af475.png"),
+  securityEvidence: asset("oo.png"),
   approvalEvidence: asset("photo-1450101499163-c8848c66ca85.png"),
   runtimeEvidence: asset("photo-1563986768609-322da13575f3.png"),
-  changeEvidence: asset("photo-1504384308090-c894fdcc538d (2).png"),
-  modelProvider: asset("photo-1518770660439-4636190af475.png"),
-  modelVersion: asset("photo-1460925895917-afdab827c52f.png"),
-  promptInstruction: asset("photo-1450101499163-c8848c66ca85.png"),
-  dataSource: asset("photo-1504384308090-c894fdcc538d (1).png"),
-  toolApi: asset("photo-1531482615713-2afd69097998.png"),
-  workflowLogic: asset("photo-1460925895917-afdab827c52f (3).png"),
-  policyChange: asset("photo-1450101499163-c8848c66ca85 (1).png"),
-  zoikoAi: asset("d731d29497fcf3f554ce43cc090def3d26e13be1.png"), // platform hero crop
-  responsibleAi: asset("photo-1522071820081-009f0129c71c.png"),
+  changeEvidence: asset("photo-1460925895917-afdab827c52f.png"),
+  modelProvider: asset("photo-1504384308090-c894fdcc538d.png"),
+  modelVersion: asset("photo-1531482615713-2afd69097998 (1).png"),
+  promptInstruction: asset("photo-1522071820081-009f0129c71c.png"),
+  dataSource: asset("photo-1518770660439-4636190af475.png"),
+  toolApi: asset("oo.png"),
+  workflowLogic: asset("photo-1450101499163-c8848c66ca85.png"),
+  policyChange: asset("photo-1563986768609-322da13575f3.png"),
+  zoikoAi: asset("photo-1460925895917-afdab827c52f.png"),
+  responsibleAi: asset("photo-1504384308090-c894fdcc538d.png"),
   aiAgentic: asset("photo-1531482615713-2afd69097998 (1).png"),
-  domainAi: asset("photo-1563986768609-322da13575f3 (1).png"),
+  domainAi: asset("photo-1522071820081-009f0129c71c.png"),
   trustCenter: asset("photo-1518770660439-4636190af475.png"),
-  routeGovernance: asset("photo-1450101499163-c8848c66ca85.png"),
-  routeDeployment: asset("photo-1518770660439-4636190af475.png"),
-  routeRegulated: asset("photo-1460925895917-afdab827c52f (2).png"),
-  routeDeveloper: asset("photo-1504384308090-c894fdcc538d.png"),
-  routeSaas: asset("photo-1522071820081-009f0129c71c.png"),
+  routeGovernance: asset("oo.png"),
+  routeDeployment: asset("photo-1450101499163-c8848c66ca85.png"),
+  routeRegulated: asset("photo-1563986768609-322da13575f3.png"),
+  routeDeveloper: asset("photo-1460925895917-afdab827c52f.png"),
+  routeSaas: asset("photo-1504384308090-c894fdcc538d.png"),
 };
 
 /* Large section images */
@@ -171,13 +171,11 @@ export const journeyImg = {
   alt: "AI rollout timeline across the enterprise",
 };
 export const incidentIcons = [
-  asset("icon-ellipse.png"),
-  asset("icon-ellipse (1).png"),
-  asset("icon-ellipse (2).png"),
-  asset("icon-ellipse (3).png"),
-  asset("icon-ellipse (4).png"),
-  asset("icon-ellipse (5).png"),
-  asset("icon-ellipse (6).png"),
+  asset("icon-container.png"),
+  asset("icon-container (1).png"),
+  asset("icon-container (2).png"),
+  asset("icon-container (3).png"),
+  asset("icon-container (4).png"),
 ];
 
 /* ---------- Hero flow steps ---------- */
@@ -212,7 +210,7 @@ export function ThumbCard({
 }) {
   return (
     <div
-      className={`w-[283px] h-[280px] ${pb} bg-color-grey-97 rounded-2xl ${shadow} outline outline-1 -outline-offset-1 outline-color-cyan-87 flex flex-col items-center ${gap} overflow-hidden`}
+      className={`w-[283px] min-h-[280px] ${pb} bg-color-grey-97 rounded-2xl ${shadow} outline outline-1 -outline-offset-1 outline-color-cyan-87 flex flex-col items-center ${gap} overflow-hidden`}
     >
       <div className="relative w-full h-36 shrink-0 bg-linear-64 from-color-black-solid to-color-cyan-7">
         <img

@@ -6,42 +6,34 @@ const cards = [
     title: "System evidence",
     desc: (
       <>
-        Version, configuration and
-        <br />
-        deployment metadata, owner,
-        <br />
+        Version, configuration and<br />
+        deployment metadata, owner,<br />
         environment.
       </>
     ),
-    pb: "pb-10",
   },
   {
     img: thumb.evaluationEvidence,
     title: "Evaluation evidence",
     desc: (
       <>
-        Scenario suite, result, version,
-        <br />
+        Scenario suite, result, version,<br />
         date, reviewer, limitations.
       </>
     ),
-    pb: "pb-16",
   },
   {
     img: thumb.policyEvidence,
     title: (
       <>
-        Policy / regulatory
-        <br />
+        Policy / regulatory<br />
         evidence
       </>
     ),
     desc: (
       <>
-        Applicable policy and review
-        <br />
-        state. External legal claims stay
-        <br />
+        Applicable policy and review<br />
+        state. External legal claims stay<br />
         evidence-gated.
       </>
     ),
@@ -51,54 +43,42 @@ const cards = [
     title: "Security / privacy evidence",
     desc: (
       <>
-        Review, access and data
-        <br />
-        boundaries, approved findings
-        <br />
+        Review, access and data<br />
+        boundaries, approved findings<br />
         and exceptions.
       </>
     ),
-    pb: "pb-10",
   },
   {
     img: thumb.approvalEvidence,
     title: "Approval evidence",
     desc: (
       <>
-        Decision, conditions, scope,
-        <br />
-        approver, effective and review
-        <br />
+        Decision, conditions, scope,<br />
+        approver, effective and review<br />
         date.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.runtimeEvidence,
     title: "Runtime evidence",
     desc: (
       <>
-        Incidents, exceptions, material
-        <br />
-        overrides, policy blocks,
-        <br />
+        Incidents, exceptions, material<br />
+        overrides, policy blocks,<br />
         monitoring state.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.changeEvidence,
     title: "Change evidence",
     desc: (
       <>
-        What changed, why, who
-        <br />
-        approved, what was re-
-        <br />
-        evaluated, release and rollback
-        <br />
+        What changed, why, who<br />
+        approved, what was re-<br />
+        evaluated, release and rollback<br />
         state.
       </>
     ),
@@ -117,7 +97,7 @@ export default function EvidenceDecisionRecord() {
               img={c.img}
               title={c.title}
               desc={c.desc}
-              pb={c.pb ?? "pb-5"}
+              pb="pb-10"
               shadow="shadow-[0px_8px_18px_0px_rgba(0,31,36,0.32)]"
               titleClass="zk-heading text-color-cyan-6 text-base font-bold leading-5"
             />

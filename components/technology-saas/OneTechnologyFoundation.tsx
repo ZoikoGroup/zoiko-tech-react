@@ -1,4 +1,4 @@
-import { SectionHeader, cardDarkRow } from "./shared";
+import { SectionHeader, cardDarkRow, gradDarkToTeal } from "./shared";
 
 const layers = [
   {
@@ -31,10 +31,7 @@ export default function OneTechnologyFoundation() {
   return (
     <section
       className="w-full px-8 md:px-32 pt-24 pb-28"
-      style={{
-        backgroundImage:
-          "linear-gradient(157deg, #010f14 0%, #0d353b 100%)",
-      }}
+      style={gradDarkToTeal}
     >
       <div className="max-w-[1180px] mx-auto flex flex-col gap-5">
         <SectionHeader
@@ -46,16 +43,15 @@ export default function OneTechnologyFoundation() {
           {layers.map((l) => (
             <div
               key={l.name}
-              className={`self-stretch px-4 pt-3 pb-3.5 flex items-center gap-3 ${cardDarkRow}`}
+              className={`self-stretch px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 ${cardDarkRow}`}
             >
-              <div className="w-12 h-6 shrink-0" />
-              <div className="w-52 shrink-0">
-                <p className="zk-heading text-color-white-solid text-base font-bold leading-6">
+              <div className="w-full sm:w-60 md:w-64 shrink-0 flex items-center sm:justify-center text-left sm:text-center">
+                <p className="zk-heading text-color-white-solid text-base font-bold leading-6 sm:text-center">
                   {l.name}
                 </p>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="zk-body text-color-cyan-90 text-base font-normal leading-6">
+                <p className="zk-body text-color-cyan-90 text-sm md:text-base font-normal leading-6">
                   {l.desc}
                 </p>
               </div>
