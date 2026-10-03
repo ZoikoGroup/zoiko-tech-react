@@ -1,0 +1,10 @@
+export { default as Hero } from "./Hero";
+export { default as Pathways } from "./Pathways";
+export { default as CoreIndustries } from "./CoreIndustries";
+export { default as ConnectedIndustries } from "./ConnectedIndustries";
+export { default as SectorRoutes } from "./SectorRoutes";
+export { default as CrossIndustry } from "./CrossIndustry";
+export { default as Solutions } from "./Solutions";
+export { default as Architecture } from "./Architecture";
+export { default as Evidence } from "./Evidence";
+export { default as Contact } from "./Contact";
