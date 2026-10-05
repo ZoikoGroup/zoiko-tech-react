@@ -247,7 +247,7 @@ const connectedIndustries = [
   {
     title: "Professional Services",
     description: "Technology that powers what's next",
-    href: "#",
+    href: "/professional-services",
     icon: "/IndustriesMegaMenu/professional-services.png",
   },
   {
@@ -272,13 +272,13 @@ const industryResources = [
   {
     title: "Industry-Specific Solutions",
     description: "Tailored solutions for your industry",
-    href: "#",
+    href: "/industry-specific-solutions",
     icon: "/IndustriesMegaMenu/industry-specific-solutions.png",
   },
   {
     title: "Customer Evidence",
     description: "Real results. Lasting impact.",
-    href: "#",
+    href: "/customer-evidence",
     icon: "/IndustriesMegaMenu/customer-evidence.png",
   },
 ];
