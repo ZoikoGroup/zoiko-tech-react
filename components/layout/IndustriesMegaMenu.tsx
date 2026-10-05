@@ -198,7 +198,7 @@ const coreIndustries = [
   {
     title: "Financial Services",
     description: "Secure, intelligent financial experiences",
-    href: "#",
+    href: "/financial-services",
     icon: "/IndustriesMegaMenu/financial-services.png",
   },
   {
@@ -216,7 +216,7 @@ const coreIndustries = [
   {
     title: "Public Sector & Government",
     description: "Modern government for greater impact",
-    href: "#",
+    href: "/public-sector-government",
     icon: "/IndustriesMegaMenu/public-sector-government.png",
   },
 ];
@@ -229,19 +229,19 @@ const connectedIndustries = [
   {
     title: "Retail & Commerce",
     description: "Seamless commerce, anywhere",
-    href: "#",
+    href: "/retail-commerce",
     icon: "/IndustriesMegaMenu/retail-commerce.png",
   },
   {
     title: "Travel, Mobility & Transportation",
     description: "Connected journeys for a moving world",
-    href: "#",
+    href: "/travel-mobility-transportation",
     icon: "/IndustriesMegaMenu/travel-mobility-transportation.png",
   },
   {
     title: "Real Estate & Property",
     description: "Smarter spaces and stronger communities",
-    href: "#",
+    href: "/real-estate-property",
     icon: "/IndustriesMegaMenu/real-estate-property.png",
   },
   {
@@ -253,7 +253,7 @@ const connectedIndustries = [
   {
     title: "Education & Research",
     description: "Knowledge for a brighter future",
-    href: "#",
+    href: "/education-research",
     icon: "/IndustriesMegaMenu/education-research.png",
   },
 ];
@@ -266,7 +266,7 @@ const industryResources = [
   {
     title: "View All Industries",
     description: "Explore our industry expertise",
-    href: "#",
+    href: "/view-all-industries",
     icon: "/IndustriesMegaMenu/view-all-industries.png",
   },
   {
