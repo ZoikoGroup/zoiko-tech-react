@@ -1,12 +1,11 @@
-import { SectionHeader, cardDark, body, thCell, thText, tdCell, tdTextStrong, tdText, primaryBtn } from "./shared";
+import { SectionHeader, cardDark, body, thCell, thText, tdCell, tdTextStrong, tdText, primaryBtn, gradDarkToTeal } from "./shared";
 
 const roles = [
   {
     title: "Accountable owner",
     desc: (
       <>
-        Named business or operational
-        <br />
+        Named business or operational<br />
         owner for the use case.
       </>
     ),
@@ -16,8 +15,7 @@ const roles = [
     title: "Technical owner",
     desc: (
       <>
-        Named owner for system, model
-        <br />
+        Named owner for system, model<br />
         or agent implementation.
       </>
     ),
@@ -27,10 +25,8 @@ const roles = [
     title: "Reviewer",
     desc: (
       <>
-        Security, legal / compliance,
-        <br />
-        privacy, domain or AI governance
-        <br />
+        Security, legal / compliance,<br />
+        privacy, domain or AI governance<br />
         reviewer by classification.
       </>
     ),
@@ -39,10 +35,8 @@ const roles = [
     title: "Approval",
     desc: (
       <>
-        Pilot, production or restricted
-        <br />
-        state, with conditions and expiry
-        <br />
+        Pilot, production or restricted<br />
+        state, with conditions and expiry<br />
         or review date.
       </>
     ),
@@ -51,10 +45,8 @@ const roles = [
     title: "Override",
     desc: (
       <>
-        Authorized users can reject,
-        <br />
-        correct, pause or redirect AI
-        <br />
+        Authorized users can reject,<br />
+        correct, pause or redirect AI<br />
         behavior.
       </>
     ),
@@ -64,10 +56,8 @@ const roles = [
     title: "Escalation",
     desc: (
       <>
-        A defined path for uncertainty,
-        <br />
-        policy conflict, exceptions or
-        <br />
+        A defined path for uncertainty,<br />
+        policy conflict, exceptions or<br />
         high-impact action.
       </>
     ),
@@ -77,12 +67,9 @@ const roles = [
     title: "Separation of duties",
     desc: (
       <>
-        Configuration, approval,
-        <br />
-        operation and audit may be
-        <br />
-        separated for higher-impact
-        <br />
+        Configuration, approval,<br />
+        operation and audit may be<br />
+        separated for higher-impact<br />
         uses.
       </>
     ),
@@ -103,9 +90,7 @@ export default function HumanOversightApprovals() {
   return (
     <section
       className="w-full px-8 md:px-32 py-24"
-      style={{
-        backgroundImage: "linear-gradient(157deg, #000000 0%, #0c2729 100%)",
-      }}
+      style={gradDarkToTeal}
     >
       <div className="max-w-[1180px] mx-auto pb-3 flex flex-col gap-5">
         <SectionHeader light title="Human oversight and approvals" />
@@ -113,7 +98,7 @@ export default function HumanOversightApprovals() {
           {roles.map((c, i) => (
             <div
               key={i}
-              className={`w-[283px] px-5 pt-5 ${c.pb ?? "p-5"} ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
+              className={`w-[283px] px-4 pt-5 ${c.pb ?? "p-5"} ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
             >
               <div className="self-stretch">
                 <p className="zk-heading text-color-white-solid text-base font-bold leading-5">
@@ -121,7 +106,7 @@ export default function HumanOversightApprovals() {
                 </p>
               </div>
               <div className="w-full max-w-[670.68px] pb-[0.63px]">
-                <p className={`${body} text-color-cyan-90`}>{c.desc}</p>
+                <p className={`${body} tracking-tight text-color-cyan-90`}>{c.desc}</p>
               </div>
             </div>
           ))}

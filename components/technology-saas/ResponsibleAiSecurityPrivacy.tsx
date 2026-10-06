@@ -1,4 +1,4 @@
-import { SectionHeader, cardDark, securitySideImg } from "./shared";
+import { SectionHeader, cardDark, securitySideImg, gradDarkToTeal } from "./shared";
 
 const cards = [
   {
@@ -40,7 +40,6 @@ const cards = [
         accountability.
       </>
     ),
-    pb: "pb-11",
   },
   {
     title: "Compliance",
@@ -53,7 +52,6 @@ const cards = [
         without legal validation.
       </>
     ),
-    pb: "pb-11",
   },
   {
     title: "Reliability",
@@ -80,7 +78,6 @@ const cards = [
         requirements.
       </>
     ),
-    pb: "pb-11",
   },
 ];
 
@@ -88,34 +85,33 @@ export default function ResponsibleAiSecurityPrivacy() {
   return (
     <section
       className="w-full px-8 md:px-32 py-24"
-      style={{
-        backgroundImage:
-          "linear-gradient(157deg, #010f14 0%, #0a2f34 100%)",
-      }}
+      style={gradDarkToTeal}
     >
-      <div className="max-w-[1180px] mx-auto">
+      <div className="max-w-[1180px] mx-auto flex flex-col gap-6">
         <SectionHeader light title="Security, trust and governance" />
-        <div className="relative mt-5">
-          <div className="w-full lg:w-[581px] flex flex-wrap gap-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 relative">
+          <div className="w-full lg:w-[581px] grid grid-cols-1 sm:grid-cols-2 gap-4">
             {cards.map((c) => (
               <div
                 key={c.title}
-                className={`w-72 p-5 flex flex-col gap-3.5 ${cardDark} ${c.pb ?? ""}`}
+                className={`p-5 flex flex-col gap-2.5 ${cardDark}`}
               >
                 <p className="zk-heading text-color-white-solid text-base font-bold leading-5">
                   {c.title}
                 </p>
-                <p className="zk-body text-color-cyan-90 text-base font-normal leading-6">
+                <p className="zk-body text-color-cyan-90 text-xs sm:text-sm font-normal leading-5">
                   {c.desc}
                 </p>
               </div>
             ))}
           </div>
-          <img
-            src={securitySideImg.src}
-            alt={securitySideImg.alt}
-            className="size-[589px] object-cover hidden xl:block absolute right-0 top-[-28px]"
-          />
+          <div className="w-full lg:w-[500px] flex items-center justify-center">
+            <img
+              src={securitySideImg.src}
+              alt={securitySideImg.alt}
+              className="w-full max-w-[480px] lg:max-w-[520px] h-auto object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>

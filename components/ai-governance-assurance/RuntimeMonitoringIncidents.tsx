@@ -1,29 +1,22 @@
-import { SectionHeader, cardDark, body, incidentIcons } from "./shared";
+import { SectionHeader, cardDark, body, incidentIcons, gradDarkToTeal } from "./shared";
 
 const signals = [
   {
     title: "Deployment state",
     desc: (
       <>
-        Pilot, production, restricted,
-        <br />
+        Pilot, production, restricted,<br />
         suspended, retired.
       </>
     ),
     pb: "pb-11",
   },
   {
-    title: (
-      <>
-        Policy / guardrail event
-      </>
-    ),
+    title: "Policy / guardrail event",
     desc: (
       <>
-        Blocked, approval-required or
-        <br />
-        exception events at the
-        <br />
+        Blocked, approval-required or<br />
+        exception events at the<br />
         supported level.
       </>
     ),
@@ -32,8 +25,7 @@ const signals = [
     title: "Human override",
     desc: (
       <>
-        Correction, reject, stop /
-        <br />
+        Correction, reject, stop /<br />
         containment or escalation.
       </>
     ),
@@ -43,24 +35,18 @@ const signals = [
     title: "Operational failure",
     desc: (
       <>
-        Unavailable model, service, tool
-        <br />
-        or integration; partial action; stale context; timeout.
+        Unavailable model, service, tool<br />
+        or integration; partial action;<br />
+        stale context; timeout.
       </>
     ),
   },
   {
-    title: (
-      <>
-        Quality / behavior signal
-      </>
-    ),
+    title: "Quality / behavior signal",
     desc: (
       <>
-        Use-case-specific monitoring.
-        <br />
-        No unsupported “drift” claims
-        <br />
+        Use-case-specific monitoring.<br />
+        No unsupported “drift” claims<br />
         without validated telemetry.
       </>
     ),
@@ -70,10 +56,8 @@ const signals = [
     title: "Incident",
     desc: (
       <>
-        Security, privacy, safety,
-        <br />
-        compliance or operational issue
-        <br />
+        Security, privacy, safety,<br />
+        compliance or operational issue<br />
         linked to a system and version.
       </>
     ),
@@ -83,12 +67,9 @@ const signals = [
     title: "Review trigger",
     desc: (
       <>
-        Incident, threshold, model / tool /
-        <br />
-        data change, new policy,
-        <br />
-        scheduled review or owner
-        <br />
+        Incident, threshold, model / tool /<br />
+        data change, new policy,<br />
+        scheduled review or owner<br />
         request.
       </>
     ),
@@ -101,10 +82,8 @@ const timeline = [
     title: "Detection / report",
     desc: (
       <>
-        Specimen incident
-        <br />
-        logged against Sample
-        <br />
+        Specimen incident<br />
+        logged against Sample<br />
         agent B v0.4.
       </>
     ),
@@ -114,10 +93,8 @@ const timeline = [
     title: "Triage",
     desc: (
       <>
-        Owner assigned, scope
-        <br />
-        set at minimum
-        <br />
+        Owner assigned, scope<br />
+        set at minimum<br />
         necessary level.
       </>
     ),
@@ -127,8 +104,7 @@ const timeline = [
     title: "Containment",
     desc: (
       <>
-        Agent paused by an
-        <br />
+        Agent paused by an<br />
         authorized role.
       </>
     ),
@@ -139,10 +115,8 @@ const timeline = [
     title: "Correction / recovery",
     desc: (
       <>
-        Previous approved
-        <br />
-        version restored where
-        <br />
+        Previous approved<br />
+        version restored where<br />
         supported.
       </>
     ),
@@ -152,10 +126,8 @@ const timeline = [
     title: "Review / closure",
     desc: (
       <>
-        Re-evaluation, policy
-        <br />
-        and process follow-ups
-        <br />
+        Re-evaluation, policy<br />
+        and process follow-ups<br />
         recorded.
       </>
     ),
@@ -166,9 +138,7 @@ export default function RuntimeMonitoringIncidents() {
   return (
     <section
       className="w-full px-8 md:px-32 py-24"
-      style={{
-        backgroundImage: "linear-gradient(157deg, #000000 0%, #0c2729 100%)",
-      }}
+      style={gradDarkToTeal}
     >
       <div className="max-w-[1180px] mx-auto pb-3 flex flex-col gap-5">
         <SectionHeader light title="Runtime monitoring and incidents" />
@@ -176,7 +146,7 @@ export default function RuntimeMonitoringIncidents() {
           {signals.map((c, i) => (
             <div
               key={i}
-              className={`w-[283px] px-5 pt-5 ${c.pb ?? "p-5"} ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
+              className={`w-[283px] px-4 pt-5 ${c.pb ?? "p-5"} ${cardDark} flex flex-col items-start gap-1.5 overflow-hidden`}
             >
               <div className="self-stretch">
                 <p className="zk-heading text-color-white-solid text-base font-bold leading-5">
@@ -184,7 +154,7 @@ export default function RuntimeMonitoringIncidents() {
                 </p>
               </div>
               <div className="w-full max-w-[670.68px] pb-[0.63px]">
-                <p className={`${body} text-color-cyan-90`}>{c.desc}</p>
+                <p className={`${body} tracking-tight text-color-cyan-90`}>{c.desc}</p>
               </div>
             </div>
           ))}
@@ -199,13 +169,11 @@ export default function RuntimeMonitoringIncidents() {
           {timeline.map((t) => (
             <div
               key={t.title}
-              className={`w-56 px-4 pt-4 ${t.pb ?? "pb-5"} bg-white/6 rounded-2xl outline outline-1 -outline-offset-1 outline-color-cyan-67/35 flex flex-col items-start gap-[3.10px]`}
+              className={`flex-1 min-w-[215px] px-4 pt-4 ${t.pb ?? "pb-5"} bg-white/6 rounded-2xl outline outline-1 -outline-offset-1 outline-color-cyan-67/35 flex flex-col items-start gap-[3.10px]`}
             >
               <div className="self-stretch flex items-center gap-3">
-                <div className="size-8 bg-color-white-solid rounded-2xl flex items-center justify-center">
-                  <img src={t.icon} alt="" className="size-4" />
-                </div>
-                <p className="flex-1 zk-heading text-color-cyan-90 text-base font-bold leading-6">
+                <img src={t.icon} alt="" className="size-8 shrink-0 object-contain" />
+                <p className="flex-1 zk-heading text-color-white-solid text-base font-bold leading-6">
                   {t.title}
                 </p>
               </div>

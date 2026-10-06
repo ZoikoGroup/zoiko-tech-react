@@ -1,0 +1,11 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as InfrastructureIntentRouter } from "./InfrastructureIntentRouter";
+export { default as OperatorStacksSection } from "./OperatorStacksSection";
+export { default as TelecomReferenceArchitecture } from "./TelecomReferenceArchitecture";
+export { default as FivePlacesSection } from "./FivePlacesSection";
+export { default as EvolveStackSection } from "./EvolveStackSection";
+export { default as OperationalResilienceSection } from "./OperationalResilienceSection";
+export { default as PlatformsBehindArchitecture } from "./PlatformsBehindArchitecture";
+export { default as MigrationWavesSection } from "./MigrationWavesSection";
+export { default as TelecomInfrastructureAtAGlance } from "./TelecomInfrastructureAtAGlance";
+export { default as ContactSalesSection } from "./ContactSalesSection";

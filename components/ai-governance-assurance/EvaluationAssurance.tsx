@@ -1,4 +1,4 @@
-import { SectionHeader, ThumbCard, thumb, thCell, thText, tdCell, tdTextStrong, tdText, pillGreen, pillGreenText, pillAmber, pillAmberText, pillRed, pillRedText } from "./shared";
+import { SectionHeader, ThumbCard, thumb, thText } from "./shared";
 
 const cards = [
   {
@@ -6,34 +6,28 @@ const cards = [
     title: "Task / outcome quality",
     desc: (
       <>
-        Use-case-specific acceptance
-        <br />
+        Use-case-specific acceptance<br />
         criteria.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.policyAdherence,
     title: "Policy adherence",
     desc: (
       <>
-        Prohibited actions, approval
-        <br />
+        Prohibited actions, approval<br />
         rules, data and tool boundaries.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.safetyScenarios,
     title: "Safety / harm scenarios",
     desc: (
       <>
-        Misuse, unsafe output or action,
-        <br />
-        prompt / tool abuse, failure
-        <br />
+        Misuse, unsafe output or action,<br />
+        prompt / tool abuse, failure<br />
         scenarios at approved scope.
       </>
     ),
@@ -43,10 +37,8 @@ const cards = [
     title: "Tool / action behavior",
     desc: (
       <>
-        Tool selection, parameters,
-        <br />
-        retries, partial completion,
-        <br />
+        Tool selection, parameters,<br />
+        retries, partial completion,<br />
         downstream validation.
       </>
     ),
@@ -56,22 +48,18 @@ const cards = [
     title: "Human review",
     desc: (
       <>
-        Agreement, correction, reject
-        <br />
+        Agreement, correction, reject<br />
         and escalation patterns.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.privacySecurity,
     title: "Privacy / security",
     desc: (
       <>
-        Sensitive-data handling,
-        <br />
-        credential boundaries,
-        <br />
+        Sensitive-data handling,<br />
+        credential boundaries,<br />
         minimization, access controls.
       </>
     ),
@@ -81,35 +69,40 @@ const cards = [
     title: "Operational performance",
     desc: (
       <>
-        Latency, cost, availability only
-        <br />
+        Latency, cost, availability only<br />
         where evidence-approved.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.knownLimitations,
     title: "Known limitations",
     desc: (
       <>
-        Failure modes, unsupported use,
-        <br />
-        out-of-scope conditions, residual
-        <br />
+        Failure modes, unsupported use,<br />
+        out-of-scope conditions, residual<br />
         risk.
       </>
     ),
   },
 ];
 
+const pillPass =
+  "inline-flex items-center rounded bg-color-cyan-7 px-2.5 py-0.5 text-xs font-semibold text-color-white-solid";
+
+const pillConditional =
+  "inline-flex items-center rounded bg-[#FFF6D4] px-2.5 py-0.5 text-xs font-semibold text-color-orange-21";
+
+const pillFail =
+  "inline-flex items-center rounded bg-[#FFE1DF] px-2.5 py-0.5 text-xs font-semibold text-color-orange-77-2";
+
 const suiteRows = [
   {
     scenario: "Request within limits",
     expected: "Prepare, don’t execute",
     result: (
-      <span className={pillGreen}>
-        <span className={pillGreenText}>Pass</span>
+      <span className={pillPass}>
+        Pass
       </span>
     ),
     evidence: "Evidence attached",
@@ -118,8 +111,8 @@ const suiteRows = [
     scenario: "Blocked tool call",
     expected: "Stop and escalate",
     result: (
-      <span className={pillAmber}>
-        <span className={pillAmberText}>Conditional</span>
+      <span className={pillConditional}>
+        Conditional
       </span>
     ),
     evidence: "Retry behavior under review",
@@ -128,15 +121,15 @@ const suiteRows = [
     scenario: "Out-of-scope data",
     expected: "Refuse",
     result: (
-      <span className={pillRed}>
-        <span className={pillRedText}>Fail</span>
+      <span className={pillFail}>
+        Fail
       </span>
     ),
     evidence: "Documented; fix required",
   },
 ];
 
-const suiteWidths = ["w-72", "w-80", "w-48", "w-96"];
+const suiteWidths = ["w-[260px]", "w-[260px]", "w-[160px]", "w-[500px]"];
 
 export default function EvaluationAssurance() {
   return (
@@ -153,7 +146,7 @@ export default function EvaluationAssurance() {
               img={c.img}
               title={c.title}
               desc={c.desc}
-              pb={c.pb ?? "pb-5"}
+              pb="pb-5"
               shadow="shadow-[0px_8px_18px_0px_rgba(0,31,36,0.32)]"
               titleClass="zk-heading text-color-cyan-6 text-base font-bold leading-5"
             />
@@ -162,11 +155,10 @@ export default function EvaluationAssurance() {
 
         {/* Evaluation suite table */}
         <div className="self-stretch pt-2 rounded-xl outline outline-1 -outline-offset-1 outline-color-cyan-87 overflow-hidden">
-          <div className="min-w-[600px] overflow-x-auto">
+          <div className="w-full">
             <div className="px-3.5 pt-1.5 pb-2 opacity-90">
               <p className="zk-body text-color-cyan-6 text-xs font-normal leading-5">
-                Evaluation suite (specimen data): Sample agent B, v0.4, pilot
-                environment
+                Evaluation suite (specimen data): Sample agent B, v0.4, pilot environment
               </p>
             </div>
             <div className="flex">
@@ -174,7 +166,7 @@ export default function EvaluationAssurance() {
                 (h, i) => (
                   <div
                     key={h}
-                    className={`${suiteWidths[i]} shrink-0 px-3.5 pt-2 pb-2.5 bg-color-cyan-7 border-b border-color-cyan-87`}
+                    className={`${suiteWidths[i]} shrink-0 px-3.5 pt-2 pb-2.5 bg-color-cyan-19 border-b border-color-cyan-87`}
                   >
                     <p className={thText}>{h}</p>
                   </div>

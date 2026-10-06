@@ -13,7 +13,6 @@ const routes = [
         Resilience.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.routeDeployment,
@@ -29,7 +28,6 @@ const routes = [
         industry solution.
       </>
     ),
-    gap: "gap-[3px]",
   },
   {
     img: thumb.routeRegulated,
@@ -43,7 +41,6 @@ const routes = [
         relevant domain AI.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.routeDeveloper,
@@ -57,7 +54,6 @@ const routes = [
         Agentic Automation.
       </>
     ),
-    pb: "pb-11",
   },
   {
     img: thumb.routeSaas,
@@ -95,21 +91,24 @@ export default function WhereTeamsGoNext() {
             </>
           }
         />
-        <div className="self-stretch grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="self-stretch grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {routes.map((r, i) => (
             <ThumbCard
               key={i}
               img={r.img}
               title={r.title}
               desc={r.desc}
-              pb={r.pb ?? "pb-5"}
+              pb="pb-5"
               shadow="shadow-[0px_8px_18px_0px_rgba(0,31,36,0.32)]"
               titleClass="zk-body text-color-cyan-6 text-base font-bold leading-6"
             />
           ))}
         </div>
         <div className="pt-2">
-          <a href="#contact-sales" className={darkSectionBtn}>
+          <a
+            href="#contact-sales"
+            className="inline-flex items-center min-h-12 px-6 bg-color-cyan-19 rounded-[10px] outline outline-2 -outline-offset-2 outline-color-cyan-19 zk-body text-color-white-solid text-base font-semibold hover:opacity-90 transition-opacity duration-200"
+          >
             Explore adjacent solutions
           </a>
         </div>

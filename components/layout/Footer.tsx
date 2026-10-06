@@ -70,7 +70,7 @@ const solutions: FooterItem[] = [
   },
   {
     label: "Telecom Infrastructure",
-    href: "/solutions/telecom-infrastructure",
+    href: "/telecom-infrastructure",
   },
   {
     label: "Cloud & Developer Infrastructure",
@@ -121,7 +121,7 @@ const industries: FooterItem[] = [
   },
   {
     label: "Media & Entertainment",
-    href: "/industries/media-entertainment",
+    href: "/media-entertainment",
   },
   {
     label: "Retail & Commerce",

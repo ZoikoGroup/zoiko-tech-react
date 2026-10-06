@@ -8,7 +8,7 @@ export const asset = (name: string) => `/technology-saas/${name}`;
 
 /* ---------- Section gradient backgrounds (sampled from Figma render) ---------- */
 export const gradDarkToTeal = {
-  backgroundImage: "linear-gradient(157deg, #010f14 0%, #123f44 100%)",
+  backgroundImage: "linear-gradient(157deg, #010f14 0%, #1a737c 100%)",
 };
 export const gradDarkToTealSoft = {
   backgroundImage: "linear-gradient(157deg, #010f14 0%, #0d353b 100%)",
@@ -100,22 +100,22 @@ export function EvidencePill({
    ============================================================ */
 
 /* Hero (right visual, 534×533) */
-export const heroImg = { src: asset("e8e03630abab1c6f9b05fd93002698d3c432da20.png") };
+export const heroImg = { src: asset("14326467e7a6021112b86cbef41cc9f8208832bf (1).png") };
 
 /* Card thumbnails — mapped to actual files present in /public/technology-saas */
 export const photo = {
   // WhatDoYouNeedToGovern section (5 cards)
-  saasBoard:  asset("photo-1451187580459-43490279c0fa.png"),        // Modernize legacy systems
-  analytics:  asset("photo-1460925895917-afdab827c52f (4).png"),    // Consolidate SaaS sprawl
-  circuit:    asset("photo-1461749280684-dccba630e2f6.png"),         // Build with governed AI
-  team:       asset("photo-1518770660439-4636190af475 (2).png"),     // Create a developer platform
-  approval:   asset("photo-1526374965328-7f61d4dc18c5.png"),         // Unify operations
+  saasBoard:  asset("photo-1518770660439-4636190af475 (2).png"),     // Modernize legacy systems
+  analytics:  asset("scale-trust-dash.png"),                          // Consolidate SaaS sprawl
+  circuit:    asset("photo-1558494949-ef010cbdcc31.png"),             // Build with governed AI
+  team:       asset("photo-1550751827-4bd374c3f58b.png"),             // Create a developer platform
+  approval:   asset("photo-1461749280684-dccba630e2f6.png"),         // Unify operations
 
   // OutcomeArchitecture row 1 (4 cards)
-  saasBoard2: asset("photo-1550751827-4bd374c3f58b.png"),            // Modernize core work
-  circuit2:   asset("photo-1551288049-bebda4e38f71.png"),            // Build governed intelligence
-  analytics2: asset("photo-1558494949-ef010cbdcc31.png"),            // Create shared platform foundations
-  decision:   asset("photo-1451187580459-43490279c0fa (1).png"),     // Run across functions
+  saasBoard2: asset("photo-1451187580459-43490279c0fa.png"),        // Modernize core work
+  circuit2:   asset("photo-1526374965328-7f61d4dc18c5.png"),         // Build governed intelligence
+  analytics2: asset("photo-1460925895917-afdab827c52f (4).png"),    // Create shared platform foundations
+  decision:   asset("photo-1518770660439-4636190af475 (2).png"),     // Run across functions
 
   // DeliveryPatterns (6 cards)
   analytics3: asset("photo-1461749280684-dccba630e2f6 (1).png"),    // Coexist
@@ -148,7 +148,7 @@ export const photo = {
 
 /* Large section images */
 export const modernizeSquareImg = {
-  src: asset("34acc58f8655e15591043f8bcaf4f1a0c7564d51.png"),
+  src: asset("0f22e88621147630b76aa94c0171d4b7ecd0f840.png"),
   alt: "Modernized technology platform overview",
 };
 export const journeyImg = {
@@ -156,7 +156,7 @@ export const journeyImg = {
   alt: "Technology rollout timeline across the enterprise",
 };
 export const securitySideImg = {
-  src: asset("0f22e88621147630b76aa94c0171d4b7ecd0f840.png"),
+  src: asset("34acc58f8655e15591043f8bcaf4f1a0c7564d51 (1).png"),
   alt: "Security and governance operations",
 };
 export const developerImg = {
@@ -164,11 +164,11 @@ export const developerImg = {
   alt: "Developer integration architecture",
 };
 export const scaleTrustImg = {
-  src: asset("photo-1460925895917-afdab827c52f (5).png"),
+  src: asset("scale-trust-dash.png"),
   alt: "Trust and operations signal panel",
 };
 export const extendImg = {
-  src: asset("photo-1558494949-ef010cbdcc31 (1).png"),
+  src: asset("photo-1558494949-ef010cbdcc31.png"),
   alt: "Platform expansion pattern",
 };
 export const journeySideImg = {
@@ -176,8 +176,8 @@ export const journeySideImg = {
   alt: "Delivery journey from discovery to expansion",
 };
 export const faqImg = {
-  src: asset("14326467e7a6021112b86cbef41cc9f8208832bf.png"),
-  alt: "Team discussing technology architecture",
+  src: asset("e8e03630abab1c6f9b05fd93002698d3c432da20 (1).png"),
+  alt: "Technology architecture network diagram",
 };
 
 /* ---------- Card wrapper: image header + title + description ---------- */
