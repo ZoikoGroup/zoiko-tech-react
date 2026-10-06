@@ -1,0 +1,16 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as StartByGoalSection } from "./StartByGoalSection";
+export { default as DirectorySection } from "./DirectorySection";
+export { default as SearchSection } from "./SearchSection";
+export { default as ArticleTemplateSection } from "./ArticleTemplateSection";
+export { default as CurrentnessSection } from "./CurrentnessSection";
+export { default as ProceduresSection } from "./ProceduresSection";
+export { default as ConceptsSection } from "./ConceptsSection";
+export { default as ReferenceDataSection } from "./ReferenceDataSection";
+export { default as DevelopersSection } from "./DevelopersSection";
+export { default as ChangesSection } from "./ChangesSection";
+export { default as AuthoritySection } from "./AuthoritySection";
+export { default as RelatedSection } from "./RelatedSection";
+export { default as StatesSection } from "./StatesSection";
+export { default as QuestionsSection } from "./QuestionsSection";
+export { default as ContactSection } from "./ContactSection";
