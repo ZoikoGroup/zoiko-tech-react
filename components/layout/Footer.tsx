@@ -152,15 +152,15 @@ const industries: FooterItem[] = [
 const technology: FooterItem[] = [
   {
     label: "Artificial Intelligence",
-    href: "/technology/artificial-intelligence",
+    href: "/artificial-intelligence",
   },
   {
     label: "Agentic Systems",
-    href: "/technology/agentic-systems",
+    href: "/agentic-systems",
   },
   {
     label: "Governed Work Orchestration",
-    href: "/technology/governed-work-orchestration",
+    href: "/governed-work-orchestration",
   },
   {
     label: "Cloud Infrastructure",
@@ -172,15 +172,15 @@ const technology: FooterItem[] = [
   },
   {
     label: "Digital Identity",
-    href: "/technology/digital-identity",
+    href: "/digital-identity",
   },
   {
     label: "Cybersecurity",
-    href: "/technology/cybersecurity",
+    href: "/cybersecurity",
   },
   {
     label: "Regulatory Technology",
-    href: "/technology/regulatory-technology",
+    href: "/regulatory-technology",
   },
   {
     label: "AI Safety & Governance",
