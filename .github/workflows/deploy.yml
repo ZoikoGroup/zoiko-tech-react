@@ -20,8 +20,26 @@ jobs:
           script: |
             set -e
             cd /var/www/zoiko-tech/app
+
+            # Free disk space before pulling; a full disk breaks git fetch.
+            # Everything removed here is regenerated on demand.
+            echo "Disk before cleanup:"; df -h .
+            rm -rf .next/cache
+            npm cache clean --force || true
+            pm2 flush zoiko-tech || true
+            git gc --prune=now --quiet || true
+            echo "Disk after cleanup:"; df -h .
+
+            # npm ci + next build need roughly 2 GB of headroom.
+            FREE_KB=$(df -Pk . | awk 'NR==2 {print $4}')
+            if [ "$FREE_KB" -lt 2097152 ]; then
+              echo "::error::Only $((FREE_KB / 1024)) MB free on the VM; free up disk space before deploying."
+              du -sh /var/www/zoiko-tech/app/* ~/.npm ~/.pm2 2>/dev/null | sort -rh | head -15 || true
+              exit 1
+            fi
+
             git pull origin main
-            npm ci
+            npm ci --no-audit --no-fund
             npm run build
             pm2 restart zoiko-tech
             pm2 save
