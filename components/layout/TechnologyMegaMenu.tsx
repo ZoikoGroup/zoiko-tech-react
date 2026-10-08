@@ -211,21 +211,21 @@ const operationsPlatforms = [
   {
     title: "Enterprise & Financial Operations",
     description: "Intelligent operations at scale",
-    href: "#",
+    href: "/enterprise-financial-operations",
     icon:
       "/technologymegamenu/enterprise-financial-operations.png",
   },
   {
     title: "Communications & Media Infrastructure",
     description: "Networks, platforms and possibilities",
-    href: "#",
+    href: "/communication-media-infrastructure",
     icon:
       "/technologymegamenu/communications-media-infrastructure.png",
   },
   {
     title: "Industry Platforms & Systems",
     description: "Purpose-built for what's next",
-    href: "#",
+    href: "/industry-platform-systems",
     icon:
       "/technologymegamenu/industry-platforms-systems.png",
   },
