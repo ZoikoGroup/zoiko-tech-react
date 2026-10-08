@@ -116,7 +116,7 @@ const learnDiscover = [
   {
     title: "Research",
     description: "Original research and insights",
-    href: "#",
+    href: "/research",
     icon: "/resourcemegamenu/research.png",
   },
   {
@@ -128,7 +128,7 @@ const learnDiscover = [
   {
     title: "Customer Stories",
     description: "Real customers. Real results.",
-    href: "#",
+    href: "/customer-stories",
     icon: "/resourcemegamenu/customer-stories.png",
   },
 ];
@@ -141,7 +141,7 @@ const buildEvaluate = [
   {
     title: "Documentation",
     description: "Technical docs and product guides",
-    href: "#",
+    href: "/documentation",
     icon: "/resourcemegamenu/documentation.png",
   },
   {
@@ -153,13 +153,13 @@ const buildEvaluate = [
   {
     title: "Trust Center",
     description: "Security, compliance and transparency",
-    href: "#",
+    href: "/trust-center",
     icon: "/resourcemegamenu/trust-center.png",
   },
   {
     title: "Status",
     description: "System status and service health",
-    href: "#",
+    href: "/status",
     icon: "/resourcemegamenu/status.png",
   },
 ];
@@ -172,13 +172,13 @@ const newsCompany = [
   {
     title: "Newsroom",
     description: "Latest news and announcements",
-    href: "#",
+    href: "/newspaper",
     icon: "/resourcemegamenu/newsroom.png",
   },
   {
     title: "Press Releases",
     description: "Official press releases",
-    href: "#",
+    href: "/press-releases",
     icon: "/resourcemegamenu/press-releases.png",
   },
   {
