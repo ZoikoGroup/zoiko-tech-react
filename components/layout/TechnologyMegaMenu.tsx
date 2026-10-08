@@ -183,7 +183,7 @@ const aiInfrastructure = [
   {
     title: "Artificial Intelligence & Agentic Systems",
     description: "From models to real-world outcomes",
-    href: "#",
+    href: "/artificial-intelligence-agentic-systems",
     icon:
       "/technologymegamenu/artificial-intelligence-agentic-systems.png",
   },
@@ -246,14 +246,14 @@ const securityTrustResearch = [
   {
     title: "Zoiko Research",
     description: "Insights for what's next",
-    href: "#",
+    href: "/zoiko-research",
     icon:
       "/technologymegamenu/zoiko-research.png",
   },
   {
     title: "Frontier Technologies",
     description: "Exploring today, building tomorrow",
-    href: "#",
+    href: "/frontier-technologies",
     icon:
       "/technologymegamenu/frontier-technologies.png",
   },
