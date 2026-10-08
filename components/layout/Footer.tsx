@@ -78,7 +78,7 @@ const solutions: FooterItem[] = [
   },
   {
     label: "Cybersecurity & Protection",
-    href: "/solutions/cybersecurity-protection",
+    href: "/cybersecurity-protection",
   },
   {
     label: "Identity & Access",
@@ -105,7 +105,7 @@ const solutions: FooterItem[] = [
 const industries: FooterItem[] = [
   {
     label: "Technology & SaaS",
-    href: "/industries/technology-saas",
+    href: "/technology-saas-industry",
   },
   {
     label: "Telecommunications",
@@ -113,7 +113,7 @@ const industries: FooterItem[] = [
   },
   {
     label: "Financial Services",
-    href: "/industries/financial-services",
+    href: "/financial-services",
   },
   {
     label: "Healthcare & Life Sciences",
@@ -125,27 +125,27 @@ const industries: FooterItem[] = [
   },
   {
     label: "Retail & Commerce",
-    href: "/industries/retail-commerce",
+    href: "/retail-commerce",
   },
   {
     label: "Travel & Mobility",
-    href: "/industries/travel-mobility",
+    href: "/travel-mobility-transportation",
   },
   {
     label: "Real Estate & Property",
-    href: "/industries/real-estate-property",
+    href: "/real-estate-property",
   },
   {
     label: "Professional Services",
-    href: "/industries/professional-services",
+    href: "/professional-services",
   },
   {
     label: "Public Sector",
-    href: "/industries/public-sector",
+    href: "/public-sector-government",
   },
   {
     label: "Regulated Industries",
-    href: "/industries/regulated-industries",
+    href: "/regulated-industries",
   },
 ];
 
@@ -188,11 +188,11 @@ const technology: FooterItem[] = [
   },
   {
     label: "Zoiko Research",
-    href: "/research",
+    href: "/zoiko-research",
   },
   {
     label: "Frontier Technologies",
-    href: "/technology/frontier-technologies",
+    href: "/frontier-technologies",
   },
 ];
 
@@ -505,7 +505,7 @@ export default function Footer() {
               items={industries}
               delay={0.15}
               exploreLabel="Explore All Industries"
-              exploreHref="/industries"
+              exploreHref="/view-all-industries"
             />
 
             <FooterColumn

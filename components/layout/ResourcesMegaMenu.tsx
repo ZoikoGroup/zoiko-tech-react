@@ -122,7 +122,7 @@ const learnDiscover = [
   {
     title: "Guides & Reports",
     description: "Practical guidance for real impact",
-    href: "#",
+    href: "/guides-reports",
     icon: "/resourcemegamenu/guides-reports.png",
   },
   {
