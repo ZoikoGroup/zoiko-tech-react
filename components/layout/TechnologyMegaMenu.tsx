@@ -190,7 +190,7 @@ const aiInfrastructure = [
   {
     title: "Cloud & Digital Infrastructure",
     description: "Secure, scalable and always on",
-    href: "#",
+    href: "/cloud-digital-infrastructure",
     icon:
       "/technologymegamenu/cloud-digital-infrastructure.png",
   },
@@ -239,7 +239,7 @@ const securityTrustResearch = [
   {
     title: "Security, Identity & Assurance",
     description: "Built for a safer, more open future",
-    href: "#",
+    href: "/security-identity-assurance",
     icon:
       "/technologymegamenu/security-identity-assurance.png",
   },
