@@ -147,7 +147,7 @@ const buildEvaluate = [
   {
     title: "Developer Resources",
     description: "Tools, SDKs and development support",
-    href: "#",
+    href: "/developer-resources",
     icon: "/resourcemegamenu/developer-resources.png",
   },
   {
@@ -184,7 +184,7 @@ const newsCompany = [
   {
     title: "Media Resources",
     description: "Logos, media kits and brand assets",
-    href: "#",
+    href: "/media-resources",
     icon: "/resourcemegamenu/media-resources.png",
   },
 ];

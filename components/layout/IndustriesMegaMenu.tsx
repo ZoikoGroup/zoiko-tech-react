@@ -210,7 +210,7 @@ const coreIndustries = [
   {
     title: "Media, Sports & Entertainment",
     description: "Engage audiences everywhere",
-    href: "#",
+    href: "/media-entertainment",
     icon: "/IndustriesMegaMenu/media-entertainment.png",
   },
   {
