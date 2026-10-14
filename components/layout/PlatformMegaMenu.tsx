@@ -413,9 +413,12 @@ export default function PlatformMegaMenu({
         left-1/2
         top-[95px]
         z-[100]
-        w-[calc(100vw-128px)]
+        w-[calc(100vw-64px)]
+        xl:w-[calc(100vw-128px)]
         max-w-[1440px]
         -translate-x-1/2
+        max-h-[calc(100vh-105px)]
+        overflow-y-auto
         max-md:hidden
         transition-all
         duration-200

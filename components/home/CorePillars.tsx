@@ -109,10 +109,12 @@ export default function CorePillars() {
           w-full
           max-w-[1440px]
           justify-center
-          px-5
-          py-12
-          sm:px-8
+          px-4
+          py-8
+          sm:px-6
+          sm:py-10
           lg:px-12
+          lg:py-14
           xl:px-20
         "
       >
@@ -121,10 +123,12 @@ export default function CorePillars() {
             grid
             w-full
             grid-cols-1
-            gap-6
+            gap-4
             sm:grid-cols-2
+            sm:gap-6
             lg:grid-cols-4
-            lg:gap-8
+            lg:gap-5
+            xl:gap-8
           "
         >
           {pillars.map((pillar, index) => (
@@ -156,14 +160,17 @@ function PillarCard({
         group
         relative
         flex
-        min-h-[216px]
+        h-full
+        min-h-[200px]
+        sm:min-h-[216px]
         w-full
         flex-col
         items-center
         justify-start
         overflow-hidden
         rounded-3xl
-        p-6
+        p-5
+        sm:p-6
         shadow-[0px_4px_4px_0px_rgba(0,0,0,0.09)]
         transition-all
         duration-700

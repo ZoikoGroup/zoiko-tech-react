@@ -215,7 +215,7 @@ export default function Estate() {
           position: relative;
           width: 100%;
           overflow: hidden;
-          padding: 96px 0;
+          padding: 64px 0;
 
           /* No section background color */
           background: transparent;
@@ -263,7 +263,7 @@ export default function Estate() {
 
           display: flex;
           flex-direction: column;
-          gap: 56px;
+          gap: 40px;
         }
 
         /* =====================================================
@@ -386,7 +386,7 @@ export default function Estate() {
           display: grid;
           grid-template-columns: repeat(4, minmax(0, 1fr));
 
-          gap: 24px;
+          gap: 20px;
         }
 
         /* =====================================================
@@ -397,11 +397,12 @@ export default function Estate() {
           position: relative;
 
           width: 100%;
-          height: 240px;
+          min-height: 220px;
+          height: auto;
 
           box-sizing: border-box;
 
-          padding: 40px;
+          padding: 24px;
 
           border-radius: 20px;
 
@@ -415,8 +416,9 @@ export default function Estate() {
 
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
 
-          gap: 28px;
+          gap: 20px;
 
           overflow: hidden;
 
@@ -757,8 +759,9 @@ export default function Estate() {
           }
 
           .estate-card {
-            height: 220px;
-            padding: 28px;
+            min-height: 200px;
+            height: auto;
+            padding: 22px;
           }
 
           .estate-card-header {

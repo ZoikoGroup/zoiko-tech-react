@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -39,23 +40,22 @@ const poppins = Poppins({
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
-
   const [visible, setVisible] = useState(false);
-
-  /* =======================================================
-     SCROLL-DRIVEN REVEAL
-
-     The hero fades/slides into view when it enters
-     the viewport.
-     
-     The globe itself does NOT have any CSS rotation,
-     3D movement, scaling, or perspective animation.
-  ======================================================= */
 
   useEffect(() => {
     const section = sectionRef.current;
 
     if (!section) return;
+
+    // Avoid leaving the hero invisible when reduced motion
+    // is enabled or IntersectionObserver is unavailable.
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      setVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -65,8 +65,8 @@ export default function Hero() {
         }
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.05,
+        rootMargin: "0px 0px -30px 0px",
       }
     );
 
@@ -86,90 +86,61 @@ export default function Hero() {
         ${visible ? "hero-visible" : ""}
       `}
     >
-      {/* =====================================================
-          BACKGROUND
-      ===================================================== */}
+      {/* Background */}
+      <div className="hero-background" aria-hidden="true" />
 
-      <div className="hero-background" />
-
-      {/* =====================================================
-          RIGHT SIDE GREEN GLOW
-      ===================================================== */}
-
-      <div className="hero-gradient">
+      {/* Green gradient */}
+      <div className="hero-gradient" aria-hidden="true">
         <div className="hero-gradient-glow" />
       </div>
 
-      {/* =====================================================
-          ADDITIONAL SOFT GLOW
-      ===================================================== */}
+      {/* Soft ambient glow */}
+      <div className="hero-soft-glow" aria-hidden="true" />
 
-      <div className="hero-soft-glow" />
+      {/* Main content */}
+      <div className="hero-inner">
+        <div className="hero-content">
+          <div className="hero-badge">
+            <span>ABOUT ZOIKOTECH</span>
+          </div>
 
-      {/* =====================================================
-          GLOBE / GIF
+          <h1>
+            TECHNOLOGY.
+            <br />
+            TRUST.
+            <br />
+            TRANSFORMATION.
+          </h1>
 
-          File:
-          public/about-us/gif.gif
-
-          The GIF is served directly without Next.js
-          image optimization so its animation remains intact.
-      ===================================================== */}
-
-      <div className="hero-globe-area">
-        <div className="globe-wrapper">
-          <Image
-            src="/about-us/gif.gif"
-            alt="ZoikoTech global technology"
-            fill
-            priority
-            unoptimized
-            sizes="(max-width: 640px) 430px, (max-width: 768px) 470px, (max-width: 1024px) 500px, (max-width: 1200px) 530px, 577px"
-            className="globe-image"
-          />
-        </div>
-      </div>
-
-      {/* =====================================================
-          HERO CONTENT
-      ===================================================== */}
-
-      <div className="hero-content">
-        {/* ===================================================
-            BADGE
-        =================================================== */}
-
-        <div className="hero-badge">
-          <span>ABOUT ZOIKOTECH</span>
+          <p>
+            ZoikoTech Inc. is a California-based global technology company
+            building intelligent infrastructure, enterprise platforms and
+            domain-specific AI for organizations operating across industries,
+            jurisdictions and borders.
+          </p>
         </div>
 
-        {/* ===================================================
-            HEADING
-        =================================================== */}
-
-        <h1>
-          TECHNOLOGY.
-          <br />
-          TRUST.
-          <br />
-          TRANSFORMATION.
-        </h1>
-
-        {/* ===================================================
-            DESCRIPTION
-        =================================================== */}
-
-        <p>
-          ZoikoTech Inc. is a California-based global technology company
-          building intelligent infrastructure, enterprise platforms and
-          domain-specific AI for organizations operating across industries,
-          jurisdictions and borders.
-        </p>
+        {/* Globe GIF */}
+        <div className="hero-globe-area" aria-hidden="true">
+          <div className="globe-wrapper">
+            <Image
+              src="/about-us/gif.gif"
+              alt=""
+              fill
+              priority
+              unoptimized
+              sizes="
+                (max-width: 380px) 90vw,
+                (max-width: 640px) 92vw,
+                (max-width: 1024px) 65vw,
+                (max-width: 1440px) 45vw,
+                577px
+              "
+              className="globe-image"
+            />
+          </div>
+        </div>
       </div>
-
-      {/* =====================================================
-          STYLES
-      ===================================================== */}
 
       <style jsx>{`
         /* =====================================================
@@ -177,34 +148,33 @@ export default function Hero() {
         ===================================================== */
 
         .hero-section {
-          --hero-max-width: 1440px;
-
           position: relative;
-
-          width: 100%;
-
-          height: 770px;
-          min-height: 770px;
-
-          overflow: hidden;
-
           isolation: isolate;
-
+          width: 100%;
+          min-height: 770px;
+          overflow: hidden;
+          overflow: clip;
           background: #030b0d;
 
           opacity: 0;
-
-          transform: translateY(35px);
+          transform: translateY(24px);
 
           transition:
-            opacity 850ms ease,
-            transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+            opacity 800ms ease,
+            transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .hero-visible {
+        .hero-section.hero-visible {
           opacity: 1;
-
           transform: translateY(0);
+        }
+
+        .hero-inner {
+          position: relative;
+          z-index: 2;
+          width: min(100%, 1440px);
+          min-height: inherit;
+          margin-inline: auto;
         }
 
         /* =====================================================
@@ -213,39 +183,27 @@ export default function Hero() {
 
         .hero-background {
           position: absolute;
-
           inset: 0;
-
-          z-index: 0;
-
-          background:
-            linear-gradient(
-              90deg,
-              #020708 0%,
-              #02090a 35%,
-              #031211 55%,
-              #03251f 78%,
-              #021914 100%
-            );
+          z-index: -2;
+          background: linear-gradient(
+            90deg,
+            #020708 0%,
+            #02090a 35%,
+            #031211 55%,
+            #03251f 78%,
+            #021914 100%
+          );
+          pointer-events: none;
         }
-
-        /* =====================================================
-           RIGHT GRADIENT
-        ===================================================== */
 
         .hero-gradient {
           position: absolute;
-
-          z-index: 1;
-
-          width: 750px;
-          height: 800px;
-
-          left: calc(50% - 29px);
-          top: -30px;
-
+          z-index: -1;
+          top: -8%;
+          right: -8%;
+          width: min(65vw, 850px);
+          height: 110%;
           pointer-events: none;
-
           background: linear-gradient(
             172deg,
             rgba(6, 95, 70, 0.42) 0%,
@@ -253,17 +211,12 @@ export default function Hero() {
             rgba(2, 44, 34, 0.3) 80%,
             rgba(2, 44, 34, 0.15) 100%
           );
-
           filter: blur(49px);
-
-          transform: translateZ(0);
         }
 
         .hero-gradient-glow {
           position: absolute;
-
           inset: 0;
-
           background: radial-gradient(
             circle at 56% 48%,
             rgba(16, 185, 129, 0.2) 0%,
@@ -272,127 +225,17 @@ export default function Hero() {
           );
         }
 
-        /* =====================================================
-           SOFT GLOBAL GLOW
-        ===================================================== */
-
         .hero-soft-glow {
           position: absolute;
-
-          z-index: 1;
-
+          z-index: -1;
+          top: 15%;
+          right: -140px;
           width: 500px;
           height: 500px;
-
-          right: -120px;
-          top: 120px;
-
           border-radius: 50%;
-
           background: rgba(0, 255, 190, 0.055);
-
           filter: blur(100px);
-
           pointer-events: none;
-        }
-
-        /* =====================================================
-           GLOBE / GIF AREA
-        ===================================================== */
-
-        .hero-globe-area {
-          position: absolute;
-
-          z-index: 3;
-
-          width: 577px;
-          height: 538px;
-
-          left: calc(50% + 103px);
-          top: 133px;
-
-          display: flex;
-
-          align-items: center;
-          justify-content: center;
-
-          pointer-events: none;
-
-          opacity: 0;
-
-          transform: translateY(35px);
-
-          transition:
-            opacity 1000ms ease 250ms,
-            transform 1000ms cubic-bezier(0.22, 1, 0.36, 1) 250ms;
-        }
-
-        .hero-visible .hero-globe-area {
-          opacity: 1;
-
-          transform: translateY(0);
-        }
-
-        /* =====================================================
-           GLOBE WRAPPER
-        ===================================================== */
-
-        .globe-wrapper {
-          position: relative;
-
-          width: 100%;
-          height: 100%;
-
-          display: flex;
-
-          align-items: center;
-          justify-content: center;
-        }
-
-        /* =====================================================
-           GIF IMAGE
-        ===================================================== */
-
-        .globe-image {
-          width: 100%;
-          height: 100%;
-
-          display: block;
-
-          object-fit: contain;
-
-          object-position: center;
-
-          filter:
-            drop-shadow(
-              0 0 22px rgba(0, 255, 210, 0.1)
-            )
-            drop-shadow(
-              0 0 65px rgba(0, 255, 190, 0.055)
-            );
-
-          transition:
-            filter 400ms ease,
-            opacity 400ms ease;
-        }
-
-        /* =====================================================
-           GIF HOVER
-
-           Only glow enhancement.
-           No movement.
-           No rotation.
-           No scaling.
-        ===================================================== */
-
-        .hero-globe-area:hover .globe-image {
-          filter:
-            drop-shadow(
-              0 0 28px rgba(0, 255, 210, 0.17)
-            )
-            drop-shadow(
-              0 0 80px rgba(0, 255, 190, 0.09)
-            );
         }
 
         /* =====================================================
@@ -400,26 +243,17 @@ export default function Hero() {
         ===================================================== */
 
         .hero-content {
-          position: absolute;
-
-          z-index: 5;
-
-          width: 729px;
-
-          left: max(
-            80px,
-            calc((100vw - var(--hero-max-width)) / 2 + 80px)
-          );
-
-          top: 167px;
+          position: relative;
+          z-index: 3;
+          width: min(54%, 729px);
+          padding-top: clamp(105px, 11.6vw, 167px);
+          padding-bottom: 70px;
+          margin-left: clamp(32px, 5.56vw, 80px);
 
           display: flex;
-
           flex-direction: column;
-
           align-items: flex-start;
-
-          gap: 32px;
+          gap: clamp(20px, 2.2vw, 32px);
         }
 
         /* =====================================================
@@ -428,37 +262,25 @@ export default function Hero() {
 
         .hero-badge {
           display: inline-flex;
-
           align-items: center;
           justify-content: center;
-
+          width: fit-content;
+          max-width: 100%;
           padding: 6px 12px;
-
           border-radius: 100px;
-
           background: rgba(14, 116, 144, 0.7);
-
           outline: 1px solid rgba(45, 212, 191, 0.28);
-
           outline-offset: -1px;
-
           color: #5eead4;
-
           font-family: var(--font-manrope), sans-serif;
-
           font-size: 10px;
-
           line-height: 16px;
-
           font-weight: 700;
-
           letter-spacing: 0.06em;
-
           text-transform: uppercase;
 
           opacity: 0;
-
-          transform: translateY(20px);
+          transform: translateY(16px);
 
           transition:
             opacity 600ms ease 100ms,
@@ -469,16 +291,12 @@ export default function Hero() {
 
         .hero-visible .hero-badge {
           opacity: 1;
-
           transform: translateY(0);
         }
 
         .hero-badge:hover {
           background: rgba(14, 116, 144, 0.9);
-
-          box-shadow:
-            0 0 0 1px rgba(45, 212, 191, 0.1),
-            0 8px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* =====================================================
@@ -487,24 +305,18 @@ export default function Hero() {
 
         .hero-content h1 {
           width: 100%;
-
           margin: 0;
-
           color: #ffffff;
-
           font-family: var(--font-plus-jakarta), sans-serif;
-
-          font-size: 60px;
-
-          line-height: 80px;
-
+          font-size: clamp(34px, 4.17vw, 60px);
+          line-height: 1.33;
           font-weight: 800;
-
-          letter-spacing: -0.025em;
+          letter-spacing: -0.035em;
+          overflow-wrap: normal;
+          word-break: normal;
 
           opacity: 0;
-
-          transform: translateY(30px);
+          transform: translateY(24px);
 
           transition:
             opacity 750ms ease 180ms,
@@ -513,7 +325,6 @@ export default function Hero() {
 
         .hero-visible .hero-content h1 {
           opacity: 1;
-
           transform: translateY(0);
         }
 
@@ -523,24 +334,17 @@ export default function Hero() {
 
         .hero-content p {
           width: 100%;
-
-          max-width: 720px;
-
+          max-width: 680px;
           margin: 0;
-
           color: #f1f5f9;
-
           font-family: var(--font-poppins), sans-serif;
-
-          font-size: 18px;
-
-          line-height: 28px;
-
+          font-size: clamp(14px, 1.25vw, 18px);
+          line-height: 1.65;
           font-weight: 400;
+          overflow-wrap: break-word;
 
           opacity: 0;
-
-          transform: translateY(25px);
+          transform: translateY(20px);
 
           transition:
             opacity 750ms ease 300ms,
@@ -549,428 +353,284 @@ export default function Hero() {
 
         .hero-visible .hero-content p {
           opacity: 1;
-
           transform: translateY(0);
         }
 
         /* =====================================================
-           LARGE DESKTOP
+           GLOBE
         ===================================================== */
 
-        @media (max-width: 1400px) {
-          .hero-content {
-            width: 650px;
+        .hero-globe-area {
+          position: absolute;
+          z-index: 2;
+          top: 50%;
+          right: -1%;
+          width: min(48%, 650px);
+          aspect-ratio: 577 / 538;
+          transform: translateY(calc(-50% + 24px));
+          pointer-events: none;
 
-            left: 60px;
-          }
+          opacity: 0;
 
+          transition:
+            opacity 900ms ease 200ms,
+            transform 900ms cubic-bezier(0.22, 1, 0.36, 1) 200ms;
+        }
+
+        .hero-visible .hero-globe-area {
+          opacity: 1;
+          transform: translateY(-50%);
+        }
+
+        .globe-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        .globe-image {
+          display: block;
+          object-fit: contain;
+          object-position: center;
+          filter:
+            drop-shadow(0 0 22px rgba(0, 255, 210, 0.1))
+            drop-shadow(0 0 65px rgba(0, 255, 190, 0.055));
+          transition: filter 400ms ease;
+        }
+
+        /* =====================================================
+           LARGE DESKTOP: 1200px+
+        ===================================================== */
+
+        @media (min-width: 1201px) {
           .hero-globe-area {
-            left: calc(50% + 80px);
-
-            width: 550px;
-
-            height: 512px;
-          }
-
-          .hero-content h1 {
-            font-size: 58px;
-
-            line-height: 76px;
+            right: 1%;
+            width: min(45%, 577px);
           }
         }
 
         /* =====================================================
-           LAPTOP
+           LAPTOP: 1025px - 1200px
         ===================================================== */
 
-        @media (max-width: 1200px) {
+        @media (min-width: 1025px) and (max-width: 1200px) {
           .hero-section {
-            height: 750px;
-
-            min-height: 750px;
+            min-height: 680px;
           }
 
           .hero-content {
-            width: 590px;
-
-            left: 55px;
-
-            top: 150px;
-
-            gap: 28px;
+            width: 48%;
+            margin-left: 4%;
+            padding-top: 130px;
+            gap: 24px;
           }
 
           .hero-content h1 {
-            font-size: 52px;
-
-            line-height: 68px;
+            font-size: clamp(36px, 4vw, 48px);
+            line-height: 1.3;
           }
 
           .hero-content p {
-            max-width: 590px;
-
-            font-size: 16px;
-
-            line-height: 26px;
+            font-size: 14px;
+            line-height: 1.7;
           }
 
           .hero-globe-area {
-            left: calc(50% + 25px);
-
-            top: 150px;
-
-            width: 530px;
-
-            height: 495px;
-          }
-
-          .hero-gradient {
-            left: 50%;
-
-            width: 650px;
+            right: 1%;
+            width: 49%;
           }
         }
 
         /* =====================================================
-           TABLET
+           TABLET: 641px - 1024px
         ===================================================== */
 
         @media (max-width: 1024px) {
           .hero-section {
-            height: 800px;
-
-            min-height: 800px;
+            min-height: 0;
           }
 
-          .hero-content {
-            position: absolute;
-
-            left: 50%;
-
-            top: 85px;
-
-            width: calc(100% - 80px);
-
-            max-width: 720px;
-
-            transform: translateX(-50%);
-
+          .hero-inner {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-
-            text-align: center;
-
-            gap: 25px;
+            min-height: 0;
           }
-
-          .hero-content h1 {
-            font-size: 50px;
-
-            line-height: 64px;
-
-            text-align: center;
-          }
-
-          .hero-content p {
-            max-width: 680px;
-
-            font-size: 16px;
-
-            line-height: 26px;
-
-            text-align: center;
-          }
-
-          .hero-globe-area {
-            left: 50%;
-
-            right: auto;
-
-            top: 330px;
-
-            width: 500px;
-
-            height: 465px;
-
-            transform: translate(-50%, 35px);
-
-            opacity: 0;
-          }
-
-          .hero-visible .hero-globe-area {
-            opacity: 0.58;
-
-            transform: translate(-50%, 0);
-          }
-
-          .hero-gradient {
-            left: 50%;
-
-            top: 180px;
-
-            width: 650px;
-
-            height: 650px;
-
-            transform: translateX(-50%);
-          }
-
-          .hero-soft-glow {
-            right: auto;
-
-            left: 50%;
-
-            top: 350px;
-
-            transform: translateX(-50%);
-          }
-        }
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 640px) {
-          .hero-section {
-            height: 760px;
-
-            min-height: 760px;
-          }
-
-          /* -------------------------------------------------
-             CONTENT
-          ------------------------------------------------- */
 
           .hero-content {
-            top: 65px;
-
-            width: calc(100% - 40px);
-
+            width: calc(100% - 64px);
+            max-width: 720px;
+            margin-inline: auto;
+            padding-top: clamp(70px, 9vw, 100px);
+            padding-bottom: 0;
+            align-items: center;
+            text-align: center;
             gap: 22px;
           }
 
-          /* -------------------------------------------------
-             BADGE
-          ------------------------------------------------- */
-
-          .hero-badge {
-            padding: 5px 10px;
-
-            font-size: 9px;
-
-            line-height: 14px;
-
-            letter-spacing: 0.05em;
-          }
-
-          /* -------------------------------------------------
-             HEADING
-          ------------------------------------------------- */
-
           .hero-content h1 {
-            font-size: 37px;
-
-            line-height: 49px;
-
-            letter-spacing: -0.025em;
+            font-size: clamp(38px, 5.5vw, 54px);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
           }
-
-          /* -------------------------------------------------
-             DESCRIPTION
-          ------------------------------------------------- */
 
           .hero-content p {
-            max-width: 100%;
-
-            font-size: 14px;
-
-            line-height: 23px;
+            max-width: 640px;
+            font-size: clamp(14px, 1.8vw, 16px);
+            line-height: 1.75;
           }
 
-          /* -------------------------------------------------
-             GLOBE / GIF
-          ------------------------------------------------- */
-
           .hero-globe-area {
-            top: 350px;
-
-            left: 50%;
-
-            width: 455px;
-
-            height: 425px;
-
-            transform: translate(-50%, 35px);
+            position: relative;
+            top: auto;
+            right: auto;
+            width: min(72%, 480px);
+            margin-top: -8px;
+            margin-bottom: 15px;
+            aspect-ratio: 577 / 538;
+            transform: translateY(24px);
           }
 
           .hero-visible .hero-globe-area {
-            opacity: 0.42;
-
-            transform: translate(-50%, 0);
+            opacity: 0.88;
+            transform: translateY(0);
           }
 
-          /* -------------------------------------------------
-             GRADIENT
-          ------------------------------------------------- */
-
           .hero-gradient {
-            top: 220px;
-
-            left: 50%;
-
-            width: 600px;
-
-            height: 600px;
-
-            filter: blur(55px);
-
-            transform: translateX(-50%);
+            top: 20%;
+            right: -20%;
+            width: 100%;
+            height: 75%;
           }
 
           .hero-soft-glow {
-            width: 420px;
-
-            height: 420px;
-
-            left: 50%;
-
-            top: 350px;
-
-            transform: translateX(-50%);
-
-            filter: blur(90px);
+            top: 35%;
+            right: -100px;
+            width: 400px;
+            height: 400px;
           }
         }
 
         /* =====================================================
-           SMALL MOBILE
+           MOBILE: 381px - 640px
         ===================================================== */
 
-        @media (max-width: 480px) {
-          .hero-section {
-            height: 735px;
-
-            min-height: 735px;
-          }
-
+        @media (max-width: 640px) {
           .hero-content {
-            top: 55px;
-
-            width: calc(100% - 32px);
-
+            width: calc(100% - 36px);
+            padding-top: 58px;
             gap: 20px;
           }
 
-          .hero-content h1 {
-            font-size: 33px;
+          .hero-badge {
+            padding: 5px 10px;
+            font-size: 9px;
+            line-height: 14px;
+          }
 
-            line-height: 44px;
+          .hero-content h1 {
+            font-size: clamp(30px, 7.4vw, 42px);
+            line-height: 1.3;
+            letter-spacing: -0.035em;
           }
 
           .hero-content p {
+            max-width: 500px;
             font-size: 13px;
-
-            line-height: 22px;
+            line-height: 1.8;
           }
 
           .hero-globe-area {
-            top: 350px;
-
-            width: 425px;
-
-            height: 397px;
+            width: min(94%, 430px);
+            margin-top: 8px;
+            margin-bottom: 8px;
           }
 
           .hero-visible .hero-globe-area {
-            opacity: 0.36;
+            opacity: 0.82;
+          }
 
-            transform: translate(-50%, 0);
+          .hero-gradient {
+            top: 32%;
+            right: -45%;
+            width: 145%;
+            height: 65%;
+            filter: blur(55px);
+          }
+
+          .hero-soft-glow {
+            top: 45%;
+            right: -150px;
+            width: 350px;
+            height: 350px;
+            filter: blur(85px);
           }
         }
 
         /* =====================================================
-           VERY SMALL MOBILE
+           SMALL MOBILE: 320px - 380px
         ===================================================== */
 
         @media (max-width: 380px) {
-          .hero-section {
-            height: 720px;
-
-            min-height: 720px;
-          }
-
           .hero-content {
-            top: 48px;
-
             width: calc(100% - 28px);
+            padding-top: 44px;
+            gap: 18px;
           }
 
           .hero-content h1 {
-            font-size: 30px;
-
-            line-height: 40px;
+            font-size: clamp(27px, 8vw, 30px);
+            line-height: 1.35;
+            letter-spacing: -0.025em;
           }
 
           .hero-content p {
-            font-size: 12.5px;
-
-            line-height: 21px;
+            font-size: 12px;
+            line-height: 1.8;
           }
 
           .hero-globe-area {
-            top: 355px;
-
-            width: 390px;
-
-            height: 364px;
+            width: 96%;
+            margin-top: 10px;
           }
 
           .hero-visible .hero-globe-area {
-            opacity: 0.3;
-
-            transform: translate(-50%, 0);
+            opacity: 0.75;
           }
         }
 
         /* =====================================================
-           LANDSCAPE MOBILE
+           VERY SHORT SCREENS
         ===================================================== */
 
-        @media (max-height: 600px) and (max-width: 900px) {
+        @media (max-height: 600px) and (min-width: 1025px) {
           .hero-section {
-            height: 650px;
-
-            min-height: 650px;
+            min-height: 600px;
           }
 
           .hero-content {
-            top: 45px;
+            padding-top: 65px;
+            padding-bottom: 45px;
+            gap: 18px;
           }
 
           .hero-content h1 {
-            font-size: 34px;
-
-            line-height: 44px;
+            font-size: clamp(32px, 3.5vw, 44px);
+            line-height: 1.25;
           }
 
           .hero-content p {
-            max-width: 600px;
-
             font-size: 13px;
-
-            line-height: 21px;
+            line-height: 1.6;
           }
 
           .hero-globe-area {
-            top: 250px;
-
-            width: 380px;
-
-            height: 355px;
+            width: min(43%, 470px);
           }
         }
 
         /* =====================================================
-           REDUCED MOTION
+           ACCESSIBILITY
         ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
@@ -978,15 +638,10 @@ export default function Hero() {
           .hero-badge,
           .hero-content h1,
           .hero-content p,
-          .hero-globe-area {
-            opacity: 1;
-
-            transform: none;
-
-            transition: none;
-          }
-
+          .hero-globe-area,
           .globe-image {
+            opacity: 1;
+            transform: none;
             transition: none;
           }
         }

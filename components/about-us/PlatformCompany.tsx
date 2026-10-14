@@ -103,7 +103,7 @@ const platforms = [
     description:
       "Intelligence systems, agentic workflows, and decision infrastructure built to operate across complex environments.",
     icon: "/about-us/1.png",
-    position: "lg:absolute lg:left-0 lg:top-[89px]",
+    position: "xl:absolute xl:left-0 xl:top-[89px]",
   },
   {
     number: "02",
@@ -112,7 +112,7 @@ const platforms = [
       "Scalable cloud foundations and digital infrastructure designed for resilient, connected technology ecosystems.",
     icon: "/about-us/2.png",
     position:
-      "lg:absolute lg:left-1/2 lg:top-0 lg:-translate-x-1/2",
+      "xl:absolute xl:left-1/2 xl:top-0 xl:-translate-x-1/2",
   },
   {
     number: "03",
@@ -120,7 +120,7 @@ const platforms = [
     description:
       "Technology platforms that modernize enterprise operations, financial workflows, and business infrastructure.",
     icon: "/about-us/3.png",
-    position: "lg:absolute lg:right-0 lg:top-[89px]",
+    position: "xl:absolute xl:right-0 xl:top-[89px]",
   },
   {
     number: "04",
@@ -128,7 +128,7 @@ const platforms = [
     description:
       "Connected communication systems and media technologies built for modern digital experiences.",
     icon: "/about-us/4.png",
-    position: "lg:absolute lg:left-0 lg:top-[546px]",
+    position: "xl:absolute xl:left-0 xl:top-[546px]",
   },
   {
     number: "05",
@@ -137,7 +137,7 @@ const platforms = [
       "Security, identity, and assurance capabilities designed to establish trust across technology environments.",
     icon: "/about-us/5.png",
     position:
-      "lg:absolute lg:left-1/2 lg:top-[648px] lg:-translate-x-1/2",
+      "xl:absolute xl:left-1/2 xl:top-[648px] xl:-translate-x-1/2",
   },
   {
     number: "06",
@@ -145,7 +145,7 @@ const platforms = [
     description:
       "Purpose-built technology solutions that address complex requirements across industries and markets.",
     icon: "/about-us/6.png",
-    position: "lg:absolute lg:right-0 lg:top-[548px]",
+    position: "xl:absolute xl:right-0 xl:top-[548px]",
   },
 ];
 
@@ -166,7 +166,7 @@ function Connector({
         absolute
         hidden
         border-cyan-300/60
-        lg:block
+        xl:block
         ${className}
       `}
     />
@@ -189,7 +189,7 @@ function PlatformCard({
       delay={index * 100}
       className={`
         w-full
-        lg:w-[320px]
+        xl:w-[320px]
         ${item.position}
       `}
     >
@@ -340,7 +340,6 @@ export default function PlatformCompany() {
       className="
         relative
         isolate
-        min-h-[1291px]
         w-full
         overflow-hidden
         bg-transparent
@@ -389,10 +388,10 @@ export default function PlatformCompany() {
           mx-auto
           w-full
           max-w-[1440px]
-          px-5
-          py-20
+          px-4
+          py-12
           sm:px-8
-          md:px-10
+          sm:py-16
           lg:px-12
           xl:px-[72px]
           xl:py-[86px]
@@ -439,12 +438,13 @@ export default function PlatformCompany() {
           className="
             relative
             mx-auto
-            mt-16
+            mt-10
+            sm:mt-14
             h-auto
             min-h-0
             w-full
             max-w-[1252px]
-            lg:h-[825px]
+            xl:h-[825px]
           "
         >
           {/* =================================================
@@ -556,7 +556,7 @@ export default function PlatformCompany() {
               rounded-full
               bg-cyan-300
               shadow-[0_0_14px_rgba(103,232,249,0.8)]
-              lg:block
+              xl:block
             "
           />
 
@@ -574,7 +574,7 @@ export default function PlatformCompany() {
               rounded-full
               bg-cyan-300
               shadow-[0_0_14px_rgba(103,232,249,0.8)]
-              lg:block
+              xl:block
             "
           />
 
@@ -591,7 +591,7 @@ export default function PlatformCompany() {
               rounded-full
               bg-cyan-300
               shadow-[0_0_14px_rgba(103,232,249,0.8)]
-              lg:block
+              xl:block
             "
           />
 
@@ -607,10 +607,10 @@ export default function PlatformCompany() {
               mx-auto
               w-full
               max-w-[559px]
-              lg:absolute
-              lg:left-1/2
-              lg:top-[277px]
-              lg:-translate-x-1/2
+              xl:absolute
+              xl:left-1/2
+              xl:top-[277px]
+              xl:-translate-x-1/2
             "
           >
             <div
@@ -717,10 +717,10 @@ export default function PlatformCompany() {
           </Reveal>
 
           {/* =================================================
-              DESKTOP CARDS
+              DESKTOP CARDS (xl: 1280px+)
           ================================================= */}
 
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             {platforms.map((item, index) => (
               <PlatformCard
                 key={item.number}
@@ -731,17 +731,19 @@ export default function PlatformCompany() {
           </div>
 
           {/* =================================================
-              MOBILE / TABLET CARDS
+              MOBILE / TABLET / LAPTOP CARDS (< 1280px)
           ================================================= */}
 
           <div
             className="
-              mt-10
+              mt-8
+              sm:mt-10
               grid
               grid-cols-1
               gap-5
-              md:grid-cols-2
-              lg:hidden
+              sm:grid-cols-2
+              lg:grid-cols-3
+              xl:hidden
             "
           >
             {platforms.map((item, index) => (

@@ -185,7 +185,8 @@ function DeveloperCard({
           group
           flex
           h-full
-          min-h-[300px]
+          min-h-[260px]
+          sm:min-h-[280px]
           w-full
           flex-col
           justify-between
@@ -193,7 +194,9 @@ function DeveloperCard({
           border
           border-neutral-200
           bg-white
-          p-7
+          p-5
+          sm:p-6
+          xl:p-7
 
           shadow-[0_6px_20px_rgba(0,0,0,0.10)]
 
@@ -211,11 +214,11 @@ function DeveloperCard({
           <div className="flex w-full items-center justify-between">
             <h3
               className={`
-                text-2xl
+                text-xl
+                sm:text-2xl
                 font-extrabold
-                leading-9
+                leading-tight
                 text-zinc-900
-                sm:text-3xl
                 ${plusJakarta.className}
               `}
             >
@@ -240,23 +243,25 @@ function DeveloperCard({
           <div className="h-px w-full bg-cyan-700/10" />
 
           {/* Items */}
-          <div className="flex w-full flex-col items-start gap-3">
+          <div className="flex w-full flex-col items-start gap-2.5 sm:gap-3">
             {card.items.map((item) => (
               <div
                 key={item}
-                className="flex w-full items-center gap-2"
+                className="flex w-full items-start gap-2"
               >
-                <CodeIcon />
+                <div className="mt-1">
+                  <CodeIcon />
+                </div>
 
                 <span
                   className={`
                     min-w-0
                     flex-1
-                    truncate
-                    text-sm
+                    text-xs
+                    sm:text-sm
                     font-normal
-                    leading-5
-                    text-slate-400
+                    leading-snug
+                    text-slate-600
                     ${poppins.className}
                   `}
                 >
@@ -299,18 +304,21 @@ export default function Developer() {
           z-10
           mx-auto
           flex
-          min-h-[834px]
           w-full
           max-w-[1440px]
           flex-col
           items-center
-          gap-20
+          gap-10
+          sm:gap-14
+          lg:gap-16
           overflow-hidden
-          px-6
-          py-20
-          sm:px-10
-          lg:px-20
-          lg:py-28
+          px-4
+          py-12
+          sm:px-8
+          sm:py-16
+          lg:px-12
+          xl:px-20
+          lg:py-20
         "
       >
         {/* ================= HEADER ================= */}
@@ -383,9 +391,11 @@ export default function Developer() {
               grid
               w-full
               grid-cols-1
-              gap-6
+              gap-5
+              sm:gap-6
               sm:grid-cols-2
-              lg:grid-cols-4
+              lg:grid-cols-2
+              xl:grid-cols-4
             "
           >
             {developerCards.map((card, index) => (

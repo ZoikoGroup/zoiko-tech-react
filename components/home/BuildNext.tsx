@@ -103,12 +103,13 @@ export default function BuildNext() {
         w-full
         overflow-hidden
         bg-transparent
-        px-5
-        py-20
+        px-4
+        py-12
         sm:px-8
-        sm:py-24
-        lg:px-20
-        lg:py-28
+        sm:py-16
+        lg:px-12
+        xl:px-20
+        lg:py-20
       `}
     >
       {/* ======================================================
@@ -149,10 +150,13 @@ export default function BuildNext() {
           max-w-[1280px]
           flex-col
           items-center
-          gap-14
+          gap-10
+          sm:gap-14
           lg:flex-row
           lg:items-center
-          lg:gap-20
+          lg:gap-10
+          xl:gap-16
+          2xl:gap-20
         "
       >
         {/* ====================================================
@@ -162,6 +166,7 @@ export default function BuildNext() {
         <Reveal
           className="
             w-full
+            min-w-0
             flex-1
           "
         >
@@ -374,7 +379,8 @@ export default function BuildNext() {
           delay={200}
           className="
             w-full
-            lg:w-[480px]
+            lg:w-[420px]
+            xl:w-[480px]
             lg:shrink-0
           "
         >

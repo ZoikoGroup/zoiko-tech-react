@@ -137,12 +137,16 @@ function IndustryCard({
   index: number;
 }) {
   return (
-    <Reveal delay={index * 60} className="group w-full">
+    <Reveal delay={index * 60} className="group w-full h-full">
       <div
         className="
           relative
-          h-32
+          min-h-[136px]
+          h-full
           w-full
+          flex
+          flex-col
+          justify-between
           overflow-hidden
           rounded-xl
           border
@@ -151,7 +155,8 @@ function IndustryCard({
           from-white
           via-white/95
           to-emerald-200/20
-          p-5
+          p-4
+          sm:p-5
 
           shadow-[0_6px_20px_rgba(0,0,0,0.10)]
 
@@ -186,54 +191,57 @@ function IndustryCard({
           "
         />
 
-        {/* Title row */}
-        <div className="relative flex items-center gap-3">
-          <div className="flex size-5 shrink-0 items-center justify-center overflow-hidden">
-            <Image
-              src={industry.icon}
-              alt=""
-              width={20}
-              height={20}
-              className="
-                h-5
-                w-5
-                object-contain
-                transition-transform
-                duration-300
-                group-hover:scale-110
-              "
-            />
+        <div>
+          {/* Title row */}
+          <div className="relative flex items-center gap-2.5 sm:gap-3">
+            <div className="flex size-5 shrink-0 items-center justify-center overflow-hidden">
+              <Image
+                src={industry.icon}
+                alt=""
+                width={20}
+                height={20}
+                className="
+                  h-5
+                  w-5
+                  object-contain
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
+                "
+              />
+            </div>
+
+            <div
+              className={`
+                min-w-0
+                flex-1
+                text-sm
+                sm:text-base
+                font-bold
+                leading-tight
+                text-gray-800
+                ${urbanist.className}
+              `}
+            >
+              {industry.title}
+            </div>
           </div>
 
-          <div
+          {/* Description */}
+          <p
             className={`
-              min-w-0
-              flex-1
-              text-base
-              font-bold
-              leading-5
-              text-gray-800
-              ${urbanist.className}
+              relative
+              mt-2.5
+              text-xs
+              font-normal
+              leading-relaxed
+              text-slate-500
+              ${poppins.className}
             `}
           >
-            {industry.title}
-          </div>
+            {industry.description}
+          </p>
         </div>
-
-        {/* Description */}
-        <p
-          className={`
-            relative
-            mt-3
-            text-xs
-            font-normal
-            leading-4
-            text-slate-500
-            ${poppins.className}
-          `}
-        >
-          {industry.description}
-        </p>
       </div>
     </Reveal>
   );
@@ -265,17 +273,20 @@ export default function Industry() {
         className="
           mx-auto
           flex
-          min-h-[677px]
           w-full
           max-w-[1440px]
           flex-col
           items-center
-          gap-20
-          px-6
-          py-20
-          sm:px-10
-          lg:px-20
-          lg:py-28
+          gap-10
+          sm:gap-14
+          lg:gap-16
+          px-4
+          py-12
+          sm:px-8
+          sm:py-16
+          lg:px-12
+          xl:px-20
+          lg:py-20
         "
       >
         {/* Header */}
@@ -340,7 +351,8 @@ export default function Industry() {
               grid-cols-1
               gap-4
               sm:grid-cols-2
-              lg:grid-cols-5
+              md:grid-cols-3
+              xl:grid-cols-5
             "
           >
             {industries.map((industry, index) => (
