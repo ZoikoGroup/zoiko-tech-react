@@ -172,9 +172,9 @@ function SolutionCard({
   return (
     <Reveal
       delay={index * 90}
-      className="w-full lg:w-[calc(33.333%-27px)]"
+      className="w-full h-full"
     >
-      <div className="group relative h-[288px] w-full">
+      <div className="group relative min-h-[280px] h-full w-full">
 
         {/* Icon box */}
         <div
@@ -184,8 +184,10 @@ function SolutionCard({
             top-0
             z-20
             flex
-            h-20
-            w-24
+            h-18
+            w-20
+            sm:h-20
+            sm:w-24
             items-center
             justify-center
             overflow-hidden
@@ -214,8 +216,10 @@ function SolutionCard({
               width={32}
               height={32}
               className="
-                h-8
-                w-8
+                h-7
+                w-7
+                sm:h-8
+                sm:w-8
                 object-contain
                 brightness-0
                 invert
@@ -232,10 +236,15 @@ function SolutionCard({
         <div
           className="
             absolute
-            left-[51px]
-            top-[52px]
-            h-56
-            w-[calc(100%-51px)]
+            left-[40px]
+            sm:left-[51px]
+            top-[46px]
+            sm:top-[52px]
+            min-h-[234px]
+            h-[calc(100%-46px)]
+            sm:h-[calc(100%-52px)]
+            w-[calc(100%-40px)]
+            sm:w-[calc(100%-51px)]
             overflow-hidden
             rounded-3xl
             bg-cyan-700/10
@@ -273,10 +282,14 @@ function SolutionCard({
               flex
               h-full
               flex-col
-              justify-start
-              gap-5
-              px-7
-              pt-[35px]
+              justify-between
+              gap-4
+              px-5
+              sm:px-7
+              pt-[30px]
+              sm:pt-[35px]
+              pb-5
+              sm:pb-6
             "
           >
             {/* Heading + description */}
@@ -284,9 +297,10 @@ function SolutionCard({
               <h3
                 className={`
                   ${plusJakarta.className}
-                  text-2xl
+                  text-xl
+                  sm:text-2xl
                   font-extrabold
-                  leading-9
+                  leading-snug
                   tracking-[-0.025em]
                   text-slate-900
                 `}
@@ -299,7 +313,7 @@ function SolutionCard({
                   ${poppins.className}
                   text-sm
                   font-normal
-                  leading-5
+                  leading-relaxed
                   text-slate-500
                 `}
               >
@@ -389,12 +403,16 @@ export default function Solution() {
           max-w-[1440px]
           flex-col
           items-start
-          gap-14
-          px-5
-          py-20
+          gap-10
+          sm:gap-12
+          lg:gap-14
+          px-4
+          py-12
           sm:px-8
-          sm:py-24
-          lg:px-20
+          sm:py-16
+          lg:px-12
+          xl:px-20
+          lg:py-20
         "
       >
         {/* Section heading */}
@@ -459,12 +477,14 @@ export default function Solution() {
         <div className="w-full">
           <div
             className="
-              flex
+              grid
               w-full
-              flex-wrap
-              justify-start
-              gap-x-10
-              gap-y-8
+              grid-cols-1
+              sm:grid-cols-2
+              xl:grid-cols-3
+              gap-6
+              sm:gap-8
+              xl:gap-10
             "
           >
             {solutions.map((solution, index) => (

@@ -127,8 +127,8 @@ function ArchitectureCardItem({
       delay={index * 100}
       className={
         card.size === "large"
-          ? "w-full lg:w-[calc(50%-6px)]"
-          : "w-full lg:w-[calc(33.333%-8px)]"
+          ? "w-full lg:w-[calc(50%-8px)]"
+          : "w-full lg:w-[calc(33.333%-11px)]"
       }
     >
       <div
@@ -136,13 +136,15 @@ function ArchitectureCardItem({
           group
           relative
           h-full
-          min-h-[288px]
+          min-h-[260px]
+          sm:min-h-[288px]
           overflow-hidden
           rounded-3xl
           border-2
           border-emerald-500
           bg-transparent
-          p-7
+          p-5
+          sm:p-7
           transition-all
           duration-500
           ease-out
@@ -291,7 +293,6 @@ export default function Arch() {
     <section
       className="
         relative
-        min-h-[1126px]
         w-full
         overflow-hidden
         bg-black
@@ -384,17 +385,20 @@ export default function Arch() {
           z-10
           mx-auto
           flex
-          min-h-[1126px]
           w-full
           max-w-[1440px]
           flex-col
-          gap-20
-          px-5
-          py-20
+          gap-10
+          sm:gap-14
+          lg:gap-16
+          px-4
+          py-12
           sm:px-8
-          sm:py-24
-          lg:px-20
-          lg:py-28
+          sm:py-16
+          lg:px-12
+          lg:py-20
+          xl:px-20
+          xl:py-24
         "
       >
         {/* =========================================

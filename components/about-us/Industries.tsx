@@ -178,7 +178,7 @@ export default function Industries() {
 
           overflow: hidden;
 
-          padding: 96px 0;
+          padding: 64px 0;
 
           background: transparent;
 
@@ -236,7 +236,7 @@ export default function Industries() {
 
           flex-direction: column;
 
-          gap: 56px;
+          gap: 40px;
         }
 
         /* =====================================================
@@ -358,12 +358,12 @@ export default function Industries() {
 
           min-width: 0;
 
-          /* Increased slightly so all descriptions fit */
-          height: 340px;
+          min-height: 320px;
+          height: auto;
 
           box-sizing: border-box;
 
-          padding: 32px;
+          padding: 28px 24px;
 
           border-radius: 16px;
 

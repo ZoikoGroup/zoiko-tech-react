@@ -290,15 +290,17 @@ function ProductCard({
           className="
             relative
             flex
-            h-48
+            h-full
+            min-h-[192px]
             w-full
             flex-col
-            justify-center
-            gap-5
+            justify-between
+            gap-4
             overflow-hidden
             rounded-2xl
             bg-slate-50
-            p-6
+            p-5
+            sm:p-6
             shadow-[0px_4px_4px_0px_rgba(0,0,0,0.09)]
             transition-all
             duration-300
@@ -329,8 +331,8 @@ function ProductCard({
               flex
               h-full
               flex-col
-              justify-center
-              gap-5
+              justify-between
+              gap-4
             "
           >
             {/* Logo + Status */}
@@ -458,7 +460,9 @@ function ProductCard({
               <span
                 className={`
                   ${poppins.className}
-                  max-w-[170px]
+                  max-w-[140px]
+                  sm:max-w-[170px]
+                  truncate
                   rounded-full
                   bg-cyan-700/10
                   px-2.5
@@ -613,12 +617,13 @@ export default function Eco() {
           mx-auto
           w-full
           max-w-[1440px]
-          px-5
-          py-16
+          px-4
+          py-12
           sm:px-8
-          sm:py-20
-          lg:px-20
-          lg:py-24
+          sm:py-16
+          lg:px-12
+          lg:py-20
+          xl:px-20
         "
       >
         {/* ===================================================

@@ -114,14 +114,20 @@ function ResearchCard({
       className="
         group/card
         relative
-        h-[476px]
+        flex
+        h-full
+        min-h-[440px]
         w-full
         max-w-[388px]
+        flex-col
+        justify-between
         overflow-hidden
         rounded-3xl
         border
         border-teal-400/10
         bg-teal-700/20
+        p-6
+        sm:p-7
         transition-all
         duration-500
         hover:-translate-y-2
@@ -130,44 +136,9 @@ function ResearchCard({
       "
     >
       {/* ======================================================
-          DECORATIVE CENTER LINE / IMAGE AREA
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-0
-          top-[218px]
-          h-[51px]
-          w-full
-          overflow-hidden
-          opacity-40
-          transition-all
-          duration-500
-          group-hover/card:opacity-70
-        "
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal-400/20 to-transparent" />
-
-        <div className="absolute left-0 top-1/2 h-px w-full bg-teal-400/20" />
-      </div>
-
-      {/* ======================================================
           CARD CONTENT - TOP
       ====================================================== */}
-
-      <div
-        className="
-          absolute
-          left-8
-          right-8
-          top-10
-          flex
-          flex-col
-          gap-2.5
-        "
-      >
+      <div className="relative z-10 flex flex-col gap-4">
         {/* Category */}
         <div
           className="
@@ -176,8 +147,8 @@ function ResearchCard({
             items-center
             rounded-3xl
             bg-teal-700/25
-            px-2.5
-            py-2.5
+            px-3
+            py-1.5
             transition-all
             duration-300
             group-hover/card:bg-teal-700/40
@@ -198,16 +169,16 @@ function ResearchCard({
         </div>
 
         {/* Icon + title */}
-        <div className="flex items-center gap-7">
+        <div className="flex items-center gap-4 sm:gap-5">
           {/* Icon */}
           <div
             className="
               relative
-              h-24
-              w-24
+              h-20
+              w-20
               shrink-0
               overflow-hidden
-              rounded-3xl
+              rounded-2xl
               bg-teal-600/50
               transition-all
               duration-500
@@ -219,10 +190,10 @@ function ResearchCard({
               src={image}
               alt=""
               fill
-              sizes="96px"
+              sizes="80px"
               className="
                 object-contain
-                p-[19px]
+                p-3.5
                 transition-transform
                 duration-500
                 group-hover/card:scale-110
@@ -234,10 +205,12 @@ function ResearchCard({
           <h3
             className={`
               ${urbanist.className}
-              w-48
-              text-xl
+              min-w-0
+              flex-1
+              text-lg
+              sm:text-xl
               font-bold
-              leading-6
+              leading-snug
               text-white
             `}
           >
@@ -246,30 +219,23 @@ function ResearchCard({
         </div>
       </div>
 
+      {/* Decorative center line */}
+      <div className="relative my-3 sm:my-4 h-px w-full bg-gradient-to-r from-transparent via-teal-400/20 to-transparent" />
+
       {/* ======================================================
           CARD CONTENT - BOTTOM
       ====================================================== */}
-
-      <div
-        className="
-          absolute
-          left-9
-          right-9
-          top-[305px]
-          flex
-          flex-col
-          items-start
-        "
-      >
+      <div className="relative z-10 flex flex-col items-start gap-3">
         {/* Description */}
         <p
           className={`
             ${poppins.className}
             line-clamp-3
             w-full
-            text-sm
+            text-xs
+            sm:text-sm
             font-normal
-            leading-5
+            leading-relaxed
             text-gray-300
           `}
         >
@@ -277,7 +243,7 @@ function ResearchCard({
         </p>
 
         {/* Read link */}
-        <div className="pt-4">
+        <div className="pt-2">
           <button
             type="button"
             className="
@@ -350,7 +316,6 @@ function ResearchCard({
       {/* ======================================================
           SUBTLE HOVER GLOW
       ====================================================== */}
-
       <div
         className="
           pointer-events-none
@@ -386,12 +351,13 @@ export default function KnowledgeFrontier() {
         w-full
         overflow-hidden
         bg-slate-950
-        px-5
-        py-20
+        px-4
+        py-12
         sm:px-8
-        sm:py-24
-        lg:px-20
-        lg:py-28
+        sm:py-16
+        lg:px-12
+        xl:px-20
+        lg:py-20
       "
     >
       {/* ======================================================

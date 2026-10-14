@@ -91,7 +91,7 @@ export default function Governance() {
       {/* =====================================================
           CONTENT
       ===================================================== */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start gap-14 px-6 py-16 sm:px-10 sm:py-20 lg:px-28 lg:py-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start gap-10 sm:gap-14 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 xl:px-20 lg:py-20">
         {/* =================================================
             HEADER
         ================================================= */}
@@ -118,11 +118,11 @@ export default function Governance() {
         {/* =================================================
             GOVERNANCE GRID
         ================================================= */}
-        <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid w-full grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
           {governancePoints.map((point, index) => (
             <article
               key={point.title}
-              className={`group relative h-[288px] w-full transition-all duration-700 ease-out ${
+              className={`group relative min-h-[280px] h-full w-full transition-all duration-700 ease-out ${
                 visible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-14 opacity-0"
@@ -134,13 +134,13 @@ export default function Governance() {
               {/* =================================================
                   ICON CONTAINER
               ================================================= */}
-              <div className="absolute left-0 top-0 z-20 flex h-20 w-24 items-center justify-center overflow-hidden rounded-3xl bg-teal-700 transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-lg">
+              <div className="absolute left-0 top-0 z-20 flex h-18 w-20 sm:h-20 sm:w-24 items-center justify-center overflow-hidden rounded-3xl bg-teal-700 transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-lg">
                 <Image
                   src={point.icon}
                   alt=""
                   width={40}
                   height={40}
-                  className="h-10 w-10 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="h-8 w-8 sm:h-10 sm:w-10 object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
@@ -148,23 +148,19 @@ export default function Governance() {
                   CARD
                   Transparent - no background color
               ================================================= */}
-              <div className="absolute left-[51px] top-[52px] flex h-56 w-[calc(100%-51px)] overflow-hidden rounded-3xl border border-cyan-700/15 bg-transparent transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-700/30 group-hover:shadow-[0_18px_40px_rgba(15,23,42,0.10)]">
+              <div className="absolute left-[40px] sm:left-[51px] top-[46px] sm:top-[52px] flex min-h-[234px] h-[calc(100%-46px)] sm:h-[calc(100%-52px)] w-[calc(100%-40px)] sm:w-[calc(100%-51px)] overflow-hidden rounded-3xl border border-cyan-700/15 bg-transparent transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-700/30 group-hover:shadow-[0_18px_40px_rgba(15,23,42,0.10)]">
                 {/* Card content */}
-                <div className="flex w-full flex-col items-start justify-start gap-5 px-6 py-8 sm:px-7">
+                <div className="flex w-full flex-col items-start justify-start gap-4 p-5 sm:px-7 sm:py-6">
                   <div className="flex w-full flex-col items-start gap-2">
                     {/* Title */}
                     <h3
-                      className={`w-full text-2xl font-extrabold leading-9 tracking-tight text-slate-900 transition-transform duration-500 group-hover:translate-x-1 sm:text-3xl ${
-                        point.title === "Human Oversight Controls"
-                          ? "text-[27px] sm:text-[30px]"
-                          : ""
-                      }`}
+                      className="w-full text-xl sm:text-2xl font-extrabold leading-snug tracking-tight text-slate-900 transition-transform duration-500 group-hover:translate-x-1"
                     >
                       {point.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="w-full text-sm font-normal leading-5 text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+                    <p className="w-full text-xs sm:text-sm font-normal leading-relaxed text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
                       {point.description}
                     </p>
                   </div>

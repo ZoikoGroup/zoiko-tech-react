@@ -460,12 +460,13 @@ export default function Practice() {
           mx-auto
           w-full
           max-w-[1440px]
-          px-5
-          py-20
+          px-4
+          py-12
           sm:px-8
-          md:px-12
-          lg:px-20
-          lg:py-28
+          sm:py-16
+          lg:px-12
+          xl:px-20
+          lg:py-20
         "
       >
         {/* ===================================================
@@ -506,14 +507,13 @@ export default function Practice() {
             className={`
               ${plusJakarta.className}
               mt-3
-              text-[36px]
+              text-3xl
               font-extrabold
-              leading-[44px]
+              leading-tight
               tracking-[-0.035em]
               text-slate-900
-              sm:text-[42px]
-              sm:leading-[51px]
-              lg:text-[48px]
+              sm:text-4xl
+              lg:text-5xl
               lg:leading-[57.6px]
             `}
           >
@@ -546,8 +546,13 @@ export default function Practice() {
 
         <div
           className="
-            mt-12
+            mt-8
+            sm:mt-12
             w-full
+            -mx-4
+            px-4
+            sm:mx-0
+            sm:px-0
             overflow-x-auto
             overflow-y-visible
             pb-8
@@ -555,7 +560,7 @@ export default function Practice() {
             [&::-webkit-scrollbar]:hidden
           "
         >
-          <div className="flex w-max items-start gap-8">
+          <div className="flex w-max items-start gap-6 sm:gap-8">
             {caseStudies.map((item, index) => (
               <CaseCard
                 key={item.title}

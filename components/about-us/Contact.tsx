@@ -32,7 +32,7 @@ export default function Contact() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-white/10 px-6 py-20 sm:px-10 sm:py-24 lg:px-20 lg:py-28"
+      className="relative w-full overflow-hidden border-b border-white/10 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 xl:px-20 lg:py-20"
     >
       {/* =====================================================
           SECTION BACKGROUND
@@ -52,12 +52,12 @@ export default function Contact() {
       {/* Very subtle overlay */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-black/5" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-stretch gap-12 lg:flex-row lg:items-center lg:gap-20">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-stretch gap-10 sm:gap-12 lg:flex-row lg:items-center lg:gap-10 xl:gap-16 2xl:gap-20">
         {/* =================================================
             LEFT CONTENT
         ================================================= */}
         <div
-          className={`flex min-w-0 flex-1 flex-col items-start gap-8 transition-all duration-1000 ease-out ${
+          className={`flex min-w-0 flex-1 flex-col items-start gap-6 sm:gap-8 transition-all duration-1000 ease-out ${
             visible
               ? "translate-x-0 opacity-100"
               : "-translate-x-10 opacity-0"
@@ -83,7 +83,7 @@ export default function Contact() {
           </p>
 
           {/* Contact Details */}
-          <div className="flex flex-col gap-3 pt-2">
+          <div className="flex flex-col gap-2.5 pt-1">
             <p className="text-sm font-normal text-white/80 transition-colors duration-300 hover:text-white">
               zoikotech.com | info@zoikotech.com | +1 (800) 484-5574
             </p>
@@ -115,7 +115,7 @@ export default function Contact() {
             RIGHT SIDE - WHITE CARD
         ================================================= */}
         <div
-          className={`w-full shrink-0 rounded-2xl border border-white/80 bg-white p-6 shadow-[0px_12px_24px_0px_rgba(15,23,42,0.15)] transition-all duration-1000 delay-200 ease-out hover:-translate-y-2 hover:shadow-[0px_20px_40px_0px_rgba(15,23,42,0.25)] sm:p-8 lg:w-[480px] ${
+          className={`w-full shrink-0 rounded-2xl border border-white/80 bg-white p-6 shadow-[0px_12px_24px_0px_rgba(15,23,42,0.15)] transition-all duration-1000 delay-200 ease-out hover:-translate-y-2 hover:shadow-[0px_20px_40px_0px_rgba(15,23,42,0.25)] sm:p-8 lg:w-[420px] xl:w-[480px] ${
             visible
               ? "translate-x-0 opacity-100"
               : "translate-x-10 opacity-0"

@@ -72,19 +72,13 @@ export default function Ambition() {
         className="
           relative z-10 mx-auto flex w-full max-w-[1440px]
           flex-col items-center
-          px-6
-          pt-[105px]
-          pb-[95px]
-
-          sm:px-10
-          sm:pt-[115px]
-          sm:pb-[100px]
-
-          lg:px-20
-          lg:pt-[125px]
-          lg:pb-[105px]
-
-          xl:px-28
+          px-4
+          py-12
+          sm:px-8
+          sm:py-16
+          lg:px-12
+          xl:px-20
+          lg:py-20
         "
       >
         {/* =====================================================

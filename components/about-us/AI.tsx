@@ -77,7 +77,7 @@ export default function AI() {
           CONTENT
       ===================================================== */}
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-14 lg:px-28 lg:py-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-8 sm:gap-10 lg:gap-12 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 xl:px-20 lg:py-20">
 
         {/* ===================================================
             HEADER

@@ -177,9 +177,13 @@ export default function GlobalPresence() {
         ${poppins.className}
         relative isolate overflow-hidden
         bg-black
-        px-5 py-20
-        sm:px-8 sm:py-24
-        lg:px-20 lg:py-28
+        px-4
+        py-12
+        sm:px-8
+        sm:py-16
+        lg:px-12
+        xl:px-20
+        lg:py-20
       `}
     >
       {/* =====================================================
@@ -200,7 +204,7 @@ export default function GlobalPresence() {
       ===================================================== */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/70 to-cyan-700/70" />
 
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-14 lg:gap-20">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-10 sm:gap-14 lg:gap-16">
         {/* =====================================================
             HEADER
         ===================================================== */}
@@ -260,13 +264,14 @@ export default function GlobalPresence() {
               flex-col
               overflow-hidden
               rounded-2xl
-              border-[5px]
+              border-[4px]
+              sm:border-[5px]
               border-teal-400
               bg-slate-950
               transition-colors
               duration-500
               hover:border-teal-300
-              lg:h-[520px]
+              lg:min-h-[480px]
               lg:flex-row
             "
           >

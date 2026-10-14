@@ -146,12 +146,12 @@ export default function HomeHero() {
     return () => {
       cancelAnimationFrame(animationFrame);
     };
-  }, [isVisible]);
+    }, [isVisible]);
 
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[820px] w-full overflow-hidden bg-gray-950"
+      className="relative w-full overflow-hidden bg-gray-950"
     >
       {/* =====================================================
           BACKGROUND GREEN GLOW
@@ -163,8 +163,10 @@ export default function HomeHero() {
           absolute
           right-0
           top-0
-          h-[798px]
-          w-[749px]
+          h-[600px]
+          w-[600px]
+          lg:h-[798px]
+          lg:w-[749px]
           bg-[linear-gradient(167deg,rgba(6,78,59,0.4),rgba(6,78,59,0.4)_86%,transparent)]
           blur-[49.35px]
         "
@@ -172,28 +174,31 @@ export default function HomeHero() {
 
       {/* =====================================================
           MAIN CONTAINER
-
-          Desktop:
-          - Text starts lower at 175px
-          - Image starts at 160px
       ===================================================== */}
       <div
         className="
           relative
           z-10
           mx-auto
-          min-h-[820px]
+          flex
           w-full
           max-w-[1440px]
+          flex-col
+          items-center
+          justify-between
+          gap-10
           px-5
-          pb-[80px]
-          pt-[90px]
+          py-12
           sm:px-8
-          sm:pb-[90px]
-          sm:pt-[100px]
-          lg:px-[80px]
-          lg:pb-[100px]
-          lg:pt-[175px]
+          sm:py-16
+          lg:flex-row
+          lg:items-center
+          lg:gap-8
+          lg:px-12
+          lg:py-20
+          xl:gap-12
+          xl:px-20
+          xl:py-24
         "
       >
         {/* ===================================================
@@ -201,7 +206,7 @@ export default function HomeHero() {
         =================================================== */}
         <div
           className={
-            "flex w-full max-w-[729px] flex-col items-start gap-8 transition-all duration-[300ms] ease-[cubic-bezier(0,0,0.58,1)] " +
+            "flex w-full flex-col items-start gap-6 sm:gap-8 lg:max-w-[55%] xl:max-w-[660px] transition-all duration-[300ms] ease-[cubic-bezier(0,0,0.58,1)] " +
             (isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-6 opacity-0")
@@ -243,15 +248,19 @@ export default function HomeHero() {
             className={`
               ${plusJakarta.className}
               w-full
-              text-[42px]
+              text-3xl
               font-extrabold
-              leading-[1.18]
+              leading-[1.15]
               tracking-[-0.03em]
               text-white
-              sm:text-[52px]
-              sm:leading-[1.25]
-              lg:text-[60px]
-              lg:leading-[80px]
+              sm:text-5xl
+              sm:leading-[1.2]
+              lg:text-4xl
+              lg:leading-[1.18]
+              xl:text-[54px]
+              xl:leading-[1.18]
+              2xl:text-[60px]
+              2xl:leading-[76px]
             `}
           >
             INTELLIGENCE.
@@ -269,12 +278,13 @@ export default function HomeHero() {
               ${poppins.className}
               w-full
               max-w-[729px]
-              text-[16px]
+              text-sm
               font-normal
-              leading-7
+              leading-6
               text-slate-50
-              sm:text-[17px]
-              lg:text-[18px]
+              sm:text-base
+              sm:leading-7
+              lg:text-lg
             `}
           >
             Zoiko Tech is a global technology company building cloud and
@@ -286,7 +296,7 @@ export default function HomeHero() {
           {/* =================================================
               CTA BUTTONS
           ================================================= */}
-          <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
+          <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
             {/* =================================================
                 EXPLORE PLATFORMS
             ================================================= */}
@@ -301,9 +311,9 @@ export default function HomeHero() {
                 gap-2
                 rounded-lg
                 bg-cyan-700
-                px-6
-                py-3.5
-                text-base
+                px-5
+                py-3
+                text-sm
                 font-semibold
                 text-white
                 transition-all
@@ -312,6 +322,9 @@ export default function HomeHero() {
                 hover:-translate-y-0.5
                 hover:bg-cyan-600
                 hover:shadow-[0_10px_30px_rgba(14,116,144,0.25)]
+                sm:px-6
+                sm:py-3.5
+                sm:text-base
               `}
             >
               <span>Explore our platforms</span>
@@ -360,17 +373,20 @@ export default function HomeHero() {
                 rounded-lg
                 border
                 border-white
-                px-6
-                py-3.5
-                text-base
+                px-5
+                py-3
+                text-sm
                 font-semibold
                 text-white
                 transition-all
                 duration-[300ms]
-                ease-[cubic-bezier(0,0,0,0.58,1)]
+                ease-[cubic-bezier(0,0,0.58,1)]
                 hover:-translate-y-0.5
                 hover:bg-white
                 hover:text-gray-950
+                sm:px-6
+                sm:py-3.5
+                sm:text-base
               `}
             >
               Talk to Zoiko Tech
@@ -383,11 +399,11 @@ export default function HomeHero() {
         =================================================== */}
         <div
           className={
-            "relative mt-12 flex w-full justify-center transition-opacity duration-[300ms] ease-[cubic-bezier(0,0,0.58,1)] lg:absolute lg:right-[54px] lg:top-[160px] lg:mt-0 lg:h-[640px] lg:w-[640px] " +
+            "relative flex w-full justify-center lg:w-[45%] xl:w-[520px] 2xl:w-[600px] shrink-0 transition-opacity duration-[300ms] ease-[cubic-bezier(0,0,0.58,1)] " +
             (isVisible ? "opacity-100" : "opacity-0")
           }
         >
-          <div className="relative h-auto w-full max-w-[640px]">
+          <div className="relative h-auto w-full max-w-[340px] sm:max-w-[460px] lg:max-w-[500px] xl:max-w-[600px]">
             {/* =================================================
                 ANIMATED LIGHT AURA
             ================================================= */}
@@ -422,6 +438,7 @@ export default function HomeHero() {
               width={640}
               height={640}
               priority
+              sizes="(max-width: 640px) 340px, (max-width: 1024px) 460px, 600px"
               className="relative z-10 h-auto w-full object-contain"
               style={{
                 opacity: 1,

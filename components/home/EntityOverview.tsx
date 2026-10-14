@@ -163,12 +163,13 @@ export default function EntityOverview() {
         w-full
         overflow-hidden
         bg-white
-        px-5
-        py-20
+        px-4
+        py-12
         sm:px-8
-        sm:py-24
-        lg:px-20
-        lg:py-28
+        sm:py-16
+        lg:px-12
+        xl:px-20
+        lg:py-20
       "
     >
       {/* =====================================================
@@ -219,8 +220,9 @@ export default function EntityOverview() {
           w-full
           max-w-[1280px]
           flex-col
-          gap-14
-          lg:gap-20
+          gap-8
+          sm:gap-10
+          lg:gap-14
         "
       >
         {/* =====================================================

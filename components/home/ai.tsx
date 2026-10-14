@@ -129,17 +129,21 @@ function FoundationCard({
   index: number;
 }) {
   return (
-    <Reveal delay={index * 80} className="w-full">
+    <Reveal delay={index * 80} className="w-full h-full">
       <div
         className="
           group
-          h-56
+          min-h-[200px]
+          sm:min-h-[220px]
+          h-full
           w-full
           rounded-2xl
           border
           border-emerald-500
           bg-slate-50
-          p-8
+          p-5
+          sm:p-6
+          lg:p-7
           transition-all
           duration-300
           ease-out
@@ -148,19 +152,22 @@ function FoundationCard({
           hover:shadow-[0_12px_30px_rgba(16,185,129,0.12)]
         "
       >
-        <div className="flex h-full w-full items-start gap-5">
+        <div className="flex h-full w-full items-start gap-4 sm:gap-5">
           {/* Image */}
           <div className="relative flex shrink-0 items-start justify-center">
             <Image
               src={item.image}
               alt={item.title}
-              width={144}
-              height={137}
+              width={120}
+              height={114}
               className="
                 h-auto
-                max-h-[137px]
-                w-auto
-                max-w-[144px]
+                max-h-[110px]
+                w-20
+                sm:w-24
+                md:w-28
+                lg:w-28
+                xl:w-32
                 object-contain
                 transition-transform
                 duration-300
@@ -173,11 +180,11 @@ function FoundationCard({
           <div className="flex min-w-0 flex-1 flex-col items-start gap-2">
             <h3
               className={`
-                text-2xl
+                text-xl
+                sm:text-2xl
                 font-extrabold
-                leading-9
+                leading-snug
                 text-zinc-900
-                sm:text-3xl
                 ${plusJakarta.className}
               `}
             >
@@ -187,10 +194,11 @@ function FoundationCard({
             <p
               className={`
                 w-full
-                text-sm
+                text-xs
+                sm:text-sm
                 font-normal
-                leading-5
-                text-slate-400
+                leading-relaxed
+                text-slate-500
                 ${poppins.className}
               `}
             >
@@ -249,12 +257,16 @@ export default function Ai() {
           max-w-[1440px]
           flex-col
           items-start
-          gap-20
-          px-6
-          py-20
-          sm:px-10
-          lg:px-20
-          lg:py-28
+          gap-10
+          sm:gap-14
+          lg:gap-16
+          px-4
+          py-12
+          sm:px-8
+          sm:py-16
+          lg:px-12
+          xl:px-20
+          lg:py-20
         "
       >
         {/* ================= HEADER ================= */}
@@ -310,7 +322,7 @@ export default function Ai() {
                 text-base
                 font-normal
                 leading-7
-                text-slate-400
+                text-slate-500
                 sm:text-lg
                 ${poppins.className}
               `}
@@ -331,8 +343,9 @@ export default function Ai() {
               w-full
               grid-cols-1
               gap-5
-              sm:grid-cols-2
-              lg:grid-cols-3
+              sm:gap-6
+              md:grid-cols-2
+              xl:grid-cols-3
             "
           >
             {foundations.map((item, index) => (

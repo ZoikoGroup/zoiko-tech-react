@@ -72,7 +72,7 @@ export default function Header() {
           fixed + top-0 keeps header visible while scrolling
       ========================================================= */}
       <header className="fixed left-0 right-0 top-0 z-[9999] h-24 w-full border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-10">
+        <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-6 xl:px-10">
 
           {/* =====================================================
               LOGO
@@ -85,14 +85,14 @@ export default function Header() {
             <img
               src="/zoikotech.png"
               alt="Zoiko Tech"
-              className="h-20 w-46 object-contain"
+              className="h-14 w-auto max-w-[135px] sm:h-16 sm:max-w-[155px] xl:h-20 xl:max-w-[184px] object-contain"
             />
           </Link>
 
           {/* =====================================================
               DESKTOP NAVIGATION
           ===================================================== */}
-          <nav className="hidden h-full items-center gap-7 lg:flex">
+          <nav className="hidden h-full items-center gap-2.5 lg:gap-4 xl:gap-6 2xl:gap-7 lg:flex">
             {navItems.map((item) => {
               const isOpen = openMenu === item.name;
 
@@ -112,9 +112,12 @@ export default function Header() {
                       className={`
                         flex
                         items-center
-                        gap-1.5
+                        gap-1
+                        xl:gap-1.5
                         whitespace-nowrap
-                        text-base
+                        text-xs
+                        lg:text-[13px]
+                        xl:text-base
                         font-medium
                         transition-colors
                         duration-200
@@ -261,17 +264,17 @@ export default function Header() {
           {/* =====================================================
               RIGHT SIDE
           ===================================================== */}
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-3 xl:gap-6 lg:flex">
 
             {/* =================================================
                 SEARCH
             ================================================= */}
             <button
               type="button"
-              className="group flex items-center gap-2 text-slate-900"
+              className="group flex items-center gap-1.5 xl:gap-2 text-slate-900"
             >
               <svg
-                className="h-[18px] w-[18px]"
+                className="h-4 w-4 xl:h-[18px] xl:w-[18px]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -286,7 +289,7 @@ export default function Header() {
                 <path d="m20 20-4-4" />
               </svg>
 
-              <span className="relative text-base font-normal">
+              <span className="relative text-xs lg:text-[13px] xl:text-base font-normal">
                 Search
 
                 {/* Search underline */}
@@ -300,9 +303,9 @@ export default function Header() {
             <Link
               href="/contact-us"
               onClick={closeMenu}
-              className="flex h-11 items-center justify-center rounded-lg bg-cyan-700 px-6 transition-colors hover:bg-cyan-800"
+              className="flex h-9 xl:h-11 items-center justify-center rounded-lg bg-cyan-700 px-3.5 xl:px-6 transition-colors hover:bg-cyan-800"
             >
-              <span className="text-sm font-semibold text-white">
+              <span className="text-xs xl:text-sm font-semibold text-white whitespace-nowrap">
                 CONTACT SALES
               </span>
             </Link>
@@ -317,7 +320,7 @@ export default function Header() {
               setMobileOpen(!mobileOpen);
               setOpenMenu(null);
             }}
-            className="text-slate-900 lg:hidden"
+            className="text-slate-900 lg:hidden p-1.5 focus:outline-none"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -348,15 +351,15 @@ export default function Header() {
             MOBILE NAVIGATION
         ======================================================= */}
         {mobileOpen && (
-          <div className="absolute left-0 right-0 top-full z-[9999] border-b border-zinc-200 bg-white shadow-md lg:hidden">
-            <nav className="flex flex-col gap-5 px-6 py-5">
+          <div className="absolute left-0 right-0 top-full z-[9999] max-h-[calc(100vh-6rem)] overflow-y-auto border-b border-zinc-200 bg-white shadow-md lg:hidden">
+            <nav className="flex flex-col gap-4 px-6 py-5">
 
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={closeMobileMenu}
-                  className="flex items-center justify-between text-base font-medium text-slate-900 transition-colors hover:text-cyan-700"
+                  className="flex items-center justify-between text-base font-medium text-slate-900 transition-colors hover:text-cyan-700 py-1"
                 >
                   {item.name}
 
@@ -370,7 +373,7 @@ export default function Header() {
               <Link
                 href="/contact-us"
                 onClick={closeMobileMenu}
-                className="flex h-11 items-center justify-center rounded-lg bg-cyan-700 px-6 transition-colors hover:bg-cyan-800"
+                className="mt-2 flex h-11 items-center justify-center rounded-lg bg-cyan-700 px-6 transition-colors hover:bg-cyan-800"
               >
                 <span className="text-sm font-semibold text-white">
                   CONTACT SALES

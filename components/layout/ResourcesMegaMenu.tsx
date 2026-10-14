@@ -205,8 +205,11 @@ export default function ResourcesMegaMenu({
         top-[95px]
         z-[100]
         w-[calc(100vw-64px)]
+        xl:w-[calc(100vw-128px)]
         max-w-[1400px]
         -translate-x-1/2
+        max-h-[calc(100vh-105px)]
+        overflow-y-auto
         max-md:hidden
         transition-all
         duration-200

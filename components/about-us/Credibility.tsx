@@ -61,7 +61,7 @@ export default function Credibility() {
       {/* Subtle overlay */}
       <div className="absolute inset-0 bg-black/20" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 py-16 sm:px-10 sm:py-20 lg:gap-16 lg:px-28 lg:py-28">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col gap-8 sm:gap-10 lg:gap-12 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 xl:px-20 lg:py-20">
         {/* Header */}
         <div
           className={`flex w-full flex-col items-start gap-4 transition-all duration-1000 ease-out ${
