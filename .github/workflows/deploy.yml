@@ -1,45 +1,70 @@
-name: Deploy to GCP VM
+name: Deploy zoiko-tech
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-zoiko-tech
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - name: SSH and deploy
-        uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # v1.0.3
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          host: ${{ secrets.GCP_SSH_HOST }}
-          username: ${{ secrets.GCP_SSH_USER }}
-          key: ${{ secrets.GCP_SSH_KEY }}
-          # Default command_timeout is 10m; `next build` on the VM takes longer.
-          timeout: 60s
-          command_timeout: 30m
-          script: |
-            set -e
-            cd /var/www/zoiko-tech/app
+          node-version: 20
+          cache: npm
 
-            # Free disk space before pulling; a full disk breaks git fetch.
-            # Everything removed here is regenerated on demand.
-            echo "Disk before cleanup:"; df -h .
-            rm -rf .next/cache
-            npm cache clean --force || true
-            pm2 flush zoiko-tech || true
-            git gc --prune=now --quiet || true
-            echo "Disk after cleanup:"; df -h .
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
 
-            # npm ci + next build need roughly 2 GB of headroom.
-            FREE_KB=$(df -Pk . | awk 'NR==2 {print $4}')
-            if [ "$FREE_KB" -lt 2097152 ]; then
-              echo "::error::Only $((FREE_KB / 1024)) MB free on the VM; free up disk space before deploying."
-              du -sh /var/www/zoiko-tech/app/* ~/.npm ~/.pm2 2>/dev/null | sort -rh | head -15 || true
-              exit 1
+      - name: Configure SSH
+        env:
+          VM_HOST: ${{ secrets.VM_HOST }}
+          VM_SSH_KEY_B64: ${{ secrets.VM_SSH_KEY_B64 }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$VM_SSH_KEY_B64" | base64 -d > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keygen -y -f ~/.ssh/id_ed25519 > /dev/null
+          ssh-keyscan -H "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Sync files to VM
+        env:
+          VM_HOST: ${{ secrets.VM_HOST }}
+          VM_USER: ${{ secrets.VM_USER }}
+        run: |
+          rsync -az --delete \
+            --exclude node_modules --exclude .git --exclude .github \
+            --exclude '.env*' --exclude .deployed-lock --exclude .next/cache \
+            ./ "$VM_USER@$VM_HOST:~/zoiko-tech/"
+
+      - name: Install deps if changed and restart
+        env:
+          VM_HOST: ${{ secrets.VM_HOST }}
+          VM_USER: ${{ secrets.VM_USER }}
+        run: |
+          ssh "$VM_USER@$VM_HOST" 'set -e
+            cd ~/zoiko-tech
+            if ! cmp -s package-lock.json .deployed-lock; then
+              npm ci
+              cp package-lock.json .deployed-lock
             fi
+            pm2 restart zoiko-tech --update-env
+            pm2 save'
 
-            git pull origin main
-            npm ci --no-audit --no-fund
-            npm run build
-            pm2 restart zoiko-tech
-            pm2 save
+      - name: Health check
+        env:
+          VM_HOST: ${{ secrets.VM_HOST }}
+          VM_USER: ${{ secrets.VM_USER }}
+        run: |
+          sleep 8
+          ssh "$VM_USER@$VM_HOST" 'curl -fsI http://localhost:3002 | head -1'
