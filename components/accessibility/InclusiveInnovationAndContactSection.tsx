@@ -124,7 +124,7 @@ export default function InclusiveInnovationAndContactSection() {
                     accessibility@zoikotech.com
                   </a>
                 </p>
-                <p>Phone (Toll-Free USA): 800-484-5564</p>
+                <p>Phone (Toll-Free USA): 800-988-7547</p>
               </div>
 
               <p className="pt-2">

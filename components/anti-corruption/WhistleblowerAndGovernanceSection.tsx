@@ -102,7 +102,7 @@ export default function WhistleblowerAndGovernanceSection() {
                     ethics@zoikotech.com
                   </a>
                 </p>
-                <p>Phone (Toll-Free USA): 800-484-5564</p>
+                <p>Phone (Toll-Free USA): 800-988-7547</p>
                 <p>Confidential Web Portal: Available upon request</p>
               </div>
 

@@ -147,7 +147,7 @@ export default function WhatWeOfferStrategicPartnersSection() {
             <div className="pt-2 text-sm sm:text-base text-[#6B7280] space-y-1">
               <p className="font-medium text-[#374151]">For partnership inquiries, contact:</p>
               <p>Email: <a href="mailto:partnerships@zoikotech.com" className="text-[#0070BB] hover:underline">partnerships@zoikotech.com</a></p>
-              <p>Phone (Toll-Free USA): <span className="text-[#374151]">800-484-5564</span></p>
+              <p>Phone (Toll-Free USA): <span className="text-[#374151]">800-988-7547</span></p>
             </div>
           </motion.div>
         </motion.div>

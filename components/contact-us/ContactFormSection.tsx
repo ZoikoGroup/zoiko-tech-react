@@ -73,7 +73,7 @@ export default function ContactFormSection() {
                   />
                 </svg>
               </div>
-              <span>+1 (800) 484-5564</span>
+              <span>+1 (800) 988-7547</span>
             </div>
 
             {/* Email Address */}
