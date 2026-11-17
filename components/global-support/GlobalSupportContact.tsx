@@ -107,7 +107,7 @@ export default function GlobalSupportContact() {
                 <span className="text-[#344054] font-medium">
                   Toll-Free (USA):
                 </span>{" "}
-                800-484-5564
+                800-988-7547
               </p>
               <p>
                 <span className="text-[#344054] font-medium">

@@ -87,7 +87,7 @@ export default function ReportingMisconductSection() {
                   ethics@zoikotech.com
                 </a>
               </p>
-              <p>Phone (Toll-Free USA): 800-484-5564</p>
+              <p>Phone (Toll-Free USA): 800-988-7547</p>
             </div>
 
             <p className="text-[#272727] text-sm sm:text-base font-normal leading-relaxed pt-2">

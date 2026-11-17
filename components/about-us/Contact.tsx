@@ -85,7 +85,7 @@ export default function Contact() {
           {/* Contact Details */}
           <div className="flex flex-col gap-2.5 pt-1">
             <p className="text-sm font-normal text-white/80 transition-colors duration-300 hover:text-white">
-              zoikotech.com | info@zoikotech.com | +1 (800) 484-5574
+              zoikotech.com | info@zoikotech.com | +1 (800) 988-7547
             </p>
 
             <p className="text-sm font-normal text-white/80 transition-colors duration-300 hover:text-white">
